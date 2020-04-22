@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3A2450BCB2002E777F /* AppDelegate.m */; };
 		122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3D2450BCB2002E777F /* SceneDelegate.m */; };
-		122A4E412450BCB2002E777F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E402450BCB2002E777F /* ViewController.m */; };
 		122A4E442450BCB2002E777F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E422450BCB2002E777F /* Main.storyboard */; };
 		122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */; };
 		122A4E492450BCB5002E777F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E482450BCB5002E777F /* Assets.xcassets */; };
 		122A4E4C2450BCB5002E777F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */; };
 		122A4E4F2450BCB5002E777F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E4E2450BCB5002E777F /* main.m */; };
+		122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5A2450BF00002E777F /* SearchTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,14 +23,14 @@
 		122A4E3A2450BCB2002E777F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		122A4E3C2450BCB2002E777F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		122A4E3D2450BCB2002E777F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		122A4E3F2450BCB2002E777F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		122A4E402450BCB2002E777F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		122A4E432450BCB2002E777F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		122A4E462450BCB2002E777F /* Pokedex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokedex.xcdatamodel; sourceTree = "<group>"; };
 		122A4E482450BCB5002E777F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		122A4E4B2450BCB5002E777F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		122A4E4D2450BCB5002E777F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122A4E4E2450BCB5002E777F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		122A4E592450BF00002E777F /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		122A4E5A2450BF00002E777F /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +63,10 @@
 		122A4E382450BCB2002E777F /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				122A4E392450BCB2002E777F /* AppDelegate.h */,
-				122A4E3A2450BCB2002E777F /* AppDelegate.m */,
-				122A4E3C2450BCB2002E777F /* SceneDelegate.h */,
-				122A4E3D2450BCB2002E777F /* SceneDelegate.m */,
-				122A4E3F2450BCB2002E777F /* ViewController.h */,
-				122A4E402450BCB2002E777F /* ViewController.m */,
+				122A4E582450BD39002E777F /* Models */,
+				122A4E572450BD29002E777F /* Model Controller */,
+				122A4E552450BCC1002E777F /* Life Cycle */,
+				122A4E562450BCFE002E777F /* View Controllers */,
 				122A4E422450BCB2002E777F /* Main.storyboard */,
 				122A4E482450BCB5002E777F /* Assets.xcassets */,
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
@@ -77,6 +75,40 @@
 				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
 			);
 			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		122A4E552450BCC1002E777F /* Life Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				122A4E392450BCB2002E777F /* AppDelegate.h */,
+				122A4E3A2450BCB2002E777F /* AppDelegate.m */,
+				122A4E3C2450BCB2002E777F /* SceneDelegate.h */,
+				122A4E3D2450BCB2002E777F /* SceneDelegate.m */,
+			);
+			name = "Life Cycle";
+			sourceTree = "<group>";
+		};
+		122A4E562450BCFE002E777F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				122A4E592450BF00002E777F /* SearchTableViewController.h */,
+				122A4E5A2450BF00002E777F /* SearchTableViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		122A4E572450BD29002E777F /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Controller";
+			sourceTree = "<group>";
+		};
+		122A4E582450BD39002E777F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +183,7 @@
 			files = (
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,
 				122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */,
-				122A4E412450BCB2002E777F /* ViewController.m in Sources */,
+				122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */,
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,
 				122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */,
 			);
