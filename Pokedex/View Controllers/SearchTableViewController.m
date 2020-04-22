@@ -10,6 +10,8 @@
 
 @interface SearchTableViewController ()
 
+@property (nonatomic, copy) NSArray *pokemon;
+
 @end
 
 @implementation SearchTableViewController
@@ -22,11 +24,14 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [_pokemon count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+
+    
+
     cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
