@@ -16,6 +16,7 @@
 		122A4E4F2450BCB5002E777F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E4E2450BCB5002E777F /* main.m */; };
 		122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5A2450BF00002E777F /* SearchTableViewController.m */; };
 		122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5D2450C378002E777F /* HSVPokemon.m */; };
+		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		122A4E5A2450BF00002E777F /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		122A4E5C2450C378002E777F /* HSVPokemon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemon.h; sourceTree = "<group>"; };
 		122A4E5D2450C378002E777F /* HSVPokemon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemon.m; sourceTree = "<group>"; };
+		122A4E5F2450DA17002E777F /* HSVNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVNetworking.h; sourceTree = "<group>"; };
+		122A4E602450DA17002E777F /* HSVNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVNetworking.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 		122A4E572450BD29002E777F /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				122A4E5F2450DA17002E777F /* HSVNetworking.h */,
+				122A4E602450DA17002E777F /* HSVNetworking.m */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122A4E612450DA17002E777F /* HSVNetworking.m in Sources */,
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,
 				122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */,
 				122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */,
