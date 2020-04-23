@@ -8,6 +8,7 @@
 
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
+#import "NSError+HSVErrorWithString.h"
 
 @interface HSVNetworking ()
 
@@ -29,7 +30,7 @@
 - (void)fetchPokemonList:(void (^)(NSArray<HSVPokemon *> *, NSError *))completion
 {
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:_baseURL resolvingAgainstBaseURL:true];
-    NSURLQueryItem *limitQuery = [NSURLQueryItem queryItemWithName:@"limit" value:@"100"];
+    NSURLQueryItem *limitQuery = [NSURLQueryItem queryItemWithName:@"limit" value:@"1000"];
     urlComponents.queryItems = @[limitQuery];
     NSURL *url = urlComponents.URL;
 
@@ -39,7 +40,7 @@
         }
 
         if (!data) {
-            NSError *dataError = [NSError errorWithDomain:@"com.hectorstevenvillasano.Pokedex" code:-1 userInfo:@{@"Error": @"Data Error"}];
+            NSError *dataError =  [[NSError new] HSVErrorWithString:@"Data Error"];
             return completion(nil, dataError);
         }
 
@@ -51,7 +52,7 @@
         }
 
         if (!pokemonListDictionary || ![pokemonListDictionary isKindOfClass:[NSDictionary class]]) {
-            NSError *pokemonListDictionaryError = [NSError errorWithDomain:@"com.hectorstevenvillasano.Pokedex" code:-1 userInfo:@{@"Error": @"pokemonListDictionary Error"}];
+            NSError *pokemonListDictionaryError = [[NSError new] HSVErrorWithString:@"pokemonListDictionary Error"];
             return completion(nil, pokemonListDictionaryError);
         }
 
@@ -64,7 +65,6 @@
             NSURL *detailURL = [NSURL URLWithString:detailURLString];
 
             HSVPokemon *pokemon = [[HSVPokemon new] initWithName:name detailURL:detailURL];
-
             [pokemonList addObject:pokemon];
         }
 
