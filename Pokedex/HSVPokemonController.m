@@ -10,7 +10,7 @@
 #import "HSVPokemon.h"
 @interface HSVPokemonController()
 
-@property NSMutableArray<HSVPokemon*> *internalPokemonList;
+@property (nonatomic, copy) NSMutableArray<HSVPokemon*> *internalPokemonList;
 
 @end
 

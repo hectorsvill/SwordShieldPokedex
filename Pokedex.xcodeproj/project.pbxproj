@@ -51,6 +51,7 @@
 		1290C6CE245227BB0037C098 /* HSVPokemonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonController.m; sourceTree = "<group>"; };
 		1290C6D0245234990037C098 /* NSString+HSVPokemonIndexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSVPokemonIndexString.h"; sourceTree = "<group>"; };
 		1290C6D1245234990037C098 /* NSString+HSVPokemonIndexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSVPokemonIndexString.m"; sourceTree = "<group>"; };
+		1290C6D3245239B60037C098 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		122A4E2D2450BCB2002E777F = {
 			isa = PBXGroup;
 			children = (
+				1290C6D3245239B60037C098 /* README.md */,
 				122A4E382450BCB2002E777F /* Pokedex */,
 				122A4E372450BCB2002E777F /* Products */,
 			);

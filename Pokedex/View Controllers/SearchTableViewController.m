@@ -31,9 +31,9 @@
 //    [self fetchPokemonList];
 
     _pekemonController = [HSVPokemonController new];
-    [_pekemonController fetchPokemonData:^(NSDictionary *dictionary) {
-        NSLog(@"%@", dictionary);
-    }];
+//    [_pekemonController fetchPokemonData:^(NSDictionary *dictionary) {
+//        NSLog(@"%@", dictionary);
+//    }];
 
 
 }
