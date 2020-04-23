@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HSVNetworking : NSObject
 
 - (void)fetchPokemonList:(void(^)(NSArray<HSVPokemon *> *, NSError *))completion;
-- (void)fetchImageDataWithIndex:(int)index completion:(void(^)(NSData *, NSError *))completion;
+- (void)fetchImageDataWithIndex:(int)index completion:(void(^)(NSData *))completion;
 
 @end
 

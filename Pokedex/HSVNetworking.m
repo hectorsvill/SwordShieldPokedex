@@ -9,7 +9,7 @@
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
 #import "NSError+HSVErrorWithString.h"
-#import "HSVNetworking+HSVPokemonIndexString.h"
+#import "NSString+HSVPokemonIndexString.h"
 
 @interface HSVNetworking ()
 
@@ -35,7 +35,7 @@
 - (void)fetchPokemonList:(void (^)(NSArray<HSVPokemon *> *, NSError *))completion
 {
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:_baseURL resolvingAgainstBaseURL:true];
-    NSURLQueryItem *limitQuery = [NSURLQueryItem queryItemWithName:@"limit" value:@"1000"];
+    NSURLQueryItem *limitQuery = [NSURLQueryItem queryItemWithName:@"limit" value:@"890"];
     urlComponents.queryItems = @[limitQuery];
     NSURL *url = urlComponents.URL;
 
@@ -78,19 +78,13 @@
 
 }
 
-- (void)fetchImageDataWithIndex:(int)index completion:(void (^)(NSData *, NSError *))completion
+- (void)fetchImageDataWithIndex:(int)index completion:(void (^)(NSData *))completion
 {
-    NSString *indexString = [self HSVCreatePokemonIndexString:index];
+    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:index];
     NSString *urlString = [NSString stringWithFormat:@"%@%@.png", _baseImageString, indexString];
     NSURL *url = [NSURL URLWithString:urlString];
-//    NSError *imageDataerror = [[NSError new] HSVErrorWithString:@"fetchImageDataWithIndex, Image Data Error"];
     NSData *data = [NSData dataWithContentsOfURL:url];
-
-//    if (imageDataerror) {
-//        return completion(nil, imageDataerror);
-//    }
-
-    return completion(data, nil);
+    return completion(data);
 }
 
 @end

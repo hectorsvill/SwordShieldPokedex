@@ -1,16 +1,16 @@
 //
-//  HSVNetworking+HSVPokemonIndexString.h
+//  NSString+HSVPokemonIndexString.h
 //  Pokedex
 //
-//  Created by s on 4/22/20.
+//  Created by Hector S. Villasano on 4/23/20.
 //  Copyright © 2020 s. All rights reserved.
 //
 
-#import "HSVNetworking.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HSVNetworking (HSVPokemonIndexString)
+@interface NSString (HSVPokemonIndexString)
 
 - (NSString *)HSVCreatePokemonIndexString:(int)index;
 
