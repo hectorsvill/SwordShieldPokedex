@@ -10,6 +10,7 @@
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
 #import "HSVPokemonTableViewCell.h"
+#import "HSVNetworking+HSVPokemonIndexString.h"
 
 @interface SearchTableViewController ()
 
@@ -27,10 +28,6 @@
     _networking = [HSVNetworking new];
     [self fetchPokemonList];
 
-
-    [_networking fetchImageDataWithIndex:2 completion:^(NSData *data, NSError *error) {
-//        NSLog(@"%@", data);
-    }];
 
 }
 
@@ -59,8 +56,10 @@
 
     HSVPokemon *pokemon = [_pokemonList objectAtIndex:indexPath.row];
 
-    cell.indexLabel.text = [NSString stringWithFormat:@"#%ld", indexPath.row + 1];
+    NSString *indexString = [_networking HSVCreatePokemonIndexString:(int)indexPath.row + 1];
+    cell.indexLabel.text = indexString;
     cell.nameLabel.text = [[pokemon name] capitalizedString];
+    cell.pokemonImageView.image = [UIImage imageNamed:indexString];
     return cell;
 }
 

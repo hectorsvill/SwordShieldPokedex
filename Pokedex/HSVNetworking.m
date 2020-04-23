@@ -80,12 +80,17 @@
 
 - (void)fetchImageDataWithIndex:(int)index completion:(void (^)(NSData *, NSError *))completion
 {
-
     NSString *indexString = [self HSVCreatePokemonIndexString:index];
     NSString *urlString = [NSString stringWithFormat:@"%@%@.png", _baseImageString, indexString];
-    
-    NSLog(@"%@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+//    NSError *imageDataerror = [[NSError new] HSVErrorWithString:@"fetchImageDataWithIndex, Image Data Error"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
 
+//    if (imageDataerror) {
+//        return completion(nil, imageDataerror);
+//    }
+
+    return completion(data, nil);
 }
 
 @end
