@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 
+- (IBAction)favoriteButtonPressed:(id)sender;
+
 
 @end
 

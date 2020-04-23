@@ -9,8 +9,6 @@
 #import "HSVPokemon.h"
 
 @implementation HSVPokemon
-
-
 - (instancetype)initWithName:(NSString *)name detailURL:(NSURL *)detailURL
 {
     if (self = [super init]) {
@@ -20,6 +18,4 @@
 
     return self;
 }
-
-
 @end

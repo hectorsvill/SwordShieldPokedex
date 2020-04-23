@@ -52,6 +52,9 @@
                                                     <rect key="frame" x="339" y="0.0" width="59" height="80"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="heart" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="favoriteButtonPressed:" destination="MPf-XU-XVv" eventType="touchUpInside" id="Imx-dw-oib"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>

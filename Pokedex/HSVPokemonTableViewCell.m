@@ -7,6 +7,7 @@
 //
 
 #import "HSVPokemonTableViewCell.h"
+#import "HSVPokemon.h"
 
 @implementation HSVPokemonTableViewCell
 
@@ -19,6 +20,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)favoriteButtonPressed:(id)sender {
+    NSLog(@"favorite button");
 }
 
 @end

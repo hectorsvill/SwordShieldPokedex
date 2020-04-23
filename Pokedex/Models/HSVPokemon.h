@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nonnull) NSString *name;
 @property (nonatomic, readonly, nonnull) NSURL *detailURL;
 
-
 - (instancetype)initWithName:(NSString *)name detailURL:(NSURL *)detailURL;
 
 @end

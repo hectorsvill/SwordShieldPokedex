@@ -19,6 +19,7 @@
 		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
 		1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */; };
 		1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */; };
+		1290C6CA24515B210037C098 /* HSVNetworking+HSVPokemonIndexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C924515B210037C098 /* HSVNetworking+HSVPokemonIndexString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonTableViewCell.m; sourceTree = "<group>"; };
 		1290C6C4245141FD0037C098 /* NSError+HSVErrorWithString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+HSVErrorWithString.h"; sourceTree = "<group>"; };
 		1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+HSVErrorWithString.m"; sourceTree = "<group>"; };
+		1290C6C824515B210037C098 /* HSVNetworking+HSVPokemonIndexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSVNetworking+HSVPokemonIndexString.h"; sourceTree = "<group>"; };
+		1290C6C924515B210037C098 /* HSVNetworking+HSVPokemonIndexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSVNetworking+HSVPokemonIndexString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +88,6 @@
 				122A4E482450BCB5002E777F /* Assets.xcassets */,
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
 				122A4E4D2450BCB5002E777F /* Info.plist */,
-				122A4E4E2450BCB5002E777F /* main.m */,
 				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
 			);
 			path = Pokedex;
@@ -98,6 +100,7 @@
 				122A4E3A2450BCB2002E777F /* AppDelegate.m */,
 				122A4E3C2450BCB2002E777F /* SceneDelegate.h */,
 				122A4E3D2450BCB2002E777F /* SceneDelegate.m */,
+				122A4E4E2450BCB5002E777F /* main.m */,
 			);
 			name = "Life Cycle";
 			sourceTree = "<group>";
@@ -143,6 +146,8 @@
 			children = (
 				1290C6C4245141FD0037C098 /* NSError+HSVErrorWithString.h */,
 				1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */,
+				1290C6C824515B210037C098 /* HSVNetworking+HSVPokemonIndexString.h */,
+				1290C6C924515B210037C098 /* HSVNetworking+HSVPokemonIndexString.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,
 				122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */,
 				122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */,
+				1290C6CA24515B210037C098 /* HSVNetworking+HSVPokemonIndexString.m in Sources */,
 				1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */,
 				122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */,
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,

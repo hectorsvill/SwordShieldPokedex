@@ -9,10 +9,13 @@
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
 #import "NSError+HSVErrorWithString.h"
+#import "HSVNetworking+HSVPokemonIndexString.h"
 
 @interface HSVNetworking ()
 
 @property (nonatomic, readonly, copy) NSURL *baseURL;
+@property (nonatomic, readonly, copy) NSString *baseImageString;
+@property (nonatomic, readonly, copy) NSString *baseShinyImageString;
 
 @end
 
@@ -22,6 +25,8 @@
 {
     if (self = [super init]){
         _baseURL = [NSURL URLWithString:@"https://pokeapi.co/api/v2/pokemon/"];
+        _baseImageString = @"https://www.serebii.net/swordshield/pokemon/";// 001.png
+        _baseShinyImageString = @"https://www.serebii.net/Shiny/SWSH/";
     }
 
     return self;
@@ -73,6 +78,16 @@
 
 }
 
+- (void)fetchImageDataWithIndex:(int)index completion:(void (^)(NSData *, NSError *))completion
+{
 
+
+    NSString *indexString = [self createPokemonIndexString:index];
+    NSString *urlString = [NSString stringWithFormat:@"%@", _baseImageString];
+
+
+    NSLog(@"%@", urlString);
+
+}
 
 @end

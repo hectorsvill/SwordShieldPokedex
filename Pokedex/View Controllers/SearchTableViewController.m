@@ -25,7 +25,17 @@
 
     [self tableView].rowHeight = 70;
     _networking = [HSVNetworking new];
+    [self fetchPokemonList];
 
+
+    [_networking fetchImageDataWithIndex:2 completion:^(NSData *data, NSError *error) {
+//        NSLog(@"%@", data);
+    }];
+
+}
+
+- (void)fetchPokemonList
+{
     [_networking fetchPokemonList:^(NSArray<HSVPokemon *> *pokemonList, NSError *error) {
         if (error) {
             NSLog(@"networking error: %@", [error localizedDescription]);
@@ -50,9 +60,10 @@
     HSVPokemon *pokemon = [_pokemonList objectAtIndex:indexPath.row];
 
     cell.indexLabel.text = [NSString stringWithFormat:@"#%ld", indexPath.row + 1];
-    cell.nameLabel.text = [pokemon name];
-
+    cell.nameLabel.text = [[pokemon name] capitalizedString];
     return cell;
 }
+
+
 
 @end
