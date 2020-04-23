@@ -22,8 +22,8 @@
 @end
 
 @implementation SearchTableViewController
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [self tableView].rowHeight = 70;
@@ -31,19 +31,21 @@
 //    [self fetchPokemonList];
 
     _pekemonController = [HSVPokemonController new];
-//    [_pekemonController fetchPokemonData:^(NSDictionary *dictionary) {
-//        NSLog(@"%@", dictionary);
-//    }];
+    [_pekemonController fetchPokemonData:^(NSDictionary *dictionary) {
+
+    }];
 
 
 }
 
 #pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [_pekemonController pokemonListCount];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
 
     HSVPokemon *pokemon = [[_pekemonController pokemonList] objectAtIndex:indexPath.row];
@@ -55,6 +57,13 @@
     return cell;
 }
 
+#pragma mark - Table view delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+
+
+}
 
 @end

@@ -19,9 +19,9 @@
 		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
 		1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */; };
 		1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */; };
-		1290C6CC24521EAB0037C098 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6CB24521EAB0037C098 /* PokemonSwordShield.json */; };
 		1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6CE245227BB0037C098 /* HSVPokemonController.m */; };
 		1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D1245234990037C098 /* NSString+HSVPokemonIndexString.m */; };
+		1290C6D524523F8D0037C098 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6D424523F8D0037C098 /* PokemonSwordShield.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +46,12 @@
 		1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonTableViewCell.m; sourceTree = "<group>"; };
 		1290C6C4245141FD0037C098 /* NSError+HSVErrorWithString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+HSVErrorWithString.h"; sourceTree = "<group>"; };
 		1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+HSVErrorWithString.m"; sourceTree = "<group>"; };
-		1290C6CB24521EAB0037C098 /* PokemonSwordShield.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PokemonSwordShield.json; sourceTree = "<group>"; };
 		1290C6CD245227BB0037C098 /* HSVPokemonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonController.h; sourceTree = "<group>"; };
 		1290C6CE245227BB0037C098 /* HSVPokemonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonController.m; sourceTree = "<group>"; };
 		1290C6D0245234990037C098 /* NSString+HSVPokemonIndexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSVPokemonIndexString.h"; sourceTree = "<group>"; };
 		1290C6D1245234990037C098 /* NSString+HSVPokemonIndexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSVPokemonIndexString.m"; sourceTree = "<group>"; };
 		1290C6D3245239B60037C098 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1290C6D424523F8D0037C098 /* PokemonSwordShield.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PokemonSwordShield.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
 				122A4E4D2450BCB5002E777F /* Info.plist */,
 				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
-				1290C6CB24521EAB0037C098 /* PokemonSwordShield.json */,
+				1290C6D424523F8D0037C098 /* PokemonSwordShield.json */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1290C6CC24521EAB0037C098 /* PokemonSwordShield.json in Resources */,
+				1290C6D524523F8D0037C098 /* PokemonSwordShield.json in Resources */,
 				122A4E4C2450BCB5002E777F /* LaunchScreen.storyboard in Resources */,
 				122A4E492450BCB5002E777F /* Assets.xcassets in Resources */,
 				122A4E442450BCB2002E777F /* Main.storyboard in Resources */,

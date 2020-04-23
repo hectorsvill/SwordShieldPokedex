@@ -36,7 +36,7 @@
 
 - (void)fetchPokemonData:(void (^)(NSDictionary *))completion
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShiel" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
     return completion(dictionary);
