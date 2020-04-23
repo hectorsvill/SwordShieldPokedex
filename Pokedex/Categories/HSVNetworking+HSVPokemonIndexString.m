@@ -10,7 +10,7 @@
 
 @implementation HSVNetworking (HSVPokemonIndexString)
 
-- (NSString *)createPokemonIndexString:(int)index
+- (NSString *)HSVCreatePokemonIndexString:(int)index
 {
     int indexLength = 0;
     int indexCopy = index;

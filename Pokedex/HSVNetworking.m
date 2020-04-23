@@ -81,11 +81,9 @@
 - (void)fetchImageDataWithIndex:(int)index completion:(void (^)(NSData *, NSError *))completion
 {
 
-
-    NSString *indexString = [self createPokemonIndexString:index];
-    NSString *urlString = [NSString stringWithFormat:@"%@", _baseImageString];
-
-
+    NSString *indexString = [self HSVCreatePokemonIndexString:index];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@.png", _baseImageString, indexString];
+    
     NSLog(@"%@", urlString);
 
 }

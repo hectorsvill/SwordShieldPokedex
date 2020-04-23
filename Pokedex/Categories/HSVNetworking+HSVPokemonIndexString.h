@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVNetworking (HSVPokemonIndexString)
 
-- (NSString *)createPokemonIndexString:(int)index;
+- (NSString *)HSVCreatePokemonIndexString:(int)index;
 
 @end
 
