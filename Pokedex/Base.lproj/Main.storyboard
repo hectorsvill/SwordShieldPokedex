@@ -16,13 +16,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" id="MPf-XU-XVv">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="80" id="MPf-XU-XVv" customClass="HSVPokemonTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPf-XU-XVv" id="6P7-aW-Bsf">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KQQ-qI-4gK">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="80"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7g-Gr-4wN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="29" height="80"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="O4Y-VI-lTH">
+                                                    <rect key="frame" x="44" y="0.0" width="59" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="59" id="0fb-qF-EYF"/>
+                                                        <constraint firstAttribute="height" constant="60" id="CRL-7Q-TqU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gio-eK-RKc">
+                                                    <rect key="frame" x="118" y="0.0" width="206" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="206" id="zid-CP-T6V"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5F-1Q-U0I">
+                                                    <rect key="frame" x="339" y="0.0" width="59" height="80"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="heart" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KQQ-qI-4gK" firstAttribute="leading" secondItem="6P7-aW-Bsf" secondAttribute="leading" constant="8" id="AVg-z4-5zT"/>
+                                        <constraint firstAttribute="bottom" secondItem="KQQ-qI-4gK" secondAttribute="bottom" id="MOh-ue-Vct"/>
+                                        <constraint firstItem="KQQ-qI-4gK" firstAttribute="top" secondItem="6P7-aW-Bsf" secondAttribute="top" id="SS5-dN-Fgf"/>
+                                        <constraint firstAttribute="trailing" secondItem="KQQ-qI-4gK" secondAttribute="trailing" constant="8" id="Xam-Nh-Jwe"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favoriteButton" destination="Z5F-1Q-U0I" id="2QL-On-7Y3"/>
+                                    <outlet property="indexLabel" destination="M7g-Gr-4wN" id="xmb-6H-Cqd"/>
+                                    <outlet property="nameLabel" destination="gio-eK-RKc" id="CkZ-TZ-FUQ"/>
+                                    <outlet property="pokemonImageView" destination="O4Y-VI-lTH" id="CpW-31-dCg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5c-5f-y0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="-317"/>
+            <point key="canvasLocation" x="824.63768115942037" y="-317.41071428571428"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ree-6O-XE7">
@@ -58,6 +104,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QIe-ap-kGD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hwk-Uj-tDk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -72,6 +119,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="001" width="250" height="250"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>

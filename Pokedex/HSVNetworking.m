@@ -30,7 +30,6 @@
 {
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:_baseURL resolvingAgainstBaseURL:true];
     NSURLQueryItem *limitQuery = [NSURLQueryItem queryItemWithName:@"limit" value:@"100"];
-
     urlComponents.queryItems = @[limitQuery];
     NSURL *url = urlComponents.URL;
 

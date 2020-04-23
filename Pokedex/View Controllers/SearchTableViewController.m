@@ -9,6 +9,7 @@
 #import "SearchTableViewController.h"
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
+#import "HSVPokemonTableViewCell.h"
 
 @interface SearchTableViewController ()
 
@@ -27,7 +28,7 @@
 
     [_networking fetchPokemonList:^(NSArray<HSVPokemon *> *pokemonList, NSError *error) {
         if (error) {
-            NSLog(@"%@", [error localizedDescription]);
+            NSLog(@"networking error: %@", [error localizedDescription]);
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -44,13 +45,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
 
     HSVPokemon *pokemon = [_pokemonList objectAtIndex:indexPath.row];
 
+    cell.indexLabel.text = [NSString stringWithFormat:@"#%ld", indexPath.row + 1];
+    cell.nameLabel.text = [pokemon name];
 
-    cell.textLabel.text = [[pokemon name] capitalizedString];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
 }
 
