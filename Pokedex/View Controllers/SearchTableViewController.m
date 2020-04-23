@@ -31,10 +31,9 @@
 //    [self fetchPokemonList];
 
     _pekemonController = [HSVPokemonController new];
-    [_pekemonController fetchPokemonData:^(NSDictionary *dictionary) {
-
+    [_pekemonController fetchPokemonData:^() {
+        [[self tableView] reloadData];
     }];
-
 
 }
 

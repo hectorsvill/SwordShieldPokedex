@@ -8,6 +8,7 @@
 
 #import "HSVPokemonController.h"
 #import "HSVPokemon.h"
+#import "HSVPokemon+HSVinitWithDictionary.h"
 @interface HSVPokemonController()
 
 @property (nonatomic, copy) NSMutableArray<HSVPokemon*> *internalPokemonList;
@@ -34,12 +35,18 @@
     return [_internalPokemonList objectAtIndex:index];
 }
 
-- (void)fetchPokemonData:(void (^)(NSDictionary *))completion
+- (void)fetchPokemonData:(void (^)(void))completion
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
-    return completion(dictionary);
+    NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
+
+    for (NSDictionary *dictionary in dataArray) {
+        HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
+        [_internalPokemonList addObject:pokemon];
+    }
+
+    return completion();
 }
 
 @end

@@ -69,7 +69,7 @@
             NSString *detailURLString = pokemon[@"url"];
             NSURL *detailURL = [NSURL URLWithString:detailURLString];
 
-            HSVPokemon *pokemon = [[HSVPokemon new] initWithName:name detailURL:detailURL];
+            HSVPokemon *pokemon = [[HSVPokemon new] initWithName:name];
             [pokemonList addObject:pokemon];
         }
 
