@@ -41,6 +41,7 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
 
+    _internalPokemonList = [NSMutableArray new];
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
         [_internalPokemonList addObject:pokemon];

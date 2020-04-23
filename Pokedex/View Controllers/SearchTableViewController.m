@@ -27,12 +27,13 @@
     [super viewDidLoad];
 
     [self tableView].rowHeight = 70;
-//    _networking = [HSVNetworking new];
-//    [self fetchPokemonList];
 
     _pekemonController = [HSVPokemonController new];
+
     [_pekemonController fetchPokemonData:^() {
-        [[self tableView] reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[self tableView] reloadData];
+        });
     }];
 
 }
@@ -46,13 +47,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
-
-    HSVPokemon *pokemon = [[_pekemonController pokemonList] objectAtIndex:indexPath.row];
+    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:indexPath.row];
 
     NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:(int)indexPath.row + 1];
-    cell.indexLabel.text = indexString;
+
+    cell.indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
     cell.nameLabel.text = [[pokemon name] capitalizedString];
     cell.pokemonImageView.image = [UIImage imageNamed:indexString];
+
     return cell;
 }
 
@@ -61,8 +63,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-
-
 }
 
 @end
