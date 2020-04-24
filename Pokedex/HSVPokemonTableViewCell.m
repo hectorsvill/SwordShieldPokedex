@@ -14,6 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
