@@ -49,12 +49,9 @@
     }
 
     NSArray<NSNumber *> *keys = [_internalDictionary allKeys];
-
     NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1 compare:obj2];
     }];
-
-
 
     return completion(sortedKeys);
 }

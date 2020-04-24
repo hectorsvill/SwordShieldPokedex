@@ -15,7 +15,6 @@
 
 @interface SearchTableViewController ()
 
-//@property (nonatomic, copy) HSVNetworking *networking;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
 @property (nonatomic, readonly, copy) NSArray<NSNumber *> *pokemonIndexList;
 
@@ -25,9 +24,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupViews];
+}
 
+- (void)setupViews
+{
+    [self createNavigationSearchBar];
     [self tableView].rowHeight = 70;
-
     _pekemonController = [HSVPokemonController new];
 
     [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
@@ -36,8 +39,24 @@
             [[self tableView] reloadData];
         });
     }];
+}
+
+
+- (void)createNavigationSearchBar
+{
+    UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
+    [self navigationItem].rightBarButtonItem = [[UIBarButtonItem new] initWithImage:magnifyingglassImage style:UIBarButtonItemStyleDone target:self action:@selector(searchBarPressed)];
+
 
 }
+
+- (void)searchBarPressed
+{
+
+    NSLog(@"search");
+
+}
+
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

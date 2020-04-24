@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Table View Controller-->
+        <!--⚔️🛡-->
         <scene sceneID="xme-PH-CTS">
             <objects>
                 <tableViewController id="XyY-5n-2Dl" customClass="SearchTableViewController" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="XyY-5n-2Dl" id="SOc-yZ-HOW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OAD-Bn-HlO"/>
+                    <navigationItem key="navigationItem" title="⚔️🛡" id="OAD-Bn-HlO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5c-5f-y0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
