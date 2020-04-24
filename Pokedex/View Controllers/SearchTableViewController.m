@@ -35,7 +35,7 @@
     [searchBar setTintColor:[UIColor systemRedColor]];
     [searchBar setPlaceholder:@"Search..."];
     [searchBar setDelegate: self];
-    
+
     _searchBar = searchBar;
     [self createNavigationSearchBar];
 
@@ -103,6 +103,14 @@
 
 #pragma mark - Search bar delegate
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchBar.text length] > 0) {
+        NSLog(@"%@", searchBar.text);
+    } else {
 
+    }
+
+}
 
 @end

@@ -50,12 +50,17 @@
         }
     }
 
-    NSArray<NSNumber *> *keys = [_internalDictionary allKeys];
+    return completion([self sortedIndexDictionary:_internalDictionary]);
+}
+
+- (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
+{
+    NSArray<NSNumber *> *keys = [dictionary allKeys];
     NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1 compare:obj2];
     }];
-    
-    return completion(sortedKeys);
+
+    return sortedKeys;
 }
 
 @end
