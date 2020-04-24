@@ -15,6 +15,8 @@
 
 @interface SearchTableViewController ()
 
+@property (nonatomic) UISearchBar *searchBar;
+//@property (weak, nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
 @property (nonatomic, readonly, copy) NSArray<NSNumber *> *pokemonIndexList;
 
@@ -29,8 +31,12 @@
 
 - (void)setupViews
 {
+    self.searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
+
     [self createNavigationSearchBar];
+
     [self tableView].rowHeight = 70;
+
     _pekemonController = [HSVPokemonController new];
 
     [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
@@ -46,14 +52,15 @@
 {
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
     [self navigationItem].rightBarButtonItem = [[UIBarButtonItem new] initWithImage:magnifyingglassImage style:UIBarButtonItemStyleDone target:self action:@selector(searchBarPressed)];
-
-
+    [self navigationItem].rightBarButtonItem.tintColor = [UIColor systemRedColor];
 }
 
 - (void)searchBarPressed
 {
 
-    NSLog(@"search");
+    UIView *titleView = [self navigationItem].titleView;
+
+    (titleView == nil )? ([self navigationItem].titleView = [self searchBar]) : ([self navigationItem].titleView = nil);
 
 }
 
@@ -85,6 +92,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_searchBar resignFirstResponder];
 }
 
 @end
