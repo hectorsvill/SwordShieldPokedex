@@ -45,14 +45,15 @@
 
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
-        [_internalDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+        if ([pokemon.pokemonID intValue] <= 890) {
+            [_internalDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+        }
     }
 
     NSArray<NSNumber *> *keys = [_internalDictionary allKeys];
     NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1 compare:obj2];
     }];
-
     return completion(sortedKeys);
 }
 
