@@ -9,10 +9,12 @@
 #import "HSVPokemon.h"
 
 @implementation HSVPokemon
-- (instancetype)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name pokemonID:(NSNumber *)pokemonID descriptions:(NSString *)pokemondescription
 {
     if (self = [super init]) {
         _name = [name copy];
+        pokemondescription = [pokemondescription copy];
+        _pokemonID = [pokemonID copy];
     }
 
     return self;

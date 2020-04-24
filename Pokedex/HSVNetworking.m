@@ -9,6 +9,7 @@
 #import "HSVNetworking.h"
 #import "HSVPokemon.h"
 #import "NSError+HSVErrorWithString.h"
+#import "HSVPokemon+HSVinitWithDictionary.h"
 #import "NSString+HSVPokemonIndexString.h"
 
 @interface HSVNetworking ()
@@ -64,12 +65,8 @@
         NSDictionary *results = pokemonListDictionary[@"results"];
         NSMutableArray<HSVPokemon*> *pokemonList = [NSMutableArray new];
 
-        for (NSDictionary *pokemon in results) {
-            NSString *name = pokemon[@"name"];
-            NSString *detailURLString = pokemon[@"url"];
-            NSURL *detailURL = [NSURL URLWithString:detailURLString];
-
-            HSVPokemon *pokemon = [[HSVPokemon new] initWithName:name];
+        for (NSDictionary *dict in results) {
+            HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dict];
             [pokemonList addObject:pokemon];
         }
 

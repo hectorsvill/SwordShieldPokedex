@@ -14,11 +14,9 @@
 {
     NSString *name = dictionary[@"name"];
     NSString *description = dictionary[@"description"];
-    NSNumber *pokemonIDNumber = [dictionary objectForKey:@"id"];
-    NSInteger pokemonID = [pokemonIDNumber integerValue];
-    NSLog(@"%ld - %@ - %@", pokemonID, name, description);
+    NSNumber *pokemonID = [dictionary objectForKey:@"id"];
 
-    return [self initWithName:name];
+    return [self initWithName:name pokemonID:pokemonID descriptions: description];
 
 }
 
