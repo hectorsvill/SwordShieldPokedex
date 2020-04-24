@@ -57,11 +57,8 @@
 
 - (void)searchBarPressed
 {
-
     UIView *titleView = [self navigationItem].titleView;
-
-    (titleView == nil )? ([self navigationItem].titleView = [self searchBar]) : ([self navigationItem].titleView = nil);
-
+    [self navigationItem].titleView = (titleView == nil) ? [self searchBar] : nil;
 }
 
 
