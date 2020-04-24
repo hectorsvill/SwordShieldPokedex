@@ -35,7 +35,7 @@
     return [_internalDictionary objectForKey:index];
 }
 
-- (void)fetchPokemonData:(void (^)(void))completion
+- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
@@ -48,7 +48,15 @@
         [_internalDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
     }
 
-    return completion();
+    NSArray<NSNumber *> *keys = [_internalDictionary allKeys];
+
+    NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2];
+    }];
+
+
+
+    return completion(sortedKeys);
 }
 
 @end

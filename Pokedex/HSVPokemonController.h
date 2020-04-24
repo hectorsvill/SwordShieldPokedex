@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSUInteger)pokemonListCount;
 - (HSVPokemon *)pokemonWithIndex:(NSNumber *)index;
-- (void)fetchPokemonData:(void (^)(void))completion;
+- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
 
 @end
 

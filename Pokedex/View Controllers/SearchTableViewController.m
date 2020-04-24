@@ -17,7 +17,7 @@
 
 //@property (nonatomic, copy) HSVNetworking *networking;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
-//@property (nonatomic, readonly, copy) NSArray<HSVPokemon *> *pokemonList;
+@property (nonatomic, readonly, copy) NSArray<NSNumber *> *pokemonIndexList;
 
 @end
 
@@ -30,8 +30,9 @@
 
     _pekemonController = [HSVPokemonController new];
 
-    [_pekemonController fetchPokemonData:^() {
+    [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            self->_pokemonIndexList = pokemonIndexList;
             [[self tableView] reloadData];
         });
     }];
@@ -48,8 +49,10 @@
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
 
-    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:[NSNumber numberWithLong:indexPath.row + 1]];
-    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:(int)indexPath.row + 1];
+    NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
+
+    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemonIndex.intValue];
 
     cell.indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
     cell.nameLabel.text = [[pokemon name] capitalizedString];
