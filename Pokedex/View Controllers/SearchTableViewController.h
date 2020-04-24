@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchTableViewController : UITableViewController<UISceneDelegate>
+@interface SearchTableViewController : UITableViewController<UISearchBarDelegate>
+
+
+
+
 
 @end
 

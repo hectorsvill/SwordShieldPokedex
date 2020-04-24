@@ -31,8 +31,12 @@
 
 - (void)setupViews
 {
-    self.searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
-
+    UISearchBar *searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
+    [searchBar setTintColor:[UIColor systemRedColor]];
+    [searchBar setPlaceholder:@"Search..."];
+    [searchBar setDelegate: self];
+    
+    _searchBar = searchBar;
     [self createNavigationSearchBar];
 
     [self tableView].rowHeight = 70;
@@ -95,5 +99,10 @@
 {
     [_searchBar resignFirstResponder];
 }
+
+
+#pragma mark - Search bar delegate
+
+
 
 @end
