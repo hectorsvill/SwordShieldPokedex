@@ -107,6 +107,10 @@
 {
     if ([searchBar.text length] > 0) {
         NSLog(@"%@", searchBar.text);
+        NSString *text = searchBar.text;
+        
+        NSArray *arr = [_pekemonController filterWithString:text];
+
     } else {
 
     }

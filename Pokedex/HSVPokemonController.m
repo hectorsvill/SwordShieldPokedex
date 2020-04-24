@@ -63,4 +63,16 @@
     return sortedKeys;
 }
 
+- (NSArray<HSVPokemon *> *)filterWithString:(NSString *)string
+{
+
+    NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@)", [string lowercaseString]];
+
+    NSArray<HSVPokemon *> *pokemonListArray = [_internalDictionary allValues];
+
+    NSArray<HSVPokemon *> *filtered = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
+
+    return filtered;
+}
+
 @end
