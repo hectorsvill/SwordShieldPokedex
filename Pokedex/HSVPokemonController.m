@@ -11,7 +11,7 @@
 #import "HSVPokemon+HSVinitWithDictionary.h"
 @interface HSVPokemonController()
 
-@property (nonatomic, copy) NSMutableArray<HSVPokemon*> *internalPokemonList;
+@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
 
 @end
 
@@ -20,19 +20,19 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        _internalPokemonList = [[self pokemonList] mutableCopy];
+        _internalDictionary = [[self internalDictionary] mutableCopy];
     }
     return self;
 }
 
 - (NSUInteger)pokemonListCount
 {
-    return [_internalPokemonList count];
+    return [_internalDictionary count];
 }
 
-- (HSVPokemon *)pokemonWithIndex:(NSInteger)index
+- (HSVPokemon *)pokemonWithIndex:(NSNumber *)index
 {
-    return [_internalPokemonList objectAtIndex:index];
+    return [_internalDictionary objectForKey:index];
 }
 
 - (void)fetchPokemonData:(void (^)(void))completion
@@ -41,10 +41,11 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
 
-    _internalPokemonList = [NSMutableArray new];
+    _internalDictionary = [NSMutableDictionary new];
+
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
-        [_internalPokemonList addObject:pokemon];
+        [_internalDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
     }
 
     return completion();

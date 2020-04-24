@@ -47,8 +47,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
-    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:indexPath.row];
 
+    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:[NSNumber numberWithLong:indexPath.row + 1]];
     NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:(int)indexPath.row + 1];
 
     cell.indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];

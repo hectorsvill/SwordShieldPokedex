@@ -17,7 +17,6 @@
     NSNumber *pokemonID = [dictionary objectForKey:@"id"];
 
     return [self initWithName:name pokemonID:pokemonID descriptions: description];
-
 }
 
 @end
