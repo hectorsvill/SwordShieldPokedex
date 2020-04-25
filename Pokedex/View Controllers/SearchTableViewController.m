@@ -18,7 +18,7 @@
 @property (nonatomic) UISearchBar *searchBar;
 //@property (weak, nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
-@property (nonatomic, readonly, copy) NSArray<NSNumber *> *pokemonIndexList;
+@property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 
 @end
 
@@ -63,13 +63,25 @@
 {
     UIView *titleView = [self navigationItem].titleView;
     [self navigationItem].titleView = (titleView == nil) ? [self searchBar] : nil;
+
+
+    if (titleView == nil) {
+        [self navigationItem].titleView = [self searchBar];
+    } else {
+        if ([[[self searchBar] text] isEqual: @""]) {
+            [self navigationItem].titleView = nil;
+            self.pokemonIndexList = [_pekemonController pokemonIndexList];
+            [[self tableView] reloadData];
+        }
+    }
+
 }
 
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_pekemonController pokemonListCount];
+    return [_pokemonIndexList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +90,7 @@
 
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
 
-    HSVPokemon *pokemon = [_pekemonController pokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+    HSVPokemon *pokemon = [_pekemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemonIndex.intValue];
 
     cell.indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
@@ -106,15 +118,14 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([searchBar.text length] > 0) {
-        NSLog(@"%@", searchBar.text);
         NSString *text = searchBar.text;
-        
-        NSArray *arr = [_pekemonController filterWithString:text];
-
+        NSArray *pokemonIndexList = [_pekemonController filterWithString:text];
+        self.pokemonIndexList = pokemonIndexList;
     } else {
-
+        self.pokemonIndexList = [_pekemonController pokemonIndexList];
     }
 
+    [[self tableView] reloadData];
 }
 
 @end

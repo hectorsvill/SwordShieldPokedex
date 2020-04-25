@@ -14,13 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HSVPokemonController : NSObject
 
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *pokemonDictionary;
+@property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 
 - (NSUInteger)pokemonListCount;
-- (HSVPokemon *)pokemonWithIndex:(NSNumber *)index;
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
-- (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
-- (NSArray <HSVPokemon *>*)filterWithString:(NSString *)string;
+- (HSVPokemon *)fetchpokemonWithIndex:(NSNumber *)index;
 
+- (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
+- (NSArray  <NSNumber *> *)filterWithString:(NSString *)string;
+- (NSArray  <NSNumber *> *)pokemonIndexList;
 
 @end
 

@@ -11,7 +11,8 @@
 #import "HSVPokemon+HSVinitWithDictionary.h"
 @interface HSVPokemonController()
 
-@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
+@property NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
+@property NSArray<NSNumber *> *internalpokemonIndexList;
 
 @end
 
@@ -20,7 +21,8 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        _internalDictionary = [[self internalDictionary] mutableCopy];
+        _internalDictionary = [[self pokemonDictionary] mutableCopy];
+        _internalpokemonIndexList = [[self pokemonIndexList] mutableCopy];
     }
     return self;
 }
@@ -30,9 +32,14 @@
     return [_internalDictionary count];
 }
 
-- (HSVPokemon *)pokemonWithIndex:(NSNumber *)index
+- (HSVPokemon *)fetchpokemonWithIndex:(NSNumber *)index
 {
     return [_internalDictionary objectForKey:index];
+}
+
+- (NSArray<NSNumber *> *)pokemonIndexList
+{
+    return _internalpokemonIndexList;
 }
 
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
@@ -42,6 +49,7 @@
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
 
     _internalDictionary = [NSMutableDictionary new];
+    _internalpokemonIndexList = [NSMutableArray new];
 
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
@@ -50,8 +58,10 @@
         }
     }
 
-    return completion([self sortedIndexDictionary:_internalDictionary]);
+    _internalpokemonIndexList = [self sortedIndexDictionary:_internalDictionary];
+    return completion(_internalpokemonIndexList);
 }
+
 
 - (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
 {
@@ -63,16 +73,18 @@
     return sortedKeys;
 }
 
-- (NSArray<HSVPokemon *> *)filterWithString:(NSString *)string
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string
 {
-
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@)", [string lowercaseString]];
-
     NSArray<HSVPokemon *> *pokemonListArray = [_internalDictionary allValues];
+    NSArray<HSVPokemon *> *filteredPokemon = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
 
-    NSArray<HSVPokemon *> *filtered = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
+    NSMutableDictionary<NSNumber *, HSVPokemon *> *pokemonDictionary = [NSMutableDictionary new];
 
-    return filtered;
+    for (HSVPokemon *pokemon in filteredPokemon)
+            [pokemonDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+
+    return [self sortedIndexDictionary:pokemonDictionary];
 }
 
 @end
