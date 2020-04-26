@@ -75,7 +75,7 @@
 
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string
 {
-    NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@)", [string lowercaseString]];
+    NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];
     NSArray<HSVPokemon *> *pokemonListArray = [_internalDictionary allValues];
     NSArray<HSVPokemon *> *filteredPokemon = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
 

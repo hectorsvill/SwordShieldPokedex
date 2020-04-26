@@ -7,7 +7,6 @@
 //
 
 #import "SearchTableViewController.h"
-//#import "HSVNetworking.h"
 #import "HSVPokemon.h"
 #import "HSVPokemonTableViewCell.h"
 #import "NSString+HSVPokemonIndexString.h"
@@ -16,7 +15,6 @@
 @interface SearchTableViewController ()
 
 @property (nonatomic) UISearchBar *searchBar;
-//@property (weak, nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 
@@ -38,9 +36,7 @@
 
     _searchBar = searchBar;
     [self createNavigationSearchBar];
-
     [self tableView].rowHeight = 70;
-
     _pekemonController = [HSVPokemonController new];
 
     [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
@@ -74,9 +70,7 @@
             [[self tableView] reloadData];
         }
     }
-
 }
-
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,7 +83,6 @@
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
 
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
-
     HSVPokemon *pokemon = [_pekemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemonIndex.intValue];
 
@@ -118,7 +111,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([searchBar.text length] > 0) {
-        NSString *text = searchBar.text;
+        NSString *text = [searchBar.text lowercaseString];
         NSArray *pokemonIndexList = [_pekemonController filterWithString:text];
         self.pokemonIndexList = pokemonIndexList;
     } else {
