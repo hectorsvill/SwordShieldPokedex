@@ -33,7 +33,7 @@
         _tms = [tms copy];
         _trs = [trs copy];
         _evolutions = [evolutions copy];
-        pokedexdescription = [pokedexdescription copy];
+        _pokedexdescription = [pokedexdescription copy];
     }
 
     return self;

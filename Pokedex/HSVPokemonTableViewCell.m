@@ -8,17 +8,16 @@
 
 #import "HSVPokemonTableViewCell.h"
 #import "HSVPokemon.h"
+#import "NSString+HSVPokemonIndexString.h"
 
 @implementation HSVPokemonTableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setupViews
+{
     [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:_pokemon.pokemonID.intValue];
+    _indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
+    _nameLabel.text = [[_pokemon name] capitalizedString];
+    _pokemonImageView.image = [UIImage imageNamed:indexString];
 }
 
 - (IBAction)favoriteButtonPressed:(id)sender {

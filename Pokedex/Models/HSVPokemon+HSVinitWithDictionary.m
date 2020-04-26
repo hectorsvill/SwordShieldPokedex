@@ -31,7 +31,7 @@
     NSArray<NSNumber *> *tms                = [dictionary objectForKey:@"tms"];
     NSArray<NSNumber *> *trs                = [dictionary objectForKey:@"trs"];
     NSArray<NSDictionary *> *evolutions     = [dictionary objectForKey:@"evolutions"];
-    NSString *pokedexdescription                   = [dictionary objectForKey:@"description"];
+    NSString *pokedexdescription            = [dictionary objectForKey:@"description"];
 
     return [self initWithPokemonID:pokemonID name:name stage:stage galar_dex:galar_dex base_stats:base_stats ev_yield:ev_yield abilities:abilities types:types exp_groups:exp_grous egg_groups:egg_groups hatch_cycles:hatch_cycles height:height weight:weight color:color level_up_moves:level_up_moves egg_moves:egg_moves tms:tms trs:trs evolution:evolutions pokedexdescription:pokedexdescription];
 }

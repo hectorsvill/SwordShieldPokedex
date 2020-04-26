@@ -12,11 +12,15 @@
 #import "NSString+HSVPokemonIndexString.h"
 #import "HSVPokemonController.h"
 
+#import <AVFoundation/AVFoundation.h>
+//#import <QuartzCore/QuartzCore.h>
+
 @interface SearchTableViewController ()
 
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) HSVPokemonController *pekemonController;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
+@property (nonatomic, copy) AVSpeechSynthesizer *speechSynthesizer;
 
 @end
 
@@ -29,6 +33,7 @@
 
 - (void)setupViews
 {
+    _speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
     UISearchBar *searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
     [searchBar setTintColor:[UIColor systemRedColor]];
     [searchBar setPlaceholder:@"Search..."];
@@ -80,15 +85,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
-
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = [_pekemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
-    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemonIndex.intValue];
-
-    cell.indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
-    cell.nameLabel.text = [[pokemon name] capitalizedString];
-    cell.pokemonImageView.image = [UIImage imageNamed:indexString];
-
+    cell.pokemon = pokemon;
+    [cell setupViews];
     return cell;
 }
 
@@ -99,8 +99,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:true];
 
+    [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    HSVPokemon *pokemon = cell.pok
+    HSVPokemon *pokemon = cell.pokemon;
+    [self pokedexSpeak:pokemon];
+}
+
+- (void)pokedexSpeak:(HSVPokemon *)pokemon
+{
+    NSString *UtteranceString = [NSString stringWithFormat:@"%@.  %@", pokemon.name, pokemon.pokedexdescription];
+    AVSpeechUtterance *speechUtterance = [AVSpeechUtterance speechUtteranceWithString:UtteranceString];
+    speechUtterance.voice = [AVSpeechSynthesisVoice voiceWithIdentifier:@"com.apple.ttsbundle.siri_male_en-GB_compact"];
+    [_speechSynthesizer speakUtterance:speechUtterance];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
