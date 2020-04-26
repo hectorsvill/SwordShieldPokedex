@@ -110,6 +110,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Pa6-hC-89C" kind="relationship" relationship="viewControllers" id="Tx3-tg-ILp"/>
@@ -123,7 +128,6 @@
         <!--Search-->
         <scene sceneID="KjD-Wq-0ja">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WBE-eE-AIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pa6-hC-89C" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="f7D-FU-JMP"/>
                     <toolbarItems/>
@@ -136,6 +140,7 @@
                         <segue destination="XyY-5n-2Dl" kind="relationship" relationship="rootViewController" id="fZn-39-31w"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WBE-eE-AIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824.63768115942037" y="-317.41071428571428"/>
         </scene>
