@@ -47,7 +47,6 @@
     }];
 }
 
-
 - (void)createNavigationSearchBar
 {
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];

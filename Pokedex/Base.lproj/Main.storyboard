@@ -28,6 +28,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7g-Gr-4wN">
                                                     <rect key="frame" x="0.0" y="0.0" width="29" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="29" id="nuF-23-Aj8"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -36,13 +39,12 @@
                                                     <rect key="frame" x="44" y="0.0" width="59" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="59" id="0fb-qF-EYF"/>
-                                                        <constraint firstAttribute="height" constant="60" id="CRL-7Q-TqU"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gio-eK-RKc">
                                                     <rect key="frame" x="118" y="0.0" width="206" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="206" id="zid-CP-T6V"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="206" id="zid-CP-T6V"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -50,6 +52,10 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5F-1Q-U0I">
                                                     <rect key="frame" x="339" y="0.0" width="59" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="HPe-ka-lQC"/>
+                                                        <constraint firstAttribute="width" constant="59" id="xMT-hZ-nnM"/>
+                                                    </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="heart" catalog="system"/>
                                                     <connections>
@@ -57,6 +63,10 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="M7g-Gr-4wN" firstAttribute="leading" secondItem="KQQ-qI-4gK" secondAttribute="leading" id="Aey-3C-ohR"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z5F-1Q-U0I" secondAttribute="trailing" id="eA0-PS-sM9"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -83,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5c-5f-y0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734.7826086956522" y="-317.41071428571428"/>
+            <point key="canvasLocation" x="1675" y="-317"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ree-6O-XE7">
