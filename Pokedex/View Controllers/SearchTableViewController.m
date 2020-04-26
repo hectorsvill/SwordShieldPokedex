@@ -98,6 +98,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:true];
+
+    HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    HSVPokemon *pokemon = cell.pok
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
