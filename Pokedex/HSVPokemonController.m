@@ -62,7 +62,6 @@
     return completion(_internalpokemonIndexList);
 }
 
-
 - (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
 {
     NSArray<NSNumber *> *keys = [dictionary allKeys];

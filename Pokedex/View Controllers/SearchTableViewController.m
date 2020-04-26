@@ -36,7 +36,7 @@
 
     _searchBar = searchBar;
     [self createNavigationSearchBar];
-    [self tableView].rowHeight = 70;
+    [self tableView].rowHeight = 80;
     _pekemonController = [HSVPokemonController new];
 
     [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
@@ -98,6 +98,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:true];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
