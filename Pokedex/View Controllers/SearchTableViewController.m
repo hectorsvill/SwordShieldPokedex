@@ -60,11 +60,11 @@
     UIView *titleView = [self navigationItem].titleView;
     [self navigationItem].titleView = (titleView == nil) ? [self searchBar] : nil;
 
-
     if (titleView == nil) {
         [self navigationItem].titleView = [self searchBar];
     } else {
-        if ([[[self searchBar] text] isEqual: @""]) {
+        if ([self.pokemonIndexList count] == 0) {
+            [self searchBar].text = @"";
             [self navigationItem].titleView = nil;
             self.pokemonIndexList = [_pekemonController pokemonIndexList];
             [[self tableView] reloadData];
