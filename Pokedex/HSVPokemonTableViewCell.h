@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *pokemonImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property BOOL isFavorite;
 
 - (IBAction)favoriteButtonPressed:(id)sender;
 - (void)setupViews;

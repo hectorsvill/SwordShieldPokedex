@@ -23,6 +23,7 @@
     if (self = [super init]) {
         _internalDictionary = [[self pokemonDictionary] mutableCopy];
         _internalpokemonIndexList = [[self pokemonIndexList] mutableCopy];
+        _favoritePokemon = [[self favoritePokemon] mutableCopy];
     }
     return self;
 }

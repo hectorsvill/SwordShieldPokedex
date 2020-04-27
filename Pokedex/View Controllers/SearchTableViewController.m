@@ -11,9 +11,7 @@
 #import "HSVPokemonTableViewCell.h"
 #import "NSString+HSVPokemonIndexString.h"
 #import "HSVPokemonController.h"
-
 #import <AVFoundation/AVFoundation.h>
-//#import <QuartzCore/QuartzCore.h>
 
 @interface SearchTableViewController ()
 
