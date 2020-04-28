@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
                               tms:(NSArray<NSNumber *> *)tms
                               trs:(NSArray<NSNumber *> *)trs
                         evolution:(NSArray<NSDictionary *> *)evolutions
-                      pokedexdescription:(NSString *)pokedexdescription;
+               pokedexdescription:(NSString *)pokedexdescription;
 
 @end
 
