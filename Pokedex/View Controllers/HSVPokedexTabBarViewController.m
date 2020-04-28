@@ -7,8 +7,12 @@
 //
 
 #import "HSVPokedexTabBarViewController.h"
+#import "HSVPokemonController.h"
+#import "HSVPokemonControllerProtocol.h"
 
 @interface HSVPokedexTabBarViewController ()
+
+@property (nonatomic, copy) HSVPokemonController *pokemonController;
 
 @end
 
@@ -17,10 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    for (UIViewController *vc in [self childViewControllers]) {
-        
-    }
+    _pokemonController = [HSVPokemonController new];
 
+    for (UIViewController *vc in [self childViewControllers]) {
+        if ([vc conformsToProtocol:@protocol(HSVPokemonControllerProtocol)]) {
+            UIViewController<HSVPokemonControllerProtocol> *pokemonControllerProtocolVC = (UIViewController<HSVPokemonControllerProtocol> *)vc;
+            pokemonControllerProtocolVC.pokemonController = _pokemonController;
+        }
+    }
 }
 
 @end
