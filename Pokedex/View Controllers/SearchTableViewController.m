@@ -86,6 +86,7 @@
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = [_pekemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     cell.pokemon = pokemon;
+    cell.delegate = self;
     [cell setupViews];
     return cell;
 }
@@ -130,6 +131,12 @@
     }
 
     [[self tableView] reloadData];
+}
+
+
+- (void)saveToFavorites:(NSNumber *)indexNumber
+{
+    NSLog(@"save %@ to favorites", indexNumber);
 }
 
 @end

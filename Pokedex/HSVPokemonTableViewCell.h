@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "HSVPokemonTableViewCellDelegate.h"
 @class HSVPokemon;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,10 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *pokemonImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
-@property BOOL isFavorite;
+@property (weak, nonatomic) NSNumber  *isFavorite;
 
 - (IBAction)favoriteButtonPressed:(id)sender;
 - (void)setupViews;
+
+@property (weak) id<HSVPokemonTableViewCellDelegate> delegate;
 
 @end
 

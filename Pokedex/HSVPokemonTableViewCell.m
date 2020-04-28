@@ -19,20 +19,21 @@
     _indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
     _nameLabel.text = [[_pokemon name] capitalizedString];
     _pokemonImageView.image = [UIImage imageNamed:indexString];
-    [self setFavoriteButtonImage];
+//    [self setFavoriteButtonImage];
 }
 
 - (IBAction)favoriteButtonPressed:(id)sender
 {
-    _isFavorite = !_isFavorite;
-    [self setFavoriteButtonImage];
+    [_delegate saveToFavorites:_pokemon.pokemonID];
+//    _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
+//    [self setFavoriteButtonImage];
 }
 
 - (void)setFavoriteButtonImage
 {
-    NSString *imageName = _isFavorite ? @"heart.fill" : @"heart";
-    UIImage *image = [UIImage systemImageNamed:imageName];
-    [_favoriteButton setImage:image forState:UIControlStateNormal];
+//    NSString *imageName = [_isFavorite isEqualToNumber:@YES] ? @"heart.fill" : @"heart";
+//    UIImage *image = [UIImage systemImageNamed:imageName];
+//    [_favoriteButton setImage:image forState:UIControlStateNormal];
 }
 
 
