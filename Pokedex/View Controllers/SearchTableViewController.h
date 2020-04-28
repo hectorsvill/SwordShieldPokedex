@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "HSVPokemonTableViewCellDelegate.h"
+#import "HSVPokemonControllerProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchTableViewController : UITableViewController<UISearchBarDelegate, HSVPokemonTableViewCellDelegate>
+@interface SearchTableViewController : UITableViewController<UISearchBarDelegate, HSVPokemonTableViewCellDelegate, HSVPokemonControllerProtocol>
+
+@property (nonatomic, copy) HSVPokemonController *pokemonController;
+
 @end
 
 NS_ASSUME_NONNULL_END

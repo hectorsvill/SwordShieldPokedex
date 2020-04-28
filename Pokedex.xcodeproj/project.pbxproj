@@ -65,6 +65,7 @@
 		12D8CE7B2458DD2C008E1100 /* HSVPokedexTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokedexTabBarViewController.m; sourceTree = "<group>"; };
 		12D8CE7D2458DDB2008E1100 /* HSVFavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoritesViewController.h; sourceTree = "<group>"; };
 		12D8CE7E2458DDB2008E1100 /* HSVFavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoritesViewController.m; sourceTree = "<group>"; };
+		12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonControllerProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +131,10 @@
 		122A4E562450BCFE002E777F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				122A4E592450BF00002E777F /* SearchTableViewController.h */,
-				122A4E5A2450BF00002E777F /* SearchTableViewController.m */,
 				12D8CE7A2458DD2C008E1100 /* HSVPokedexTabBarViewController.h */,
 				12D8CE7B2458DD2C008E1100 /* HSVPokedexTabBarViewController.m */,
+				122A4E592450BF00002E777F /* SearchTableViewController.h */,
+				122A4E5A2450BF00002E777F /* SearchTableViewController.m */,
 				12D8CE7D2458DDB2008E1100 /* HSVFavoritesViewController.h */,
 				12D8CE7E2458DDB2008E1100 /* HSVFavoritesViewController.m */,
 			);
@@ -188,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */,
+				12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

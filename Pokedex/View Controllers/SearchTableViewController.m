@@ -16,7 +16,6 @@
 @interface SearchTableViewController ()
 
 @property (nonatomic) UISearchBar *searchBar;
-@property (nonatomic, copy) HSVPokemonController *pokemonController;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 @property (nonatomic, copy) AVSpeechSynthesizer *speechSynthesizer;
 
