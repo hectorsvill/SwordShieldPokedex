@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QIe-ap-kGD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +98,7 @@
         <!--Favorites-->
         <scene sceneID="ree-6O-XE7">
             <objects>
-                <viewController id="wCM-Dh-kW9" sceneMemberID="viewController">
+                <viewController id="wCM-Dh-kW9" customClass="HSVFavoritesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zz8-rc-Z2i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="851" y="387"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Pokedex Tab Bar View Controller-->
         <scene sceneID="BCa-3s-HQw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QIe-ap-kGD" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QIe-ap-kGD" customClass="HSVPokedexTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hwk-Uj-tDk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

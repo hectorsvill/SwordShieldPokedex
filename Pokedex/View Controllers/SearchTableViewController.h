@@ -12,9 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchTableViewController : UITableViewController<UISearchBarDelegate, HSVPokemonTableViewCellDelegate>
-
-//- (void)saveToFavorites:(NSNumber *)indexNumber;
-
 @end
 
 NS_ASSUME_NONNULL_END
