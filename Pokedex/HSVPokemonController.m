@@ -12,7 +12,8 @@
 @interface HSVPokemonController()
 
 @property NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
-@property NSArray<NSNumber *> *internalpokemonIndexList;
+@property NSArray<NSNumber *> *internalPokemonIndexList;
+@property NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
 @end
 
@@ -22,8 +23,8 @@
 {
     if (self = [super init]) {
         _internalDictionary = [[self pokemonDictionary] mutableCopy];
-        _internalpokemonIndexList = [[self pokemonIndexList] mutableCopy];
-        _favoritePokemon = [[self favoritePokemon] mutableCopy];
+        _internalPokemonIndexList = [[self pokemonIndexList] mutableCopy];
+        _internalFavoritePokemon = [[self favoritePokemon] mutableCopy];
     }
     return self;
 }
@@ -40,7 +41,26 @@
 
 - (NSArray<NSNumber *> *)pokemonIndexList
 {
-    return _internalpokemonIndexList;
+    return _internalPokemonIndexList;
+}
+
+- (void)addFavorites:(NSNumber *)number
+{
+    if (_internalFavoritePokemon == nil) {
+        _internalFavoritePokemon = [NSMutableArray new];
+    }
+
+    [_internalFavoritePokemon insertObject:number atIndex: 0];
+}
+
+- (void)removeInternalFavoritePokemonAtIndexe:(int)index
+{
+    [_internalFavoritePokemon removeObjectAtIndex:index];
+}
+
+- (NSArray<NSNumber *> *)fetchFavorites
+{
+    return _internalFavoritePokemon;
 }
 
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
@@ -50,7 +70,7 @@
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
 
     _internalDictionary = [NSMutableDictionary new];
-    _internalpokemonIndexList = [NSMutableArray new];
+    _internalPokemonIndexList = [NSMutableArray new];
 
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
@@ -59,8 +79,8 @@
         }
     }
 
-    _internalpokemonIndexList = [self sortedIndexDictionary:_internalDictionary];
-    return completion(_internalpokemonIndexList);
+    _internalPokemonIndexList = [self sortedIndexDictionary:_internalDictionary];
+    return completion(_internalPokemonIndexList);
 }
 
 - (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
@@ -86,5 +106,7 @@
 
     return [self sortedIndexDictionary:pokemonDictionary];
 }
+
+
 
 @end

@@ -25,15 +25,15 @@
 - (IBAction)favoriteButtonPressed:(id)sender
 {
     [_delegate saveToFavorites:_pokemon.pokemonID];
-//    _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
-//    [self setFavoriteButtonImage];
+    _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
+    [self setFavoriteButtonImage];
 }
 
 - (void)setFavoriteButtonImage
 {
-//    NSString *imageName = [_isFavorite isEqualToNumber:@YES] ? @"heart.fill" : @"heart";
-//    UIImage *image = [UIImage systemImageNamed:imageName];
-//    [_favoriteButton setImage:image forState:UIControlStateNormal];
+    NSString *imageName = [_isFavorite isEqualToNumber:@YES] ? @"heart.fill" : @"heart";
+    UIImage *image = [UIImage systemImageNamed:imageName];
+    [_favoriteButton setImage:image forState:UIControlStateNormal];
 }
 
 

@@ -133,6 +133,7 @@
     [[self tableView] reloadData];
 }
 
+#pragma mark - HSVPOkemonTableViewCellDelegate
 
 - (void)saveToFavorites:(NSNumber *)indexNumber
 {
