@@ -15,7 +15,7 @@
 
 @interface SearchTableViewController ()
 
-@property (nonatomic) UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 @property (nonatomic, copy) AVSpeechSynthesizer *speechSynthesizer;
 
@@ -30,18 +30,9 @@
 
 - (void)setupViews
 {
-    _speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-    UISearchBar *searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
-    [searchBar setTintColor:[UIColor systemRedColor]];
-    [searchBar setPlaceholder:@"Search..."];
-    [searchBar setDelegate: self];
-
-    _searchBar = searchBar;
+    _speechSynthesizer = [AVSpeechSynthesizer new];
     [self createNavigationSearchBar];
     [self tableView].rowHeight = 80;
-//    _pokemonController = [HSVPokemonController new];
-
-    
 
     [_pokemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
         dispatch_async(dispatch_get_main_queue(), ^{

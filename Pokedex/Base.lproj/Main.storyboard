@@ -15,9 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Jag-FE-dlv">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="XyY-5n-2Dl" id="5sT-2R-kZQ"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="80" id="MPf-XU-XVv" customClass="HSVPokemonTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPf-XU-XVv" id="6P7-aW-Bsf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -89,11 +97,40 @@
                             <outlet property="delegate" destination="XyY-5n-2Dl" id="SOc-yZ-HOW"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <navigationItem key="navigationItem" title="⚔️🛡Pokedex" id="OAD-Bn-HlO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Jag-FE-dlv" id="ZwP-ID-ZaI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5c-5f-y0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1675" y="-317"/>
+            <point key="canvasLocation" x="851" y="-260"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AhJ-14-DXu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYG-86-5Db" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="2dp-l2-e2b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J5A-zD-f06">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="irG-Z7-xuv">
+                                <rect key="frame" x="0.0" y="34" width="410" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="67G-xo-vC9"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JeY-Xq-dH8"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2434.7826086956525" y="-441.29464285714283"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ree-6O-XE7">
@@ -127,32 +164,13 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="Pa6-hC-89C" kind="relationship" relationship="viewControllers" id="Tx3-tg-ILp"/>
+                        <segue destination="XyY-5n-2Dl" kind="relationship" relationship="viewControllers" id="5Mw-rE-36y"/>
                         <segue destination="wCM-Dh-kW9" kind="relationship" relationship="viewControllers" id="1OC-vZ-bW0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cO-l7-dXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4.3478260869565224" y="135.9375"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="KjD-Wq-0ja">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pa6-hC-89C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="f7D-FU-JMP"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rOc-qP-mXQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XyY-5n-2Dl" kind="relationship" relationship="rootViewController" id="fZn-39-31w"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WBE-eE-AIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="824.63768115942037" y="-317.41071428571428"/>
         </scene>
     </scenes>
     <resources>
