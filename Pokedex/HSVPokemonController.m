@@ -29,7 +29,7 @@
     return self;
 }
 
-- (NSUInteger)pokemonListCount
+- (NSUInteger)internalDictionaryCount
 {
     return [_internalDictionary count];
 }

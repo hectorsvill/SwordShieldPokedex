@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 //@property (nonatomic, copy) NSArray<NSNumber *> *favoritePokemon;
 
-- (NSUInteger)pokemonListCount;
+- (NSUInteger)internalDictionaryCount;
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
 - (HSVPokemon *)fetchpokemonWithIndex:(NSNumber *)index;
 
