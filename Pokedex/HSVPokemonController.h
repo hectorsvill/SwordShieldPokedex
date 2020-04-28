@@ -24,9 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
 - (NSArray  <NSNumber *> *)filterWithString:(NSString *)string;
 - (NSArray  <NSNumber *> *)pokemonIndexList;
+
 - (void)addFavorite:(NSNumber *)number;
 - (void)removeInternalFavoritePokemonAtIndexe:(int)index;
 - (NSArray<NSNumber *> *)fetchFavorites;
+- (NSNumber *)isfavortie:(NSNumber*)indexNumber;
+
 
 @end
 

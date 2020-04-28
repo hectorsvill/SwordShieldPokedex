@@ -86,6 +86,7 @@
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = [_pokemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     cell.pokemon = pokemon;
+    cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
     cell.delegate = self;
     [cell setupViews];
     return cell;

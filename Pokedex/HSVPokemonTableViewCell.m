@@ -19,7 +19,7 @@
     _indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
     _nameLabel.text = [[_pokemon name] capitalizedString];
     _pokemonImageView.image = [UIImage imageNamed:indexString];
-//    [self setFavoriteButtonImage];
+    [self setFavoriteButtonImage];
 }
 
 - (IBAction)favoriteButtonPressed:(id)sender

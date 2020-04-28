@@ -63,6 +63,11 @@
     return _internalFavoritePokemon;
 }
 
+- (NSNumber *)isfavortie:(NSNumber*)indexNumber
+{
+    return [_internalFavoritePokemon containsObject:indexNumber] ? @YES : @NO;
+}
+
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
@@ -106,7 +111,5 @@
 
     return [self sortedIndexDictionary:pokemonDictionary];
 }
-
-
 
 @end
