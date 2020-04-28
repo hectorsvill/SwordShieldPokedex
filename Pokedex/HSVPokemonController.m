@@ -11,9 +11,9 @@
 #import "HSVPokemon+HSVinitWithDictionary.h"
 @interface HSVPokemonController()
 
-@property NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
-@property NSArray<NSNumber *> *internalPokemonIndexList;
-@property NSMutableArray<NSNumber *> *internalFavoritePokemon;
+@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalPokemonIndexList;
+@property (nonatomic, copy) NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
 @end
 
@@ -22,9 +22,9 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        _internalDictionary = [[self pokemonDictionary] mutableCopy];
-        _internalPokemonIndexList = [[self pokemonIndexList] mutableCopy];
-        _internalFavoritePokemon = [[self favoritePokemon] mutableCopy];
+        _internalDictionary = [NSMutableDictionary new];
+        _internalPokemonIndexList = [NSArray new];
+        _internalFavoritePokemon = [NSMutableArray new];
     }
     return self;
 }
@@ -46,10 +46,6 @@
 
 - (void)addFavorite:(NSNumber *)number
 {
-    if (_internalFavoritePokemon == nil) {
-        _internalFavoritePokemon = [NSMutableArray new];
-    }
-
     [_internalFavoritePokemon insertObject:number atIndex: 0];
 }
 
@@ -73,9 +69,6 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
-
-    _internalDictionary = [NSMutableDictionary new];
-    _internalPokemonIndexList = [NSMutableArray new];
 
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
