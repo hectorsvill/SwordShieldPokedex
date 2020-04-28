@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVFavoritesViewController : UIViewController<HSVPokemonControllerProtocol>
 
-@property (nonatomic, copy) HSVPokemonController *pokemonController;
+@property (nonatomic) HSVPokemonController *pokemonController;
 
 @end
 

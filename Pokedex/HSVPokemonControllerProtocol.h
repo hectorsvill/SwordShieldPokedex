@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol HSVPokemonControllerProtocol <NSObject>
 
-@property (nonatomic, copy) HSVPokemonController *pokemonController;
+@property (nonatomic) HSVPokemonController *pokemonController;
 
 @end
 

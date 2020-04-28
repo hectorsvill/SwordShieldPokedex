@@ -12,7 +12,7 @@
 
 @interface HSVPokedexTabBarViewController ()
 
-@property (nonatomic, copy) HSVPokemonController *pokemonController;
+@property (nonatomic) HSVPokemonController *pokemonController;
 
 @end
 
@@ -27,6 +27,7 @@
         if ([vc conformsToProtocol:@protocol(HSVPokemonControllerProtocol)]) {
             UIViewController<HSVPokemonControllerProtocol> *pokemonControllerProtocolVC = (UIViewController<HSVPokemonControllerProtocol> *)vc;
             pokemonControllerProtocolVC.pokemonController = _pokemonController;
+
         }
     }
 }

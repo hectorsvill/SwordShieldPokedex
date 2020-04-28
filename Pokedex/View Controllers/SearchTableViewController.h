@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchTableViewController : UITableViewController<UISearchBarDelegate, HSVPokemonTableViewCellDelegate, HSVPokemonControllerProtocol>
 
-@property (nonatomic, copy) HSVPokemonController *pokemonController;
+@property (nonatomic) HSVPokemonController *pokemonController;
 
 @end
 
