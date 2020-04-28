@@ -16,7 +16,7 @@
 @interface SearchTableViewController ()
 
 @property (nonatomic) UISearchBar *searchBar;
-@property (nonatomic, copy) HSVPokemonController *pekemonController;
+@property (nonatomic, copy) HSVPokemonController *pokemonController;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 @property (nonatomic, copy) AVSpeechSynthesizer *speechSynthesizer;
 
@@ -40,9 +40,9 @@
     _searchBar = searchBar;
     [self createNavigationSearchBar];
     [self tableView].rowHeight = 80;
-    _pekemonController = [HSVPokemonController new];
+    _pokemonController = [HSVPokemonController new];
 
-    [_pekemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
+    [_pokemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self->_pokemonIndexList = pokemonIndexList;
             [[self tableView] reloadData];
@@ -68,7 +68,7 @@
         if ([self.pokemonIndexList count] == 0) {
             [self searchBar].text = @"";
             [self navigationItem].titleView = nil;
-            self.pokemonIndexList = [_pekemonController pokemonIndexList];
+            self.pokemonIndexList = [_pokemonController pokemonIndexList];
             [[self tableView] reloadData];
         }
     }
@@ -84,7 +84,7 @@
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
-    HSVPokemon *pokemon = [_pekemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+    HSVPokemon *pokemon = [_pokemonController fetchpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     cell.pokemon = pokemon;
     cell.delegate = self;
     [cell setupViews];
@@ -124,10 +124,10 @@
 {
     if ([searchBar.text length] > 0) {
         NSString *text = [searchBar.text lowercaseString];
-        NSArray *pokemonIndexList = [_pekemonController filterWithString:text];
+        NSArray *pokemonIndexList = [_pokemonController filterWithString:text];
         self.pokemonIndexList = pokemonIndexList;
     } else {
-        self.pokemonIndexList = [_pekemonController pokemonIndexList];
+        self.pokemonIndexList = [_pokemonController pokemonIndexList];
     }
 
     [[self tableView] reloadData];
@@ -137,7 +137,8 @@
 
 - (void)saveToFavorites:(NSNumber *)indexNumber
 {
-    NSLog(@"save %@ to favorites", indexNumber);
+    [self.pokemonController addFavorite: indexNumber];
+    NSLog(@"%lu", (unsigned long)self.pokemonController.fetchFavorites.count);
 }
 
 @end

@@ -44,7 +44,7 @@
     return _internalPokemonIndexList;
 }
 
-- (void)addFavorites:(NSNumber *)number
+- (void)addFavorite:(NSNumber *)number
 {
     if (_internalFavoritePokemon == nil) {
         _internalFavoritePokemon = [NSMutableArray new];
