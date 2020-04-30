@@ -99,7 +99,8 @@
 
 - (void)pokedexSpeak:(HSVPokemon *)pokemon
 {
-    NSString *UtteranceString = [NSString stringWithFormat:@"%@.  %@", pokemon.name, pokemon.pokedexdescription];
+    NSString *typeString = [pokemon.types componentsJoinedByString:@" and "];
+    NSString *UtteranceString = [NSString stringWithFormat:@"%@. %@ type. %@", pokemon.name, typeString, pokemon.pokedexdescription];
     AVSpeechUtterance *speechUtterance = [AVSpeechUtterance speechUtteranceWithString:UtteranceString];
     speechUtterance.voice = [AVSpeechSynthesisVoice voiceWithIdentifier:@"com.apple.ttsbundle.siri_male_en-GB_compact"];
     [_speechSynthesizer speakUtterance:speechUtterance];
@@ -130,6 +131,7 @@
 
 - (void)saveToFavorites:(NSNumber *)indexNumber
 {
+
     [self.pokemonController addFavorite: indexNumber];
     NSLog(@"%lu", (unsigned long)self.pokemonController.fetchFavorites.count);
 }

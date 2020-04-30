@@ -11,7 +11,6 @@
 #import "HSVPokemonTableViewCellDelegate.h"
 @class HSVPokemon;
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVPokemonTableViewCell : UITableViewCell

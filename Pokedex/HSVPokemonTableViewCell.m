@@ -24,7 +24,9 @@
 
 - (IBAction)favoriteButtonPressed:(id)sender
 {
-    [_delegate saveToFavorites:_pokemon.pokemonID];
+    if ([_delegate conformsToProtocol:@protocol(HSVPokemonTableViewCellDelegate) ])
+        [_delegate saveToFavorites:_pokemon.pokemonID];
+    
     _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
     [self setFavoriteButtonImage];
 }
