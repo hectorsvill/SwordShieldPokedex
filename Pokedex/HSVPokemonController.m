@@ -27,7 +27,6 @@
 
     dispatch_once(&onceToken, ^{
         pokemonController = [[HSVPokemonController alloc] init];
-
     });
 
     return pokemonController;

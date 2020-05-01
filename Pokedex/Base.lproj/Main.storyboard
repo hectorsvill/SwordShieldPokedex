@@ -15,17 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="Jag-FE-dlv">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="XyY-5n-2Dl" id="5sT-2R-kZQ"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="80" id="MPf-XU-XVv" customClass="HSVPokemonTableViewCell">
-                                <rect key="frame" x="0.0" y="72" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPf-XU-XVv" id="6P7-aW-Bsf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -97,18 +89,14 @@
                             <outlet property="delegate" destination="XyY-5n-2Dl" id="SOc-yZ-HOW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <navigationItem key="navigationItem" title="⚔️🛡Pokedex" id="OAD-Bn-HlO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="Jag-FE-dlv" id="ZwP-ID-ZaI"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5c-5f-y0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="-260"/>
+            <point key="canvasLocation" x="1760.8695652173915" y="-260.49107142857144"/>
         </scene>
-        <!--Favorites-->
+        <!--Favorites View Controller-->
         <scene sceneID="ree-6O-XE7">
             <objects>
                 <viewController id="wCM-Dh-kW9" customClass="HSVFavoritesViewController" sceneMemberID="viewController">
@@ -117,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6A-7L-KUD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavortieCell" textLabel="kQx-0U-KDT" style="IBUITableViewCellStyleDefault" id="VQM-g7-OrW">
@@ -153,14 +141,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ban-0c-Q3R"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle.fill" catalog="system" id="ILC-7U-9Ru"/>
+                    <navigationItem key="navigationItem" id="7Ny-mw-xRy"/>
                     <connections>
                         <outlet property="tableView" destination="y6A-7L-KUD" id="p9K-fU-bcG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XF6-Ql-LiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850.72463768115949" y="386.38392857142856"/>
+            <point key="canvasLocation" x="1760.8695652173915" y="386.38392857142856"/>
         </scene>
         <!--Pokedex Tab Bar View Controller-->
         <scene sceneID="BCa-3s-HQw">
@@ -178,13 +166,51 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="XyY-5n-2Dl" kind="relationship" relationship="viewControllers" id="5Mw-rE-36y"/>
-                        <segue destination="wCM-Dh-kW9" kind="relationship" relationship="viewControllers" id="1OC-vZ-bW0"/>
+                        <segue destination="iSn-uF-9K3" kind="relationship" relationship="viewControllers" id="5Mw-rE-36y"/>
+                        <segue destination="l1M-PQ-LiO" kind="relationship" relationship="viewControllers" id="1OC-vZ-bW0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cO-l7-dXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4.3478260869565224" y="135.9375"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Dnk-GQ-ZPt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iSn-uF-9K3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="W4M-uT-eHb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XyY-5n-2Dl" kind="relationship" relationship="rootViewController" id="GR7-JP-k1O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyf-ML-566" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850.72463768115949" y="-260.49107142857144"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="SMZ-Tn-WFy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l1M-PQ-LiO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle.fill" catalog="system" id="ILC-7U-9Ru"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bUA-re-2u9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wCM-Dh-kW9" kind="relationship" relationship="rootViewController" id="Dbf-yW-Q2J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Odt-rX-BoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850.72463768115949" y="386.38392857142856"/>
         </scene>
     </scenes>
     <resources>
