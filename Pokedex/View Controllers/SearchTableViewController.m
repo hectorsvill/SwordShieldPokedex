@@ -21,7 +21,6 @@ enum Pokedex {
 @interface SearchTableViewController ()
 
 @property (nonatomic) enum Pokedex pokedexType;
-
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
 @property (nonatomic) AVSpeechSynthesizer *speechSynthesizer;
@@ -83,8 +82,8 @@ enum Pokedex {
     // galar dex
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
-            _pokedexType = Galar;
-            self.pokemonIndexList = nil;//[self.pokemonController fetchGalarDexIndexList];
+            self.pokedexType = Galar;
+            self.pokemonIndexList = [self.pokemonController fetchGalarDexIndexList];
             [self.tableView reloadData];
         });
     }];
@@ -146,7 +145,7 @@ enum Pokedex {
 {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
-    HSVPokemon *pokemon = [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+    HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     cell.pokemon = pokemon;
     cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
     cell.delegate = self;
@@ -165,7 +164,7 @@ enum Pokedex {
     HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     HSVPokemon *pokemon = cell.pokemon;
 
-//    [self pokedexSpeak:pokemon];
+    [self pokedexSpeak:pokemon];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
