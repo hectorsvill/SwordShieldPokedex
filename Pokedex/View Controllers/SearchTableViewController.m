@@ -30,16 +30,18 @@
     [self setupViews];
 }
 
+- (void)setPokemonSearchBar
+{
+    self.searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
+    [_searchBar setTintColor:[UIColor systemRedColor]];
+    [_searchBar setPlaceholder:@"Search..."];
+    [_searchBar setDelegate: self];
+}
+
 - (void)setupViews
 {
-    _speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-
-    UISearchBar *searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
-    [searchBar setTintColor:[UIColor systemRedColor]];
-    [searchBar setPlaceholder:@"Search..."];
-    [searchBar setDelegate: self];
-    _searchBar = searchBar;
-
+    self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
     [self tableView].rowHeight = 80;
@@ -76,10 +78,6 @@
             [[self tableView] reloadData];
         }
     }
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Pokedex";
 }
 
 #pragma mark - Table view data source
