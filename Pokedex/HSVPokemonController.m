@@ -110,7 +110,9 @@
 
         if ([pokemon.pokemonID intValue] <= 890) {
             [_internalNationalDexDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
-            [_internalGalarDexDictionary addEntriesFromDictionary:@{pokemon.galar_dex : pokemon}];
+
+            if (pokemon.galar_dex > 0)
+                [_internalGalarDexDictionary addEntriesFromDictionary:@{pokemon.galar_dex : pokemon}];
         }
     }
 

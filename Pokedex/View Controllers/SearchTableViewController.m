@@ -13,7 +13,14 @@
 #import "HSVPokemonController.h"
 #import <AVFoundation/AVFoundation.h>
 
+enum Pokedex {
+    National,
+    Galar
+};
+
 @interface SearchTableViewController ()
+
+@property (nonatomic) enum Pokedex pokedexType;
 
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
@@ -27,6 +34,9 @@
     [super viewDidLoad];
     
     self.pokemonController = HSVPokemonController.sharedPokemonController;
+
+    _pokedexType = National;
+
     [self setupViews];
 }
 
@@ -73,7 +83,8 @@
     // galar dex
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.pokemonIndexList = nil;
+            _pokedexType = Galar;
+            self.pokemonIndexList = nil;//[self.pokemonController fetchGalarDexIndexList];
             [self.tableView reloadData];
         });
     }];
@@ -83,6 +94,7 @@
     // national dex
     UIAlertAction *nationalDexAction = [UIAlertAction actionWithTitle:@"National Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokedexType = National;
             self.pokemonIndexList = [self.pokemonController pokemonIndexList];
             [self.tableView reloadData];
         });
