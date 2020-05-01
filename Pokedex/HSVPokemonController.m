@@ -13,7 +13,8 @@
 
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalNationalDexDictionary;
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalGalarDexDictionary;
-@property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalPokemonIndexList;
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
 @property (nonatomic, copy) NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
 @end
@@ -38,12 +39,29 @@
     if (self = [super init]) {
         _internalNationalDexDictionary = [NSMutableDictionary new];
         _internalGalarDexDictionary = [NSMutableDictionary new];
-        _internalPokemonIndexList = [NSArray new];
+        _internalNationalIndexList = [NSArray new];
         _internalFavoritePokemon = [NSMutableArray new];
     }
     return self;
 }
 
+// MARK: - Galar Dex
+- (NSArray<NSNumber *> *)fetchGalarDexIndexList
+{
+    return _internalGalarDexIndexList;
+}
+
+- (NSUInteger)galarDexListCount
+{
+    return [_internalGalarDexDictionary count];
+}
+
+- (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index
+{
+    return [_internalGalarDexDictionary objectForKey:index];
+}
+
+// MARK: - National Dex
 - (NSUInteger)nationalDexDictionaryCount
 {
     return [_internalNationalDexDictionary count];
@@ -56,9 +74,10 @@
 
 - (NSArray<NSNumber *> *)pokemonIndexList
 {
-    return _internalPokemonIndexList;
+    return _internalNationalIndexList;
 }
 
+// MARK: - Favorites
 - (void)addFavorite:(NSNumber *)number
 {
     [_internalFavoritePokemon insertObject:number atIndex: 0];
@@ -79,6 +98,7 @@
     return [_internalFavoritePokemon containsObject:indexNumber] ? @YES : @NO;
 }
 
+// MARK: - fetchPokemonData
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
@@ -90,16 +110,17 @@
 
         if ([pokemon.pokemonID intValue] <= 890) {
             [_internalNationalDexDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+            [_internalGalarDexDictionary addEntriesFromDictionary:@{pokemon.galar_dex : pokemon}];
         }
-
-
-
     }
 
-    _internalPokemonIndexList = [self sortedIndexDictionary:_internalNationalDexDictionary];
-    return completion(_internalPokemonIndexList);
+    _internalNationalIndexList = [self sortedIndexDictionary:_internalNationalDexDictionary];
+    _internalGalarDexIndexList = [self sortedIndexDictionary:_internalGalarDexDictionary];
+
+    return completion(_internalNationalIndexList);
 }
 
+//MARK: - sortedIndexDictionary
 - (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
 {
     NSArray<NSNumber *> *keys = [dictionary allKeys];
@@ -110,6 +131,7 @@
     return sortedKeys;
 }
 
+// MARK: filterWithString
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string
 {
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];

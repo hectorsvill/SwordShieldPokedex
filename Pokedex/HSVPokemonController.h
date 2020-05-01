@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<HSVPokemonControllerProtocol> delegate;
 
+- (NSArray<NSNumber *> *)fetchGalarDexIndexList;
+- (NSUInteger)galarDexListCount;
+- (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index;
+
 - (NSUInteger)nationalDexDictionaryCount;
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
 - (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index;

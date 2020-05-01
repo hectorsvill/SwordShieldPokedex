@@ -181,7 +181,6 @@
 
 - (void)saveToFavorites:(NSNumber *)indexNumber
 {
-
     [self.pokemonController addFavorite: indexNumber];
     NSLog(@"%lu", (unsigned long)self.pokemonController.fetchFavorites.count);
 }
