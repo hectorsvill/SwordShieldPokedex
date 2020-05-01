@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
-@property (nonatomic, copy) AVSpeechSynthesizer *speechSynthesizer;
+@property (nonatomic) AVSpeechSynthesizer *speechSynthesizer;
 
 @end
 
@@ -25,12 +25,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.pokemonController = HSVPokemonController.sharedPokemonController;
     [self setupViews];
 }
 
 - (void)setupViews
 {
-    _speechSynthesizer = [AVSpeechSynthesizer new];
+    self.speechSynthesizer = [AVSpeechSynthesizer new];
     [self createNavigationSearchBar];
     [self tableView].rowHeight = 80;
 
@@ -66,6 +68,10 @@
     }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"Pokedex";
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -94,6 +100,7 @@
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     HSVPokemon *pokemon = cell.pokemon;
+
     [self pokedexSpeak:pokemon];
 }
 

@@ -12,8 +12,6 @@
 
 @class HSVPokemonController;
 
-
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVFavoritesViewController : UIViewController<HSVPokemonControllerProtocol, UITableViewDataSource>

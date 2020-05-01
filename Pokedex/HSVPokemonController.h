@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@protocol HSVPokemonControllerProtocol;
 @class HSVPokemon;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVPokemonController : NSObject
+
++ (instancetype)sharedPokemonController;
+
+@property (nonatomic, weak) id<HSVPokemonControllerProtocol> delegate;
 
 - (NSUInteger)internalDictionaryCount;
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;

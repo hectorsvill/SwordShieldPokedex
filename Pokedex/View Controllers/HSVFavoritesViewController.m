@@ -23,6 +23,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.pokemonController = HSVPokemonController.sharedPokemonController;
     self.tableView.rowHeight = 80;
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
 }
@@ -34,6 +36,12 @@
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
     [self.tableView reloadData];
 }
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"Favorites";
+}
+
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -53,5 +61,13 @@
     return cell;
 }
 
+#pragma mark - Table view delegate
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
 
 @end

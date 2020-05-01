@@ -19,6 +19,20 @@
 
 @implementation HSVPokemonController
 
+
++ (instancetype)sharedPokemonController
+{
+    static HSVPokemonController *pokemonController = nil;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        pokemonController = [[HSVPokemonController alloc] init];
+
+    });
+
+    return pokemonController;
+}
+
 - (instancetype)init
 {
     if (self = [super init]) {

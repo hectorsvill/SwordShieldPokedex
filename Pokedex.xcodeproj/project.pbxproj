@@ -24,7 +24,6 @@
 		1290C6D524523F8D0037C098 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6D424523F8D0037C098 /* PokemonSwordShield.json */; };
 		1290C6D8245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */; };
 		12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */; };
-		12D8CE7C2458DD2C008E1100 /* HSVPokedexTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE7B2458DD2C008E1100 /* HSVPokedexTabBarViewController.m */; };
 		12D8CE7F2458DDB2008E1100 /* HSVFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE7E2458DDB2008E1100 /* HSVFavoritesViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +60,6 @@
 		12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonTableViewCellDelegate.h; sourceTree = "<group>"; };
 		12D8CE772458BF90008E1100 /* HSVPokemonDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonDetailView.h; sourceTree = "<group>"; };
 		12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailView.m; sourceTree = "<group>"; };
-		12D8CE7A2458DD2C008E1100 /* HSVPokedexTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokedexTabBarViewController.h; sourceTree = "<group>"; };
-		12D8CE7B2458DD2C008E1100 /* HSVPokedexTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokedexTabBarViewController.m; sourceTree = "<group>"; };
 		12D8CE7D2458DDB2008E1100 /* HSVFavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoritesViewController.h; sourceTree = "<group>"; };
 		12D8CE7E2458DDB2008E1100 /* HSVFavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoritesViewController.m; sourceTree = "<group>"; };
 		12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonControllerProtocol.h; sourceTree = "<group>"; };
@@ -131,8 +128,6 @@
 		122A4E562450BCFE002E777F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				12D8CE7A2458DD2C008E1100 /* HSVPokedexTabBarViewController.h */,
-				12D8CE7B2458DD2C008E1100 /* HSVPokedexTabBarViewController.m */,
 				122A4E592450BF00002E777F /* SearchTableViewController.h */,
 				122A4E5A2450BF00002E777F /* SearchTableViewController.m */,
 				12D8CE7D2458DDB2008E1100 /* HSVFavoritesViewController.h */,
@@ -279,7 +274,6 @@
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,
 				12D8CE7F2458DDB2008E1100 /* HSVFavoritesViewController.m in Sources */,
 				122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */,
-				12D8CE7C2458DD2C008E1100 /* HSVPokedexTabBarViewController.m in Sources */,
 				1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
