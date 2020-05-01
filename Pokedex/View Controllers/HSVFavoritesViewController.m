@@ -37,12 +37,6 @@
     [self.tableView reloadData];
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Favorites";
-}
-
-
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -54,7 +48,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavortieCell" forIndexPath:indexPath];
 
     NSNumber *favoriteIndex = [self.favoriteIndexList objectAtIndex:indexPath.row];
-    HSVPokemon *pokemon = [self.pokemonController fetchpokemonWithIndex:favoriteIndex];
+    HSVPokemon *pokemon = [self.pokemonController fetchNationalDexpokemonWithIndex:favoriteIndex];
     cell.textLabel.text = pokemon.name;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
 

@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<HSVPokemonControllerProtocol> delegate;
 
-- (NSUInteger)internalDictionaryCount;
+- (NSUInteger)nationalDexDictionaryCount;
 - (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
-- (HSVPokemon *)fetchpokemonWithIndex:(NSNumber *)index;
+- (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index;
 
 - (void)addFavorite:(NSNumber *)number;
 - (void)removeInternalFavoritePokemonAtIndexe:(int)index;

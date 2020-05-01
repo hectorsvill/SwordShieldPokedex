@@ -15,7 +15,8 @@
     NSNumber *pokemonID                     = [dictionary objectForKey:@"id"];
     NSString *name                          = [dictionary objectForKey:@"name"];
     NSString *stage                         = [dictionary objectForKey:@"stage"];
-    NSString *galar_dex                     = [dictionary objectForKey:@"galar_dex"];
+    NSString *galar_dexString               = [dictionary objectForKey:@"galar_dex"];
+    NSNumber *galar_dex                     = [NSNumber numberWithLong:[galar_dexString integerValue]] ;
     NSArray<NSNumber *> *base_stats         = [dictionary objectForKey:@"base_stats"];
     NSArray<NSNumber *> *ev_yield           = [dictionary objectForKey:@"ev_yield"];
     NSArray<NSString *> *abilities          = [dictionary objectForKey:@"abilities"];

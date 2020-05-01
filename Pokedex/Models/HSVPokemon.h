@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy, nonnull) NSNumber                 *pokemonID;
 @property (nonatomic, readonly, copy, nonnull) NSString                 *name;
 @property (nonatomic, readonly, copy, nonnull) NSString                 *stage;
-@property (nonatomic, readonly, copy, nonnull) NSString                 *galar_dex;
+@property (nonatomic, readonly, copy, nonnull) NSNumber                 *galar_dex;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSNumber *>      *base_stats;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSNumber *>      *ev_yield;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSString *>      *abilities;
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithPokemonID:(NSNumber *)pokemonID
                              name:(NSString *)name
                             stage:(NSString *)stage
-                        galar_dex:(NSString *)galar_dex
+                        galar_dex:(NSNumber *)galar_dex
                        base_stats:(NSArray<NSNumber *> *)base_stats
                          ev_yield:(NSArray<NSNumber *> *)ev_yield
                          abilities:(NSArray<NSString *> *)abilities

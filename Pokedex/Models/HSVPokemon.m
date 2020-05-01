@@ -10,7 +10,7 @@
 
 @implementation HSVPokemon
 
-- (instancetype)initWithPokemonID:(NSNumber *)pokemonID name:(NSString *)name stage:(NSString *)stage galar_dex:(NSString *)galar_dex base_stats:(NSArray<NSNumber *> *)base_stats ev_yield:(NSArray<NSNumber *> *)ev_yield abilities:(NSArray<NSString *> *)abilities types:(NSArray<NSString *> *)types exp_groups:(NSString *)exp_groups egg_groups:(NSArray<NSString *> *)egg_groups hatch_cycles:(NSNumber *)hatch_cycles height:(NSNumber *)height weight:(NSNumber *)weight color:(NSNumber *)color level_up_moves:(NSArray<NSDictionary *> *)level_up_moves egg_moves:(NSArray<NSString *> *)egg_moves tms:(NSArray<NSNumber *> *)tms trs:(NSArray<NSNumber *> *)trs evolution:(NSArray<NSDictionary *> *)evolutions pokedexdescription:(NSString *)pokedexdescription
+- (instancetype)initWithPokemonID:(NSNumber *)pokemonID name:(NSString *)name stage:(NSString *)stage galar_dex:(NSNumber *)galar_dex base_stats:(NSArray<NSNumber *> *)base_stats ev_yield:(NSArray<NSNumber *> *)ev_yield abilities:(NSArray<NSString *> *)abilities types:(NSArray<NSString *> *)types exp_groups:(NSString *)exp_groups egg_groups:(NSArray<NSString *> *)egg_groups hatch_cycles:(NSNumber *)hatch_cycles height:(NSNumber *)height weight:(NSNumber *)weight color:(NSNumber *)color level_up_moves:(NSArray<NSDictionary *> *)level_up_moves egg_moves:(NSArray<NSString *> *)egg_moves tms:(NSArray<NSNumber *> *)tms trs:(NSArray<NSNumber *> *)trs evolution:(NSArray<NSDictionary *> *)evolutions pokedexdescription:(NSString *)pokedexdescription
 {
 
     if (self = [super init]) {

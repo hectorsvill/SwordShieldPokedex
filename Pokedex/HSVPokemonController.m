@@ -11,7 +11,8 @@
 #import "HSVPokemon+HSVinitWithDictionary.h"
 @interface HSVPokemonController()
 
-@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalDictionary;
+@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalNationalDexDictionary;
+@property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalGalarDexDictionary;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalPokemonIndexList;
 @property (nonatomic, copy) NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
@@ -35,21 +36,22 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        _internalDictionary = [NSMutableDictionary new];
+        _internalNationalDexDictionary = [NSMutableDictionary new];
+        _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalPokemonIndexList = [NSArray new];
         _internalFavoritePokemon = [NSMutableArray new];
     }
     return self;
 }
 
-- (NSUInteger)internalDictionaryCount
+- (NSUInteger)nationalDexDictionaryCount
 {
-    return [_internalDictionary count];
+    return [_internalNationalDexDictionary count];
 }
 
-- (HSVPokemon *)fetchpokemonWithIndex:(NSNumber *)index
+- (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index
 {
-    return [_internalDictionary objectForKey:index];
+    return [_internalNationalDexDictionary objectForKey:index];
 }
 
 - (NSArray<NSNumber *> *)pokemonIndexList
@@ -85,12 +87,16 @@
 
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
+
         if ([pokemon.pokemonID intValue] <= 890) {
-            [_internalDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+            [_internalNationalDexDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
         }
+
+
+
     }
 
-    _internalPokemonIndexList = [self sortedIndexDictionary:_internalDictionary];
+    _internalPokemonIndexList = [self sortedIndexDictionary:_internalNationalDexDictionary];
     return completion(_internalPokemonIndexList);
 }
 
@@ -107,7 +113,7 @@
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string
 {
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];
-    NSArray<HSVPokemon *> *pokemonListArray = [_internalDictionary allValues];
+    NSArray<HSVPokemon *> *pokemonListArray = [_internalNationalDexDictionary allValues];
     NSArray<HSVPokemon *> *filteredPokemon = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
 
     NSMutableDictionary<NSNumber *, HSVPokemon *> *pokemonDictionary = [NSMutableDictionary new];
