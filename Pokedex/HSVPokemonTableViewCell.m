@@ -17,7 +17,7 @@
     [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
     _indexLabel.text = [NSString stringWithFormat:@"#%@", _indexString];
     _nameLabel.text = [[_pokemon name] capitalizedString];
-    NSString *imageName = [[NSString new] HSVCreatePokemonIndexString: _pokemon.pokemonID.intValue];
+    NSString *imageName = [[NSString new] HSVCreatePokemonIndexString: _pokemon.national_dex.intValue];
     _pokemonImageView.image = [UIImage imageNamed: imageName];
     [self setFavoriteButtonImage];
 }
@@ -25,7 +25,7 @@
 - (IBAction)favoriteButtonPressed:(id)sender
 {
     if ([_delegate conformsToProtocol:@protocol(HSVPokemonTableViewCellDelegate) ])
-        [_delegate saveToFavorites:_pokemon.pokemonID];
+        [_delegate saveToFavorites:_pokemon.national_dex];
     
     _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
     [self setFavoriteButtonImage];

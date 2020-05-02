@@ -14,7 +14,7 @@
 {
 
     if (self = [super init]) {
-        _pokemonID = [pokemonID copy];
+        _national_dex = [pokemonID copy];
         _name = [name copy];
         _stage = [stage copy];
         _galar_dex = [galar_dex copy];

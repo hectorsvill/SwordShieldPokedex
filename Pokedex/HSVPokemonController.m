@@ -9,13 +9,15 @@
 #import "HSVPokemonController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemon+HSVinitWithDictionary.h"
+
+
 @interface HSVPokemonController()
 
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalNationalDexDictionary;
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalGalarDexDictionary;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
-@property (nonatomic, copy) NSMutableArray<NSNumber *> *internalFavoritePokemon;
+@property (nonatomic) NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
 @end
 
@@ -119,10 +121,10 @@
     for (NSDictionary *dictionary in dataArray) {
         HSVPokemon *pokemon = [[HSVPokemon new] initWithDictionary:dictionary];
 
-        if ([pokemon.pokemonID intValue] <= 890) {
-            [_internalNationalDexDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+        if ([pokemon.national_dex intValue] <= 890) {
+            [_internalNationalDexDictionary addEntriesFromDictionary:@{pokemon.national_dex : pokemon}];
 
-            if (pokemon.galar_dex > 0)
+            if (pokemon.galar_dex.intValue > 0)
                 [_internalGalarDexDictionary addEntriesFromDictionary:@{pokemon.galar_dex : pokemon}];
         }
     }
@@ -145,7 +147,7 @@
 }
 
 // MARK: filterWithString
-- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type
 {
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];
     NSArray<HSVPokemon *> *pokemonListArray = [dictionary allValues];
@@ -154,7 +156,7 @@
     NSMutableDictionary<NSNumber *, HSVPokemon *> *pokemonDictionary = [NSMutableDictionary new];
 
     for (HSVPokemon *pokemon in filteredPokemon)
-            [pokemonDictionary addEntriesFromDictionary:@{pokemon.pokemonID : pokemon}];
+        [pokemonDictionary addEntriesFromDictionary:@{pokedex_type == National ? pokemon.national_dex : pokemon.galar_dex : pokemon}]; //
 
     return [self sortedIndexDictionary:pokemonDictionary];
 }

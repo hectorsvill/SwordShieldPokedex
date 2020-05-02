@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) id<HSVPokemonTableViewCellDelegate> delegate;
 
+//@property Pokedex pokdexType;
 @end
 
 NS_ASSUME_NONNULL_END

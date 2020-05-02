@@ -18,21 +18,6 @@
 
 @implementation HSVPokemonDetailView
 
-- (void)setBackgroundColor:(UIColor *)backgroundColor
-{
-    backgroundColor = [UIColor greenColor];
-}
-
-
-- (void)setPokemonImageView:(UIImageView *)pokemonImageView
-{
-
-}
-
-- (void)setShinnyPokemonImageView:(UIImageView *)shinnyPokemonImageView
-{
-
-}
 
 
 @end

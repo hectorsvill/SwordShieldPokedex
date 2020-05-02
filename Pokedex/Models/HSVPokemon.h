@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HSVPokemon : NSObject
 
 
-@property (nonatomic, readonly, copy, nonnull) NSNumber                 *pokemonID;
+@property (nonatomic, readonly, copy, nonnull) NSNumber                 *national_dex;
 @property (nonatomic, readonly, copy, nonnull) NSString                 *name;
 @property (nonatomic, readonly, copy, nonnull) NSString                 *stage;
 @property (nonatomic, readonly, copy, nonnull) NSNumber                 *galar_dex;

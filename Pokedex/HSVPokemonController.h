@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HSVPokedex_Type.h"
 
 @protocol HSVPokemonControllerProtocol;
+
 @class HSVPokemon;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -40,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
 
-- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary;
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type;
 
 @end
 

@@ -13,10 +13,11 @@
 #import "HSVPokemonController.h"
 #import <AVFoundation/AVFoundation.h>
 
-enum Pokedex {
-    National,
-    Galar
-};
+#import "HSVPokedex_Type.h"
+//typedef NS_ENUM(NSInteger, Pokedex) {
+//    National,
+//    Galar
+//};
 
 @interface SearchTableViewController ()
 
@@ -82,6 +83,7 @@ enum Pokedex {
     // galar dex
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokedexType = Galar;
             self.searchBar.text = @"";
             self.pokedexType = Galar;
             self.pokemonIndexList = [self.pokemonController fetchGalarDexIndexList];
@@ -94,6 +96,7 @@ enum Pokedex {
     // national dex
     UIAlertAction *nationalDexAction = [UIAlertAction actionWithTitle:@"National Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokedexType = National;
             self.searchBar.text = @"";
             self.pokedexType = National;
             self.pokemonIndexList = [self.pokemonController pokemonIndexList];
@@ -150,7 +153,7 @@ enum Pokedex {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
-    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar ? pokemon.galar_dex.intValue : pokemon.pokemonID.intValue];
+    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar ? pokemon.galar_dex.intValue : pokemon.national_dex.intValue];
     cell.pokemon = pokemon;
     cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
     cell.delegate = self;
@@ -184,7 +187,7 @@ enum Pokedex {
 {
     if ([searchBar.text length] > 0) {
         NSString *text = [searchBar.text lowercaseString];
-        NSArray *pokemonIndexList = [_pokemonController filterWithString:text dictionary: _pokedexType == Galar ? self.pokemonController.galarDexDictionary : self.pokemonController.nationalDexDictionary];
+        NSArray<NSNumber *> *pokemonIndexList = [_pokemonController filterWithString:text dictionary: _pokedexType == Galar ? self.pokemonController.galarDexDictionary : self.pokemonController.nationalDexDictionary pokedex_type:_pokedexType];
         self.pokemonIndexList = pokemonIndexList;
 
     } else {
