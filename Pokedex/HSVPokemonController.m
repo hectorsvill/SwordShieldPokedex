@@ -21,7 +21,6 @@
 
 @implementation HSVPokemonController
 
-
 + (instancetype)sharedPokemonController
 {
     static HSVPokemonController *pokemonController = nil;

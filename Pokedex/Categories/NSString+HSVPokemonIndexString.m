@@ -13,6 +13,11 @@
 
 - (NSString *)HSVCreatePokemonIndexString:(int)index
 {
+
+    if (index == 0) {
+        return @"809";
+    }
+
     int indexLength = 0;
     int indexCopy = index;
 

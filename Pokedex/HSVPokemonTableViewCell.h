@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVPokemonTableViewCell : UITableViewCell
 
+@property (nonatomic, copy) NSString *indexString;
 @property HSVPokemon *pokemon;
 @property (weak, nonatomic) IBOutlet UILabel *indexLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *pokemonImageView;

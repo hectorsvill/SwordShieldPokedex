@@ -108,6 +108,8 @@ enum Pokedex {
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+
+
 - (void)searchBarPressed
 {
     UIView *titleView = [self navigationItem].titleView;
@@ -147,6 +149,8 @@ enum Pokedex {
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
     cell.pokemon = pokemon;
+    
+    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar? pokemon.galar_dex.intValue : pokemon.pokemonID.intValue];
     cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
     cell.delegate = self;
     [cell setupViews];

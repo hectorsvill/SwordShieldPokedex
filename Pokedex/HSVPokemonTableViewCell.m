@@ -15,10 +15,9 @@
 - (void)setupViews
 {
     [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
-    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:_pokemon.pokemonID.intValue];
-    _indexLabel.text = [NSString stringWithFormat:@"#%@", indexString];
+    _indexLabel.text = [NSString stringWithFormat:@"#%@", _indexString];
     _nameLabel.text = [[_pokemon name] capitalizedString];
-    _pokemonImageView.image = [UIImage imageNamed:indexString];
+    _pokemonImageView.image = [UIImage imageNamed:_indexString];
     [self setFavoriteButtonImage];
 }
 
