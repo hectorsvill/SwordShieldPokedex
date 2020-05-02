@@ -19,22 +19,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<HSVPokemonControllerProtocol> delegate;
 
+- (NSDictionary<NSNumber*, HSVPokemon*> *)galarDexDictionary;
 - (NSArray<NSNumber *> *)fetchGalarDexIndexList;
 - (NSUInteger)galarDexListCount;
 - (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index;
 
-- (NSUInteger)nationalDexDictionaryCount;
-- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
+
+- (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary;
+- (NSUInteger)nationalDexListCount;
 - (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index;
+- (NSArray  <NSNumber *> *)pokemonIndexList;
 
 - (void)addFavorite:(NSNumber *)number;
 - (void)removeInternalFavoritePokemonAtIndexe:(int)index;
 - (NSArray<NSNumber *> *)fetchFavorites;
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber;
 
+
+- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
+
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
-- (NSArray  <NSNumber *> *)filterWithString:(NSString *)string;
-- (NSArray  <NSNumber *> *)pokemonIndexList;
+
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary;
 
 @end
 

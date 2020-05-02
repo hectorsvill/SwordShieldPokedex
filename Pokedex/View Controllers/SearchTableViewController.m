@@ -82,6 +82,7 @@ enum Pokedex {
     // galar dex
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.searchBar.text = @"";
             self.pokedexType = Galar;
             self.pokemonIndexList = [self.pokemonController fetchGalarDexIndexList];
             [self.tableView reloadData];
@@ -93,6 +94,7 @@ enum Pokedex {
     // national dex
     UIAlertAction *nationalDexAction = [UIAlertAction actionWithTitle:@"National Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.searchBar.text = @"";
             self.pokedexType = National;
             self.pokemonIndexList = [self.pokemonController pokemonIndexList];
             [self.tableView reloadData];
@@ -182,8 +184,9 @@ enum Pokedex {
 {
     if ([searchBar.text length] > 0) {
         NSString *text = [searchBar.text lowercaseString];
-        NSArray *pokemonIndexList = [_pokemonController filterWithString:text];
+        NSArray *pokemonIndexList = [_pokemonController filterWithString:text dictionary: _pokedexType == Galar ? self.pokemonController.galarDexDictionary : self.pokemonController.nationalDexDictionary];
         self.pokemonIndexList = pokemonIndexList;
+
     } else {
         self.pokemonIndexList = [_pokemonController pokemonIndexList];
     }

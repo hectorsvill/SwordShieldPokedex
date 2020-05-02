@@ -45,6 +45,11 @@
 }
 
 // MARK: - Galar Dex
+- (NSDictionary<NSNumber*, HSVPokemon*> *)galarDexDictionary
+{
+    return _internalGalarDexDictionary;
+}
+
 - (NSArray<NSNumber *> *)fetchGalarDexIndexList
 {
     return _internalGalarDexIndexList;
@@ -60,10 +65,17 @@
     return [_internalGalarDexDictionary objectForKey:index];
 }
 
+
+
 // MARK: - National Dex
-- (NSUInteger)nationalDexDictionaryCount
+- (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary
 {
-    return [_internalNationalDexDictionary count];
+    return _internalNationalDexDictionary;
+}
+
+- (NSUInteger)nationalDexListCount
+{
+    return [_internalNationalIndexList count];
 }
 
 - (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index
@@ -133,10 +145,10 @@
 }
 
 // MARK: filterWithString
-- (NSArray<NSNumber *> *)filterWithString:(NSString *)string
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary
 {
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];
-    NSArray<HSVPokemon *> *pokemonListArray = [_internalNationalDexDictionary allValues];
+    NSArray<HSVPokemon *> *pokemonListArray = [dictionary allValues];
     NSArray<HSVPokemon *> *filteredPokemon = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
 
     NSMutableDictionary<NSNumber *, HSVPokemon *> *pokemonDictionary = [NSMutableDictionary new];
