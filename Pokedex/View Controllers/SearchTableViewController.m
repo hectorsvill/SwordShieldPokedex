@@ -148,9 +148,8 @@ enum Pokedex {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar ? pokemon.galar_dex.intValue : pokemon.pokemonID.intValue];
     cell.pokemon = pokemon;
-    
-    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar? pokemon.galar_dex.intValue : pokemon.pokemonID.intValue];
     cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
     cell.delegate = self;
     [cell setupViews];
