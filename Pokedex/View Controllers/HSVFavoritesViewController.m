@@ -26,14 +26,14 @@
 
     self.pokemonController = HSVPokemonController.sharedPokemonController;
     self.tableView.rowHeight = 80;
-    self.favoriteIndexList = [self.pokemonController fetchFavorites];
+    self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    self.favoriteIndexList = [self.pokemonController fetchFavorites];
+    self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
     [self.tableView reloadData];
 }
 

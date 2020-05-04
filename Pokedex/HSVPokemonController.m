@@ -17,7 +17,7 @@
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalGalarDexDictionary;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
-@property (nonatomic) NSMutableArray<NSNumber *> *internalFavoritePokemon;
+@property (nonatomic) NSMutableSet<NSNumber *> *internalFavoritePokemon;
 
 @end
 
@@ -41,7 +41,7 @@
         _internalNationalDexDictionary = [NSMutableDictionary new];
         _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalNationalIndexList = [NSArray new];
-        _internalFavoritePokemon = [NSMutableArray new];
+        _internalFavoritePokemon = [NSMutableSet new];
     }
     return self;
 }
@@ -93,15 +93,15 @@
 // MARK: - Favorites
 - (void)addFavorite:(NSNumber *)number
 {
-    [_internalFavoritePokemon insertObject:number atIndex: 0];
+    [_internalFavoritePokemon addObject:number];
 }
 
-- (void)removeInternalFavoritePokemonAtIndexe:(int)index
+- (void)removeInternalFavoritePokemon:(NSNumber *)object
 {
-    [_internalFavoritePokemon removeObjectAtIndex:index];
+    [_internalFavoritePokemon removeObject:object];
 }
 
-- (NSArray<NSNumber *> *)fetchFavorites
+- (NSSet<NSNumber *> *)fetchFavorites
 {
     return _internalFavoritePokemon;
 }

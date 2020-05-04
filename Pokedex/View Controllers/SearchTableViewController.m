@@ -76,6 +76,7 @@
 
 }
 
+// MARK: - gearButtonPressed
 - (void)gearButtonPressed
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Pokedex NO." message:NULL preferredStyle:UIAlertControllerStyleActionSheet];
