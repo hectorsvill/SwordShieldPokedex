@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,6 +82,7 @@
                                     <outlet property="indexLabel" destination="M7g-Gr-4wN" id="xmb-6H-Cqd"/>
                                     <outlet property="nameLabel" destination="gio-eK-RKc" id="CkZ-TZ-FUQ"/>
                                     <outlet property="pokemonImageView" destination="O4Y-VI-lTH" id="CpW-31-dCg"/>
+                                    <segue destination="KXz-iu-ChA" kind="presentation" identifier="PokemonDetail" id="SHF-0p-gyZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -96,6 +98,22 @@
             </objects>
             <point key="canvasLocation" x="1760.8695652173915" y="-260.49107142857144"/>
         </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="yFG-9f-O4f">
+            <objects>
+                <viewController id="KXz-iu-ChA" customClass="HSVPokemonDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BZF-8M-guv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gph-U9-JcS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QXd-6U-IJC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="laa-Qm-gb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3222" y="183"/>
+        </scene>
         <!--Favorites View Controller-->
         <scene sceneID="ree-6O-XE7">
             <objects>
@@ -104,46 +122,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6A-7L-KUD">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iIC-1r-cSP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavortieCell" textLabel="kQx-0U-KDT" style="IBUITableViewCellStyleDefault" id="VQM-g7-OrW">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VQM-g7-OrW" id="JxK-JE-9XF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qwd-74-lLa">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="yrU-YM-AOG">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aBv-ML-G8p">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kQx-0U-KDT">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="wCM-Dh-kW9" id="BvH-yd-VGc"/>
-                                    <outlet property="delegate" destination="wCM-Dh-kW9" id="DWY-ac-23r"/>
+                                    <outlet property="dataSource" destination="wCM-Dh-kW9" id="ufr-iv-8KH"/>
+                                    <outlet property="delegate" destination="wCM-Dh-kW9" id="aZu-2j-Kzc"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ban-0c-Q3R" firstAttribute="trailing" secondItem="y6A-7L-KUD" secondAttribute="trailing" id="CFg-M7-5zl"/>
-                            <constraint firstItem="y6A-7L-KUD" firstAttribute="leading" secondItem="Ban-0c-Q3R" secondAttribute="leading" id="P6g-A8-npt"/>
-                            <constraint firstItem="y6A-7L-KUD" firstAttribute="top" secondItem="Ban-0c-Q3R" secondAttribute="top" id="d70-91-vbS"/>
-                            <constraint firstItem="y6A-7L-KUD" firstAttribute="bottom" secondItem="Ban-0c-Q3R" secondAttribute="bottom" id="vs2-5X-Cu5"/>
+                            <constraint firstItem="Ban-0c-Q3R" firstAttribute="trailing" secondItem="iIC-1r-cSP" secondAttribute="trailing" id="6RO-X4-XhG"/>
+                            <constraint firstItem="iIC-1r-cSP" firstAttribute="top" secondItem="Ban-0c-Q3R" secondAttribute="top" id="JFO-0y-4eJ"/>
+                            <constraint firstItem="iIC-1r-cSP" firstAttribute="leading" secondItem="Ban-0c-Q3R" secondAttribute="leading" id="iHV-iH-jes"/>
+                            <constraint firstItem="Ban-0c-Q3R" firstAttribute="bottom" secondItem="iIC-1r-cSP" secondAttribute="bottom" id="uvi-en-B16"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ban-0c-Q3R"/>
                     </view>
                     <navigationItem key="navigationItem" id="7Ny-mw-xRy"/>
                     <connections>
-                        <outlet property="tableView" destination="y6A-7L-KUD" id="p9K-fU-bcG"/>
+                        <outlet property="collectionView" destination="iIC-1r-cSP" id="ZtY-TL-HWC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XF6-Ql-LiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,7 +220,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wCM-Dh-kW9" kind="relationship" relationship="rootViewController" id="Dbf-yW-Q2J"/>
+                        <segue destination="wCM-Dh-kW9" kind="relationship" relationship="rootViewController" destinationCreationSelector="PokemonDetail" id="Dbf-yW-Q2J"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odt-rX-BoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

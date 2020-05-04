@@ -12,6 +12,7 @@
 #import "NSString+HSVPokemonIndexString.h"
 #import "HSVPokemonController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "HSVPokemonDetailViewController.h"
 
 #import "HSVPokedex_Type.h"
 //typedef NS_ENUM(NSInteger, Pokedex) {
@@ -142,6 +143,17 @@
     speechUtterance.voice = [AVSpeechSynthesisVoice voiceWithIdentifier:@"com.apple.ttsbundle.siri_male_en-GB_compact"];
     [_speechSynthesizer speakUtterance:speechUtterance];
 }
+#pragma mark - prepareForSegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PokemonDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
+        HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
+        HSVPokemonDetailViewController *detailViewController = (HSVPokemonDetailViewController *)segue.destinationViewController;
+        detailViewController.pokemon = pokemon;
+    }
+}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -168,11 +180,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:true];
 
-    [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-    HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    HSVPokemon *pokemon = cell.pokemon;
-
-    [self pokedexSpeak:pokemon];
+//    [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+//    HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    HSVPokemon *pokemon = cell.pokemon;
+//
+//    [self pokedexSpeak:pokemon];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

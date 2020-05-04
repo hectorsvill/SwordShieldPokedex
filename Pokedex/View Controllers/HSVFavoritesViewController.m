@@ -12,8 +12,8 @@
 #import "HSVPokemonTableViewCell.h"
 
 @interface HSVFavoritesViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray *favoriteIndexList;
 
 @end
@@ -25,8 +25,8 @@
     [super viewDidLoad];
 
     self.pokemonController = HSVPokemonController.sharedPokemonController;
-    self.tableView.rowHeight = 80;
     self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
+    [_collectionView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -34,34 +34,21 @@
     [super viewWillAppear:animated];
 
     self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
-    [self.tableView reloadData];
+    [_collectionView reloadData];
 }
 
-#pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//#pragma mark - Table view delegate
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.favoriteIndexList.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavortieCell" forIndexPath:indexPath];
-
-    NSNumber *favoriteIndex = [self.favoriteIndexList objectAtIndex:indexPath.row];
-    HSVPokemon *pokemon = [self.pokemonController fetchNationalDexpokemonWithIndex:favoriteIndex];
-    cell.textLabel.text = pokemon.name;
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FavoriteCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [_favoriteIndexList count];
 }
+
 
 @end
