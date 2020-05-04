@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "HSVPokemonTableViewCellDelegate.h"
+#import "HSVPokedex_Type.h"
+
 @class HSVPokemon;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupViews;
 
 @property (weak) id<HSVPokemonTableViewCellDelegate> delegate;
+@property Pokedex pokdexType;
 
-//@property Pokedex pokdexType;
 @end
 
 NS_ASSUME_NONNULL_END

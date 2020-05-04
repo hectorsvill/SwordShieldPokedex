@@ -14,6 +14,7 @@
 
 - (void)setupViews
 {
+    _indexString = [[NSString new] HSVCreatePokemonIndexString: _pokdexType == Galar ? _pokemon.galar_dex.intValue : _pokemon.national_dex.intValue];
     [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
     _indexLabel.text = [NSString stringWithFormat:@"#%@", _indexString];
     _nameLabel.text = [[_pokemon name] capitalizedString];

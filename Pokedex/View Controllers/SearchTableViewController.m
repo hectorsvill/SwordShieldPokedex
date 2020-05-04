@@ -154,16 +154,15 @@
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
-    cell.indexString = [[NSString new] HSVCreatePokemonIndexString: _pokedexType == Galar ? pokemon.galar_dex.intValue : pokemon.national_dex.intValue];
+    cell.pokdexType = _pokedexType;
     cell.pokemon = pokemon;
-    cell.isFavorite = [_pokemonController isfavortie:pokemonIndex];
+    cell.isFavorite = [_pokemonController isfavortie:pokemon.national_dex];
     cell.delegate = self;
     [cell setupViews];
     return cell;
 }
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
@@ -181,9 +180,7 @@
     [_searchBar resignFirstResponder];
 }
 
-
 #pragma mark - Search bar delegate
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([searchBar.text length] > 0) {
@@ -199,11 +196,9 @@
 }
 
 #pragma mark - HSVPOkemonTableViewCellDelegate
-
 - (void)saveToFavorites:(NSNumber *)indexNumber
 {
     [self.pokemonController addFavorite: indexNumber];
-    NSLog(@"%lu", (unsigned long)self.pokemonController.fetchFavorites.count);
 }
 
 @end
