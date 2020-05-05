@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HSVPokemonDetailViewController : UIViewController
+@interface HSVPokemonDetailViewController : UIViewController<UITableViewDataSource>
 
 @property (nonatomic) HSVPokemon *pokemon;
 

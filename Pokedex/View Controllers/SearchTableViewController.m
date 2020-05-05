@@ -25,7 +25,7 @@
 @property (nonatomic) enum Pokedex pokedexType;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
-@property (nonatomic) AVSpeechSynthesizer *speechSynthesizer;
+
 
 @end
 
@@ -43,7 +43,7 @@
 
 - (void)setupViews
 {
-    self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+
     [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
@@ -135,14 +135,7 @@
     }
 }
 
-- (void)pokedexSpeak:(HSVPokemon *)pokemon
-{
-    NSString *typeString = [pokemon.types componentsJoinedByString:@" and "];
-    NSString *UtteranceString = [NSString stringWithFormat:@"%@. %@ type. %@", pokemon.name, typeString, pokemon.pokedexdescription];
-    AVSpeechUtterance *speechUtterance = [AVSpeechUtterance speechUtteranceWithString:UtteranceString];
-    speechUtterance.voice = [AVSpeechSynthesisVoice voiceWithIdentifier:@"com.apple.ttsbundle.siri_male_en-GB_compact"];
-    [_speechSynthesizer speakUtterance:speechUtterance];
-}
+
 #pragma mark - prepareForSegue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -179,12 +172,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:true];
-
-//    [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-//    HSVPokemonTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    HSVPokemon *pokemon = cell.pokemon;
-//
-//    [self pokedexSpeak:pokemon];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
