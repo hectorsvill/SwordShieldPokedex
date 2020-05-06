@@ -29,6 +29,7 @@
     [super viewDidLoad];
     [self configureViews];
     [self setPokemonData];
+//    [self configurePokemonDataWithSection:0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -79,13 +80,22 @@
      ];
 
     _pokemonData = @{
-        @0: [NSMutableArray arrayWithObject:_pokemon.pokedexdescription],
-        @1: [NSMutableArray array],//
-        @2: [NSMutableArray array],
-        @3: [NSMutableArray array],
-        @4: [NSMutableArray array],
-        @5: [NSMutableArray array],
+        @0: [NSMutableArray array],
+        @1: [NSMutableArray array],
     };
+}
+
+- (void)setpokemonDataWithSection:(NSInteger)sectionInt
+{
+    NSArray *data = _pokemonData[[NSNumber numberWithInteger:sectionInt]];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+
+    for (int i = 0; i < data.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:sectionInt];
+        [indexPaths addObject:indexPath];
+    }
+
+    [_tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)configurePokemonDataWithSection:(NSInteger)section
@@ -93,37 +103,44 @@
     NSNumber *sectionIndexNumber = [NSNumber numberWithInteger:section];
 
     if (_pokemonData[sectionIndexNumber].count == 0) {
-
         switch ([sectionIndexNumber intValue]) {
             case 0:{
                 [_pokemonData[sectionIndexNumber] addObject:_pokemon.pokedexdescription];
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:sectionIndexNumber.intValue];
-                [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
             }
-            case 1:
+            case 1:{
+                NSArray *dexArr = @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]];
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:dexArr];
                 break;
-            case 2:
+            }
+            case 2:{
+                
                 break;
-            case 3:
+            }
+            case 3:{
                 break;
-            case 4:
+            }
+            case 4:{
                 break;
+            }
             default:
                 break;
         };
 
+        [self setpokemonDataWithSection:sectionIndexNumber.integerValue];
     } else {
 
         NSInteger rowCount = _pokemonData[sectionIndexNumber].count;
+        NSMutableArray *indexPaths = [NSMutableArray array];
 
-        while (rowCount > 0) {
-
-            [_pokemonData[sectionIndexNumber] removeObjectAtIndex:rowCount - 1];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowCount - 1 inSection:sectionIndexNumber.intValue];
-            [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            rowCount -= 1;
+        [_pokemonData[sectionIndexNumber] removeAllObjects];
+        
+        for (int i = 0; i < rowCount; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:sectionIndexNumber.integerValue];
+            [indexPaths addObject:indexPath];
         }
+
+        [_tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 
     }
 
