@@ -18,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shinyPokemonImageView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) NSDictionary<NSNumber *, NSArray *> *pokemonData;
+@property (nonatomic) NSArray *pokemonDescriptionSrtings;
 @end
 
 @implementation HSVPokemonDetailViewController
@@ -27,7 +28,29 @@
 {
     [super viewDidLoad];
     [self configureViews];
+    [self setPokemonData];
 
+}
+
+- (void)setPokemonData
+{
+    _pokemonDescriptionSrtings =  @[
+         @"Decription",
+         @"NO.",
+         @"type",
+         @"height",
+         @"weight",
+         @"Base Stats",
+     ];
+
+    _pokemonData = @{
+        @0: @[_pokemon.pokedexdescription],
+        @1: @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]],
+        @2: @[],
+        @3: @[],
+        @4: @[],
+        @5: @[]
+    };
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -39,6 +62,7 @@
 
 - (void)configureViews
 {
+
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
 
     self.title = [NSString stringWithFormat:@"%@", _pokemon.name ];
@@ -78,34 +102,59 @@
     [self pokedexSpeak:_pokemon];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIButton *button = [UIButton new];
+    [button setTag:section];
+    button.layer.cornerRadius = 8;
+    button.backgroundColor = UIColor.systemGroupedBackgroundColor;
+    [button setTitleColor:UIColor.systemRedColor forState:UIControlStateNormal];
+    [button setTitle:_pokemonDescriptionSrtings[section] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(headerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    return button;
+
+}
+
+- (void)headerButtonClicked:(UIButton *)sender
+{
+    NSNumber *sectionIndex = [NSNumber numberWithUnsignedLong:sender.tag];
+    NSArray *pokemonInfo = [_pokemonData objectForKey: sectionIndex];
+    NSLog(@"%@", pokemonInfo);
+
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 
-    return [NSString stringWithFormat:@"%ld", (long)section ];
+    return [NSString stringWithFormat:@"%ld", (long)section];
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return _pokemonData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [_pokemonData objectForKey:[NSNumber numberWithInteger:section]].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
 
-    cell.textLabel.text = @"text";
-
-    cell.detailTextLabel.text = @"detail";
-
+    NSString *text = _pokemonData[[NSNumber numberWithUnsignedLong:indexPath.section]][indexPath.row];
+    cell.textLabel.text = text;
+    [cell.textLabel setNumberOfLines:0];
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
     return cell;
 }
 
