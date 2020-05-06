@@ -32,27 +32,6 @@
 
 }
 
-- (void)setPokemonData
-{
-    _pokemonDescriptionSrtings =  @[
-         @"Decription",
-         @"NO.",
-         @"type",
-         @"height",
-         @"weight",
-         @"Base Stats",
-     ];
-
-    _pokemonData = @{
-        @0: @[_pokemon.pokedexdescription],
-        @1: @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]],
-        @2: @[],
-        @3: @[],
-        @4: @[],
-        @5: @[]
-    };
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -60,6 +39,8 @@
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
 }
 
+
+#pragma mark -
 - (void)configureViews
 {
 
@@ -87,6 +68,53 @@
 }
 
 
+- (void)setPokemonData
+{
+    _pokemonDescriptionSrtings =  @[
+         @"Decription",
+         @"NO.",
+         @"Type",
+         @"Height",
+         @"Weight",
+         @"Base Stats",
+     ];
+
+    _pokemonData = @{
+        @0: @[_pokemon.pokedexdescription],
+        @1: @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]],
+        @2: @[],
+        @3: @[],
+        @4: @[],
+        @5: @[]
+    };
+}
+
+- (void)configurePokemonData:(NSInteger)section
+{
+    NSNumber *sectionNumber = [NSNumber numberWithInteger:section];
+
+    if ([_pokemonData objectForKey: sectionNumber].count == 0) {
+
+
+
+    } else {
+
+        NSInteger rowCount = _pokemonData[sectionNumber].count;
+        NSLog(@"%ld", (long)rowCount);
+    }
+
+
+}
+
+#pragma mark - headerButtonClicked
+- (void)headerButtonClicked:(UIButton *)sender
+{
+    [self configurePokemonData:sender.tag];
+
+
+}
+
+#pragma mark - pokedexSpeak
 - (void)pokedexSpeak:(HSVPokemon *)pokemon
 {
     NSString *typeString = [pokemon.types componentsJoinedByString:@" and "];
@@ -96,16 +124,17 @@
     [_speechSynthesizer speakUtterance:speechUtterance];
 }
 
+#pragma mark - playButtonPressed
 - (IBAction)playButtonPressed:(id)sender
 {
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     [self pokedexSpeak:_pokemon];
 }
 
-#pragma mark - Table view
+#pragma mark - Table View
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 44;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -121,21 +150,11 @@
 
 }
 
-- (void)headerButtonClicked:(UIButton *)sender
-{
-    NSNumber *sectionIndex = [NSNumber numberWithUnsignedLong:sender.tag];
-    NSArray *pokemonInfo = [_pokemonData objectForKey: sectionIndex];
-    NSLog(@"%@", pokemonInfo);
-
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 
     return [NSString stringWithFormat:@"%ld", (long)section];
 }
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
