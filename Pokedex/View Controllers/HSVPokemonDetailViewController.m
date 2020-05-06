@@ -29,7 +29,10 @@
     [super viewDidLoad];
     [self configureViews];
     [self setPokemonData];
-//    [self configurePokemonDataWithSection:0];
+    [self configurePokemonDataWithSection:0];
+    [self configurePokemonDataWithSection:1];
+    [self configurePokemonDataWithSection:2];
+    [self configurePokemonDataWithSection:3];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -74,14 +77,16 @@
          @"Decription",
          @"NO.",
          @"Type",
-         @"Height",
-         @"Weight",
+         @"Height & Weight",
          @"Base Stats",
      ];
 
     _pokemonData = @{
         @0: [NSMutableArray array],
         @1: [NSMutableArray array],
+        @2: [NSMutableArray array],
+        @3: [NSMutableArray array],
+        @3: [NSMutableArray array],
     };
 }
 
@@ -109,18 +114,26 @@
                 break;
             }
             case 1:{
-                NSArray *dexArr = @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]];
+                NSString *nationalDexString = [NSString stringWithFormat:@"National:  #%@", _pokemon.national_dex];
+                NSString *galarDexString = [NSString stringWithFormat:@"    Galar:  #%@", _pokemon.galar_dex];
+                NSArray *dexArr = @[nationalDexString, galarDexString];
                 [_pokemonData[sectionIndexNumber] addObjectsFromArray:dexArr];
                 break;
             }
             case 2:{
-                
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:_pokemon.types];
                 break;
             }
             case 3:{
+                NSString *heightString = [NSString stringWithFormat:@"Height:  %@m", _pokemon.height];
+                NSString *weightString = [NSString stringWithFormat:@"Weight:  %@kg", _pokemon.weight];
+                NSArray *arr = @[heightString, weightString];
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:arr];
                 break;
             }
             case 4:{
+
+
                 break;
             }
             default:
@@ -151,8 +164,6 @@
 - (void)headerButtonClicked:(UIButton *)sender
 {
     [self configurePokemonDataWithSection:sender.tag];
-
-
 }
 
 #pragma mark - pokedexSpeak
@@ -215,6 +226,8 @@
     cell.textLabel.text = text;
     [cell.textLabel setNumberOfLines:0];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
+
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
 }
 
