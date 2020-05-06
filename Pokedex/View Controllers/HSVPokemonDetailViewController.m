@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shinyPokemonImageView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSDictionary<NSNumber *, NSArray *> *pokemonData;
+@property (nonatomic) NSDictionary<NSNumber *, NSMutableArray *> *pokemonData;
 @property (nonatomic) NSArray *pokemonDescriptionSrtings;
 @end
 
@@ -29,7 +29,6 @@
     [super viewDidLoad];
     [self configureViews];
     [self setPokemonData];
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -80,27 +79,52 @@
      ];
 
     _pokemonData = @{
-        @0: @[_pokemon.pokedexdescription],
-        @1: @[[NSString stringWithFormat:@"National: %@", _pokemon.national_dex], [NSString stringWithFormat:@"Galar: %@", _pokemon.galar_dex]],
-        @2: @[],
-        @3: @[],
-        @4: @[],
-        @5: @[]
+        @0: [NSMutableArray arrayWithObject:_pokemon.pokedexdescription],
+        @1: [NSMutableArray array],//
+        @2: [NSMutableArray array],
+        @3: [NSMutableArray array],
+        @4: [NSMutableArray array],
+        @5: [NSMutableArray array],
     };
 }
 
-- (void)configurePokemonData:(NSInteger)section
+- (void)configurePokemonDataWithSection:(NSInteger)section
 {
-    NSNumber *sectionNumber = [NSNumber numberWithInteger:section];
+    NSNumber *sectionIndexNumber = [NSNumber numberWithInteger:section];
 
-    if ([_pokemonData objectForKey: sectionNumber].count == 0) {
+    if (_pokemonData[sectionIndexNumber].count == 0) {
 
-
+        switch ([sectionIndexNumber intValue]) {
+            case 0:{
+                [_pokemonData[sectionIndexNumber] addObject:_pokemon.pokedexdescription];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:sectionIndexNumber.intValue];
+                [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        };
 
     } else {
 
-        NSInteger rowCount = _pokemonData[sectionNumber].count;
-        NSLog(@"%ld", (long)rowCount);
+        NSInteger rowCount = _pokemonData[sectionIndexNumber].count;
+
+        while (rowCount > 0) {
+
+            [_pokemonData[sectionIndexNumber] removeObjectAtIndex:rowCount - 1];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowCount - 1 inSection:sectionIndexNumber.intValue];
+            [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            rowCount -= 1;
+        }
+
     }
 
 
@@ -109,7 +133,7 @@
 #pragma mark - headerButtonClicked
 - (void)headerButtonClicked:(UIButton *)sender
 {
-    [self configurePokemonData:sender.tag];
+    [self configurePokemonDataWithSection:sender.tag];
 
 
 }
@@ -141,8 +165,8 @@
 {
     UIButton *button = [UIButton new];
     [button setTag:section];
-    button.layer.cornerRadius = 8;
-    button.backgroundColor = UIColor.systemGroupedBackgroundColor;
+    button.layer.cornerRadius = 3;
+    button.backgroundColor = UIColor.systemGray6Color;
     [button setTitleColor:UIColor.systemRedColor forState:UIControlStateNormal];
     [button setTitle:_pokemonDescriptionSrtings[section] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(headerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -175,6 +199,11 @@
     [cell.textLabel setNumberOfLines:0];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end
