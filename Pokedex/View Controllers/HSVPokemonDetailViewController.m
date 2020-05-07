@@ -133,14 +133,16 @@
                 break;
             }
             case 4:{
-                NSString *baseString =      [NSString stringWithFormat:@"         HP:  %@m", _pokemon.base_stats[0]];
-                NSString *attackString =    [NSString stringWithFormat:@"     ATTACK:  %@m", _pokemon.base_stats[1]];
-                NSString *defenceString =   [NSString stringWithFormat:@"    DEFENSE:  %@m", _pokemon.base_stats[2]];
-                NSString *spAttackString =  [NSString stringWithFormat:@" Sp. ATTACK:  %@m", _pokemon.base_stats[3]];
-                NSString *spDefenceString = [NSString stringWithFormat:@"Sp. DEFENSE:  %@m", _pokemon.base_stats[4]];
-                NSString *speedString =     [NSString stringWithFormat:@"      Speed:  %@m", _pokemon.base_stats[5]];
+                NSNumber *total = [_pokemon.base_stats valueForKeyPath:@"@sum.self"];
+                NSString *totalString =      [NSString stringWithFormat:@"     TOTAL:  %@", total];
+                NSString *baseString =      [NSString stringWithFormat:@"         HP:  %@", _pokemon.base_stats[0]];
+                NSString *attackString =    [NSString stringWithFormat:@"     ATTACK:  %@", _pokemon.base_stats[1]];
+                NSString *defenceString =   [NSString stringWithFormat:@"    DEFENSE:  %@", _pokemon.base_stats[2]];
+                NSString *spAttackString =  [NSString stringWithFormat:@" Sp. ATTACK:  %@", _pokemon.base_stats[3]];
+                NSString *spDefenceString = [NSString stringWithFormat:@"Sp. DEFENSE:  %@", _pokemon.base_stats[4]];
+                NSString *speedString =     [NSString stringWithFormat:@"      Speed:  %@", _pokemon.base_stats[5]];
 
-                NSArray *arr = @[baseString, attackString, defenceString, spAttackString, spDefenceString, speedString];
+                NSArray *arr = @[totalString, baseString, attackString, defenceString, spAttackString, spDefenceString, speedString];
                 [_pokemonData[sectionIndexNumber] addObjectsFromArray:arr];
                 break;
             }
