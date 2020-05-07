@@ -33,6 +33,7 @@
     [self configurePokemonDataWithSection:1];
     [self configurePokemonDataWithSection:2];
     [self configurePokemonDataWithSection:3];
+       [self configurePokemonDataWithSection:4];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -86,7 +87,7 @@
         @1: [NSMutableArray array],
         @2: [NSMutableArray array],
         @3: [NSMutableArray array],
-        @3: [NSMutableArray array],
+        @4: [NSMutableArray array],
     };
 }
 
@@ -132,8 +133,15 @@
                 break;
             }
             case 4:{
+                NSString *baseString =      [NSString stringWithFormat:@"         HP:  %@m", _pokemon.base_stats[0]];
+                NSString *attackString =    [NSString stringWithFormat:@"     ATTACK:  %@m", _pokemon.base_stats[1]];
+                NSString *defenceString =   [NSString stringWithFormat:@"    DEFENSE:  %@m", _pokemon.base_stats[2]];
+                NSString *spAttackString =  [NSString stringWithFormat:@" Sp. ATTACK:  %@m", _pokemon.base_stats[3]];
+                NSString *spDefenceString = [NSString stringWithFormat:@"Sp. DEFENSE:  %@m", _pokemon.base_stats[4]];
+                NSString *speedString =     [NSString stringWithFormat:@"      Speed:  %@m", _pokemon.base_stats[5]];
 
-
+                NSArray *arr = @[baseString, attackString, defenceString, spAttackString, spDefenceString, speedString];
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:arr];
                 break;
             }
             default:
