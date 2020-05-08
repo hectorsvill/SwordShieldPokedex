@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
                            height:(NSNumber *)height
                            weight:(NSNumber *)weight
                             color:(NSNumber *)color
-                   level_up_moves:(NSArray<NSDictionary *> *)level_up_moves
+                   level_up_moves:(NSArray<NSArray *> *)level_up_moves
                         egg_moves:(NSArray<NSString *> *)egg_moves
                               tms:(NSArray<NSNumber *> *)tms
                               trs:(NSArray<NSNumber *> *)trs
