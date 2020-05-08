@@ -18,7 +18,7 @@
 
 @implementation HSVFavoriteCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"FavoriteCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.pokemonController = HSVPokemonController.sharedPokemonController;
     self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
 
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
 }
 
@@ -52,13 +52,17 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_favoriteIndexList count];
+    return 2;//[_favoriteIndexList count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = UIColor.redColor;
+    [cell.layer setBorderWidth:2];
     return cell;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(16, 16, 16, 16);
 }
 
 #pragma mark <UICollectionViewDelegate>
