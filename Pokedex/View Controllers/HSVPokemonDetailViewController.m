@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shinyPokemonImageView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSDictionary<NSNumber *, NSMutableArray *> *pokemonData;
+@property (nonatomic) NSMutableDictionary<NSNumber *, NSMutableArray *> *pokemonData;
 @property (nonatomic) NSArray *pokemonDescriptionSrtings;
 @end
 
@@ -29,11 +29,9 @@
     [super viewDidLoad];
     [self configureViews];
     [self setPokemonData];
-    [self configurePokemonDataWithSection:0];
-    [self configurePokemonDataWithSection:1];
-    [self configurePokemonDataWithSection:2];
-    [self configurePokemonDataWithSection:3];
-       [self configurePokemonDataWithSection:4];
+
+    for (int i = 0; i <= 10; i++)
+        [self configurePokemonDataWithSection:i];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -80,15 +78,19 @@
          @"Type",
          @"Height & Weight",
          @"Base Stats",
+         @"Hatch Cycles",
+         @"Exp Group",
+         @"Egg groups",
+         @"Egg Moves",
+         @"Abilities",
+         @"Level Up Moves",
+
      ];
 
-    _pokemonData = @{
-        @0: [NSMutableArray array],
-        @1: [NSMutableArray array],
-        @2: [NSMutableArray array],
-        @3: [NSMutableArray array],
-        @4: [NSMutableArray array],
-    };
+    _pokemonData = [NSMutableDictionary dictionary];
+    for (int i = 0; i < _pokemonDescriptionSrtings.count; i++)
+        [_pokemonData addEntriesFromDictionary:@{[NSNumber numberWithInt:i]: [NSMutableArray array]}];
+
 }
 
 - (void)setpokemonDataWithSection:(NSInteger)sectionInt
@@ -146,6 +148,44 @@
                 [_pokemonData[sectionIndexNumber] addObjectsFromArray:arr];
                 break;
             }
+            case 5:{
+                NSString *hatchCycleString =  [NSString stringWithFormat:@" Hatch Cycle:  %@", _pokemon.hatch_cycles];
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:@[hatchCycleString]];
+                break;
+            }
+            case 6:{
+                NSString *expGroupString =  [NSString stringWithFormat:@"%@", _pokemon.exp_groups];
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:@[expGroupString]];
+                break;
+            }
+            case 7:{
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:_pokemon.egg_groups];
+                break;
+            }
+            case 8:{
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:_pokemon.egg_moves];
+
+                break;
+            }
+            case 9:{
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:_pokemon.abilities];
+                break;
+            }
+            case 10: {
+                NSArray *level_up_moves = _pokemon.level_up_moves;
+                NSMutableArray<NSString *> *level_up_movesStringArray = [NSMutableArray array];
+
+                for (int i = 0; i < level_up_moves.count; i++) {
+                    NSArray *arr = [level_up_moves objectAtIndex:i];
+
+                    NSString *level_up_moveString = [NSString stringWithFormat:@"lvl.%@\t %@", [NSNumber numberWithLong: [arr[0] integerValue]] , arr[1]];
+                    [level_up_movesStringArray addObject:level_up_moveString];
+                }
+
+                [_pokemonData[sectionIndexNumber] addObjectsFromArray:level_up_movesStringArray];
+
+                break;
+            }
             default:
                 break;
         };
@@ -196,7 +236,7 @@
 #pragma mark - Table View
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 44;
+    return 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -235,7 +275,7 @@
     NSString *text = _pokemonData[[NSNumber numberWithUnsignedLong:indexPath.section]][indexPath.row];
     cell.textLabel.text = text;
     [cell.textLabel setNumberOfLines:0];
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
 
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;

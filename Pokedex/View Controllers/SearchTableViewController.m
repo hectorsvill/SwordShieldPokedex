@@ -47,7 +47,7 @@
     [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
-    [self tableView].rowHeight = 80;
+//    [self tableView].rowHeight = 80;
 
     [_pokemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
         dispatch_async(dispatch_get_main_queue(), ^{

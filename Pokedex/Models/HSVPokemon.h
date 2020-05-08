@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy, nonnull) NSNumber                 *height;
 @property (nonatomic, readonly, copy, nonnull) NSNumber                 *weight;
 @property (nonatomic, readonly, copy, nonnull) NSNumber                 *color;
-@property (nonatomic, readonly, copy, nonnull) NSArray<NSDictionary *>  *level_up_moves;
+@property (nonatomic, readonly, copy, nonnull) NSArray<NSArray *>  *level_up_moves;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSString *>      *egg_moves;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSNumber *>      *tms;
 @property (nonatomic, readonly, copy, nonnull) NSArray<NSNumber *>      *trs;
