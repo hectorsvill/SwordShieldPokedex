@@ -9,6 +9,8 @@
 #import "HSVFavoriteCollectionViewController.h"
 #import "HSVPokemonController.h"
 #import "HSVPokemon.h"
+#import "HSVFavoriteCollectionViewCell.h"
+#import "NSString+HSVPokemonIndexString.h"
 
 @interface HSVFavoriteCollectionViewController ()
 
@@ -52,18 +54,25 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;//[_favoriteIndexList count];
+    return [_favoriteIndexList count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    [cell.layer setBorderWidth:2];
+    HSVFavoriteCollectionViewCell *cell = (HSVFavoriteCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    NSNumber *pokemonIndex = [_favoriteIndexList objectAtIndex:indexPath.row];
+    HSVPokemon *pokemon = [_pokemonController fetchNationalDexpokemonWithIndex:pokemonIndex];
+
+    NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemon.national_dex.intValue];
+    cell.pokemonImageView.image =  [UIImage imageNamed:indexString];
+    cell.nameLabel.text = pokemon.name;
     return cell;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(16, 16, 16, 16);
 }
+
+
 
 #pragma mark <UICollectionViewDelegate>
 

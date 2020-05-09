@@ -256,7 +256,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle.fill" catalog="system" id="ILC-7U-9Ru"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bUA-re-2u9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -268,7 +268,7 @@
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="386.38392857142856"/>
         </scene>
-        <!--Favorite Pokemon-->
+        <!--⚔️🛡Favorite-->
         <scene sceneID="IU9-uO-IAX">
             <objects>
                 <collectionViewController id="gTv-RD-oKh" customClass="HSVFavoriteCollectionViewController" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="kdW-q5-sDg">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="kdW-q5-sDg" customClass="HSVFavoriteCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="179" height="263"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFA-lA-mxD">
@@ -328,6 +328,10 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="179" height="263"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="goR-tl-dHp" id="mb9-LM-Kfe"/>
+                                    <outlet property="pokemonImageView" destination="LJo-8o-Xst" id="ksY-bU-pnc"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -335,7 +339,7 @@
                             <outlet property="delegate" destination="gTv-RD-oKh" id="dqb-SP-wzp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Favorite Pokemon" id="OQf-ji-Ufq"/>
+                    <navigationItem key="navigationItem" title="⚔️🛡Favorite" id="OQf-ji-Ufq"/>
                     <value key="contentSizeForViewInPopover" type="size" width="414" height="896"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldG-wj-Jig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

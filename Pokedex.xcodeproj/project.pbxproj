@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		121B32842465F1AD0074461A /* HSVFavoriteCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */; };
+		121B3287246627720074461A /* HSVFavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */; };
 		122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3A2450BCB2002E777F /* AppDelegate.m */; };
 		122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3D2450BCB2002E777F /* SceneDelegate.m */; };
 		122A4E442450BCB2002E777F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E422450BCB2002E777F /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		121B32822465F1AD0074461A /* HSVFavoriteCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoriteCollectionViewController.h; sourceTree = "<group>"; };
 		121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoriteCollectionViewController.m; sourceTree = "<group>"; };
+		121B3285246627720074461A /* HSVFavoriteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoriteCollectionViewCell.h; sourceTree = "<group>"; };
+		121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoriteCollectionViewCell.m; sourceTree = "<group>"; };
 		122A4E362450BCB2002E777F /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122A4E392450BCB2002E777F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		122A4E3A2450BCB2002E777F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */,
 				12D8CE772458BF90008E1100 /* HSVPokemonDetailView.h */,
 				12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */,
+				121B3285246627720074461A /* HSVFavoriteCollectionViewCell.h */,
+				121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */,
 				12992EAC245DCD7F006EBFFC /* HSVPokedex_Type.m in Sources */,
 				121B32842465F1AD0074461A /* HSVFavoriteCollectionViewController.m in Sources */,
+				121B3287246627720074461A /* HSVFavoriteCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
