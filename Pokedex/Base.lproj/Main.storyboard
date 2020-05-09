@@ -237,7 +237,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="W4M-uT-eHb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -331,6 +331,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="goR-tl-dHp" id="mb9-LM-Kfe"/>
                                     <outlet property="pokemonImageView" destination="LJo-8o-Xst" id="ksY-bU-pnc"/>
+                                    <segue destination="KXz-iu-ChA" kind="show" identifier="FavoriteSegue" id="xZf-ef-Bc0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -347,6 +348,9 @@
             <point key="canvasLocation" x="1800.0000000000002" y="401.78571428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xZf-ef-Bc0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="001" width="250" height="250"/>
         <image name="623" width="250" height="250"/>

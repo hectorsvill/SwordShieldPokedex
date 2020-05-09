@@ -11,6 +11,7 @@
 #import "HSVPokemon.h"
 #import "HSVFavoriteCollectionViewCell.h"
 #import "NSString+HSVPokemonIndexString.h"
+#import "HSVPokemonDetailViewController.h"
 
 @interface HSVFavoriteCollectionViewController ()
 
@@ -24,11 +25,9 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.collectionView.delegate = self;
     self.pokemonController = HSVPokemonController.sharedPokemonController;
     self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
-
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
 }
 
@@ -40,15 +39,22 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
     [self.collectionView reloadData];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"FavoriteSegue"]) {
+        HSVFavoriteCollectionViewCell *cell = (HSVFavoriteCollectionViewCell *)sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        HSVPokemon *pokemon = [_pokemonController fetchNationalDexpokemonWithIndex:_favoriteIndexList[indexPath.row]];
+
+        HSVPokemonDetailViewController *destination = (HSVPokemonDetailViewController *)[segue destinationViewController];
+        destination.pokemon = pokemon;
+    }
+
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
