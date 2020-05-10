@@ -9,7 +9,8 @@
 #import "HSVPokemonController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemon+HSVinitWithDictionary.h"
-
+#import "NSError+HSVErrorWithString.h"
+#import "AppDelegate.h"
 
 @interface HSVPokemonController()
 
@@ -109,6 +110,23 @@
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber
 {
     return [_internalFavoritePokemon containsObject:indexNumber] ? @YES : @NO;
+}
+
+// MARK: - Core Data
+- (void)fetchFromCoreData
+{
+    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
+    NSFetchRequest<NSManagedObject*> *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
+
+    NSError *fetchError = [[NSError new] HSVErrorWithString:@"Error fetching frome core data"];
+    NSArray *favoritesArr = [managedContext executeFetchRequest:fetchRequest error:&fetchError];
+
+    if (fetchError || !favoritesArr) {
+        NSLog(@"%@", fetchError);
+    }
+
+    NSLog(@"%@",favoritesArr);
 }
 
 // MARK: - fetchPokemonData
