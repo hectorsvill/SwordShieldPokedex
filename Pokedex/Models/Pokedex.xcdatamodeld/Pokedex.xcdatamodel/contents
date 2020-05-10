@@ -4,6 +4,6 @@
         <attribute name="national_no" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="-45" positionY="0" width="128" height="58"/>
+        <element name="Favorite" positionX="-45" positionY="0" width="128" height="28"/>
     </elements>
 </model>

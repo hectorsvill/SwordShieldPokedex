@@ -116,7 +116,6 @@
 				122A4E482450BCB5002E777F /* Assets.xcassets */,
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
 				122A4E4D2450BCB5002E777F /* Info.plist */,
-				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
 				1290C6D424523F8D0037C098 /* PokemonSwordShield.json */,
 			);
 			path = Pokedex;
@@ -161,6 +160,7 @@
 		122A4E582450BD39002E777F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
 				1290C6D6245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.h */,
 				1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */,
 				122A4E5C2450C378002E777F /* HSVPokemon.h */,

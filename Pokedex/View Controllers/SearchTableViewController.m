@@ -46,7 +46,7 @@
     [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
-    [_pokemonController fetchPokemonData:^(NSArray<NSNumber *> *pokemonIndexList) {
+    [_pokemonController fetchPokemonDataFromJson:^(NSArray<NSNumber *> *pokemonIndexList) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self->_pokemonIndexList = pokemonIndexList;
             [[self tableView] reloadData];

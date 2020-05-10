@@ -33,6 +33,9 @@
         pokemonController = [[HSVPokemonController alloc] init];
     });
 
+
+
+
     return pokemonController;
 }
 
@@ -44,6 +47,13 @@
         _internalNationalIndexList = [NSArray new];
         _internalFavoritePokemon = [NSMutableSet new];
     }
+
+    [self fetchFromCoreData:^(NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+
     return self;
 }
 
@@ -95,6 +105,12 @@
 - (void)addFavorite:(NSNumber *)number
 {
     [_internalFavoritePokemon addObject:number];
+
+    [self saveToCoreData:number completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (void)removeInternalFavoritePokemon:(NSNumber *)object
@@ -113,24 +129,51 @@
 }
 
 // MARK: - Core Data
-- (void)fetchFromCoreData
+- (void)fetchFromCoreData:(void (^)(NSError *))completion
 {
     AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
     NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
     NSFetchRequest<NSManagedObject*> *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
 
     NSError *fetchError = [[NSError new] HSVErrorWithString:@"Error fetching frome core data"];
-    NSArray *favoritesArr = [managedContext executeFetchRequest:fetchRequest error:&fetchError];
+    NSArray *favoritesArr = [managedContext executeFetchRequest:fetchRequest error:&fetchError] ?: [NSArray array];
 
-    if (fetchError || !favoritesArr) {
-        NSLog(@"%@", fetchError);
+    if (!favoritesArr) {
+        return completion(fetchError);
     }
 
-    NSLog(@"%@",favoritesArr);
+    for (NSManagedObject *object in favoritesArr) {
+        NSNumber *number = [object valueForKey:@"national_no"];
+        [_internalFavoritePokemon addObject:number];
+    }
+
+    return completion(nil);
 }
 
+- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion
+{
+    if (![_internalFavoritePokemon containsObject:number]) { return; }
+
+    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Favorite" inManagedObjectContext:managedContext];
+    NSManagedObject *item = [[NSManagedObject new] initWithEntity:entityDescription insertIntoManagedObjectContext:managedContext];
+    [item setValue:number forKey:@"national_no"];
+
+    NSError *saveError = [[NSError new] HSVErrorWithString:@"Error savig to core data"];
+    [managedContext save:&saveError];
+
+    if (saveError) {
+        return completion(saveError);
+    }
+
+    return completion(nil);
+}
+
+
+
 // MARK: - fetchPokemonData
-- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion
+- (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];

@@ -38,7 +38,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber;
 
 
-- (void)fetchPokemonData:(void (^)(NSArray<NSNumber *> *))completion;
+- (void)fetchFromCoreData:(void (^)(NSError *))completion;
+- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion;
+
+
+
+- (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion;
 
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
 
