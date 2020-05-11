@@ -42,9 +42,13 @@
         _internalNationalDexDictionary = [NSMutableDictionary new];
         _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalNationalIndexList = [NSArray new];
-        _internalFavoritePokemon = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"] ?: [NSMutableArray array];
+        _internalFavoritePokemon =  [NSMutableArray array];
     }
+    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"];
+    if ([arr isKindOfClass:[NSArray class]] && arr != nil) {
+        _internalFavoritePokemon = [NSMutableArray arrayWithArray:arr];
 
+    }
     return self;
 }
 

@@ -25,10 +25,10 @@
 
 - (IBAction)favoriteButtonPressed:(id)sender
 {
-    if ([_delegate conformsToProtocol:@protocol(HSVPokemonTableViewCellDelegate) ])
-        [_delegate saveToFavorites:_pokemon.national_dex];
-    
     _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
+    if ([_delegate conformsToProtocol:@protocol(HSVPokemonTableViewCellDelegate) ])
+        [_isFavorite isEqualToNumber:@YES] ? [_delegate saveToFavorites:_pokemon.national_dex] : [_delegate removefromFavorites:_pokemon.national_dex];
+
     [self setFavoriteButtonImage];
 }
 
