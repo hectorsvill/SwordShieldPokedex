@@ -34,7 +34,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    NSLog(@"view will appear");
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
     [self.collectionView reloadData];
 }

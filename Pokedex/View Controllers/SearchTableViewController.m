@@ -191,9 +191,14 @@
 }
 
 #pragma mark - HSVPOkemonTableViewCellDelegate
-- (void)saveToFavorites:(NSNumber *)indexNumber
+- (void)saveToFavorites:(NSNumber *)number
 {
-    [self.pokemonController addFavorite: indexNumber];
+    [self.pokemonController addFavorite: number];
+}
+
+- (void)removefromFavorites:(NSNumber *)number
+{
+    [self.pokemonController removeInternalFavoritePokemon:number];
 }
 
 @end

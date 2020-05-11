@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HSVPokemonTableViewCellDelegate <NSObject>
 
 
-- (void)saveToFavorites:(NSNumber *)indexNumber;
+- (void)saveToFavorites:(NSNumber *)number;
+- (void)removefromFavorites:(NSNumber *)number;
 
 @end
 

@@ -104,6 +104,7 @@
 - (void)removeInternalFavoritePokemon:(NSNumber *)number
 {
     [_internalFavoritePokemon removeObject:number];
+    [self saveToUserDefaults];
 }
 
 - (NSArray<NSNumber *> *)fetchFavorites
