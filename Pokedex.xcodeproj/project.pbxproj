@@ -36,7 +36,7 @@
 		121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoriteCollectionViewController.m; sourceTree = "<group>"; };
 		121B3285246627720074461A /* HSVFavoriteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoriteCollectionViewCell.h; sourceTree = "<group>"; };
 		121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoriteCollectionViewCell.m; sourceTree = "<group>"; };
-		122A4E362450BCB2002E777F /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		122A4E362450BCB2002E777F /* NationalGalarPokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NationalGalarPokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122A4E392450BCB2002E777F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		122A4E3A2450BCB2002E777F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		122A4E3C2450BCB2002E777F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		122A4E372450BCB2002E777F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				122A4E362450BCB2002E777F /* Pokedex.app */,
+				122A4E362450BCB2002E777F /* NationalGalarPokedex.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			);
 			name = Pokedex;
 			productName = Pokedex;
-			productReference = 122A4E362450BCB2002E777F /* Pokedex.app */;
+			productReference = 122A4E362450BCB2002E777F /* NationalGalarPokedex.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -454,8 +454,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.Pokedex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = NationalGalarPokedex;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,8 +471,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.Pokedex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = NationalGalarPokedex;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
