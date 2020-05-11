@@ -12,13 +12,14 @@
 		122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3A2450BCB2002E777F /* AppDelegate.m */; };
 		122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3D2450BCB2002E777F /* SceneDelegate.m */; };
 		122A4E442450BCB2002E777F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E422450BCB2002E777F /* Main.storyboard */; };
-		122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */; };
 		122A4E492450BCB5002E777F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E482450BCB5002E777F /* Assets.xcassets */; };
 		122A4E4C2450BCB5002E777F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */; };
 		122A4E4F2450BCB5002E777F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E4E2450BCB5002E777F /* main.m */; };
 		122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5A2450BF00002E777F /* SearchTableViewController.m */; };
 		122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5D2450C378002E777F /* HSVPokemon.m */; };
 		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
+		124359522469E4170034AA86 /* HSVSerebiiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124359512469E4170034AA86 /* HSVSerebiiViewController.m */; };
+		124359552469E8910034AA86 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124359542469E8910034AA86 /* WebKit.framework */; };
 		1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */; };
 		1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */; };
 		1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6CE245227BB0037C098 /* HSVPokemonController.m */; };
@@ -41,7 +42,6 @@
 		122A4E3C2450BCB2002E777F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		122A4E3D2450BCB2002E777F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		122A4E432450BCB2002E777F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		122A4E462450BCB2002E777F /* Pokedex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokedex.xcdatamodel; sourceTree = "<group>"; };
 		122A4E482450BCB5002E777F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		122A4E4B2450BCB5002E777F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		122A4E4D2450BCB5002E777F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +52,9 @@
 		122A4E5D2450C378002E777F /* HSVPokemon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemon.m; sourceTree = "<group>"; };
 		122A4E5F2450DA17002E777F /* HSVNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVNetworking.h; sourceTree = "<group>"; };
 		122A4E602450DA17002E777F /* HSVNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVNetworking.m; sourceTree = "<group>"; };
+		124359502469E4170034AA86 /* HSVSerebiiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSerebiiViewController.h; sourceTree = "<group>"; };
+		124359512469E4170034AA86 /* HSVSerebiiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVSerebiiViewController.m; sourceTree = "<group>"; };
+		124359542469E8910034AA86 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1290C6C024512F890037C098 /* HSVPokemonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonTableViewCell.h; sourceTree = "<group>"; };
 		1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonTableViewCell.m; sourceTree = "<group>"; };
 		1290C6C4245141FD0037C098 /* NSError+HSVErrorWithString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+HSVErrorWithString.h"; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124359552469E8910034AA86 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +95,7 @@
 				1290C6D3245239B60037C098 /* README.md */,
 				122A4E382450BCB2002E777F /* Pokedex */,
 				122A4E372450BCB2002E777F /* Products */,
+				124359532469E8910034AA86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +147,8 @@
 				121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */,
 				12A3A2FB24607962006B934D /* HSVPokemonDetailViewController.h */,
 				12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */,
+				124359502469E4170034AA86 /* HSVSerebiiViewController.h */,
+				124359512469E4170034AA86 /* HSVSerebiiViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -160,7 +167,6 @@
 		122A4E582450BD39002E777F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */,
 				1290C6D6245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.h */,
 				1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */,
 				122A4E5C2450C378002E777F /* HSVPokemon.h */,
@@ -169,6 +175,14 @@
 				12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		124359532469E8910034AA86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				124359542469E8910034AA86 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1290C6BF24512CE30037C098 /* Views */ = {
@@ -280,7 +294,6 @@
 				122A4E612450DA17002E777F /* HSVNetworking.m in Sources */,
 				1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */,
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,
-				122A4E472450BCB2002E777F /* Pokedex.xcdatamodeld in Sources */,
 				1290C6D8245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m in Sources */,
 				12A3A2FD24607963006B934D /* HSVPokemonDetailViewController.m in Sources */,
 				122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */,
@@ -292,6 +305,7 @@
 				1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */,
 				12992EAC245DCD7F006EBFFC /* HSVPokedex_Type.m in Sources */,
 				121B32842465F1AD0074461A /* HSVFavoriteCollectionViewController.m in Sources */,
+				124359522469E4170034AA86 /* HSVSerebiiViewController.m in Sources */,
 				121B3287246627720074461A /* HSVFavoriteCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,19 +498,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		122A4E452450BCB2002E777F /* Pokedex.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				122A4E462450BCB2002E777F /* Pokedex.xcdatamodel */,
-			);
-			currentVersion = 122A4E462450BCB2002E777F /* Pokedex.xcdatamodel */;
-			path = Pokedex.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 122A4E2E2450BCB2002E777F /* Project object */;
 }

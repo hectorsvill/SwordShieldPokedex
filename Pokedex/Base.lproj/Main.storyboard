@@ -194,7 +194,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gph-U9-JcS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QXd-6U-IJC"/>
+                    <navigationItem key="navigationItem" id="QXd-6U-IJC">
+                        <barButtonItem key="rightBarButtonItem" title="serebii.com" id="ws2-ch-KJF">
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="CS1-kp-U85" kind="show" identifier="SerebiiSegue" id="kbc-dn-h8W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="playButton" destination="HVn-jJ-7ah" id="9kz-7a-6Po"/>
                         <outlet property="pokemonImageView" destination="4mb-eA-W4I" id="i6A-qP-ga3"/>
@@ -204,7 +211,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laa-Qm-gb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="-254"/>
+            <point key="canvasLocation" x="2755" y="46"/>
+        </scene>
+        <!--Serebii View Controller-->
+        <scene sceneID="C2z-H1-Qkm">
+            <objects>
+                <viewController id="CS1-kp-U85" customClass="HSVSerebiiViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTr-ZE-XIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbN-dc-kks">
+                                <rect key="frame" x="0.0" y="148.5" width="414" height="664.5"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="V64-iT-RjH" firstAttribute="trailing" secondItem="qbN-dc-kks" secondAttribute="trailing" id="A9k-kQ-xBs"/>
+                            <constraint firstItem="V64-iT-RjH" firstAttribute="bottom" secondItem="qbN-dc-kks" secondAttribute="bottom" id="B8A-7f-aPZ"/>
+                            <constraint firstItem="qbN-dc-kks" firstAttribute="leading" secondItem="V64-iT-RjH" secondAttribute="leading" id="PXy-WH-5Su"/>
+                            <constraint firstItem="qbN-dc-kks" firstAttribute="top" secondItem="V64-iT-RjH" secondAttribute="top" id="Qsi-0i-lZ3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V64-iT-RjH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hIQ-3F-jjQ"/>
+                    <connections>
+                        <outlet property="webView" destination="qbN-dc-kks" id="oHL-TL-ZHQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQs-5L-KAg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600.0000000000005" y="45.535714285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BCa-3s-HQw">

@@ -6,6 +6,7 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
+#import "HSVSerebiiViewController.h"
 #import "HSVPokemonDetailViewController.h"
 #import "HSVPokemon.h"
 #import "NSString+HSVPokemonIndexString.h"
@@ -45,7 +46,6 @@
 #pragma mark -
 - (void)configureViews
 {
-
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
 
     self.title = [NSString stringWithFormat:@"%@", _pokemon.name ];
@@ -68,7 +68,6 @@
         }
     }] resume];
 }
-
 
 - (void)setPokemonData
 {
@@ -208,6 +207,15 @@
     }
 
 
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SerebiiSegue"]) {
+        HSVSerebiiViewController *serebiiVC = (HSVSerebiiViewController *)segue.destinationViewController;
+        serebiiVC.pokemonName = [_pokemon.name lowercaseString];
+    }
 }
 
 #pragma mark - headerButtonClicked

@@ -10,7 +10,6 @@
 #import "HSVPokemon.h"
 #import "HSVPokemon+HSVinitWithDictionary.h"
 #import "NSError+HSVErrorWithString.h"
-#import "AppDelegate.h"
 
 @interface HSVPokemonController()
 
@@ -44,11 +43,13 @@
         _internalNationalIndexList = [NSArray new];
         _internalFavoritePokemon =  [NSMutableArray array];
     }
+
     NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"];
+
     if ([arr isKindOfClass:[NSArray class]] && arr != nil) {
         _internalFavoritePokemon = [NSMutableArray arrayWithArray:arr];
-
     }
+
     return self;
 }
 
@@ -72,8 +73,6 @@
 {
     return [_internalGalarDexDictionary objectForKey:index];
 }
-
-
 
 // MARK: - National Dex
 - (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary
