@@ -19,6 +19,7 @@
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
 @property (nonatomic) NSMutableSet<NSNumber *> *internalFavoritePokemon;
+@property (nonatomic) NSMutableSet<NSManagedObject *> *internalFavoriteObjects;
 
 @end
 
@@ -33,9 +34,6 @@
         pokemonController = [[HSVPokemonController alloc] init];
     });
 
-
-
-
     return pokemonController;
 }
 
@@ -46,13 +44,13 @@
         _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalNationalIndexList = [NSArray new];
         _internalFavoritePokemon = [NSMutableSet new];
+        _internalFavoriteObjects = [NSMutableSet set];
     }
 
     [self fetchFromCoreData:^(NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        }
+
     }];
+
 
     return self;
 }
@@ -113,9 +111,15 @@
     }];
 }
 
-- (void)removeInternalFavoritePokemon:(NSNumber *)object
+- (void)removeInternalFavoritePokemon:(NSNumber *)number
 {
-    [_internalFavoritePokemon removeObject:object];
+    [_internalFavoritePokemon removeObject:number];
+
+    [self removeFromCoreData:number completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (NSSet<NSNumber *> *)fetchFavorites
@@ -145,6 +149,7 @@
     for (NSManagedObject *object in favoritesArr) {
         NSNumber *number = [object valueForKey:@"national_no"];
         [_internalFavoritePokemon addObject:number];
+        [_internalFavoriteObjects addObject:object];
     }
 
     return completion(nil);
@@ -157,8 +162,9 @@
     AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
     NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Favorite" inManagedObjectContext:managedContext];
-    NSManagedObject *item = [[NSManagedObject new] initWithEntity:entityDescription insertIntoManagedObjectContext:managedContext];
-    [item setValue:number forKey:@"national_no"];
+    NSManagedObject *favorite = [[NSManagedObject new] initWithEntity:entityDescription insertIntoManagedObjectContext:managedContext];
+    [favorite setValue:number forKey:@"national_no"];
+    [_internalFavoriteObjects addObject:favorite];
 
     NSError *saveError = [[NSError new] HSVErrorWithString:@"Error savig to core data"];
     [managedContext save:&saveError];
@@ -170,7 +176,22 @@
     return completion(nil);
 }
 
+- (void)removeFromCoreData:(NSNumber *)deleteNum completion:(void (^)(NSError *))completion
+{
+    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
 
+    for (NSManagedObject *object in _internalFavoriteObjects) {
+        NSNumber *number = [object valueForKey:@"national_no"];
+
+        if ([number isEqualToNumber:deleteNum]) {
+            [managedContext deleteObject:object];
+            [_internalFavoriteObjects removeObject:object];
+            return completion(nil);
+        }
+    }
+
+}
 
 // MARK: - fetchPokemonData
 - (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion
