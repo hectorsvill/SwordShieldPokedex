@@ -34,12 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addFavorite:(NSNumber *)number;
 - (void)removeInternalFavoritePokemon:(NSNumber *)object;
-- (NSSet<NSNumber *> *)fetchFavorites;
+- (NSArray<NSNumber *> *)fetchFavorites;
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber;
 
-
-- (void)fetchFromCoreData:(void (^)(NSError *))completion;
-- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion;
+//
+//- (void)fetchFromCoreData:(void (^)(NSError *))completion;
+//- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion;
 
 
 

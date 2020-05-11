@@ -18,8 +18,7 @@
 @property (nonatomic, copy, readonly) NSMutableDictionary<NSNumber*, HSVPokemon*> *internalGalarDexDictionary;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
-@property (nonatomic) NSMutableSet<NSNumber *> *internalFavoritePokemon;
-@property (nonatomic) NSMutableSet<NSManagedObject *> *internalFavoriteObjects;
+@property (nonatomic) NSMutableArray<NSNumber *> *internalFavoritePokemon;
 
 @end
 
@@ -43,14 +42,8 @@
         _internalNationalDexDictionary = [NSMutableDictionary new];
         _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalNationalIndexList = [NSArray new];
-        _internalFavoritePokemon = [NSMutableSet new];
-        _internalFavoriteObjects = [NSMutableSet set];
+        _internalFavoritePokemon = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"] ?: [NSMutableArray array];
     }
-
-    [self fetchFromCoreData:^(NSError *error) {
-
-    }];
-
 
     return self;
 }
@@ -102,27 +95,18 @@
 // MARK: - Favorites
 - (void)addFavorite:(NSNumber *)number
 {
-    [_internalFavoritePokemon addObject:number];
-
-    [self saveToCoreData:number completion:^(NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        }
-    }];
+    if ( ![_internalFavoritePokemon containsObject:number]) {
+        [_internalFavoritePokemon addObject:number];
+        [self saveToUserDefaults];
+    }
 }
 
 - (void)removeInternalFavoritePokemon:(NSNumber *)number
 {
     [_internalFavoritePokemon removeObject:number];
-
-    [self removeFromCoreData:number completion:^(NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        }
-    }];
 }
 
-- (NSSet<NSNumber *> *)fetchFavorites
+- (NSArray<NSNumber *> *)fetchFavorites
 {
     return _internalFavoritePokemon;
 }
@@ -132,66 +116,13 @@
     return [_internalFavoritePokemon containsObject:indexNumber] ? @YES : @NO;
 }
 
-// MARK: - Core Data
-- (void)fetchFromCoreData:(void (^)(NSError *))completion
+// MARK: - User Defaults
+
+- (void)saveToUserDefaults
 {
-    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
-    NSFetchRequest<NSManagedObject*> *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
-
-    NSError *fetchError = [[NSError new] HSVErrorWithString:@"Error fetching frome core data"];
-    NSArray *favoritesArr = [managedContext executeFetchRequest:fetchRequest error:&fetchError] ?: [NSArray array];
-
-    if (!favoritesArr) {
-        return completion(fetchError);
-    }
-
-    for (NSManagedObject *object in favoritesArr) {
-        NSNumber *number = [object valueForKey:@"national_no"];
-        [_internalFavoritePokemon addObject:number];
-        [_internalFavoriteObjects addObject:object];
-    }
-
-    return completion(nil);
+    [[NSUserDefaults standardUserDefaults] setObject:_internalFavoritePokemon forKey:@"InternalFavoritePokemon"];
 }
 
-- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion
-{
-    if (![_internalFavoritePokemon containsObject:number]) { return; }
-
-    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Favorite" inManagedObjectContext:managedContext];
-    NSManagedObject *favorite = [[NSManagedObject new] initWithEntity:entityDescription insertIntoManagedObjectContext:managedContext];
-    [favorite setValue:number forKey:@"national_no"];
-    [_internalFavoriteObjects addObject:favorite];
-
-    NSError *saveError = [[NSError new] HSVErrorWithString:@"Error savig to core data"];
-    [managedContext save:&saveError];
-
-    if (saveError) {
-        return completion(saveError);
-    }
-
-    return completion(nil);
-}
-
-- (void)removeFromCoreData:(NSNumber *)deleteNum completion:(void (^)(NSError *))completion
-{
-    AppDelegate *appdelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *managedContext = appdelegate.persistentContainer.viewContext;
-
-    for (NSManagedObject *object in _internalFavoriteObjects) {
-        NSNumber *number = [object valueForKey:@"national_no"];
-
-        if ([number isEqualToNumber:deleteNum]) {
-            [managedContext deleteObject:object];
-            [_internalFavoriteObjects removeObject:object];
-            return completion(nil);
-        }
-    }
-
-}
 
 // MARK: - fetchPokemonData
 - (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion

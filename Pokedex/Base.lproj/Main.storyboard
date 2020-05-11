@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="2755" y="-254"/>
         </scene>
-        <!--Pokedex Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="BCa-3s-HQw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QIe-ap-kGD" customClass="HSVPokedexTabBarViewController" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QIe-ap-kGD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hwk-Uj-tDk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

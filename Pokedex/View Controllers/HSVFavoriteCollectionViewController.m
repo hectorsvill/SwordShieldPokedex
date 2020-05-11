@@ -27,7 +27,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
     [super viewDidLoad];
     self.collectionView.delegate = self;
     self.pokemonController = HSVPokemonController.sharedPokemonController;
-    self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
+    self.favoriteIndexList = [self.pokemonController fetchFavorites];
     [self.collectionView reloadData];
 }
 
@@ -35,7 +35,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 {
     [super viewWillAppear:animated];
 
-    self.favoriteIndexList = [[self.pokemonController fetchFavorites] allObjects];
+    self.favoriteIndexList = [self.pokemonController fetchFavorites];
     [self.collectionView reloadData];
 }
 
