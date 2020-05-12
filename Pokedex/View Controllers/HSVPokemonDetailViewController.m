@@ -72,7 +72,7 @@
 - (void)setPokemonData
 {
     _pokemonDescriptionSrtings =  @[
-         @"Decription",
+         @"Description",
          @"NO.",
          @"Type",
          @"Height & Weight",
