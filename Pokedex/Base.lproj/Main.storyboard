@@ -195,7 +195,7 @@
                         <viewLayoutGuide key="safeArea" id="gph-U9-JcS"/>
                     </view>
                     <navigationItem key="navigationItem" id="QXd-6U-IJC">
-                        <barButtonItem key="rightBarButtonItem" title="serebii.com" id="ws2-ch-KJF">
+                        <barButtonItem key="rightBarButtonItem" title="serebii.net" id="ws2-ch-KJF">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="CS1-kp-U85" kind="show" identifier="SerebiiSegue" id="kbc-dn-h8W"/>
@@ -229,18 +229,26 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FaM-Fm-m8I">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="V64-iT-RjH" firstAttribute="trailing" secondItem="qbN-dc-kks" secondAttribute="trailing" id="A9k-kQ-xBs"/>
                             <constraint firstItem="V64-iT-RjH" firstAttribute="bottom" secondItem="qbN-dc-kks" secondAttribute="bottom" id="B8A-7f-aPZ"/>
+                            <constraint firstItem="FaM-Fm-m8I" firstAttribute="centerY" secondItem="fTr-ZE-XIZ" secondAttribute="centerY" id="PWb-FT-TMb"/>
                             <constraint firstItem="qbN-dc-kks" firstAttribute="leading" secondItem="V64-iT-RjH" secondAttribute="leading" id="PXy-WH-5Su"/>
                             <constraint firstItem="qbN-dc-kks" firstAttribute="top" secondItem="V64-iT-RjH" secondAttribute="top" id="Qsi-0i-lZ3"/>
+                            <constraint firstItem="FaM-Fm-m8I" firstAttribute="centerX" secondItem="fTr-ZE-XIZ" secondAttribute="centerX" id="ZEX-XP-ht6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V64-iT-RjH"/>
                     </view>
                     <navigationItem key="navigationItem" id="hIQ-3F-jjQ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="FaM-Fm-m8I" id="dCU-da-930"/>
                         <outlet property="webView" destination="qbN-dc-kks" id="oHL-TL-ZHQ"/>
                     </connections>
                 </viewController>
@@ -298,7 +306,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle.fill" catalog="system" id="ILC-7U-9Ru"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bUA-re-2u9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

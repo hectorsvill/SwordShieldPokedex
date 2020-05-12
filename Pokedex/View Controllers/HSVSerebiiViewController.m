@@ -11,6 +11,7 @@
 
 @interface HSVSerebiiViewController ()
 @property (weak, nonatomic) IBOutlet WKWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -19,11 +20,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self activityIndicator] startAnimating];
+    [[self activityIndicator] setHidesWhenStopped:true];
 
+    [self.webView setNavigationDelegate:self];
     NSString *urlString = [NSString stringWithFormat:@"https://www.serebii.net/pokedex-swsh/%@", self.pokemonName];
     NSURL *url = [NSURL URLWithString:urlString];
 
     [[self webView] loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    [[self activityIndicator] stopAnimating];
 }
 
 @end

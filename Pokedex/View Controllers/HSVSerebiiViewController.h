@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HSVSerebiiViewController : UIViewController
+@interface HSVSerebiiViewController : UIViewController<WKNavigationDelegate>
 
 @property (nonatomic, copy) NSString *pokemonName;
 
