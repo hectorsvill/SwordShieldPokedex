@@ -36,4 +36,12 @@
     [[self activityIndicator] stopAnimating];
 }
 
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    NSString *host = navigationAction.request.URL.host;
+    [host isEqualToString:@"www.serebii.net"] ? decisionHandler(WKNavigationActionPolicyAllow) : decisionHandler(WKNavigationActionPolicyCancel);
+
+    return;
+}
+
 @end
