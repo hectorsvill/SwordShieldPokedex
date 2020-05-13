@@ -20,9 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [[self activityIndicator] startAnimating];
     [[self activityIndicator] setHidesWhenStopped:true];
-
+    self.webView.backgroundColor = UIColor.systemBackgroundColor;
     [self.webView setNavigationDelegate:self];
     NSString *urlString = [NSString stringWithFormat:@"https://www.serebii.net/pokedex-swsh/%@", self.pokemonName];
     NSURL *url = [NSURL URLWithString:urlString];
