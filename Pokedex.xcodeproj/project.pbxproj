@@ -21,6 +21,7 @@
 		124359522469E4170034AA86 /* HSVSerebiiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124359512469E4170034AA86 /* HSVSerebiiViewController.m */; };
 		124359552469E8910034AA86 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124359542469E8910034AA86 /* WebKit.framework */; };
 		12569587249175F800F09E6E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12569586249175F800F09E6E /* CloudKit.framework */; };
+		126455BD2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126455BC2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m */; };
 		126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */; };
 		126CD4482491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126CD4472491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m */; };
 		1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */; };
@@ -60,6 +61,8 @@
 		124359542469E8910034AA86 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		12569585249175EB00F09E6E /* NationalGalarPokedex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NationalGalarPokedex.entitlements; sourceTree = "<group>"; };
 		12569586249175F800F09E6E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		126455BB2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSubmitLeagueCardNumberViewController.h; sourceTree = "<group>"; };
+		126455BC2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVSubmitLeagueCardNumberViewController.m; sourceTree = "<group>"; };
 		126CD4432491E6B500CF2538 /* HSVLeagueCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardTableViewCell.h; sourceTree = "<group>"; };
 		126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVLeagueCardTableViewCell.m; sourceTree = "<group>"; };
 		126CD4462491E6DF00CF2538 /* HSVLeagueCardsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardsTableViewController.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				124359512469E4170034AA86 /* HSVSerebiiViewController.m */,
 				126CD4462491E6DF00CF2538 /* HSVLeagueCardsTableViewController.h */,
 				126CD4472491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m */,
+				126455BB2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.h */,
+				126455BC2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,
 				126CD4482491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m in Sources */,
 				122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */,
+				126455BD2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m in Sources */,
 				1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */,
 				12992EAC245DCD7F006EBFFC /* HSVPokedex_Type.m in Sources */,
 				121B32842465F1AD0074461A /* HSVFavoriteCollectionViewController.m in Sources */,
