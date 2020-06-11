@@ -20,6 +20,9 @@
 		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
 		124359522469E4170034AA86 /* HSVSerebiiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124359512469E4170034AA86 /* HSVSerebiiViewController.m */; };
 		124359552469E8910034AA86 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124359542469E8910034AA86 /* WebKit.framework */; };
+		12569587249175F800F09E6E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12569586249175F800F09E6E /* CloudKit.framework */; };
+		126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */; };
+		126CD4482491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126CD4472491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m */; };
 		1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */; };
 		1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6C5245141FD0037C098 /* NSError+HSVErrorWithString.m */; };
 		1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6CE245227BB0037C098 /* HSVPokemonController.m */; };
@@ -55,6 +58,12 @@
 		124359502469E4170034AA86 /* HSVSerebiiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSerebiiViewController.h; sourceTree = "<group>"; };
 		124359512469E4170034AA86 /* HSVSerebiiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVSerebiiViewController.m; sourceTree = "<group>"; };
 		124359542469E8910034AA86 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		12569585249175EB00F09E6E /* NationalGalarPokedex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NationalGalarPokedex.entitlements; sourceTree = "<group>"; };
+		12569586249175F800F09E6E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		126CD4432491E6B500CF2538 /* HSVLeagueCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardTableViewCell.h; sourceTree = "<group>"; };
+		126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVLeagueCardTableViewCell.m; sourceTree = "<group>"; };
+		126CD4462491E6DF00CF2538 /* HSVLeagueCardsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardsTableViewController.h; sourceTree = "<group>"; };
+		126CD4472491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVLeagueCardsTableViewController.m; sourceTree = "<group>"; };
 		1290C6C024512F890037C098 /* HSVPokemonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonTableViewCell.h; sourceTree = "<group>"; };
 		1290C6C124512F890037C098 /* HSVPokemonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonTableViewCell.m; sourceTree = "<group>"; };
 		1290C6C4245141FD0037C098 /* NSError+HSVErrorWithString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+HSVErrorWithString.h"; sourceTree = "<group>"; };
@@ -83,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				124359552469E8910034AA86 /* WebKit.framework in Frameworks */,
+				12569587249175F800F09E6E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +120,7 @@
 		122A4E382450BCB2002E777F /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				12569585249175EB00F09E6E /* NationalGalarPokedex.entitlements */,
 				12D8CE75245875A4008E1100 /* Protocols */,
 				122A4E552450BCC1002E777F /* Life Cycle */,
 				1290C6C72451420A0037C098 /* Categories */,
@@ -149,6 +160,8 @@
 				12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */,
 				124359502469E4170034AA86 /* HSVSerebiiViewController.h */,
 				124359512469E4170034AA86 /* HSVSerebiiViewController.m */,
+				126CD4462491E6DF00CF2538 /* HSVLeagueCardsTableViewController.h */,
+				126CD4472491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -180,6 +193,7 @@
 		124359532469E8910034AA86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12569586249175F800F09E6E /* CloudKit.framework */,
 				124359542469E8910034AA86 /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -194,6 +208,8 @@
 				12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */,
 				121B3285246627720074461A /* HSVFavoriteCollectionViewCell.h */,
 				121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */,
+				126CD4432491E6B500CF2538 /* HSVLeagueCardTableViewCell.h */,
+				126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -290,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */,
 				1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */,
 				122A4E612450DA17002E777F /* HSVNetworking.m in Sources */,
 				1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */,
@@ -301,6 +318,7 @@
 				122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */,
 				12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */,
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,
+				126CD4482491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m in Sources */,
 				122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */,
 				1290C6D2245234990037C098 /* NSString+HSVPokemonIndexString.m in Sources */,
 				12992EAC245DCD7F006EBFFC /* HSVPokedex_Type.m in Sources */,
@@ -446,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 97AS6JS382;
@@ -464,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 97AS6JS382;
