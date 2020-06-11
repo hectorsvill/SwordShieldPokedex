@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *card;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *cardCodeLabel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
