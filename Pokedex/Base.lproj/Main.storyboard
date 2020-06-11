@@ -288,7 +288,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="W4M-uT-eHb">
-                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -378,23 +378,23 @@
             </objects>
             <point key="canvasLocation" x="905.79710144927549" y="1270.9821428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Submit League Card Number View Controller-->
         <scene sceneID="aSr-G2-nLQ">
             <objects>
-                <viewController id="7Dw-hs-Y5R" sceneMemberID="viewController">
+                <viewController id="7Dw-hs-Y5R" customClass="HSVSubmitLeagueCardNumberViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="02p-F8-Glj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Leauge Card Code:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-7G-FT4">
-                                <rect key="frame" x="8" y="156" width="359" height="28"/>
+                                <rect key="frame" x="8" y="164.33333333333334" width="359" height="28"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FKY-Sk-AXo">
-                                <rect key="frame" x="8" y="200" width="359" height="50"/>
+                                <rect key="frame" x="8" y="208.33333333333334" width="359" height="50.000000000000028"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0000" borderStyle="roundedRect" placeholder="0000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZD-g0-ttd">
                                         <rect key="frame" x="0.0" y="7" width="97.666666666666671" height="36"/>
@@ -426,12 +426,15 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dY-gD-jZI">
-                                <rect key="frame" x="8" y="266" width="359" height="41"/>
+                                <rect key="frame" x="8" y="274.33333333333331" width="359" height="41"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="submutButtonPressed:" destination="7Dw-hs-Y5R" eventType="touchUpInside" id="hPk-MZ-B6e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -455,6 +458,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sectionATextField" destination="5ZD-g0-ttd" id="9hc-rT-nWg"/>
+                        <outlet property="sectionBTextField" destination="3dl-AF-bv0" id="O03-4x-dlJ"/>
+                        <outlet property="sectionCTextField" destination="rju-ub-nMI" id="h3D-ZV-QWh"/>
+                        <outlet property="sectionDTextField" destination="hmO-hT-P9v" id="OHB-dB-jOz"/>
+                        <outlet property="submitButton" destination="5dY-gD-jZI" id="98x-VV-qCI"/>
+                        <outlet property="titleLabel" destination="nfq-7G-FT4" id="RAF-Pd-9gr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHf-Aa-Xk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
