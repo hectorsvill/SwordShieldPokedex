@@ -22,9 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
-
-
+//    CKRecordID *recordId = 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
