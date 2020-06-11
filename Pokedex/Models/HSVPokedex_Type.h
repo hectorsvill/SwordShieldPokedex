@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, Pokedex) {
     National,
-    Galar
+    Galar,
+    Favorite,
 };
 
 NS_ASSUME_NONNULL_BEGIN
