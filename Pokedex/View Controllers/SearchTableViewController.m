@@ -203,11 +203,23 @@
 - (void)saveToFavorites:(NSNumber *)number
 {
     [self.pokemonController addFavorite: number];
+
+    if (self.pokedexType == Favorite)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokemonIndexList = [self.pokemonController fetchFavorites];
+            [self.tableView reloadData];
+        });
 }
 
 - (void)removefromFavorites:(NSNumber *)number
 {
     [self.pokemonController removeInternalFavoritePokemon:number];
+
+    if (self.pokedexType == Favorite)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokemonIndexList = [self.pokemonController fetchFavorites];
+            [self.tableView reloadData];
+        });
 }
 
 @end
