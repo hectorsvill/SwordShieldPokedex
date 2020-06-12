@@ -21,16 +21,30 @@
 {
     [super viewDidLoad];
 
+    [self configureViews];
+}
+
+- (void)configureViews {
     [[self activityIndicator] startAnimating];
     [[self activityIndicator] setHidesWhenStopped:true];
+    [self configureWebView];
+}
+
+- (void)configureWebView {
     self.webView.backgroundColor = UIColor.systemBackgroundColor;
     [self.webView setNavigationDelegate:self];
-    NSString *urlString = [NSString stringWithFormat:@"https://www.serebii.net/pokedex-swsh/%@", self.pokemonName];
-    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSURL *url = nil;
+
+    if( self.urlString != nil) {
+        url = [NSURL URLWithString:self.urlString];
+    } else {
+        NSString *urlString = [NSString stringWithFormat:@"https://www.serebii.net/pokedex-swsh/%@", self.pokemonName];
+        url = [NSURL URLWithString:urlString];
+    }
 
     [[self webView] loadRequest:[NSURLRequest requestWithURL:url]];
 }
-
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
