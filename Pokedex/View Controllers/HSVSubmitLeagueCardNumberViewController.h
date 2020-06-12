@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVSubmitLeagueCardNumberViewController : UIViewController<UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *sectionATextField;
 @property (weak, nonatomic) IBOutlet UITextField *sectionBTextField;
 @property (weak, nonatomic) IBOutlet UITextField *sectionCTextField;
 @property (weak, nonatomic) IBOutlet UITextField *sectionDTextField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
 
 
 @end

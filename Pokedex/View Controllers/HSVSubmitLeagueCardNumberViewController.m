@@ -24,7 +24,24 @@
 
 }
 
+- (IBAction)resetButtonPressed:(id)sender {
+    self.sectionATextField.text = @"";
+    self.sectionBTextField.text = @"";
+    self.sectionCTextField.text = @"";
+    self.sectionDTextField.text = @"";
+}
+
+
 - (IBAction)submutButtonPressed:(id)sender {
+    NSString *textA = self.sectionATextField.text;
+    NSString *textB = self.sectionBTextField.text;
+    NSString *textC = self.sectionCTextField.text;
+    NSString *textD = self.sectionDTextField.text;
+
+    NSString *cardNumber = [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
+
+
+
 }
 
 #pragma mark - Navigation
@@ -38,6 +55,8 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *currentText = [textField text];
+
+
     return textField.tag == 4 ? [currentText length] < 2 : [currentText length] < 4;
 }
 
