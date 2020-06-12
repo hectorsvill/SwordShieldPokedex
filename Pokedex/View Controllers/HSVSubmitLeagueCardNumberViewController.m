@@ -7,6 +7,7 @@
 //
 
 #import "HSVSubmitLeagueCardNumberViewController.h"
+#import "HSVSerebiiViewController.h"
 #import <CloudKit/CloudKit.h>
 
 @interface HSVSubmitLeagueCardNumberViewController ()
@@ -49,15 +50,18 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"LeageCardInfoSegue"]) {
+        NSLog(@"LeageCardInfoSegue");
+        HSVSerebiiViewController *viewController = (HSVSerebiiViewController *)segue.destinationViewController;
+        NSString *urlString = @"https://www.serebii.net/swordshield/leaguecard.shtml";
+        viewController.urlString = urlString;
+
+    }
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *currentText = [textField text];
-
-
     return textField.tag == 4 ? [currentText length] < 2 : [currentText length] < 4;
 }
 
