@@ -21,6 +21,8 @@
 }
 
 - (void)configureViews {
+    self.resetButton.layer.cornerRadius = 8;
+    self.submitButton.layer.cornerRadius = 8;
 
 }
 
@@ -30,7 +32,6 @@
     self.sectionCTextField.text = @"";
     self.sectionDTextField.text = @"";
 }
-
 
 - (IBAction)submutButtonPressed:(id)sender {
     NSString *textA = self.sectionATextField.text;
