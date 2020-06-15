@@ -9,9 +9,11 @@
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
 #import "NationalGalarPokedex-Swift.h"
+#import <CloudKit/CloudKit.h>
 
 @interface HSVLeagueCardsTableViewController ()
 
+@property (nonatomic) HSVCloudFramework *cloudFramework;
 @property (nonatomic, copy) NSArray<NSString *> *internalCards;
 
 @end
@@ -20,10 +22,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.internalCards = [NSMutableArray array];
+    self.cloudFramework = [HSVCloudFramework new];
+}
 
-    CloudFramework *cloudFramework = [CloudFramework new];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchLeageCards];
+}
 
+- (void) fetchLeageCards {
 
+    [self.cloudFramework fetchRecordsWithRecordType:@"LeageCardID" completion:^(NSArray<CKRecord *> *records, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+
+        NSMutableArray *cards = [NSMutableArray array];
+        for (CKRecord *record in records) {
+            NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
+            [cards addObject:cardID];
+        }
+
+        self.internalCards = cards;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -36,6 +64,8 @@
     NSString *card = [_internalCards objectAtIndex:indexPath.row];
 
     cell.card = card;
+
+    cell.cardCodeLabel.text = card;
     return  cell;
 }
 

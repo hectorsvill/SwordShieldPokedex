@@ -8,9 +8,12 @@
 
 #import "HSVSubmitLeagueCardNumberViewController.h"
 #import "HSVSerebiiViewController.h"
-#import <CloudKit/CloudKit.h>
+#import <NationalGalarPokedex-Swift.h>
+
 
 @interface HSVSubmitLeagueCardNumberViewController ()
+
+@property (nonatomic) HSVCloudFramework *cloudFramework;
 
 @end
 
@@ -19,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViews];
+
+
+    self.cloudFramework = [HSVCloudFramework new];
+
 }
 
 - (void)configureViews {
@@ -35,15 +42,25 @@
 }
 
 - (IBAction)submutButtonPressed:(id)sender {
-    NSString *textA = self.sectionATextField.text;
-    NSString *textB = self.sectionBTextField.text;
-    NSString *textC = self.sectionCTextField.text;
-    NSString *textD = self.sectionDTextField.text;
+    NSString *textA = [self.sectionATextField.text uppercaseString];
+    NSString *textB = [self.sectionBTextField.text uppercaseString];
+    NSString *textC = [self.sectionCTextField.text uppercaseString];
+    NSString *textD = [self.sectionDTextField.text uppercaseString];
+
+    self.sectionATextField.text = textA;
+    self.sectionBTextField.text = textB;
+    self.sectionCTextField.text = textC;
+    self.sectionDTextField.text = textD;
 
     NSString *cardNumber = [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
 
 
-
+    CKRecord *record = [self.cloudFramework createLeageCardRecordWithCardID:cardNumber];
+    [self.cloudFramework saveWithRecord:record completion:^(NSError *error) {
+        if (error != nil) {
+            // alert error
+        }
+    }];
 }
 
 #pragma mark - Navigation
