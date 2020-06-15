@@ -8,8 +8,7 @@
 
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
-#import <CloudKit/CloudKit.h>
-
+#import "NationalGalarPokedex-Swift.h"
 
 @interface HSVLeagueCardsTableViewController ()
 
@@ -22,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    CKRecordID *recordId = 
+    CloudFramework *cloudFramework = [CloudFramework new];
+
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

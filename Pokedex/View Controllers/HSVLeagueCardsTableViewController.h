@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class CloudFramework;
+
 @interface HSVLeagueCardsTableViewController : UITableViewController
 
 @end

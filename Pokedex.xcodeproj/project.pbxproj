@@ -32,6 +32,7 @@
 		1290C6D8245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */; };
 		12992EAC245DCD7F006EBFFC /* HSVPokedex_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */; };
 		12A3A2FD24607963006B934D /* HSVPokemonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */; };
+		12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */; };
 		12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokedex_Type.m; sourceTree = "<group>"; };
 		12A3A2FB24607962006B934D /* HSVPokemonDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonDetailViewController.h; sourceTree = "<group>"; };
 		12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailViewController.m; sourceTree = "<group>"; };
+		12BDB9CB24973CDE00A7B673 /* Pokedex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pokedex-Bridging-Header.h"; sourceTree = "<group>"; };
+		12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFramework.swift; sourceTree = "<group>"; };
 		12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonTableViewCellDelegate.h; sourceTree = "<group>"; };
 		12D8CE772458BF90008E1100 /* HSVPokemonDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonDetailView.h; sourceTree = "<group>"; };
 		12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailView.m; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
 				122A4E4D2450BCB5002E777F /* Info.plist */,
 				1290C6D424523F8D0037C098 /* PokemonSwordShield.json */,
+				12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */,
+				12BDB9CB24973CDE00A7B673 /* Pokedex-Bridging-Header.h */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				TargetAttributes = {
 					122A4E352450BCB2002E777F = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -314,6 +320,7 @@
 				126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */,
 				1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */,
 				122A4E612450DA17002E777F /* HSVNetworking.m in Sources */,
+				12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */,
 				1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */,
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,
 				1290C6D8245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m in Sources */,
@@ -470,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -481,6 +489,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pokedex/Pokedex-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -489,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -500,6 +512,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pokedex/Pokedex-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

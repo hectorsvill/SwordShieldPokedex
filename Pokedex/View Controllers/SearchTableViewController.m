@@ -13,12 +13,8 @@
 #import "HSVPokemonController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "HSVPokemonDetailViewController.h"
-
 #import "HSVPokedex_Type.h"
-//typedef NS_ENUM(NSInteger, Pokedex) {
-//    National,
-//    Galar
-//};
+
 
 @interface SearchTableViewController ()
 
