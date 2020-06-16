@@ -9,14 +9,17 @@
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
 #import "NationalGalarPokedex-Swift.h"
+#import "HSVLeageCard.h"
 #import "HSVSubmitLeagueCardNumberViewController.h"
+
 #import <CloudKit/CloudKit.h>
+
 
 @interface HSVLeagueCardsTableViewController ()
 
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) HSVCloudFramework *cloudFramework;
-@property (nonatomic, copy) NSArray<NSString *> *internalCards;
+@property (nonatomic, copy) NSArray<HSVLeageCard *> *internalCards;
 
 @end
 
@@ -59,7 +62,8 @@
         NSMutableArray *cards = [NSMutableArray array];
         for (CKRecord *record in records) {
             NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
-            [cards addObject:cardID];
+            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:false];
+            [cards addObject:leageCard];
         }
 
         self.internalCards = cards;
@@ -96,11 +100,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HSVLeagueCardTableViewCell *cell = (HSVLeagueCardTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LeagueCardCell" forIndexPath:indexPath];
 
-    NSString *card = [_internalCards objectAtIndex:indexPath.row];
+    HSVLeageCard *card = [_internalCards objectAtIndex:indexPath.row];
 
-    cell.card = card;
+    cell.card = card.cardID;
 
-    cell.cardCodeLabel.text = card;
+    cell.cardCodeLabel.text = card.cardID;
     return  cell;
 }
 

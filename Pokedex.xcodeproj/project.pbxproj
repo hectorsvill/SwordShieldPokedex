@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120EF6E124994D1900754926 /* HSVLeageCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF6E024994D1900754926 /* HSVLeageCard.m */; };
 		121B32842465F1AD0074461A /* HSVFavoriteCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */; };
 		121B3287246627720074461A /* HSVFavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 121B3286246627720074461A /* HSVFavoriteCollectionViewCell.m */; };
 		122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E3A2450BCB2002E777F /* AppDelegate.m */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120EF6DF24994D1900754926 /* HSVLeageCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeageCard.h; sourceTree = "<group>"; };
+		120EF6E024994D1900754926 /* HSVLeageCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVLeageCard.m; sourceTree = "<group>"; };
 		121B32822465F1AD0074461A /* HSVFavoriteCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoriteCollectionViewController.h; sourceTree = "<group>"; };
 		121B32832465F1AD0074461A /* HSVFavoriteCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVFavoriteCollectionViewController.m; sourceTree = "<group>"; };
 		121B3285246627720074461A /* HSVFavoriteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVFavoriteCollectionViewCell.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				122A4E5D2450C378002E777F /* HSVPokemon.m */,
 				12992EAA245DCD7F006EBFFC /* HSVPokedex_Type.h */,
 				12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */,
+				120EF6DF24994D1900754926 /* HSVLeageCard.h */,
+				120EF6E024994D1900754926 /* HSVLeageCard.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				1290C6C6245141FD0037C098 /* NSError+HSVErrorWithString.m in Sources */,
 				122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */,
 				12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */,
+				120EF6E124994D1900754926 /* HSVLeageCard.m in Sources */,
 				122A4E3B2450BCB2002E777F /* AppDelegate.m in Sources */,
 				126CD4482491E6DF00CF2538 /* HSVLeagueCardsTableViewController.m in Sources */,
 				122A4E3E2450BCB2002E777F /* SceneDelegate.m in Sources */,
