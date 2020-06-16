@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVLeagueCardsTableViewController : UITableViewController
 
-@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @end
 
