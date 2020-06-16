@@ -59,8 +59,8 @@
         self.internalCards = cards;
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
+            [self.tableView reloadData];
         });
 
     }];
@@ -73,6 +73,11 @@
 }
 
 // MARK: Table Vide Datasource
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_internalCards count];
 }
