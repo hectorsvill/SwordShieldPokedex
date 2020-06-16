@@ -49,7 +49,6 @@ class CloudFramework: NSObject {
     }
 }
 
-
 extension CloudFramework {
 
     /// Create a Leage Card ID CKRecord

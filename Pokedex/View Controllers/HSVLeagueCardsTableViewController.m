@@ -9,6 +9,7 @@
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
 #import "NationalGalarPokedex-Swift.h"
+#import "HSVSubmitLeagueCardNumberViewController.h"
 #import <CloudKit/CloudKit.h>
 
 @interface HSVLeagueCardsTableViewController ()
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self createActivityIndicator];
     self.internalCards = [NSMutableArray array];
     self.cloudFramework = [HSVCloudFramework new];
 }
@@ -31,7 +34,15 @@
     [self fetchLeageCards];
 }
 
+- (void)createActivityIndicator {
+    self.activityIndicator = [UIActivityIndicatorView new];
+    [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityIndicator.hidesWhenStopped = true;
+    self.tableView.backgroundView = self.activityIndicator;
+}
+
 - (void) fetchLeageCards {
+    [self.activityIndicator startAnimating];
 
     [self.cloudFramework fetchRecordsWithRecordType:@"LeageCardID" completion:^(NSArray<CKRecord *> *records, NSError *error) {
         if (error != nil) {
@@ -49,11 +60,19 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
         });
 
     }];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@""]) {
+
+    }
+}
+
+// MARK: Table Vide Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_internalCards count];
 }
