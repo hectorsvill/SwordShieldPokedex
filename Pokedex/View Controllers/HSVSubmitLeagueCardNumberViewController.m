@@ -29,7 +29,6 @@
 }
 
 - (void)configureViews {
-
     if (self.cardID != nil) {
         [self.resetButton setHidden:true];
         [self.submitButton setHidden:true];
@@ -38,20 +37,17 @@
         [self.sectionCTextField setUserInteractionEnabled:false];
         [self.sectionDTextField setUserInteractionEnabled:false];
 
-        self.sectionATextField.text = @"";
-        self.sectionBTextField.text = @"";
-        self.sectionCTextField.text = @"";
-        self.sectionDTextField.text = @"";
+        NSArray *cardIDComponents = [self.cardID componentsSeparatedByString:@" "];
 
+        self.sectionATextField.text = cardIDComponents[0];
+        self.sectionBTextField.text = cardIDComponents[1];
+        self.sectionCTextField.text = cardIDComponents[2];
+        self.sectionDTextField.text = cardIDComponents[3];
 
     } else {
         self.resetButton.layer.cornerRadius = 8;
         self.submitButton.layer.cornerRadius = 8;
-
     }
-
-
-
 }
 
 - (IBAction)resetButtonPressed:(id)sender {
