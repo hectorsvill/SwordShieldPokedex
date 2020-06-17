@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVSubmitLeagueCardNumberViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic, copy) NSString *cardCode;
+@property (nonatomic, copy) NSString *cardID;
 
 @property (weak, nonatomic) IBOutlet UITextField *sectionATextField;
 @property (weak, nonatomic) IBOutlet UITextField *sectionBTextField;

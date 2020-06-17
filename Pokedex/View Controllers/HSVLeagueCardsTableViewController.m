@@ -37,10 +37,6 @@
     [self fetchLeageCards];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)createRefreshControl {
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(fetchLeageCards) forControlEvents:UIControlEventValueChanged];
@@ -69,17 +65,19 @@
         self.internalCards = cards;
 
         dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.activityIndicator stopAnimating];
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         });
-
     }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@""]) {
+    if ([segue.identifier isEqualToString:@"viewLeageCardSegue"]) {
+        HSVLeagueCardTableViewCell *cell = (HSVLeagueCardTableViewCell *)sender;
+        NSString *cardID = cell.cardCodeLabel.text;
 
+        HSVSubmitLeagueCardNumberViewController *vc = (HSVSubmitLeagueCardNumberViewController *)segue.destinationViewController;
+        vc.cardID = cardID;
     }
 }
 

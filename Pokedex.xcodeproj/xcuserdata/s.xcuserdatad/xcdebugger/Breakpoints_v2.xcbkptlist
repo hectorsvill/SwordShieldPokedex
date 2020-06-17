@@ -3,4 +3,66 @@
    uuid = "2E90F970-3C24-4438-ACEA-FF35B4BD05F2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F3EDFB1-8DE8-43EA-A16A-E65141E151A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pokedex/View Controllers/HSVLeagueCardsTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A968A42D-7F88-4CE9-95D5-A107F99A545D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pokedex/View Controllers/HSVLeagueCardsTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114">
+            <Locations>
+               <Location
+                  uuid = "A968A42D-7F88-4CE9-95D5-A107F99A545D - 9554b38b09d27c65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HSVLeagueCardsTableViewController fetchCards]"
+                  moduleName = "NationalGalarPokedex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s/Development/SwordShieldPokedex/Pokedex/View%20Controllers/HSVLeagueCardsTableViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "267">
+               </Location>
+               <Location
+                  uuid = "A968A42D-7F88-4CE9-95D5-A107F99A545D - 9554b38b09d27c65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HSVLeagueCardsTableViewController fetchCards]"
+                  moduleName = "NationalGalarPokedex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s/Development/SwordShieldPokedex/Pokedex/View%20Controllers/HSVLeagueCardsTableViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "287">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

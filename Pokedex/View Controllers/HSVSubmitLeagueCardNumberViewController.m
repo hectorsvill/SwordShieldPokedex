@@ -29,8 +29,28 @@
 }
 
 - (void)configureViews {
-    self.resetButton.layer.cornerRadius = 8;
-    self.submitButton.layer.cornerRadius = 8;
+
+    if (self.cardID != nil) {
+        [self.resetButton setHidden:true];
+        [self.submitButton setHidden:true];
+        [self.sectionATextField setUserInteractionEnabled:false];
+        [self.sectionBTextField setUserInteractionEnabled:false];
+        [self.sectionCTextField setUserInteractionEnabled:false];
+        [self.sectionDTextField setUserInteractionEnabled:false];
+
+        self.sectionATextField.text = @"";
+        self.sectionBTextField.text = @"";
+        self.sectionCTextField.text = @"";
+        self.sectionDTextField.text = @"";
+
+
+    } else {
+        self.resetButton.layer.cornerRadius = 8;
+        self.submitButton.layer.cornerRadius = 8;
+
+    }
+
+
 
 }
 
