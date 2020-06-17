@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class HSVLeageCard;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVLeagueCardTableViewCell : UITableViewCell
 
-@property (nonatomic, copy) NSString *card;
-
-
+@property (nonatomic) HSVLeageCard *leageCard;
 @property (weak, nonatomic) IBOutlet UILabel *cardCodeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *checkedButton;
 
+- (void) configureViews;
 
 @end
 

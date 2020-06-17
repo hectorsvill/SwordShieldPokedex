@@ -32,6 +32,7 @@
     if (self.cardID != nil) {
         [self.resetButton setHidden:true];
         [self.submitButton setHidden:true];
+
         [self.sectionATextField setUserInteractionEnabled:false];
         [self.sectionBTextField setUserInteractionEnabled:false];
         [self.sectionCTextField setUserInteractionEnabled:false];
@@ -43,7 +44,6 @@
         self.sectionBTextField.text = cardIDComponents[1];
         self.sectionCTextField.text = cardIDComponents[2];
         self.sectionDTextField.text = cardIDComponents[3];
-
     } else {
         self.resetButton.layer.cornerRadius = 8;
         self.submitButton.layer.cornerRadius = 8;

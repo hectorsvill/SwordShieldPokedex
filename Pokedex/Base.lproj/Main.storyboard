@@ -353,6 +353,9 @@
                                                             <rect key="frame" x="297" y="16" width="30" height="22"/>
                                                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" image="checkmark.square" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="checkButtonPressed:" destination="bMk-Cc-E0q" eventType="touchUpInside" id="VAZ-bB-IwW"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -368,6 +371,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cardCodeLabel" destination="Pu0-BX-YLU" id="nFV-UD-nnZ"/>
+                                    <outlet property="checkedButton" destination="dUF-T6-J9Z" id="hGE-KU-yUO"/>
                                     <segue destination="7Dw-hs-Y5R" kind="show" identifier="viewLeageCardSegue" id="qtg-N0-Zd1"/>
                                 </connections>
                             </tableViewCell>

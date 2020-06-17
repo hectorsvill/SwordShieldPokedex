@@ -57,8 +57,9 @@
 
         NSMutableArray *cards = [NSMutableArray array];
         for (CKRecord *record in records) {
+            NSString *recordName = record.recordID.recordName;
             NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
-            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:false];
+            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:false recordName:recordName];
             [cards addObject:leageCard];
         }
 
@@ -83,9 +84,6 @@
 
 // MARK: Table Vide Datasource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 72;
@@ -97,17 +95,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HSVLeagueCardTableViewCell *cell = (HSVLeagueCardTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LeagueCardCell" forIndexPath:indexPath];
+    HSVLeageCard *leageCard = [_internalCards objectAtIndex:indexPath.row];
+    cell.leageCard = leageCard;
+    [cell configureViews];
 
-    HSVLeageCard *card = [_internalCards objectAtIndex:indexPath.row];
-
-    cell.card = card.cardID;
-
-    cell.cardCodeLabel.text = card.cardID;
     return  cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == 0 ? @"NEW" : @"OLD";
+    return @"Leage Cards";
 }
 
 @end
