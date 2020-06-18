@@ -53,7 +53,7 @@
 
     NSArray *savedOldLeageCards = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalOldLeageCardList"];
     if ([savedOldLeageCards isKindOfClass:[NSArray class]] && savedOldLeageCards) {
-        _internalFavoritePokemon = [NSMutableArray arrayWithArray:savedOldLeageCards];
+        _internalOldLeageCardList = [NSMutableArray arrayWithArray:savedOldLeageCards];
     }
 
     return self;
@@ -196,7 +196,11 @@
     if (![_internalOldLeageCardList containsObject:cardID]) {
         [_internalOldLeageCardList addObject:cardID];
         [self saveOldLeageCardsToUserDefaults];
+
+
     }
+
+    
 }
 
 - (void)deleteOldLeageCard:(NSString *)cardID
@@ -207,7 +211,7 @@
 
 - (void) saveOldLeageCardsToUserDefaults
 {
-    [[NSUserDefaults standardUserDefaults] setObject:_internalFavoritePokemon forKey:@"InternalOldLeageCardList"];
+    [[NSUserDefaults standardUserDefaults] setObject:_internalOldLeageCardList forKey:@"InternalOldLeageCardList"];
 }
 
 @end

@@ -63,10 +63,12 @@
 
         NSArray<NSString *> *oldLeageCards = [self.pokemonController oldLeageCardList];
         NSMutableArray *cards = [NSMutableArray array];
+
         for (CKRecord *record in records) {
             NSString *recordName = record.recordID.recordName;
             NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
             BOOL isOld = [oldLeageCards containsObject:recordName];
+
             HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:isOld recordName:recordName];
             [cards addObject:leageCard];
         }
@@ -90,7 +92,7 @@
     }
 }
 
-// MARK: Table Vide Datasource
+// MARK: - Table Vide Datasource
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,7 +109,7 @@
     HSVLeageCard *leageCard = [_internalCards objectAtIndex:indexPath.row];
     cell.leageCard = leageCard;
     [cell configureViews];
-
+    cell.delegate = self;
     return  cell;
 }
 
@@ -115,6 +117,20 @@
     return @"Leage Cards";
 }
 
+// MARK: - HSVLeagueCardTableViewCellDelegate
+
+- (void)checkedButtonPressed:(BOOL)isOld recordName:(NSString *)recordName {
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!isOld) {
+            [self.pokemonController addOldLeageCard:recordName];
+        } else {
+            [self.pokemonController deleteOldLeageCard:recordName];
+        }
+        [self.tableView reloadData];
+    });
+
+}
 
 
 @end

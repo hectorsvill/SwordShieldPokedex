@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol HSVLeagueCardTableViewCellDelegate <NSObject>
 
-- (void)checkedButtonPressed:(BOOL)isOld cardID:(NSString *)cardID;
+- (void)checkedButtonPressed:(BOOL)isOld recordName:(NSString *)recordName;
 
 @end
 
