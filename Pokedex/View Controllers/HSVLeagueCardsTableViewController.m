@@ -8,6 +8,8 @@
 
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
+#import "HSVPokemonController.h"
+
 #import "NationalGalarPokedex-Swift.h"
 #import "HSVLeageCard.h"
 #import "HSVSubmitLeagueCardNumberViewController.h"
@@ -16,7 +18,7 @@
 
 
 @interface HSVLeagueCardsTableViewController ()
-
+@property (nonatomic) HSVPokemonController *pokemonController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) HSVCloudFramework *cloudFramework;
 @property (nonatomic, copy) NSArray<HSVLeageCard *> *internalCards;
@@ -29,10 +31,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self configureViews];
+}
+
+- (void)configureViews {
+    self.pokemonController = HSVPokemonController.sharedPokemonController;
     [self createRefreshControl];
     self.internalCards = [NSMutableArray array];
     self.cloudFramework = [HSVCloudFramework new];
-
     [self.refreshControl beginRefreshing];
     [self fetchLeageCards];
 }
@@ -55,11 +61,13 @@
             return;
         }
 
+        NSArray<NSString *> *oldLeageCards = [self.pokemonController oldLeageCardList];
         NSMutableArray *cards = [NSMutableArray array];
         for (CKRecord *record in records) {
             NSString *recordName = record.recordID.recordName;
             NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
-            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:false recordName:recordName];
+            BOOL isOld = [oldLeageCards containsObject:recordName];
+            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:isOld recordName:recordName];
             [cards addObject:leageCard];
         }
 
@@ -95,6 +103,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HSVLeagueCardTableViewCell *cell = (HSVLeagueCardTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LeagueCardCell" forIndexPath:indexPath];
+
     HSVLeageCard *leageCard = [_internalCards objectAtIndex:indexPath.row];
     cell.leageCard = leageCard;
     [cell configureViews];
@@ -105,5 +114,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Leage Cards";
 }
+
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HSVLeagueCardTableViewCellDelegate.h"
 @class HSVLeageCard;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *checkedButton;
 
 - (void) configureViews;
+
+@property (weak) id<HSVLeagueCardTableViewCellDelegate> delegate;
 
 @end
 

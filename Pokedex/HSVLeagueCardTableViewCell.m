@@ -25,6 +25,7 @@
     BOOL isOld = self.leageCard.isOld;
     self.leageCard.isOld = !isOld;
     [self configureButtonImage];
+    [_delegate checkedButtonPressed:isOld cardID:self.leageCard.cardID];
 }
 
 @end
