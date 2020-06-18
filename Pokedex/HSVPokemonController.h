@@ -37,17 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSNumber *> *)fetchFavorites;
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber;
 
-//
-//- (void)fetchFromCoreData:(void (^)(NSError *))completion;
-//- (void)saveToCoreData:(NSNumber *)number completion:(void (^)(NSError *))completion;
-
-
-
 - (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion;
-
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
-
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type;
+
+- (NSArray<NSString *> *)oldLeageCardList;
+
 
 @end
 

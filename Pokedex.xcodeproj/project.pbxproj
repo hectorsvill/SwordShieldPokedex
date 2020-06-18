@@ -67,6 +67,7 @@
 		12569586249175F800F09E6E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		126455BB2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSubmitLeagueCardNumberViewController.h; sourceTree = "<group>"; };
 		126455BC2492A20200D456BC /* HSVSubmitLeagueCardNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVSubmitLeagueCardNumberViewController.m; sourceTree = "<group>"; };
+		12647BE5249B093400E82724 /* HSVLeagueCardTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardTableViewCellDelegate.h; sourceTree = "<group>"; };
 		126CD4432491E6B500CF2538 /* HSVLeagueCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardTableViewCell.h; sourceTree = "<group>"; };
 		126CD4442491E6B500CF2538 /* HSVLeagueCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVLeagueCardTableViewCell.m; sourceTree = "<group>"; };
 		126CD4462491E6DF00CF2538 /* HSVLeagueCardsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVLeagueCardsTableViewController.h; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 				122A4E4A2450BCB5002E777F /* LaunchScreen.storyboard */,
 				122A4E4D2450BCB5002E777F /* Info.plist */,
 				1290C6D424523F8D0037C098 /* PokemonSwordShield.json */,
-				12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */,
 				12BDB9CB24973CDE00A7B673 /* Pokedex-Bridging-Header.h */,
 			);
 			path = Pokedex;
@@ -186,6 +186,7 @@
 				122A4E602450DA17002E777F /* HSVNetworking.m */,
 				1290C6CD245227BB0037C098 /* HSVPokemonController.h */,
 				1290C6CE245227BB0037C098 /* HSVPokemonController.m */,
+				12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -245,6 +246,7 @@
 			children = (
 				12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */,
 				12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */,
+				12647BE5249B093400E82724 /* HSVLeagueCardTableViewCellDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
