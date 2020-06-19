@@ -15,7 +15,7 @@
         _cardID = [cardID copy];
         _isOld = isOld;
         _recordName = [recordName copy];
-        _badLeageCardValue = 0;
+        _badLeageCardValue = @0;
     }
 
     return self;

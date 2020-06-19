@@ -288,7 +288,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="W4M-uT-eHb">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -307,7 +307,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle.fill" catalog="system" id="ILC-7U-9Ru"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bUA-re-2u9">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -372,7 +372,7 @@
                                 <connections>
                                     <outlet property="cardCodeLabel" destination="Pu0-BX-YLU" id="nFV-UD-nnZ"/>
                                     <outlet property="checkedButton" destination="dUF-T6-J9Z" id="hGE-KU-yUO"/>
-                                    <segue destination="7Dw-hs-Y5R" kind="modal" identifier="viewLeageCardSegue" id="qtg-N0-Zd1"/>
+                                    <segue destination="7Dw-hs-Y5R" kind="show" identifier="viewLeageCardSegue" id="qtg-N0-Zd1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -602,7 +602,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ApI-pA-vwW"/>
+        <segue reference="qtg-N0-Zd1"/>
         <segue reference="mbo-Gj-whf"/>
         <segue reference="xZf-ef-Bc0"/>
     </inferredMetricsTieBreakers>
