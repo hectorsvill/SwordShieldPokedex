@@ -39,6 +39,7 @@
 - (void)configureViews {
     if (self.cardID != nil) {
         // user will be viewing leage card id
+//        [self.resetButton setTitle:@"Bad Card ID" forState:UIControlStateNormal];
         [self.resetButton setHidden:true];
         [self.submitButton setHidden:true];
 
@@ -63,15 +64,18 @@
 }
 
 - (IBAction)resetButtonPressed:(id)sender {
-    self.sectionATextField.text = @"";
-    self.sectionBTextField.text = @"";
-    self.sectionCTextField.text = @"";
-    self.sectionDTextField.text = @"";
+    if (self.cardID != nil) {
+        self.sectionATextField.text = @"";
+        self.sectionBTextField.text = @"";
+        self.sectionCTextField.text = @"";
+        self.sectionDTextField.text = @"";
+    } else {
+        // add a strike
+    }
 }
 
 
-
-- (IBAction)submutButtonPressed:(id)sender {
+- (NSString *)createCardIDString {
     NSString *textA = [self.sectionATextField.text uppercaseString];
     NSString *textB = [self.sectionBTextField.text uppercaseString];
     NSString *textC = [self.sectionCTextField.text uppercaseString];
@@ -82,21 +86,34 @@
     self.sectionCTextField.text = textC;
     self.sectionDTextField.text = textD;
 
-    NSString *cardNumber = [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
+    return [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
+}
+
+- (HSVLeageCard *)createLeageCardID:(NSString *)cardID {
+    return [[HSVLeageCard new] initWithCardID:cardID isOld:false recordName:@""];
+}
+
+- (void)saveLeageCardIDToiCloud {
+    NSString *cardID = [self createCardIDString];
+    HSVLeageCard *myLeageCard = [self createLeageCardID:cardID];
 
     for (HSVLeageCard *card in self.cards) {
-        if (card.cardID == cardNumber) {
+        if (card.cardID == myLeageCard.cardID) {
             [self alertControlerWith:@"Error" message:@"Leage Card Already Exist"];
             return;
         }
     }
 
-    CKRecord *record = [self.cloudFramework createLeageCardRecordWithCardID:cardNumber];
+    CKRecord *record = [self.cloudFramework createLeageCardRecordWithLeageCard:myLeageCard];
     [self.cloudFramework saveWithRecord:record completion:^(NSError *error) {
         if (error != nil) {
             [self alertControlerWith:@"Error" message:@"iCloud error saving Leage Card ID.\n Please try again."];
         }
     }];
+}
+
+- (IBAction)submutButtonPressed:(id)sender {
+    [self saveLeageCardIDToiCloud];
 }
 
 - (void)checkiCloudAccountStatus {
