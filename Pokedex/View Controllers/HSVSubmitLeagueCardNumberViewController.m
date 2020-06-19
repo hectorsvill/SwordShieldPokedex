@@ -39,7 +39,6 @@
 - (void)configureViews {
     if (self.cardID != nil) {
         // user will be viewing leage card id
-//        [self.resetButton setTitle:@"Bad Card ID" forState:UIControlStateNormal];
         [self.resetButton setHidden:true];
         [self.submitButton setHidden:true];
 
@@ -59,7 +58,6 @@
         self.resetButton.layer.cornerRadius = 8;
         self.submitButton.layer.cornerRadius = 8;
 
-
     }
 }
 
@@ -69,11 +67,19 @@
         self.sectionBTextField.text = @"";
         self.sectionCTextField.text = @"";
         self.sectionDTextField.text = @"";
-    } else {
-        // add a strike
     }
 }
 
+- (BOOL)isValidCardIDText:(NSString *)text {
+    for (NSUInteger charIndex = 0; charIndex < text.length; charIndex ++) {
+        unichar character = [text characterAtIndex:  charIndex];
+        if (!(character == 32) || !(character >= 65 && character <= 90) || !(character >= 97 && character <= 122) || !(character >= 48 && character <= 57)) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 - (NSString *)createCardIDString {
     NSString *textA = [self.sectionATextField.text uppercaseString];
@@ -93,8 +99,7 @@
     return [[HSVLeageCard new] initWithCardID:cardID isOld:false recordName:@""];
 }
 
-- (void)saveLeageCardIDToiCloud {
-    NSString *cardID = [self createCardIDString];
+- (void)saveLeageCardIDToiCloud:(NSString *)cardID {
     HSVLeageCard *myLeageCard = [self createLeageCardID:cardID];
 
     for (HSVLeageCard *card in self.cards) {
@@ -113,7 +118,13 @@
 }
 
 - (IBAction)submutButtonPressed:(id)sender {
-    [self saveLeageCardIDToiCloud];
+    NSString *cardID = [self createCardIDString];
+
+    if ([self isValidCardIDText:cardID]) {
+        [self saveLeageCardIDToiCloud:cardID];
+    } else {
+        [self alertControlerWith:@"Error" message:@"Invalid Leage Card ID"];
+    }
 }
 
 - (void)checkiCloudAccountStatus {
