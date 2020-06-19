@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol HSVSubmitLeagueCardNumberViewControllerDelegate <NSObject>
 
-- (void)addToInternalLeageCardsWithCard;
-
 @end
 
 NS_ASSUME_NONNULL_END

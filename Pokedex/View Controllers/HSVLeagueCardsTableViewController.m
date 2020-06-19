@@ -139,13 +139,7 @@
 
 }
 
-# pragma mark: - HSVSubmitLeagueCardNumberViewControllerDelegate
 
-- (void)addToInternalLeageCardsWithCard {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.refreshControl beginRefreshing];
-        [self fetchLeageCards];
-    });
-}
+
 
 @end

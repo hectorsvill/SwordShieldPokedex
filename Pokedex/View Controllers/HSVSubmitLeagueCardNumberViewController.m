@@ -25,8 +25,6 @@
     [super viewDidLoad];
     [self configureViews];
     self.cloudFramework = [HSVCloudFramework new];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,8 +38,11 @@
 
 - (IBAction)submutButtonPressed:(id)sender {
     NSString *cardID = [self createCardIDString];
+    BOOL isDuplicate = [self checkForDuplicate:cardID];;
 
-    if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
+    if (isDuplicate) {
+        [self alertControlerWith:@"Card Code Error" message:@"Card Code already exist."];
+    } else if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
         NSString *message = [NSString stringWithFormat:@"Share My Card Code:\n%@", cardID];
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Share my Card Code" message:message preferredStyle:UIAlertControllerStyleAlert];
 
@@ -56,9 +57,7 @@
         UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"Share!!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self saveLeageCardIDToiCloud:cardID];
-                [self.delegate addToInternalLeageCardsWithCard];
-                [self.navigationController popViewControllerAnimated:true];
-
+                [self alertControlerWith:@"Awesome" message:@"Card Code will be posted shortly!"];
             });
         }];
 
@@ -71,7 +70,6 @@
     }
 }
 
-
 - (IBAction)resetButtonPressed:(id)sender {
     if (self.cardID == nil) {
         self.sectionATextField.text = @"";
@@ -80,7 +78,6 @@
         self.sectionDTextField.text = @"";
     }
 }
-
 
 - (void)configureViews {
     if (self.cardID != nil) {
@@ -155,6 +152,15 @@
     }];
 }
 
+- (BOOL)checkForDuplicate:(NSString *)cardID {
+    for (HSVLeageCard *card in self.cards) {
+        if ([card.cardID isEqualToString:cardID]) {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 - (void)checkiCloudAccountStatus {
     [self.cloudFramework.container accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {
@@ -170,7 +176,6 @@
 }
 
 #pragma mark - AlertControllers
-
 - (void)alertControlerWith:(NSString *)title message:(NSString *)message {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
