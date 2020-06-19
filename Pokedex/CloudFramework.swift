@@ -30,7 +30,7 @@ class CloudFramework: NSObject {
         }
     }
 
-    ///  perfroms fetch witih record Type Query
+    ///  perfroms fetch witih record Type Query, Fetch is sorted by modifacetion Date
     /// - Parameters:
     ///   - recordType: a string value of the record typr
     ///   - completion:  error / record data

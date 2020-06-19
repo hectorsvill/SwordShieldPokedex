@@ -42,8 +42,8 @@
     NSString *cardID = [self createCardIDString];
 
     if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
-        NSString *message = [NSString stringWithFormat:@"Share My Leage Card ID!!"];
-        UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Share my Leage Card" message:message preferredStyle:UIAlertControllerStyleAlert];
+        NSString *message = [NSString stringWithFormat:@"Share My Card Code:\n%@", cardID];
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Share my Card Code" message:message preferredStyle:UIAlertControllerStyleAlert];
 
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             dispatch_async(dispatch_get_main_queue(), ^{
