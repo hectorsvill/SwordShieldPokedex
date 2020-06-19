@@ -372,7 +372,7 @@
                                 <connections>
                                     <outlet property="cardCodeLabel" destination="Pu0-BX-YLU" id="nFV-UD-nnZ"/>
                                     <outlet property="checkedButton" destination="dUF-T6-J9Z" id="hGE-KU-yUO"/>
-                                    <segue destination="7Dw-hs-Y5R" kind="show" identifier="viewLeageCardSegue" id="qtg-N0-Zd1"/>
+                                    <segue destination="7Dw-hs-Y5R" kind="modal" identifier="viewLeageCardSegue" id="qtg-N0-Zd1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -450,10 +450,10 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tv-UR-RwE">
                                         <rect key="frame" x="0.0" y="65" width="359" height="41"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <state key="normal" title="Reset">
-                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="resetButtonPressed:" destination="7Dw-hs-Y5R" eventType="touchUpInside" id="uKA-NM-NON"/>
@@ -602,7 +602,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qtg-N0-Zd1"/>
+        <segue reference="ApI-pA-vwW"/>
         <segue reference="mbo-Gj-whf"/>
         <segue reference="xZf-ef-Bc0"/>
     </inferredMetricsTieBreakers>

@@ -12,8 +12,8 @@ import CloudKit
 
 @objc (HSVCloudFramework)
 class CloudFramework: NSObject {
-    let container = CKContainer.default()
-
+    @objc let container = CKContainer.default()
+    
     /// Save a CKRecord
     /// - Parameters:
     ///   - record: CKRecord

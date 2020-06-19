@@ -8,7 +8,9 @@
 
 #import "HSVSubmitLeagueCardNumberViewController.h"
 #import "HSVSerebiiViewController.h"
+#import "HSVLeageCard.h"
 #import <NationalGalarPokedex-Swift.h>
+#import <CloudKit/CloudKit.h>
 
 
 @interface HSVSubmitLeagueCardNumberViewController ()
@@ -22,14 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViews];
-
-
     self.cloudFramework = [HSVCloudFramework new];
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self checkiCloudAccountStatus];
+}
+
 - (void)configureViews {
     if (self.cardID != nil) {
+        // user will be viewing leage card id
         [self.resetButton setHidden:true];
         [self.submitButton setHidden:true];
 
@@ -45,8 +52,11 @@
         self.sectionCTextField.text = cardIDComponents[2];
         self.sectionDTextField.text = cardIDComponents[3];
     } else {
+        // user will try to input leage card id
         self.resetButton.layer.cornerRadius = 8;
         self.submitButton.layer.cornerRadius = 8;
+
+
     }
 }
 
@@ -56,6 +66,8 @@
     self.sectionCTextField.text = @"";
     self.sectionDTextField.text = @"";
 }
+
+
 
 - (IBAction)submutButtonPressed:(id)sender {
     NSString *textA = [self.sectionATextField.text uppercaseString];
@@ -70,13 +82,48 @@
 
     NSString *cardNumber = [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
 
+    for (HSVLeageCard *card in self.cards) {
+        if (card.cardID == cardNumber) {
+            [self alertControlerWith:@"Error" message:@"Leage Card Already Exist"];
+            return;
+        }
+    }
 
     CKRecord *record = [self.cloudFramework createLeageCardRecordWithCardID:cardNumber];
     [self.cloudFramework saveWithRecord:record completion:^(NSError *error) {
         if (error != nil) {
-            // alert error
+            [self alertControlerWith:@"Error" message:@"iCloud error saving Leage Card ID.\n Please try again."];
         }
     }];
+}
+
+- (void)checkiCloudAccountStatus {
+    [self.cloudFramework.container accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {
+        if (error) {
+            [self alertControlerWith:@"Error" message:@"Please try again."];
+            return;
+        }
+
+        if (accountStatus == CKAccountStatusNoAccount) {
+            [self alertControlerWith:@"iCloud Error" message:@"User must be signed in to their iCloud account."];
+        }
+    }];
+}
+
+#pragma mark - AlertControllers
+
+- (void)alertControlerWith:(NSString *)title message:(NSString *)message {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+            [self.navigationController popViewControllerAnimated:true];
+        }];
+
+        [ac addAction:okAction];
+
+        [self presentViewController:ac animated:false completion:nil];
+    });
 }
 
 #pragma mark - Navigation

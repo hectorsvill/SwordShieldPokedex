@@ -9,13 +9,11 @@
 #import "HSVLeagueCardsTableViewController.h"
 #import "HSVLeagueCardTableViewCell.h"
 #import "HSVPokemonController.h"
-
+#import "HSVSubmitLeagueCardNumberViewController.h"
 #import "NationalGalarPokedex-Swift.h"
 #import "HSVLeageCard.h"
 #import "HSVSubmitLeagueCardNumberViewController.h"
-
 #import <CloudKit/CloudKit.h>
-
 
 @interface HSVLeagueCardsTableViewController ()
 @property (nonatomic) HSVPokemonController *pokemonController;
@@ -89,6 +87,9 @@
 
         HSVSubmitLeagueCardNumberViewController *vc = (HSVSubmitLeagueCardNumberViewController *)segue.destinationViewController;
         vc.cardID = cardID;
+    } else if ( [segue.identifier isEqualToString:@"AddLeagueCardSegue"]) {
+        HSVSubmitLeagueCardNumberViewController *submitVC = (HSVSubmitLeagueCardNumberViewController *)segue.destinationViewController;
+        submitVC.cards = self.internalCards;
     }
 }
 
