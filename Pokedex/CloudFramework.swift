@@ -37,6 +37,7 @@ class CloudFramework: NSObject {
     @objc func fetchRecords(recordType: String, completion: @escaping ([CKRecord]?, Error?) -> ()) {
         let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
         let database = container.publicCloudDatabase
+        query.sortDescriptors = [NSSortDescriptor(key: "modificationDate", ascending: false)]
 
         database.perform(query, inZoneWith: nil) { records, error in
             if let error = error {
