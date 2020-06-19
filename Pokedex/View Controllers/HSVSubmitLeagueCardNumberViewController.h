@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HSVSubmitLeagueCardNumberViewControllerDelegate.h"
 
 @class HSVLeageCard;
 
@@ -23,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 
+
+@property (weak)id<HSVSubmitLeagueCardNumberViewControllerDelegate> delegate;
 
 @end
 

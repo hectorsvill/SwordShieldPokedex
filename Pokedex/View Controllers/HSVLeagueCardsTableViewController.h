@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HSVLeagueCardTableViewCellDelegate.h"
+#import "HSVSubmitLeagueCardNumberViewControllerDelegate.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @class CloudFramework;
 
-@interface HSVLeagueCardsTableViewController : UITableViewController<HSVLeagueCardTableViewCellDelegate>
+@interface HSVLeagueCardsTableViewController : UITableViewController<HSVLeagueCardTableViewCellDelegate, HSVSubmitLeagueCardNumberViewControllerDelegate>
+
 
 
 @end

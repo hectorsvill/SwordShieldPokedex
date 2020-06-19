@@ -36,6 +36,52 @@
         [self checkiCloudAccountStatus];
 }
 
+#pragma mark - IBAction
+
+- (IBAction)submutButtonPressed:(id)sender {
+    NSString *cardID = [self createCardIDString];
+
+    if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
+        NSString *message = [NSString stringWithFormat:@"Share My Leage Card ID!!"];
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Share my Leage Card" message:message preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self resetButtonPressed:self];
+            });
+        }];
+
+        [ac addAction:cancelAction];
+
+        UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"Share!!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self saveLeageCardIDToiCloud:cardID];
+                [self.delegate addToInternalLeageCardsWithCard];
+                [self.navigationController popViewControllerAnimated:true];
+
+            });
+        }];
+
+        [ac addAction:shareAction];
+
+        [self presentViewController:ac animated:true completion:nil];
+
+    } else {
+        [self alertControlerWith:@"Error" message:@"Invalid Leage Card ID"];
+    }
+}
+
+
+- (IBAction)resetButtonPressed:(id)sender {
+    if (self.cardID == nil) {
+        self.sectionATextField.text = @"";
+        self.sectionBTextField.text = @"";
+        self.sectionCTextField.text = @"";
+        self.sectionDTextField.text = @"";
+    }
+}
+
+
 - (void)configureViews {
     if (self.cardID != nil) {
         // user will be viewing leage card id
@@ -58,15 +104,6 @@
         self.resetButton.layer.cornerRadius = 8;
         self.submitButton.layer.cornerRadius = 8;
 
-    }
-}
-
-- (IBAction)resetButtonPressed:(id)sender {
-    if (self.cardID == nil) {
-        self.sectionATextField.text = @"";
-        self.sectionBTextField.text = @"";
-        self.sectionCTextField.text = @"";
-        self.sectionDTextField.text = @"";
     }
 }
 
@@ -118,15 +155,6 @@
     }];
 }
 
-- (IBAction)submutButtonPressed:(id)sender {
-    NSString *cardID = [self createCardIDString];
-
-    if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
-        [self saveLeageCardIDToiCloud:cardID];
-    } else {
-        [self alertControlerWith:@"Error" message:@"Invalid Leage Card ID"];
-    }
-}
 
 - (void)checkiCloudAccountStatus {
     [self.cloudFramework.container accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {

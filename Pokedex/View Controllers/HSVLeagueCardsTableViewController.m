@@ -19,7 +19,7 @@
 @property (nonatomic) HSVPokemonController *pokemonController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) HSVCloudFramework *cloudFramework;
-@property (nonatomic, copy) NSArray<HSVLeageCard *> *internalCards;
+@property (nonatomic, copy) NSMutableArray<HSVLeageCard *> *internalCards;
 
 @end
 
@@ -30,6 +30,7 @@
     [super viewDidLoad];
 
     [self configureViews];
+    
 }
 
 - (void)configureViews {
@@ -90,6 +91,7 @@
     } else if ( [segue.identifier isEqualToString:@"AddLeagueCardSegue"]) {
         HSVSubmitLeagueCardNumberViewController *submitVC = (HSVSubmitLeagueCardNumberViewController *)segue.destinationViewController;
         submitVC.cards = self.internalCards;
+        submitVC.delegate = self;
     }
 }
 
@@ -122,7 +124,7 @@
 //    [self.tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
-// MARK: - HSVLeagueCardTableViewCellDelegate
+# pragma mark: - HSVLeagueCardTableViewCellDelegate
 
 - (void)checkedButtonPressed:(BOOL)isOld recordName:(NSString *)recordName {
 
@@ -137,5 +139,13 @@
 
 }
 
+# pragma mark: - HSVSubmitLeagueCardNumberViewControllerDelegate
+
+- (void)addToInternalLeageCardsWithCard {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl beginRefreshing];
+        [self fetchLeageCards];
+    });
+}
 
 @end
