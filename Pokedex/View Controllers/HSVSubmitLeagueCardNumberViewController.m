@@ -62,7 +62,7 @@
 }
 
 - (IBAction)resetButtonPressed:(id)sender {
-    if (self.cardID != nil) {
+    if (self.cardID == nil) {
         self.sectionATextField.text = @"";
         self.sectionBTextField.text = @"";
         self.sectionCTextField.text = @"";
@@ -72,8 +72,9 @@
 
 - (BOOL)isValidCardIDText:(NSString *)text {
     for (NSUInteger charIndex = 0; charIndex < text.length; charIndex ++) {
-        unichar character = [text characterAtIndex:  charIndex];
-        if (!(character == 32) || !(character >= 65 && character <= 90) || !(character >= 97 && character <= 122) || !(character >= 48 && character <= 57)) {
+        unichar character = [text characterAtIndex:  charIndex] ;
+        NSLog(@"%d", character);
+        if (!((character == 32) || (character >= 65 && character <= 90) || (character >= 97 && character <= 122) || (character >= 48 && character <= 57))) {
             return false;
         }
     }
@@ -120,7 +121,7 @@
 - (IBAction)submutButtonPressed:(id)sender {
     NSString *cardID = [self createCardIDString];
 
-    if ([self isValidCardIDText:cardID]) {
+    if ((cardID.length ==  17) && [self isValidCardIDText:cardID]) {
         [self saveLeageCardIDToiCloud:cardID];
     } else {
         [self alertControlerWith:@"Error" message:@"Invalid Leage Card ID"];
