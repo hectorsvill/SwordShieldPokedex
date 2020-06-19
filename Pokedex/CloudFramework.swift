@@ -50,7 +50,6 @@ class CloudFramework: NSObject {
 }
 
 extension CloudFramework {
-
     /// Create a Leage Card ID CKRecord
     /// - Parameter cardID: string value of ID
     /// - Returns: a CKRecord  with cardID key/value
@@ -59,6 +58,8 @@ extension CloudFramework {
         let record = CKRecord(recordType: "LeageCardID", recordID: recordID)
         record["cardID"] = leageCard.cardID
         record["badLeageCardValue"] = leageCard.badLeageCardValue;
+        record["likeCount"] = 0;
+        record["createdBy"] = "";
         return record
     }
 }
