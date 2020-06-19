@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *cardID;
 @property (nonatomic) BOOL isOld;
 @property (nonatomic) NSString *recordName;
+@property int badLeageCardValue;
 
 - (instancetype)initWithCardID:(NSString *)cardID isOld:(BOOL)isOld recordName:(NSString *)recordName;
 

@@ -54,10 +54,11 @@ extension CloudFramework {
     /// Create a Leage Card ID CKRecord
     /// - Parameter cardID: string value of ID
     /// - Returns: a CKRecord  with cardID key/value
-    @objc func createLeageCardRecord(cardID: String) -> CKRecord{
+    @objc func createLeageCardRecord(leageCard: HSVLeageCard) -> CKRecord{
         let recordID = CKRecord.ID()
         let record = CKRecord(recordType: "LeageCardID", recordID: recordID)
-        record["cardID"] = cardID
+        record["cardID"] = leageCard.cardID
+        record["badLeageCardValue"] = leageCard.badLeageCardValue;
         return record
     }
 }
