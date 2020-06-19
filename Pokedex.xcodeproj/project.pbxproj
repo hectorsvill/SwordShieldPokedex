@@ -88,6 +88,7 @@
 		12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokedex_Type.m; sourceTree = "<group>"; };
 		12A3A2FB24607962006B934D /* HSVPokemonDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonDetailViewController.h; sourceTree = "<group>"; };
 		12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailViewController.m; sourceTree = "<group>"; };
+		12A869C6249C82C000BE1EF7 /* HSVSubmitLeagueCardNumberViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSubmitLeagueCardNumberViewControllerDelegate.h; sourceTree = "<group>"; };
 		12BDB9CB24973CDE00A7B673 /* Pokedex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pokedex-Bridging-Header.h"; sourceTree = "<group>"; };
 		12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFramework.swift; sourceTree = "<group>"; };
 		12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonTableViewCellDelegate.h; sourceTree = "<group>"; };
@@ -247,6 +248,7 @@
 				12D8CE76245875EB008E1100 /* HSVPokemonTableViewCellDelegate.h */,
 				12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */,
 				12647BE5249B093400E82724 /* HSVLeagueCardTableViewCellDelegate.h */,
+				12A869C6249C82C000BE1EF7 /* HSVSubmitLeagueCardNumberViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

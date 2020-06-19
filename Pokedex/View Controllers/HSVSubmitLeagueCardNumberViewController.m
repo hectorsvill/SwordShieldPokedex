@@ -166,7 +166,6 @@
         HSVSerebiiViewController *viewController = (HSVSerebiiViewController *)segue.destinationViewController;
         NSString *urlString = @"https://www.serebii.net/swordshield/leaguecard.shtml";
         viewController.urlString = urlString;
-
     }
 }
 
