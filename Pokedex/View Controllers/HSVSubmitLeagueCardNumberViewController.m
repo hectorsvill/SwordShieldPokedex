@@ -25,13 +25,15 @@
     [super viewDidLoad];
     [self configureViews];
     self.cloudFramework = [HSVCloudFramework new];
+    
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self checkiCloudAccountStatus];
+    if (self.cardID == nil)
+        [self checkiCloudAccountStatus];
 }
 
 - (void)configureViews {
