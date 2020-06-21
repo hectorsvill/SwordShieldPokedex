@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type;
 
-- (NSArray<NSString *> *)oldLeageCardList;
+- (NSArray<NSString *> *)oldLeagueCardList;
 - (void)addOldLeageCard:(NSString *)cardID;
 - (void)deleteOldLeageCard:(NSString *)cardID;
 

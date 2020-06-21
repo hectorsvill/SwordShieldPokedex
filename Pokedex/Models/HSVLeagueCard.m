@@ -6,16 +6,16 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
-#import "HSVLeageCard.h"
+#import "HSVLeagueCard.h"
 
-@implementation HSVLeageCard
+@implementation HSVLeagueCard
 
 - (instancetype)initWithCardID:(NSString *)cardID isOld:(BOOL)isOld recordName:(NSString *)recordName {
     if (self = [super init]) {
         _cardID = [cardID copy];
         _isOld = isOld;
         _recordName = [recordName copy];
-        _badLeageCardValue = @0;
+        _badLeagueCardValue = @0;
     }
 
     return self;

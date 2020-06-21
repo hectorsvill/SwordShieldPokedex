@@ -184,9 +184,9 @@
     return [self sortedIndexDictionary:pokemonDictionary];
 }
 
-// Mark - Leage Card Controller
+// Mark - League Card Controller
 
-- (NSArray<NSString *> *)oldLeageCardList
+- (NSArray<NSString *> *)oldLeagueCardList
 {
     return [_internalOldLeageCardList copy];
 }

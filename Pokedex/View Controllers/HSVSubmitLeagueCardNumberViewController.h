@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "HSVSubmitLeagueCardNumberViewControllerDelegate.h"
 
-@class HSVLeageCard;
+@class HSVLeagueCard;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVSubmitLeagueCardNumberViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic) NSArray<HSVLeageCard *> *cards;
+@property (nonatomic) NSArray<HSVLeagueCard *> *cards;
 @property (nonatomic, copy) NSString *cardID;
 @property (weak, nonatomic) IBOutlet UITextField *sectionATextField;
 @property (weak, nonatomic) IBOutlet UITextField *sectionBTextField;

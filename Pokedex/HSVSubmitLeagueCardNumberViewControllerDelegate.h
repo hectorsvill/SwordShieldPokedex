@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class HSVLeageCard;
+@class HSVLeagueCard;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -8,7 +8,7 @@
 
 #import "HSVSubmitLeagueCardNumberViewController.h"
 #import "HSVSerebiiViewController.h"
-#import "HSVLeageCard.h"
+#import "HSVLeagueCard.h"
 #import <NationalGalarPokedex-Swift.h>
 #import <CloudKit/CloudKit.h>
 
@@ -56,7 +56,7 @@
 
         UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"Share!!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self saveLeageCardIDToiCloud:cardID];
+                [self saveLeagueCardIDToiCloud:cardID];
                 [self alertControlerWith:@"Awesome" message:@"Card Code will be posted shortly!"];
             });
         }];
@@ -130,14 +130,14 @@
     return [NSString stringWithFormat: @"%@ %@ %@ %@", textA, textB, textC, textD];
 }
 
-- (HSVLeageCard *)createLeageCardID:(NSString *)cardID {
-    return [[HSVLeageCard new] initWithCardID:cardID isOld:false recordName:@""];
+- (HSVLeagueCard *)createLeageCardID:(NSString *)cardID {
+    return [[HSVLeagueCard new] initWithCardID:cardID isOld:false recordName:@""];
 }
 
-- (void)saveLeageCardIDToiCloud:(NSString *)cardID {
-    HSVLeageCard *myLeageCard = [self createLeageCardID:cardID];
+- (void)saveLeagueCardIDToiCloud:(NSString *)cardID {
+    HSVLeagueCard *myLeageCard = [self createLeageCardID:cardID];
 
-    for (HSVLeageCard *card in self.cards) {
+    for (HSVLeagueCard *card in self.cards) {
         if (card.cardID == myLeageCard.cardID) {
             [self alertControlerWith:@"Error" message:@"Leage Card Already Exist"];
             return;
@@ -153,7 +153,7 @@
 }
 
 - (BOOL)checkForDuplicate:(NSString *)cardID {
-    for (HSVLeageCard *card in self.cards) {
+    for (HSVLeagueCard *card in self.cards) {
         if ([card.cardID isEqualToString:cardID])
             return true;
     }

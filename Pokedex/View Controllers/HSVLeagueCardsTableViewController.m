@@ -11,7 +11,7 @@
 #import "HSVPokemonController.h"
 #import "HSVSubmitLeagueCardNumberViewController.h"
 #import "NationalGalarPokedex-Swift.h"
-#import "HSVLeageCard.h"
+#import "HSVLeagueCard.h"
 #import "HSVSubmitLeagueCardNumberViewController.h"
 #import <CloudKit/CloudKit.h>
 
@@ -19,7 +19,7 @@
 @property (nonatomic) HSVPokemonController *pokemonController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) HSVCloudFramework *cloudFramework;
-@property (nonatomic, copy) NSMutableArray<HSVLeageCard *> *internalCards;
+@property (nonatomic, copy) NSMutableArray<HSVLeagueCard *> *internalCards;
 
 @end
 
@@ -60,7 +60,7 @@
             return;
         }
 
-        NSArray<NSString *> *oldLeageCards = [self.pokemonController oldLeageCardList];
+        NSArray<NSString *> *oldLeageCards = [self.pokemonController oldLeagueCardList];
         NSMutableArray *cards = [NSMutableArray array];
 
         for (CKRecord *record in records) {
@@ -68,7 +68,7 @@
             NSString *cardID = (NSString *)[record objectForKey:@"cardID"];
             BOOL isOld = [oldLeageCards containsObject:recordName];
 
-            HSVLeageCard *leageCard = [[HSVLeageCard new] initWithCardID:cardID isOld:isOld recordName:recordName];
+            HSVLeagueCard *leageCard = [[HSVLeagueCard new] initWithCardID:cardID isOld:isOld recordName:recordName];
             [cards addObject:leageCard];
         }
 
@@ -109,8 +109,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HSVLeagueCardTableViewCell *cell = (HSVLeagueCardTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LeagueCardCell" forIndexPath:indexPath];
 
-    HSVLeageCard *leageCard = [_internalCards objectAtIndex:indexPath.row];
-    cell.leageCard = leageCard;
+    HSVLeagueCard *leageCard = [_internalCards objectAtIndex:indexPath.row];
+    cell.leagueCard = leageCard;
     [cell configureViews];
     cell.delegate = self;
     return  cell;

@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HSVLeageCard : NSObject
+@interface HSVLeagueCard : NSObject
 
 @property (nonatomic, strong) NSString *cardID;
 @property (nonatomic) BOOL isOld;
 @property (nonatomic) NSString *recordName;
-@property (nonatomic, copy) NSNumber *badLeageCardValue;
+@property (nonatomic, copy) NSNumber *badLeagueCardValue;
 
 - (instancetype)initWithCardID:(NSString *)cardID isOld:(BOOL)isOld recordName:(NSString *)recordName;
 

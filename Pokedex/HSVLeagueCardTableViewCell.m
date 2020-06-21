@@ -7,25 +7,25 @@
 //
 
 #import "HSVLeagueCardTableViewCell.h"
-#import "HSVLeageCard.h"
+#import "HSVLeagueCard.h"
 @implementation HSVLeagueCardTableViewCell
 
 - (void) configureViews {
-    self.cardCodeLabel.text = self.leageCard.cardID;
+    self.cardCodeLabel.text = self.leagueCard.cardID;
     [self configureButtonImage];
 }
 
 - (void)configureButtonImage{
-    NSString *imageName = !self.leageCard.isOld ? @"checkmark.square" : @"checkmark.square.fill";
+    NSString *imageName = !self.leagueCard.isOld ? @"checkmark.square" : @"checkmark.square.fill";
     UIImage *image = [UIImage systemImageNamed:imageName];
     [self.checkedButton setImage:image forState:UIControlStateNormal];
 }
 
 - (IBAction)checkButtonPressed:(id)sender {
-    BOOL isOld = self.leageCard.isOld;
-    self.leageCard.isOld = !isOld;
+    BOOL isOld = self.leagueCard.isOld;
+    self.leagueCard.isOld = !isOld;
     [self configureButtonImage];
-    [_delegate checkedButtonPressed:isOld recordName:self.leageCard.recordName];
+    [_delegate checkedButtonPressed:isOld recordName:self.leagueCard.recordName];
 }
 
 @end

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HSVLeagueCardTableViewCellDelegate.h"
-@class HSVLeageCard;
+@class HSVLeagueCard;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVLeagueCardTableViewCell : UITableViewCell
 
-@property (nonatomic) HSVLeageCard *leageCard;
+@property (nonatomic) HSVLeagueCard *leagueCard;
 @property (weak, nonatomic) IBOutlet UILabel *cardCodeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkedButton;
 
