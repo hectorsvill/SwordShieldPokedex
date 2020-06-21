@@ -9,11 +9,10 @@
 import Foundation
 import CloudKit
 
-
 @objc (HSVCloudFramework)
 class CloudFramework: NSObject {
     @objc let container = CKContainer.default()
-    
+
     /// Save a CKRecord
     /// - Parameters:
     ///   - record: CKRecord
