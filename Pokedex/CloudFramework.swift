@@ -51,9 +51,10 @@ class CloudFramework: NSObject {
 }
 
 extension CloudFramework {
-    /// Create a Leage Card ID CKRecord
-    /// - Parameter cardID: string value of ID
-    /// - Returns: a CKRecord  with cardID key/value
+
+    /// Create CKRecord wit a LeageCard Object
+    /// - Parameter leageCard: LeageCard Object
+    /// - Returns: Returns a CKRecord with LeageCard Attributes
     @objc func createLeageCardRecord(leageCard: HSVLeageCard) -> CKRecord{
         let recordID = CKRecord.ID()
         let record = CKRecord(recordType: "LeageCardID", recordID: recordID)
