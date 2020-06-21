@@ -154,9 +154,8 @@
 
 - (BOOL)checkForDuplicate:(NSString *)cardID {
     for (HSVLeageCard *card in self.cards) {
-        if ([card.cardID isEqualToString:cardID]) {
+        if ([card.cardID isEqualToString:cardID])
             return true;
-        }
     }
 
     return false;
