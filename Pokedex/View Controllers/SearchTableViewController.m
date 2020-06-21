@@ -13,12 +13,8 @@
 #import "HSVPokemonController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "HSVPokemonDetailViewController.h"
-
 #import "HSVPokedex_Type.h"
-//typedef NS_ENUM(NSInteger, Pokedex) {
-//    National,
-//    Galar
-//};
+
 
 @interface SearchTableViewController ()
 
@@ -84,7 +80,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.pokedexType = Galar;
             self.searchBar.text = @"";
-            self.pokedexType = Galar;
             self.pokemonIndexList = [self.pokemonController fetchGalarDexIndexList];
             [self.tableView reloadData];
         });
@@ -97,7 +92,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.pokedexType = National;
             self.searchBar.text = @"";
-            self.pokedexType = National;
             self.pokemonIndexList = [self.pokemonController pokemonIndexList];
             [self.tableView reloadData];
         });
@@ -105,6 +99,17 @@
 
     [alertController addAction:nationalDexAction];
 
+
+    UIAlertAction *favoriteDexAction = [UIAlertAction actionWithTitle:@"Favorite" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokedexType = Favorite;
+            self.searchBar.text = @"";
+            self.pokemonIndexList = [self.pokemonController fetchFavorites];
+            [self.tableView reloadData];
+        });
+    }];
+
+    [alertController addAction:favoriteDexAction];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL];
     [alertController addAction:cancelAction];
@@ -194,11 +199,23 @@
 - (void)saveToFavorites:(NSNumber *)number
 {
     [self.pokemonController addFavorite: number];
+
+    if (self.pokedexType == Favorite)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokemonIndexList = [self.pokemonController fetchFavorites];
+            [self.tableView reloadData];
+        });
 }
 
 - (void)removefromFavorites:(NSNumber *)number
 {
     [self.pokemonController removeInternalFavoritePokemon:number];
+
+    if (self.pokedexType == Favorite)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pokemonIndexList = [self.pokemonController fetchFavorites];
+            [self.tableView reloadData];
+        });
 }
 
 @end

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HSVSerebiiViewController : UIViewController<WKNavigationDelegate>
 
 @property (nonatomic, copy) NSString *pokemonName;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 

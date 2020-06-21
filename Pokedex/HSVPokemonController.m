@@ -18,6 +18,7 @@
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalNationalIndexList;
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *internalGalarDexIndexList;
 @property (nonatomic) NSMutableArray<NSNumber *> *internalFavoritePokemon;
+@property (nonatomic) NSMutableArray<NSString *> *internalOldLeageCardList;
 
 @end
 
@@ -42,12 +43,17 @@
         _internalGalarDexDictionary = [NSMutableDictionary new];
         _internalNationalIndexList = [NSArray new];
         _internalFavoritePokemon =  [NSMutableArray array];
+        _internalOldLeageCardList = [NSMutableArray array];
     }
 
-    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"];
+    NSArray *saveFavoritePokemon = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalFavoritePokemon"];
+    if ([saveFavoritePokemon isKindOfClass:[NSArray class]] && saveFavoritePokemon != nil) {
+        _internalFavoritePokemon = [NSMutableArray arrayWithArray:saveFavoritePokemon];
+    }
 
-    if ([arr isKindOfClass:[NSArray class]] && arr != nil) {
-        _internalFavoritePokemon = [NSMutableArray arrayWithArray:arr];
+    NSArray *savedOldLeageCards = [[NSUserDefaults standardUserDefaults] objectForKey:@"InternalOldLeageCardList"];
+    if ([savedOldLeageCards isKindOfClass:[NSArray class]] && savedOldLeageCards) {
+        _internalOldLeageCardList = [NSMutableArray arrayWithArray:savedOldLeageCards];
     }
 
     return self;
@@ -176,6 +182,36 @@
         [pokemonDictionary addEntriesFromDictionary:@{pokedex_type == National ? pokemon.national_dex : pokemon.galar_dex : pokemon}]; //
 
     return [self sortedIndexDictionary:pokemonDictionary];
+}
+
+// Mark - League Card Controller
+
+- (NSArray<NSString *> *)oldLeagueCardList
+{
+    return [_internalOldLeageCardList copy];
+}
+
+- (void)addOldLeageCard:(NSString *)cardID
+{
+    if (![_internalOldLeageCardList containsObject:cardID]) {
+        [_internalOldLeageCardList addObject:cardID];
+        [self saveOldLeageCardsToUserDefaults];
+
+
+    }
+
+    
+}
+
+- (void)deleteOldLeageCard:(NSString *)cardID
+{
+    [_internalOldLeageCardList removeObject:cardID];
+    [self saveOldLeageCardsToUserDefaults];
+}
+
+- (void) saveOldLeageCardsToUserDefaults
+{
+    [[NSUserDefaults standardUserDefaults] setObject:_internalOldLeageCardList forKey:@"InternalOldLeageCardList"];
 }
 
 @end
