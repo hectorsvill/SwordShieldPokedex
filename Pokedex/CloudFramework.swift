@@ -58,7 +58,7 @@ extension CloudFramework {
         let recordID = CKRecord.ID()
         let record = CKRecord(recordType: "LeageCardID", recordID: recordID)
         record["cardID"] = leageCard.cardID
-        record["badLeageCardValue"] = leageCard.badLeageCardValue;
+        record["badLeageCardValue"] = leageCard.badLeagueCardValue;
         record["likeCount"] = 0;
         record["createdBy"] = "";
         return record
