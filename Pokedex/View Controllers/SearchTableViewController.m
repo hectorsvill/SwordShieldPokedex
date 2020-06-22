@@ -73,7 +73,9 @@
 // MARK: - gearButtonPressed
 - (void)gearButtonPressed
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Pokedex NO." message:NULL preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertControllerStyle alertStyle = ([[UIDevice currentDevice].model hasPrefix:@"iPhone"]) ? UIAlertControllerStyleActionSheet : UIAlertControllerStyleAlert;
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Pokedex NO." message:NULL preferredStyle:alertStyle];
 
     // galar dex
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
@@ -115,6 +117,7 @@
     [alertController addAction:cancelAction];
 
     [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 
