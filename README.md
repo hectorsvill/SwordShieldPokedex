@@ -2,12 +2,13 @@
 # ⚔️ 🛡 National Galar Pokedex
 
 #### Free download from the [App Store](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1512844313)
-![img](https://github.com/hectorsvill/hectorsvill.github.io/blob/master/images/National%20Galar%20Pokedex.png)
+![img](https://github.com/hectorsvill/hectorsvill.github.io/blob/master/images/AppStore2.png)
 
 #
 
-National Galar Pokedex is a great utility for the Pokemon Sword and Shield Nintendo Switch Games. All availabe Pokemon are available with:
+National Galar Pokedex is a great utility for the Pokemon Sword and Shield Nintendo Switch Games. Share League Card Code using CloudKit Framework!
 
+All availabe Pokemon are available with:
 - Description
 - National & Galar Number
 - Type
