@@ -490,14 +490,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
 				SUPPORTS_MACCATALYST = YES;
@@ -515,14 +515,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
 				SUPPORTS_MACCATALYST = YES;
