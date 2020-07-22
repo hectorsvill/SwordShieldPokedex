@@ -71,6 +71,9 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
     NSString *indexString = [[NSString new] HSVCreatePokemonIndexString:pokemon.national_dex.intValue];
     cell.pokemonImageView.image =  [UIImage imageNamed:indexString];
     cell.nameLabel.text = pokemon.name;
+    
+    cell.isAccessibilityElement = true;
+    cell.accessibilityIdentifier = [NSString stringWithFormat:@"%@Cell", pokemon.name];
     return cell;
 }
 
