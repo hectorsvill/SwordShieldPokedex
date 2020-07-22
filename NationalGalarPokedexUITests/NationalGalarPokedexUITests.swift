@@ -10,8 +10,9 @@ import XCTest
 
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
-    let nationalPokemonNames = fetchNationalPokemonNames.split(separator: ",")
-    let galarPokemonNames = fetchGalarPokemonNames.split(separator: ",")
+    
+    var nationalPokemonNames = [String]()
+    var galarPokemonNames = [String]()
     
     var searchNavigationBar: XCUIElement {
         app.navigationBars["PokedexSearchNavigationBar"]
@@ -45,6 +46,17 @@ class NationalGalarPokedexUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
+        
+        nationalPokemonNames = fetchNationalPokemonNames.split(separator: ",").map {
+            let name = String($0)
+            return name.first! == "\n" ? String(name.dropFirst()) : name
+        }
+        
+        galarPokemonNames = fetchGalarPokemonNames.split(separator: ",").map {
+            let name = String($0)
+            return name.first! == "\n" ? String(name.dropFirst()) : name
+        }
+        
     }
 
     override func tearDownWithError() throws {
@@ -109,6 +121,22 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchNavigationBar.isHittable)
     }
     
+    
+    func testAllNationalPokemonInTableViewIsHittable() {
+        for name in nationalPokemonNames {
+            let pokemonCellID = "\(name)Cell"
+            
+            pokedexListTableView.cells[pokemonCellID].tap()
+            
+            XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
+            
+            let playPauseButton = app.buttons["playpause"]
+            XCTAssert(playPauseButton.isHittable)
+            
+            searchTabBarButton.tap()
+            XCTAssert(searchNavigationBar.isHittable)
+        }
+    }
 }
 
 // MARK: METRICS
