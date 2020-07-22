@@ -34,7 +34,22 @@
 
     _pokedexType = National;
 
+    [self configureAccessibility];
     [self setupViews];
+    
+}
+
+- (void)configureAccessibility
+{
+    self.navigationController.isAccessibilityElement = true;
+    
+    self.navigationController.navigationBar.isAccessibilityElement = true;
+    [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
+    [self.navigationController.navigationBar setAccessibilityLabel:@"Pokedex Search"];
+    
+    [self.tableView setIsAccessibilityElement:true];
+    [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
+    
 }
 
 - (void)setupViews
@@ -169,6 +184,9 @@
     cell.isFavorite = [_pokemonController isfavortie:pokemon.national_dex];
     cell.delegate = self;
     [cell setupViews];
+    
+    cell.isAccessibilityElement = true;
+    cell.accessibilityIdentifier = [NSString stringWithFormat:@"%@Cell", pokemon.name];
     return cell;
 }
 

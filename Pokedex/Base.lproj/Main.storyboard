@@ -288,7 +288,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="N35-dp-bYm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="W4M-uT-eHb">
-                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -609,7 +609,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="qtg-N0-Zd1"/>
         <segue reference="mbo-Gj-whf"/>
-        <segue reference="xZf-ef-Bc0"/>
+        <segue reference="SHF-0p-gyZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="001" width="250" height="250"/>
