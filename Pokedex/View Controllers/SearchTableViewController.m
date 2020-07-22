@@ -36,6 +36,7 @@
 
     [self configureAccessibility];
     [self setupViews];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

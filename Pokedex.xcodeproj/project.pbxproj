@@ -41,6 +41,7 @@
 		3B92D6CE24C8D8D80016B416 /* HSVPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5D2450C378002E777F /* HSVPokemon.m */; };
 		3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */; };
 		3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF6E024994D1900754926 /* HSVLeagueCard.m */; };
+		3B92D6D124C8DA420016B416 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6D424523F8D0037C098 /* PokemonSwordShield.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B92D6D124C8DA420016B416 /* PokemonSwordShield.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
