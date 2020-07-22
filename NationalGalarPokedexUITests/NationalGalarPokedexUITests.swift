@@ -8,8 +8,6 @@
 
 import XCTest
 
-@testable import NationalGalarPokedex
-
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
     let nationalPokemonNames = fetchNationalPokemonNames.split(separator: ",")
@@ -69,16 +67,22 @@ extension NationalGalarPokedexUITests {
         XCTAssert(favoritesTabBarButton.isHittable)
         XCTAssert(leagueCardTabBarButton.isHittable)
     }
+    
+    func testPokemonNameListNotNil() {
+        XCTAssertNotNil(nationalPokemonNames)
+        XCTAssertNotNil(galarPokemonNames)
+    }
 
     func testTBulbasaurDetailViewFlow() throws {
-        pokedexListTableView.cells["BulbasaurCell"].tap()
+        let pokemonCellID = "\(nationalPokemonNames[0])Cell"
+        pokedexListTableView.cells[pokemonCellID].tap()
         
         XCTAssert(app.navigationBars["BulbasaurDetailView"].isHittable)
         
         let playPauseButton = app.buttons["playpause"]
         
         XCTAssert(playPauseButton.isHittable)
-        playPauseButton.tap()
+//        playPauseButton.tap()
         
         let tablesQuery = app.tables
         
@@ -105,11 +109,6 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchNavigationBar.isHittable)
     }
     
-    func testPokemonNameListNotNil() {
-        XCTAssertNotNil(nationalPokemonNames)
-        XCTAssertNotNil(galarPokemonNames)
-        
-    }
 }
 
 // MARK: METRICS
