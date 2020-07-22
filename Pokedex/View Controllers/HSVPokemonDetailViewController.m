@@ -40,8 +40,8 @@
     [super viewWillDisappear:animated];
 
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    
 }
-
 
 #pragma mark -
 - (void)configureViews
@@ -49,6 +49,11 @@
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
 
     self.title = [NSString stringWithFormat:@"%@", _pokemon.name ];
+    
+    [self.navigationController.navigationBar setAccessibilityIdentifier: [NSString stringWithFormat:@"%@DetailView", _pokemon.name ]];
+    [self.navigationItem.backBarButtonItem setIsAccessibilityElement:true];
+    [self.navigationItem.backBarButtonItem setAccessibilityIdentifier:@"NavigationBackButton"];
+    
     NSString *str = [[NSString new] HSVCreatePokemonIndexString:_pokemon.national_dex.intValue];
     _pokemonImageView.image = [UIImage imageNamed:str];
     
@@ -203,10 +208,7 @@
         }
 
         [_tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-
     }
-
-
 }
 
 
@@ -256,6 +258,9 @@
     [button setTitleColor:UIColor.systemRedColor forState:UIControlStateNormal];
     [button setTitle:_pokemonDescriptionSrtings[section] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(headerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button setIsAccessibilityElement:true];
+    NSString *buttonID = [NSString stringWithFormat:@"%@Button", _pokemonDescriptionSrtings[section]];
+    [button setAccessibilityIdentifier:buttonID];
     return button;
 
 }

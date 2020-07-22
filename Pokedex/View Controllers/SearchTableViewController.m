@@ -36,7 +36,12 @@
 
     [self configureAccessibility];
     [self setupViews];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
 }
 
 - (void)configureAccessibility
@@ -45,7 +50,6 @@
     
     self.navigationController.navigationBar.isAccessibilityElement = true;
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
-    [self.navigationController.navigationBar setAccessibilityLabel:@"Pokedex Search"];
     
     [self.tableView setIsAccessibilityElement:true];
     [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
@@ -78,10 +82,14 @@
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
     [self navigationItem].rightBarButtonItem = [[UIBarButtonItem new] initWithImage:magnifyingglassImage style:UIBarButtonItemStyleDone target:self action:@selector(searchBarPressed)];
     [self navigationItem].rightBarButtonItem.tintColor = [UIColor systemRedColor];
+    [[self navigationItem].rightBarButtonItem setIsAccessibilityElement:true];
+    [[self navigationItem].rightBarButtonItem setAccessibilityIdentifier:@"rightBarButtonItemMagnifyingglass"];
 
     UIImage *gearImage = [UIImage systemImageNamed:@"gear"];
     [self navigationItem].leftBarButtonItem = [[UIBarButtonItem new] initWithImage:gearImage style:UIBarButtonItemStyleDone target:self action:@selector(gearButtonPressed)];
     [self navigationItem].leftBarButtonItem.tintColor = [UIColor systemRedColor];
+    [[self navigationItem].leftBarButtonItem setIsAccessibilityElement:true];
+    [[self navigationItem].leftBarButtonItem setAccessibilityIdentifier:@"leftBarButtonItemGear"];
 
 }
 
