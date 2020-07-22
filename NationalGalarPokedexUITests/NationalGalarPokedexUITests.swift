@@ -10,19 +10,65 @@ import XCTest
 
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
+
+    var searchNavigationBar: XCUIElement {
+        app.navigationBars["PokedexSearchNavigationBar"]
+    }
     
+    var pokedexListTableView: XCUIElement {
+        app.tables["PokedexListTableView"]
+    }
+    
+    var rightBarButtonItemMagnifyingglass: XCUIElement {
+        searchNavigationBar.buttons["rightBarButtonItemMagnifyingglass"]
+    }
+    
+    var leftBarButtonItemGear: XCUIElement {
+        searchNavigationBar.buttons["leftBarButtonItemGear"]
+    }
+    
+    var searchTabBarButton: XCUIElement {
+        app.tabBars.buttons["Search"]
+    }
+
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
     }
 
-    override func tearDownWithError() throws {}
-
-    func testExample() throws {
-
+    override func tearDownWithError() throws {
+        sleep(1)
+        app.terminate()
     }
+}
 
+extension NationalGalarPokedexUITests {
+    func testPokedexSearchNavigationBarIsHittable() throws {
+        XCTAssert(searchNavigationBar.isHittable)
+    }
+    
+    func testpokedexListTableViewIsHittable() throws {
+        XCTAssert(pokedexListTableView.isHittable)
+    }
+    
+    func testTBulbasaurDetailViewFlow() throws {
+        pokedexListTableView.cells["BulbasaurCell"].tap()
+        
+        XCTAssert(app.navigationBars["BulbasaurDetailView"].isHittable)
+        
+        app.swipeUp()
+        app.swipeUp()
+        app.swipeUp()
+        
+        searchTabBarButton.tap()
+        XCTAssert(searchNavigationBar.isHittable)
+        
+    }
+}
+
+// MARK: METRICS
+extension NationalGalarPokedexUITests {
     func _testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
