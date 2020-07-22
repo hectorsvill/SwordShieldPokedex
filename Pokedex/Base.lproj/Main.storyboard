@@ -77,6 +77,9 @@
                                         <constraint firstAttribute="trailing" secondItem="KQQ-qI-4gK" secondAttribute="trailing" constant="8" id="Xam-Nh-Jwe"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="favoriteButton" destination="Z5F-1Q-U0I" id="2QL-On-7Y3"/>
                                     <outlet property="indexLabel" destination="M7g-Gr-4wN" id="xmb-6H-Cqd"/>
@@ -609,7 +612,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="qtg-N0-Zd1"/>
         <segue reference="kbc-dn-h8W"/>
-        <segue reference="SHF-0p-gyZ"/>
+        <segue reference="xZf-ef-Bc0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="001" width="250" height="250"/>

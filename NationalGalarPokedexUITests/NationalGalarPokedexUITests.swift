@@ -133,6 +133,37 @@ extension NationalGalarPokedexUITests {
             XCTAssert(searchNavigationBar.isHittable)
         }
     }
+    
+    func testBulbasaurFavorite() {
+        let cell = pokedexListTableView.cells["BulbasaurCell"]
+        
+        let cellHeartButton = cell.buttons["heart"]
+        XCTAssert(cellHeartButton.isHittable)
+        cellHeartButton.tap()
+        
+        XCTAssert(favoritesTabBarButton.isHittable)
+        favoritesTabBarButton.tap()
+        sleep(1)
+        
+        
+        app.collectionViews.cells["BulbasaurCell"].tap()
+        sleep(1)
+        
+        XCTAssert(app.navigationBars["BulbasaurDetailView"].isHittable)
+        
+        favoritesTabBarButton.tap()
+        sleep(1)
+        
+        XCTAssert(searchTabBarButton.isHittable)
+        searchTabBarButton.tap()
+        sleep(1)
+        
+        let cellHeartFillButton = cell.buttons["heart.fill"]
+        XCTAssert(cellHeartFillButton.isHittable)
+        cellHeartFillButton.tap()
+        sleep(1)
+        
+    }
 }
 
 // MARK: METRICS
