@@ -218,11 +218,11 @@
             <objects>
                 <viewController id="CS1-kp-U85" customClass="HSVSerebiiViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fTr-ZE-XIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbN-dc-kks">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -230,7 +230,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FaM-Fm-m8I">
-                                <rect key="frame" x="169" y="360.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -608,7 +608,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qtg-N0-Zd1"/>
-        <segue reference="mbo-Gj-whf"/>
+        <segue reference="kbc-dn-h8W"/>
         <segue reference="SHF-0p-gyZ"/>
     </inferredMetricsTieBreakers>
     <resources>

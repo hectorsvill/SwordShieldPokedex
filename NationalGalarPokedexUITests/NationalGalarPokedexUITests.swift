@@ -57,13 +57,34 @@ extension NationalGalarPokedexUITests {
         
         XCTAssert(app.navigationBars["BulbasaurDetailView"].isHittable)
         
-        app.swipeUp()
-        app.swipeUp()
-        app.swipeUp()
+        let playPauseButton = app.buttons["playpause"]
         
+        XCTAssert(playPauseButton.isHittable)
+        playPauseButton.tap()
+        
+        let tablesQuery = app.tables
+        
+        tablesQuery.buttons["Description"].tap()
+        sleep(1)
+        
+        tablesQuery.staticTexts["National:  #1"].tap()
+        sleep(1)
+        
+        tablesQuery.staticTexts["NO."].tap()
+        sleep(1)
+        
+        tablesQuery.staticTexts["Type"].tap()
+        sleep(1)
+        
+        tablesQuery.staticTexts["Height & Weight"].tap()
+        sleep(1)
+        
+        app.swipeUp()
+        app.swipeUp()
+        app.swipeUp()
+                
         searchTabBarButton.tap()
         XCTAssert(searchNavigationBar.isHittable)
-        
     }
 }
 
