@@ -30,6 +30,14 @@ class NationalGalarPokedexUITests: XCTestCase {
     var searchTabBarButton: XCUIElement {
         app.tabBars.buttons["Search"]
     }
+    
+    var favoritesTabBarButton: XCUIElement {
+        app.tabBars.buttons["Favorites"]
+    }
+    
+    var leagueCardTabBarButton: XCUIElement {
+        app.tabBars.buttons["League Cards"]
+    }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -50,6 +58,12 @@ extension NationalGalarPokedexUITests {
     
     func testpokedexListTableViewIsHittable() throws {
         XCTAssert(pokedexListTableView.isHittable)
+    }
+    
+    func testTabBarButtonsIsHittable() {
+        XCTAssert(searchTabBarButton.isHittable)
+        XCTAssert(favoritesTabBarButton.isHittable)
+        XCTAssert(leagueCardTabBarButton.isHittable)
     }
     
     func testTBulbasaurDetailViewFlow() throws {
