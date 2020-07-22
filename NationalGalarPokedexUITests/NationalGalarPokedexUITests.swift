@@ -11,8 +11,15 @@ import XCTest
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
     
-    var nationalPokemonNames = [String]()
-    var galarPokemonNames = [String]()
+    var nationalPokemonNames: [String] = fetchNationalPokemonNames.split(separator: ",").map {
+        let name = String($0)
+        return name.first! == "\n" ? String(name.dropFirst()) : name
+    }
+    
+    var galarPokemonNames: [String] = fetchGalarPokemonNames.split(separator: ",").map {
+        let name = String($0)
+        return name.first! == "\n" ? String(name.dropFirst()) : name
+    }
     
     var searchNavigationBar: XCUIElement {
         app.navigationBars["PokedexSearchNavigationBar"]
@@ -46,17 +53,6 @@ class NationalGalarPokedexUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
-        
-        nationalPokemonNames = fetchNationalPokemonNames.split(separator: ",").map {
-            let name = String($0)
-            return name.first! == "\n" ? String(name.dropFirst()) : name
-        }
-        
-        galarPokemonNames = fetchGalarPokemonNames.split(separator: ",").map {
-            let name = String($0)
-            return name.first! == "\n" ? String(name.dropFirst()) : name
-        }
-        
     }
 
     override func tearDownWithError() throws {
