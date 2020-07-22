@@ -91,6 +91,28 @@
     return [_internalNationalIndexList count];
 }
 
+- (NSArray<NSString *>*) fetchNationalPokemonNames
+{
+    NSMutableArray<NSString *> *nameList = [NSMutableArray new];
+    for (NSNumber *number in _internalNationalIndexList) {
+        HSVPokemon *pokemon = [_internalNationalDexDictionary objectForKey:number];
+        [nameList addObject:pokemon.name];
+    }
+    
+    return nameList;
+}
+
+- (NSArray<NSString *>*) fetchGalarPokemonNames
+{
+    NSMutableArray<NSString *> *nameList = [NSMutableArray new];
+    for (NSNumber *number in _internalGalarDexIndexList) {
+        HSVPokemon *pokemon = [_internalGalarDexDictionary objectForKey:number];
+        [nameList addObject:pokemon.name];
+    }
+    
+    return nameList;
+}
+
 - (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index
 {
     return [_internalNationalDexDictionary objectForKey:index];
@@ -196,11 +218,7 @@
     if (![_internalOldLeageCardList containsObject:cardID]) {
         [_internalOldLeageCardList addObject:cardID];
         [self saveOldLeageCardsToUserDefaults];
-
-
     }
-
-    
 }
 
 - (void)deleteOldLeageCard:(NSString *)cardID

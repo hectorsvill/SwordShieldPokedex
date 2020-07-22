@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSUInteger)galarDexListCount;
 - (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index;
 
-
 - (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary;
 - (NSUInteger)nationalDexListCount;
 - (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index;
@@ -45,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addOldLeageCard:(NSString *)cardID;
 - (void)deleteOldLeageCard:(NSString *)cardID;
 
+- (NSArray<NSString *>*) fetchNationalPokemonNames;
+- (NSArray<NSString *>*) fetchGalarPokemonNames;
 
 @end
 

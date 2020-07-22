@@ -36,6 +36,11 @@
 		12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */; };
 		12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */; };
 		3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */; };
+		3B92D6CC24C8D75E0016B416 /* HSVPokemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6CE245227BB0037C098 /* HSVPokemonController.m */; };
+		3B92D6CD24C8D8D20016B416 /* HSVPokedex_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */; };
+		3B92D6CE24C8D8D80016B416 /* HSVPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5D2450C378002E777F /* HSVPokemon.m */; };
+		3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */; };
+		3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF6E024994D1900754926 /* HSVLeagueCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,7 +423,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */,
 				3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */,
+				3B92D6CE24C8D8D80016B416 /* HSVPokemon.m in Sources */,
+				3B92D6CC24C8D75E0016B416 /* HSVPokemonController.m in Sources */,
+				3B92D6CD24C8D8D20016B416 /* HSVPokedex_Type.m in Sources */,
+				3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -514,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -570,6 +582,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -595,6 +608,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = NationalGalarPokedexUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -637,6 +652,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = NationalGalarPokedexUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

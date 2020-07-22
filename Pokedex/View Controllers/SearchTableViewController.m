@@ -143,8 +143,6 @@
 
 }
 
-
-
 - (void)searchBarPressed
 {
     UIView *titleView = [self navigationItem].titleView;
