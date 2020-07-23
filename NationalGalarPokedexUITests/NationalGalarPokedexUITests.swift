@@ -59,6 +59,25 @@ class NationalGalarPokedexUITests: XCTestCase {
         sleep(1)
         app.terminate()
     }
+    
+    func pokemonDetailViewFlow(name: String) {
+        let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
+        
+        XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
+        
+        let playPauseButton = app.buttons["playpause"]
+        XCTAssert(playPauseButton.isHittable)
+        
+        playPauseButton.tap()
+        
+        let tablesQuery = app.tables
+        
+        for section in detailViewSections {
+            let button = tablesQuery.buttons[section]
+            XCTAssert(button.isHittable)
+            button.tap()
+        }
+    }
 }
 
 extension NationalGalarPokedexUITests {
@@ -81,36 +100,6 @@ extension NationalGalarPokedexUITests {
         XCTAssertNotNil(galarPokemonNames)
     }
 
-    func testTBulbasaurDetailViewFlow() throws {
-        let pokemonCellID = "\(nationalPokemonNames[0])Cell"
-        pokedexListTableView.cells[pokemonCellID].tap()
-        
-        XCTAssert(app.navigationBars["BulbasaurDetailView"].isHittable)
-        
-        let playPauseButton = app.buttons["playpause"]
-        
-        XCTAssert(playPauseButton.isHittable)
-        playPauseButton.tap()
-        
-        let tablesQuery = app.tables
-        
-        tablesQuery.buttons["Description"].tap()
-        
-        tablesQuery.staticTexts["National:  #1"].tap()
-        
-        tablesQuery.staticTexts["NO."].tap()
-        
-        tablesQuery.staticTexts["Type"].tap()
-        
-        tablesQuery.staticTexts["Height & Weight"].tap()
-        
-        app.swipeUp()
-        app.swipeUp()
-        app.swipeUp()
-                
-        searchTabBarButton.tap()
-        XCTAssert(searchNavigationBar.isHittable)
-    }
     
     
     func testAllNationalPokemonInTableViewIsHittable() {
@@ -119,10 +108,7 @@ extension NationalGalarPokedexUITests {
             
             pokedexListTableView.cells[pokemonCellID].tap()
             
-            XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
-            
-            let playPauseButton = app.buttons["playpause"]
-            XCTAssert(playPauseButton.isHittable)
+            pokemonDetailViewFlow(name: name)
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
@@ -146,7 +132,7 @@ extension NationalGalarPokedexUITests {
 
             app.collectionViews.cells["\(name)Cell"].tap()
             
-            XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
+            pokemonDetailViewFlow(name: name)
             
             favoritesTabBarButton.tap()
             
@@ -156,7 +142,6 @@ extension NationalGalarPokedexUITests {
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
-//            sleep(1)
         }
         
     }
