@@ -48,6 +48,15 @@ class NationalGalarPokedexUITests: XCTestCase {
     var leagueCardTabBarButton: XCUIElement {
         app.tabBars.buttons["League Cards"]
     }
+    
+    var pokedexNOSheet: XCUIElement {
+        app.sheets["Pokedex NO."]
+    }
+    
+    ///buttons["National Pokedex"], buttons["Galar Pokedex"], buttons["Favorite"]
+    var pokedexNOSheetButtons: [XCUIElement] {
+        [pokedexNOSheet.buttons["National Pokedex"], pokedexNOSheet.buttons["Galar Pokedex"], pokedexNOSheet.buttons["Favorite"]]
+    }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -68,7 +77,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         let playPauseButton = app.buttons["playpause"]
         XCTAssert(playPauseButton.isHittable)
         
-        playPauseButton.tap()
+//        playPauseButton.tap()
         
         let tablesQuery = app.tables
         
@@ -99,8 +108,6 @@ extension NationalGalarPokedexUITests {
         XCTAssertNotNil(nationalPokemonNames)
         XCTAssertNotNil(galarPokemonNames)
     }
-
-    
     
     func testAllNationalPokemonInTableViewIsHittable() {
         for name in nationalPokemonNames {
@@ -143,7 +150,14 @@ extension NationalGalarPokedexUITests {
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
         }
-        
+    }
+    
+    func testPokedexNOSheetButtonsIsHittable() {
+        for button in pokedexNOSheetButtons {
+            leftBarButtonItemGear.tap()
+            XCTAssert(button.isHittable)
+            button.tap()
+        }
     }
 }
 
