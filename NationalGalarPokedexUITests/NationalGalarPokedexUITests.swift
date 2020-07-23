@@ -144,7 +144,24 @@ extension NationalGalarPokedexUITests {
     }
     
     func testAllNationalPokemonInTableViewIsHittable() {
+        navigateToNationalPokemonTableViewList()
+        
         for name in nationalPokemonNames {
+            let pokemonCellID = "\(name)Cell"
+            
+            pokedexListTableView.cells[pokemonCellID].tap()
+            
+            pokemonDetailViewFlow(name: name)
+            
+            searchTabBarButton.tap()
+            XCTAssert(searchNavigationBar.isHittable)
+        }
+    }
+    
+    func testAllGalarPokemonInTableViewIsHittable() {
+        navigateToGalarPokemonTableViewList()
+        
+        for name in galarPokemonNames {
             let pokemonCellID = "\(name)Cell"
             
             pokedexListTableView.cells[pokemonCellID].tap()
@@ -160,6 +177,38 @@ extension NationalGalarPokedexUITests {
         navigateToNationalPokemonTableViewList()
         
         for name in nationalPokemonNames {
+            let cell = pokedexListTableView.cells["\(name)Cell"]
+            
+            let cellHeartButton = cell.buttons["heart"]
+            
+            if !cellHeartButton.isHittable {
+                app.swipeUp()
+            }
+            
+            cellHeartButton.tap()
+            
+            XCTAssert(favoritesTabBarButton.isHittable)
+            favoritesTabBarButton.tap()
+
+            app.collectionViews.cells["\(name)Cell"].tap()
+            
+            pokemonDetailViewFlow(name: name)
+            
+            favoritesTabBarButton.tap()
+            
+            XCTAssert(searchTabBarButton.isHittable)
+            searchTabBarButton.tap()
+            
+            let cellHeartFillButton = cell.buttons["heart.fill"]
+            XCTAssert(cellHeartFillButton.isHittable)
+            cellHeartFillButton.tap()
+        }
+    }
+    
+    func testGalarPokokemonIsFavorite() {
+        navigateToGalarPokemonTableViewList()
+        
+        for name in galarPokemonNames {
             let cell = pokedexListTableView.cells["\(name)Cell"]
             
             let cellHeartButton = cell.buttons["heart"]
