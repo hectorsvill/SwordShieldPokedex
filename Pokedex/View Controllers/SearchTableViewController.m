@@ -47,11 +47,7 @@
 
 - (void)configureAccessibility
 {
-    self.navigationController.isAccessibilityElement = true;
-    
-    self.navigationController.navigationBar.isAccessibilityElement = true;
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
-    
     [self.tableView setIsAccessibilityElement:true];
     [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
     
@@ -76,11 +72,15 @@
     [_searchBar setTintColor:[UIColor systemRedColor]];
     [_searchBar setPlaceholder:@"Search..."];
     [_searchBar setDelegate: self];
+    [_searchBar setIsAccessibilityElement:true];
+//    [_searchBar setAccessibilityIdentifier:@"SearchPokemonSearchBar"];
 }
 
 - (void)createNavigationSearchBar
 {
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
+    [magnifyingglassImage setIsAccessibilityElement:true];
+    
     [self navigationItem].rightBarButtonItem = [[UIBarButtonItem new] initWithImage:magnifyingglassImage style:UIBarButtonItemStyleDone target:self action:@selector(searchBarPressed)];
     [self navigationItem].rightBarButtonItem.tintColor = [UIColor systemRedColor];
     [[self navigationItem].rightBarButtonItem setIsAccessibilityElement:true];
@@ -151,7 +151,6 @@
 
     if (titleView == nil) {
         [self navigationItem].titleView = [self searchBar];
-
     } else {
         if ([self.pokemonIndexList count] == 0) {
             [self searchBar].text = @"";
