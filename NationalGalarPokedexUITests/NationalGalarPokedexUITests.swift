@@ -90,24 +90,19 @@ extension NationalGalarPokedexUITests {
         let playPauseButton = app.buttons["playpause"]
         
         XCTAssert(playPauseButton.isHittable)
-//        playPauseButton.tap()
+        playPauseButton.tap()
         
         let tablesQuery = app.tables
         
         tablesQuery.buttons["Description"].tap()
-        sleep(1)
         
         tablesQuery.staticTexts["National:  #1"].tap()
-        sleep(1)
         
         tablesQuery.staticTexts["NO."].tap()
-        sleep(1)
         
         tablesQuery.staticTexts["Type"].tap()
-        sleep(1)
         
         tablesQuery.staticTexts["Height & Weight"].tap()
-        sleep(1)
         
         app.swipeUp()
         app.swipeUp()
@@ -139,30 +134,29 @@ extension NationalGalarPokedexUITests {
             let cell = pokedexListTableView.cells["\(name)Cell"]
             
             let cellHeartButton = cell.buttons["heart"]
-            XCTAssert(cellHeartButton.isHittable)
+            
+            if !cellHeartButton.isHittable {
+                app.swipeUp()
+            }
+            
             cellHeartButton.tap()
             
             XCTAssert(favoritesTabBarButton.isHittable)
             favoritesTabBarButton.tap()
-            sleep(1)
-            
-            
+
             app.collectionViews.cells["\(name)Cell"].tap()
-            sleep(1)
             
             XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
             
             favoritesTabBarButton.tap()
-            sleep(1)
             
             XCTAssert(searchTabBarButton.isHittable)
             searchTabBarButton.tap()
-            sleep(1)
             
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
-            sleep(1)
+//            sleep(1)
         }
         
     }
