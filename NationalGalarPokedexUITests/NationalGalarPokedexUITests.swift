@@ -87,6 +87,24 @@ class NationalGalarPokedexUITests: XCTestCase {
             button.tap()
         }
     }
+    
+    private func navigateToNationalPokemonTableViewList() {
+        searchTabBarButton.tap()
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        pokedexNOSheetButtons[0].tap()
+        sleep(1)
+        XCTAssert(pokedexListTableView.cells["\(nationalPokemonNames[0])Cell"].isHittable)
+    }
+    
+    private func navigateToGalarPokemonTableViewList() {
+        searchTabBarButton.tap()
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        pokedexNOSheetButtons[1].tap()
+        sleep(1)
+        XCTAssert(pokedexListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable)
+    }
 }
 
 extension NationalGalarPokedexUITests {
@@ -109,6 +127,22 @@ extension NationalGalarPokedexUITests {
         XCTAssertNotNil(galarPokemonNames)
     }
     
+    func testPokedexNOSheetButtonsIsHittable() {
+        for button in pokedexNOSheetButtons {
+            leftBarButtonItemGear.tap()
+            XCTAssert(button.isHittable)
+            button.tap()
+        }
+    }
+    
+    func testNavigateTonationalPokemonTableViewList() {
+        navigateToNationalPokemonTableViewList()
+    }
+    
+    func testNavigateToGalarPokemonTableViewList() {
+        navigateToGalarPokemonTableViewList()
+    }
+    
     func testAllNationalPokemonInTableViewIsHittable() {
         for name in nationalPokemonNames {
             let pokemonCellID = "\(name)Cell"
@@ -123,6 +157,8 @@ extension NationalGalarPokedexUITests {
     }
     
     func testNationalPokokemonIsFavorite() {
+        navigateToNationalPokemonTableViewList()
+        
         for name in nationalPokemonNames {
             let cell = pokedexListTableView.cells["\(name)Cell"]
             
@@ -152,13 +188,7 @@ extension NationalGalarPokedexUITests {
         }
     }
     
-    func testPokedexNOSheetButtonsIsHittable() {
-        for button in pokedexNOSheetButtons {
-            leftBarButtonItemGear.tap()
-            XCTAssert(button.isHittable)
-            button.tap()
-        }
-    }
+    
 }
 
 // MARK: METRICS
