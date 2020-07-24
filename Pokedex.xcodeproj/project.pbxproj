@@ -115,6 +115,7 @@
 		3B74DACC24C79AAC00ECC30E /* NationalGalarPokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NationalGalarPokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITests.swift; sourceTree = "<group>"; };
 		3B74DAD024C79AAC00ECC30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +288,7 @@
 			children = (
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
 				3B74DAD024C79AAC00ECC30E /* Info.plist */,
+				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
 			);
 			path = NationalGalarPokedexUITests;
 			sourceTree = "<group>";

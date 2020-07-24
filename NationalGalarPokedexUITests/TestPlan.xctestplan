@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D7166D7-FEE4-401F-88B7-62AF7EEA1370",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pokedex.xcodeproj",
+        "identifier" : "3B74DACB24C79AAC00ECC30E",
+        "name" : "NationalGalarPokedexUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
