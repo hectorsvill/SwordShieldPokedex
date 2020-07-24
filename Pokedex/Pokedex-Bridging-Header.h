@@ -6,4 +6,4 @@
 #import "HSVPokemonController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemon+HSVinitWithDictionary.h"
-#import "NSError+HSVErrorWithString.h"
+
