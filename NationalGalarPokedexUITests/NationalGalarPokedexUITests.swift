@@ -160,9 +160,12 @@ extension NationalGalarPokedexUITests {
     }
     
     func testTabBarButtonsIsHittable() {
-        XCTAssert(searchTabBarButton.isHittable)
         XCTAssert(favoritesTabBarButton.isHittable)
+        favoritesTabBarButton.tap()
         XCTAssert(leagueCardTabBarButton.isHittable)
+        leagueCardTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isHittable)
+        searchTabBarButton.tap()
     }
     
     func testPokemonNameListNotNil() {
