@@ -73,7 +73,7 @@
     [_searchBar setPlaceholder:@"Search..."];
     [_searchBar setDelegate: self];
     [_searchBar setIsAccessibilityElement:true];
-//    [_searchBar setAccessibilityIdentifier:@"SearchPokemonSearchBar"];
+    [_searchBar setAccessibilityIdentifier:@"SearchPokemonSearchBar"];
 }
 
 - (void)createNavigationSearchBar
@@ -147,10 +147,10 @@
 - (void)searchBarPressed
 {
     UIView *titleView = [self navigationItem].titleView;
-    [self navigationItem].titleView = (titleView == nil) ? [self searchBar] : nil;
 
     if (titleView == nil) {
         [self navigationItem].titleView = [self searchBar];
+        [self navigationItem].titleView.isAccessibilityElement = true;
     } else {
         if ([self.pokemonIndexList count] == 0) {
             [self searchBar].text = @"";

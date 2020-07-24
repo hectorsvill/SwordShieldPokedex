@@ -25,7 +25,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         app.navigationBars["PokedexSearchNavigationBar"]
     }
     
-    var pokedexListTableView: XCUIElement {
+    var searchListTableView: XCUIElement {
         app.tables["PokedexListTableView"]
     }
     
@@ -77,7 +77,6 @@ class NationalGalarPokedexUITests: XCTestCase {
         
         let playPauseButton = app.buttons["playpause"]
         XCTAssert(playPauseButton.isHittable)
-        
         playPauseButton.tap()
         
         let tablesQuery = app.tables
@@ -103,7 +102,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         XCTAssert(pokedexNOSheet.isHittable)
         pokedexNOSheetButtons[0].tap()
         sleep(1)
-        XCTAssert(pokedexListTableView.cells["\(nationalPokemonNames[0])Cell"].isHittable)
+        XCTAssert(searchListTableView.cells["\(nationalPokemonNames[0])Cell"].isHittable)
     }
     
     private func navigateToGalarPokemonTableViewList() {
@@ -112,25 +111,30 @@ class NationalGalarPokedexUITests: XCTestCase {
         XCTAssert(pokedexNOSheet.isHittable)
         pokedexNOSheetButtons[1].tap()
         sleep(1)
-        XCTAssert(pokedexListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable)
+        XCTAssert(searchListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable)
     }
     
     private func viewAllPokemonFlow(with list: [String]) {
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
         for name in list {
             let pokemonCellID = "\(name)Cell"
             
-            pokedexListTableView.cells[pokemonCellID].tap()
+            searchListTableView.cells[pokemonCellID].tap()
             
-            pokemonDetailViewFlow(name: name, enableDetailViewSections: false)
+            pokemonDetailViewFlow(name: name)
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
+            break
         }
     }
     
     private func favoriteAllPokemonFlow(with list: [String]) {
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
         for name in list {
-            let cell = pokedexListTableView.cells["\(name)Cell"]
+            let cell = searchListTableView.cells["\(name)Cell"]
             
             let cellHeartButton = cell.buttons["heart"]
             
@@ -142,30 +146,39 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             XCTAssert(favoritesTabBarButton.isHittable)
             favoritesTabBarButton.tap()
+            XCTAssert(favoritesTabBarButton.isSelected)
             
             app.collectionViews.cells["\(name)Cell"].tap()
             
-            pokemonDetailViewFlow(name: name, enableDetailViewSections: false)
+            pokemonDetailViewFlow(name: name)
             
             favoritesTabBarButton.tap()
+            XCTAssert(favoritesTabBarButton.isSelected)
             
             XCTAssert(searchTabBarButton.isHittable)
             searchTabBarButton.tap()
+            XCTAssert(searchTabBarButton.isSelected)
             
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
+            break
         }
     }
 }
 
 extension NationalGalarPokedexUITests {
+    func testrightBarButtonItemMagnifyingglass() {
+        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
+        rightBarButtonItemMagnifyingglass.tap()
+    }
+    
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
     }
     
     func testpokedexListTableViewIsHittable() throws {
-        XCTAssert(pokedexListTableView.isHittable)
+        XCTAssert(searchListTableView.isHittable)
     }
     
     func testTabBarButtonsIsHittable() {
@@ -175,6 +188,38 @@ extension NationalGalarPokedexUITests {
         leagueCardTabBarButton.tap()
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
+    }
+    
+    func testSearchViewFavorites() {
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
+
+        let cell = searchListTableView.cells["\(nationalPokemonNames[0])Cell"]
+        XCTAssert(cell.isHittable)
+        
+        let cellHeartButton = cell.buttons["heart"]
+        XCTAssert(cellHeartButton.isHittable)
+        cellHeartButton.tap()
+
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        
+        let favoriteButton = pokedexNOSheetButtons[2]
+        favoriteButton.tap()
+        
+        XCTAssert(cell.isHittable)
+        
+        let cellHeartFillButton = cell.buttons["heart.fill"]
+        XCTAssertTrue(cellHeartFillButton.isHittable)
+        cellHeartFillButton.tap()
+        
+        let cellExist = cell.waitForExistence(timeout: 1)
+        XCTAssertFalse(cellExist)
+        
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        pokedexNOSheetButtons[0].tap()
+        XCTAssert(cellHeartButton.isHittable)
     }
     
     func testPokemonNameListNotNil() {
@@ -193,6 +238,8 @@ extension NationalGalarPokedexUITests {
     func testLeagueCardView() {
         XCTAssert(leagueCardTabBarButton.isHittable)
         leagueCardTabBarButton.tap()
+        
+        XCTAssert(leagueCardTabBarButton.isSelected)
         
         let leagueCardNavigationBar = app.navigationBars["League Cards"]
         XCTAssert(leagueCardNavigationBar.isHittable)
