@@ -18,7 +18,6 @@
 		122A4E4F2450BCB5002E777F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E4E2450BCB5002E777F /* main.m */; };
 		122A4E5B2450BF00002E777F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5A2450BF00002E777F /* SearchTableViewController.m */; };
 		122A4E5E2450C378002E777F /* HSVPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E5D2450C378002E777F /* HSVPokemon.m */; };
-		122A4E612450DA17002E777F /* HSVNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A4E602450DA17002E777F /* HSVNetworking.m */; };
 		124359522469E4170034AA86 /* HSVSerebiiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124359512469E4170034AA86 /* HSVSerebiiViewController.m */; };
 		124359552469E8910034AA86 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124359542469E8910034AA86 /* WebKit.framework */; };
 		12569587249175F800F09E6E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12569586249175F800F09E6E /* CloudKit.framework */; };
@@ -75,8 +74,6 @@
 		122A4E5A2450BF00002E777F /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		122A4E5C2450C378002E777F /* HSVPokemon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemon.h; sourceTree = "<group>"; };
 		122A4E5D2450C378002E777F /* HSVPokemon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemon.m; sourceTree = "<group>"; };
-		122A4E5F2450DA17002E777F /* HSVNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVNetworking.h; sourceTree = "<group>"; };
-		122A4E602450DA17002E777F /* HSVNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVNetworking.m; sourceTree = "<group>"; };
 		124359502469E4170034AA86 /* HSVSerebiiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVSerebiiViewController.h; sourceTree = "<group>"; };
 		124359512469E4170034AA86 /* HSVSerebiiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVSerebiiViewController.m; sourceTree = "<group>"; };
 		124359542469E8910034AA86 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -213,8 +210,6 @@
 		122A4E572450BD29002E777F /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				122A4E5F2450DA17002E777F /* HSVNetworking.h */,
-				122A4E602450DA17002E777F /* HSVNetworking.m */,
 				1290C6CD245227BB0037C098 /* HSVPokemonController.h */,
 				1290C6CE245227BB0037C098 /* HSVPokemonController.m */,
 				12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */,
@@ -400,7 +395,6 @@
 			files = (
 				126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */,
 				1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */,
-				122A4E612450DA17002E777F /* HSVNetworking.m in Sources */,
 				12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */,
 				1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */,
 				122A4E4F2450BCB5002E777F /* main.m in Sources */,

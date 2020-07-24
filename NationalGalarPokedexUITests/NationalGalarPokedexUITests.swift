@@ -72,7 +72,8 @@ class NationalGalarPokedexUITests: XCTestCase {
     private func pokemonDetailViewFlow(name: String) {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
         
-        XCTAssert(app.navigationBars["\(name)DetailView"].isHittable)
+        let pokemonDetailViewNaviationBar = app.navigationBars["\(name)DetailView"]
+        XCTAssert(pokemonDetailViewNaviationBar.isHittable)
         
         let playPauseButton = app.buttons["playpause"]
         XCTAssert(playPauseButton.isHittable)
@@ -86,6 +87,11 @@ class NationalGalarPokedexUITests: XCTestCase {
             XCTAssert(button.isHittable)
             button.tap()
         }
+        
+        
+        
+        pokemonDetailViewNaviationBar.buttons["serebii.net"].tap()
+        pokemonDetailViewNaviationBar.buttons["\(name)"].tap()
     }
     
     private func navigateToNationalPokemonTableViewList() {
@@ -116,6 +122,7 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
+            break
         }
     }
     
@@ -146,11 +153,21 @@ class NationalGalarPokedexUITests: XCTestCase {
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
+            break
         }
     }
 }
 
 extension NationalGalarPokedexUITests {
+  
+    func testSinglePokemonDetailView() {
+        let pokemonName = nationalPokemonNames[0]
+        let cell = pokedexListTableView.cells["\(pokemonName)Cell"]
+        cell.tap()
+        
+        pokemonDetailViewFlow(name: nationalPokemonNames[0])
+    }
+    
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
     }
