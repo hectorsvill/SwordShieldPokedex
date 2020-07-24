@@ -122,7 +122,6 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
-            break
         }
     }
     
@@ -153,21 +152,11 @@ class NationalGalarPokedexUITests: XCTestCase {
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
-            break
         }
     }
 }
 
 extension NationalGalarPokedexUITests {
-  
-    func testSinglePokemonDetailView() {
-        let pokemonName = nationalPokemonNames[0]
-        let cell = pokedexListTableView.cells["\(pokemonName)Cell"]
-        cell.tap()
-        
-        pokemonDetailViewFlow(name: nationalPokemonNames[0])
-    }
-    
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
     }
@@ -196,6 +185,23 @@ extension NationalGalarPokedexUITests {
             XCTAssert(button.isHittable)
             button.tap()
         }
+    }
+    
+    func testLeagueCardView() {
+        XCTAssert(leagueCardTabBarButton.isHittable)
+        leagueCardTabBarButton.tap()
+        
+        let leagueCardNavigationBar = app.navigationBars["League Cards"]
+        XCTAssert(leagueCardNavigationBar.isHittable)
+        
+        let plussButton = leagueCardNavigationBar.buttons["plus"]
+        XCTAssert(plussButton.isHittable)
+        plussButton.tap()
+                
+        app.alerts["iCloud Error"].buttons["OK"].tap()
+        
+        app.tables.staticTexts["0000 0000 0000 00"].tap()
+        app.navigationBars["My Card Code"].buttons["League Cards"].tap()
     }
     
     func testNavigateTonationalPokemonTableViewList() {
