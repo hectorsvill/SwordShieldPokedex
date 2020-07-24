@@ -69,7 +69,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         app.terminate()
     }
     
-    private func pokemonDetailViewFlow(name: String) {
+    private func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = true) {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
         
         let pokemonDetailViewNaviationBar = app.navigationBars["\(name)DetailView"]
@@ -82,15 +82,18 @@ class NationalGalarPokedexUITests: XCTestCase {
         
         let tablesQuery = app.tables
         
-        for section in detailViewSections {
-            let button = tablesQuery.buttons[section]
-            XCTAssert(button.isHittable)
-            button.tap()
+        if enableDetailViewSections {
+            for section in detailViewSections {
+                let button = tablesQuery.buttons[section]
+                XCTAssert(button.isHittable)
+                button.tap()
+            }
         }
         
+        let serebiiButton = pokemonDetailViewNaviationBar.buttons["serebii.net"]
+        XCTAssert(serebiiButton.isHittable)
+        serebiiButton.tap()
         
-        
-        pokemonDetailViewNaviationBar.buttons["serebii.net"].tap()
         pokemonDetailViewNaviationBar.buttons["\(name)"].tap()
     }
     
@@ -118,7 +121,7 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             pokedexListTableView.cells[pokemonCellID].tap()
             
-            pokemonDetailViewFlow(name: name)
+            pokemonDetailViewFlow(name: name, enableDetailViewSections: false)
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
@@ -142,7 +145,7 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             app.collectionViews.cells["\(name)Cell"].tap()
             
-            pokemonDetailViewFlow(name: name)
+            pokemonDetailViewFlow(name: name, enableDetailViewSections: false)
             
             favoritesTabBarButton.tap()
             
@@ -211,7 +214,6 @@ extension NationalGalarPokedexUITests {
     func testNavigateToGalarPokemonTableViewList() {
         navigateToGalarPokemonTableViewList()
     }
-    
     
     func testAllNationalPokemonInTableViewIsHittable() {
         navigateToNationalPokemonTableViewList()
