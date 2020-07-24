@@ -69,7 +69,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         app.terminate()
     }
     
-    private func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = true) {
+    private func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = false, enableAudio: Bool = false) {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
         
         let pokemonDetailViewNaviationBar = app.navigationBars["\(name)DetailView"]
@@ -77,7 +77,10 @@ class NationalGalarPokedexUITests: XCTestCase {
         
         let playPauseButton = app.buttons["playpause"]
         XCTAssert(playPauseButton.isHittable)
-        playPauseButton.tap()
+        
+        if enableAudio {
+            playPauseButton.tap()
+        }
         
         let tablesQuery = app.tables
         
