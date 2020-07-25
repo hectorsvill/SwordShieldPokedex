@@ -208,7 +208,7 @@ class NationalGalarPokedexUITests: XCTestCase {
         cardCodeNavBarBackButton.tap()
     }
     
-    private func addLeagueCardErrorFlow() {
+    private func addLeagueCard_NoAccountErrorFlow() {
         let leagueCardNavBar = app.navigationBars["League Cards"]
         XCTAssert(leagueCardNavBar.isHittable)
         leagueCardNavBar.buttons["plus"].tap()
@@ -219,6 +219,12 @@ class NationalGalarPokedexUITests: XCTestCase {
         let alertOkButton = errorAlert.buttons["OK"]
         XCTAssert(alertOkButton.isHittable)
         alertOkButton.tap()
+    }
+    
+    private func AddLeagueCard_ResetButtonFlow() {
+        let resetButton = app.buttons["Reset"]
+        XCTAssert(resetButton.isHittable)
+        resetButton.tap()
     }
 }
 
@@ -320,16 +326,15 @@ extension NationalGalarPokedexUITests {
     
     func testNationalPokokemonIsFavorite() {
         navigateToNationalPokemonTableViewList()
-        favoriteAllPokemonFlow(with: nationalPokemonNames)
+        favoriteAllPokemonFlow(with: [nationalPokemonNames[2]])
     }
     
     func testGalarPokokemonIsFavorite() {
         navigateToGalarPokemonTableViewList()
-        favoriteAllPokemonFlow(with: galarPokemonNames)
+        favoriteAllPokemonFlow(with: [galarPokemonNames[1]])
     }
     
     // MARK: - LEAGUE CARDS VIEW
-    
     
     func testLeagueCardView() {
         navigateToLeagueCardView()
@@ -342,18 +347,17 @@ extension NationalGalarPokedexUITests {
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
     }
-
     
     func testAddLeagueCard_NoiCloudAccountError() {
         navigateToLeagueCardView()
-        addLeagueCardErrorFlow()
+        addLeagueCard_NoAccountErrorFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCard_SubmitEmptyCodeButtonError() {
         navigateToLeagueCardView()
-        addLeagueCardErrorFlow()
+        addLeagueCard_NoAccountErrorFlow()
         
         let submitButton = app.buttons["Submit"]
         XCTAssert(submitButton.isHittable)
@@ -363,6 +367,14 @@ extension NationalGalarPokedexUITests {
         XCTAssert(alertOKButton.isHittable)
         alertOKButton.tap()
         
+        XCTAssert(cardCodeNavBarBackButton.isHittable)
+        cardCodeNavBarBackButton.tap()
+    }
+    
+    func testAddLeagueCard_ResetButtonisHitable() {
+        navigateToLeagueCardView()
+        addLeagueCard_NoAccountErrorFlow()
+        AddLeagueCard_ResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
