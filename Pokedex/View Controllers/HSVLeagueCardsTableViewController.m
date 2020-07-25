@@ -48,12 +48,7 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(fetchLeageCards) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl setTintColor:UIColor.systemRedColor];
-    
-#if DEBUG
-    self.tableView.refreshControl = nil;
-#else
-    self.tableView.refreshControl = self.refreshControl;    
-#endif
+    self.tableView.refreshControl = (DEBUG) ? nil : self.refreshControl;
 }
 
 -(void)refresh {
