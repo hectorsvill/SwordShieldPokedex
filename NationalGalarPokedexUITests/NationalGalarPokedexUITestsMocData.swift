@@ -10,16 +10,27 @@ import Foundation
 
 
 class NationalGalarPokedexUITestsMocData {
-    var nationalPokemonNames: [String]
-    var galarPokemonNames: [String]
+    var nationalPokemonNamesString: String
+    var galarPokemonNamesString: String
     
-    init(nationalPokemonNames: String = fetchNationalPokemonNames, galarPokemonNames: String = fetchGalarPokemonNames) {
-        self.nationalPokemonNames = fetchNationalPokemonNames.split(separator: ",").map {
+    init(nationalPokemonNamesString: String = fetchNationalPokemonNames, galarPokemonNamesString: String = fetchGalarPokemonNames) {
+        self.nationalPokemonNamesString = nationalPokemonNamesString
+        self.galarPokemonNamesString = galarPokemonNamesString
+    }
+    
+    /// fetch a list of nationail pokemon names
+    /// - Returns: -> [String]
+    class func nationalPokemonNames() -> [String] {
+        return  fetchNationalPokemonNames.split(separator: ",").map {
             let name = String($0)
             return name.first! == "\n" ? String(name.dropFirst()) : name
         }
-            
-        self.galarPokemonNames = fetchGalarPokemonNames.split(separator: ",").map {
+    }
+    
+    /// fetch a list of Galar  pokemon names
+    /// - Returns: -> [String]
+    class func galarPokemonNames() -> [String] {
+        return fetchGalarPokemonNames.split(separator: ",").map {
             let name = String($0)
             return name.first! == "\n" ? String(name.dropFirst()) : name
         }

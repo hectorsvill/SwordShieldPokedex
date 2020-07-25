@@ -34,7 +34,6 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchListTableView.isHittable)
     }
     
-    
     func testTabBarButtonsIsHittable() {
         XCTAssert(favoritesTabBarButton.isHittable)
         favoritesTabBarButton.tap()
