@@ -36,9 +36,6 @@
 
 
 - (void) configureViewAccesibility {
-    self.view.isAccessibilityElement = true;
-    self.view.accessibilityIdentifier = @"SubmitLeagueCardNumberViewController";
-    
     self.sectionATextField.isAccessibilityElement = true;
     self.sectionATextField.accessibilityIdentifier = @"SectionATextField";
     
