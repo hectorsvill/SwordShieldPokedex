@@ -34,6 +34,24 @@
         [self checkiCloudAccountStatus];
 }
 
+
+- (void) configureViewAccesibility {
+    self.view.isAccessibilityElement = true;
+    self.view.accessibilityIdentifier = @"SubmitLeagueCardNumberViewController";
+    
+    self.sectionATextField.isAccessibilityElement = true;
+    self.sectionATextField.accessibilityIdentifier = @"SectionATextField";
+    
+    self.sectionBTextField.isAccessibilityElement = true;
+    self.sectionBTextField.accessibilityIdentifier = @"SectionBTextField";
+    
+    self.sectionCTextField.isAccessibilityElement = true;
+    self.sectionCTextField.accessibilityIdentifier = @"SectionCTextField";
+    
+    self.sectionDTextField.isAccessibilityElement = true;
+    self.sectionDTextField.accessibilityIdentifier = @"SectionDTextField";
+}
+
 #pragma mark - IBAction
 
 - (IBAction)submutButtonPressed:(id)sender {
