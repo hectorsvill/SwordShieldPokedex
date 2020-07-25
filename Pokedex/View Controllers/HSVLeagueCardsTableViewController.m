@@ -49,13 +49,11 @@
     [self.refreshControl addTarget:self action:@selector(fetchLeageCards) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl setTintColor:UIColor.systemRedColor];
     
-    #if Debug
+#if DEBUG
     self.tableView.refreshControl = nil;
-    NSLog(@"Currently debuging");
-    #else
-    self.tableView.refreshControl = self.refreshControl;
-    NSLog(@"not debuging");
-    #endif
+#else
+    self.tableView.refreshControl = self.refreshControl;    
+#endif
 }
 
 -(void)refresh {
@@ -105,7 +103,6 @@
 }
 
 // MARK: - Table View Datasource
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 72;

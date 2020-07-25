@@ -65,7 +65,6 @@ class NationalGalarPokedexUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchEnvironment = ["Debug": "1"]
         app.launch()
     }
 
@@ -293,7 +292,7 @@ extension NationalGalarPokedexUITests {
 
 // MARK: METRICS
 extension NationalGalarPokedexUITests {
-    func _testLaunchPerformance() throws {
+    func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
                 XCUIApplication().launch()
