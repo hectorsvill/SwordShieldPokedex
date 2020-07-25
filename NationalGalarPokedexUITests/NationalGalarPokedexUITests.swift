@@ -172,6 +172,40 @@ class NationalGalarPokedexUITests: XCTestCase {
             break
         }
     }
+    
+    private func navigateToLeagueCardView() {
+        XCTAssert(leagueCardTabBarButton.isHittable)
+        leagueCardTabBarButton.tap()
+        XCTAssert(leagueCardTabBarButton.isSelected)
+        XCTAssert(leagueCardsTableView.isHittable)
+    }
+    
+    func leagueCardViewCellTapped(with cell: String) {
+        let cardCodeCell = leagueCardsTableView.cells[cell]
+        XCTAssert(cardCodeCell.isHittable)
+        cardCodeCell.tap()
+        
+        let myCardCodeNavBar = app.navigationBars["My Card Code"]
+        XCTAssert(myCardCodeNavBar.isHittable)
+        
+        XCTAssertTrue(app.textFields.count == 4)
+        
+        let myCardCodeNavBarInfoButton = myCardCodeNavBar.buttons["info.circle"]
+        XCTAssert(myCardCodeNavBarInfoButton.isHittable)
+        myCardCodeNavBarInfoButton.tap()
+        
+        let serebiiView = app.navigationBars["HSVSerebiiView"]
+        XCTAssert(serebiiView.isHittable)
+        
+        
+        let backButton = serebiiView.buttons["My Card Code"]
+        XCTAssert(backButton.isHittable)
+        backButton.tap()
+        
+        let myCardCodeNavBarButton = myCardCodeNavBar.buttons["League Cards"]
+        XCTAssert(myCardCodeNavBarButton.isHittable)
+        myCardCodeNavBarButton.tap()
+    }
 }
 
 extension NationalGalarPokedexUITests {
@@ -282,11 +316,18 @@ extension NationalGalarPokedexUITests {
     
     // MARK: - LEAGUE CARDS VIEW
     
+    
     func testLeagueCardView() {
-        XCTAssert(leagueCardTabBarButton.isHittable)
-        leagueCardTabBarButton.tap()
-        XCTAssert(leagueCardTabBarButton.isSelected)
-        XCTAssert(leagueCardsTableView.isHittable)
+        navigateToLeagueCardView()
+    }
+    
+    func testLeagueCardViewCellTapped() {
+        navigateToLeagueCardView()
+        leagueCardViewCellTapped(with: "0000 0000 0000 00")
+        XCTAssert(searchTabBarButton.isHittable)
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
+        
     }
 }
 
