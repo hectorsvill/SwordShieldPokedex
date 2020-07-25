@@ -29,6 +29,10 @@ class NationalGalarPokedexUITests: XCTestCase {
         app.tables["PokedexListTableView"]
     }
     
+    var leagueCardsTableView: XCUIElement {
+        app.tables["LeagueCardsTableViewController"]
+    }
+    
     var rightBarButtonItemMagnifyingglass: XCUIElement {
         searchNavigationBar.buttons["rightBarButtonItemMagnifyingglass"]
     }
@@ -61,6 +65,7 @@ class NationalGalarPokedexUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchEnvironment = ["Debug": "1"]
         app.launch()
     }
 
@@ -171,10 +176,22 @@ class NationalGalarPokedexUITests: XCTestCase {
 }
 
 extension NationalGalarPokedexUITests {
-    func testrightBarButtonItemMagnifyingglass() {
+    func testPokemonNameListNotNil() {
+        XCTAssertNotNil(nationalPokemonNames)
+        XCTAssertNotNil(galarPokemonNames)
+    }
+    
+    func testRightBarButtonItemMagnifyingglassISHittable() {
         XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
         rightBarButtonItemMagnifyingglass.tap()
     }
+    
+    func testLeftBarButtonItemGearISHittable() {
+        XCTAssert(leftBarButtonItemGear.isHittable)
+        leftBarButtonItemGear.tap()
+    }
+    
+    //MARK: - Search View
     
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
@@ -184,6 +201,7 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchListTableView.isHittable)
     }
     
+    
     func testTabBarButtonsIsHittable() {
         XCTAssert(favoritesTabBarButton.isHittable)
         favoritesTabBarButton.tap()
@@ -192,6 +210,34 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
     }
+    
+    func testPokedexNOSheetButtonsIsHittable() {
+        for button in pokedexNOSheetButtons {
+            leftBarButtonItemGear.tap()
+            XCTAssert(button.isHittable)
+            button.tap()
+        }
+    }
+    
+    func testNavigateTonationalPokemonTableViewList() {
+        navigateToNationalPokemonTableViewList()
+    }
+    
+    func testNavigateToGalarPokemonTableViewList() {
+        navigateToGalarPokemonTableViewList()
+    }
+    
+    func testAllNationalPokemonInTableViewIsHittable() {
+        navigateToNationalPokemonTableViewList()
+        viewAllPokemonFlow(with: nationalPokemonNames)
+    }
+    
+    func testAllGalarPokemonInTableViewIsHittable() {
+        navigateToGalarPokemonTableViewList()
+        viewAllPokemonFlow(with: galarPokemonNames)
+    }
+    
+    // MARK: - Favorite View
     
     func testSearchViewFavorites() {
         searchTabBarButton.tap()
@@ -225,56 +271,6 @@ extension NationalGalarPokedexUITests {
         XCTAssert(cellHeartButton.isHittable)
     }
     
-    func testPokemonNameListNotNil() {
-        XCTAssertNotNil(nationalPokemonNames)
-        XCTAssertNotNil(galarPokemonNames)
-    }
-    
-    func testPokedexNOSheetButtonsIsHittable() {
-        for button in pokedexNOSheetButtons {
-            leftBarButtonItemGear.tap()
-            XCTAssert(button.isHittable)
-            button.tap()
-        }
-    }
-    
-    func testLeagueCardView() {
-        XCTAssert(leagueCardTabBarButton.isHittable)
-        leagueCardTabBarButton.tap()
-        
-        XCTAssert(leagueCardTabBarButton.isSelected)
-        
-        let leagueCardNavigationBar = app.navigationBars["League Cards"]
-        XCTAssert(leagueCardNavigationBar.isHittable)
-        
-        let plussButton = leagueCardNavigationBar.buttons["plus"]
-        XCTAssert(plussButton.isHittable)
-        plussButton.tap()
-                
-        app.alerts["iCloud Error"].buttons["OK"].tap()
-        
-        app.tables.staticTexts["0000 0000 0000 00"].tap()
-        app.navigationBars["My Card Code"].buttons["League Cards"].tap()
-    }
-    
-    func testNavigateTonationalPokemonTableViewList() {
-        navigateToNationalPokemonTableViewList()
-    }
-    
-    func testNavigateToGalarPokemonTableViewList() {
-        navigateToGalarPokemonTableViewList()
-    }
-    
-    func testAllNationalPokemonInTableViewIsHittable() {
-        navigateToNationalPokemonTableViewList()
-        viewAllPokemonFlow(with: nationalPokemonNames)
-    }
-    
-    func testAllGalarPokemonInTableViewIsHittable() {
-        navigateToGalarPokemonTableViewList()
-        viewAllPokemonFlow(with: galarPokemonNames)
-    }
-    
     func testNationalPokokemonIsFavorite() {
         navigateToNationalPokemonTableViewList()
         favoriteAllPokemonFlow(with: nationalPokemonNames)
@@ -283,6 +279,15 @@ extension NationalGalarPokedexUITests {
     func testGalarPokokemonIsFavorite() {
         navigateToGalarPokemonTableViewList()
         favoriteAllPokemonFlow(with: galarPokemonNames)
+    }
+    
+    // MARK: - LEAGUE CARDS VIEW
+    
+    func testLeagueCardView() {
+        XCTAssert(leagueCardTabBarButton.isHittable)
+        leagueCardTabBarButton.tap()
+        XCTAssert(leagueCardTabBarButton.isSelected)
+        XCTAssert(leagueCardsTableView.isHittable)
     }
 }
 
