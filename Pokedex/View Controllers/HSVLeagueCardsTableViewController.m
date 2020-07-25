@@ -31,6 +31,8 @@
 
     [self configureViews];
     
+    self.view.isAccessibilityElement = true;
+    self.view.accessibilityIdentifier = @"LeagueCardsTableViewController";
 }
 
 - (void)configureViews {
@@ -46,7 +48,14 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(fetchLeageCards) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl setTintColor:UIColor.systemRedColor];
+    
+    #if Debug
+    self.tableView.refreshControl = nil;
+    NSLog(@"Currently debuging");
+    #else
     self.tableView.refreshControl = self.refreshControl;
+    NSLog(@"not debuging");
+    #endif
 }
 
 -(void)refresh {
@@ -95,7 +104,7 @@
     }
 }
 
-// MARK: - Table Vide Datasource
+// MARK: - Table View Datasource
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,6 +122,9 @@
     cell.leagueCard = leageCard;
     [cell configureViews];
     cell.delegate = self;
+    
+    cell.isAccessibilityElement = true;
+    cell.accessibilityIdentifier = leageCard.cardID;
     return  cell;
 }
 
