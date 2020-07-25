@@ -29,7 +29,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
     if (self.cardID == nil)
         [self checkiCloudAccountStatus];
 }
@@ -198,7 +197,8 @@
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-            [self.navigationController popViewControllerAnimated:true];
+            if (!DEBUG)
+                [self.navigationController popViewControllerAnimated:true];
         }];
 
         [ac addAction:okAction];
