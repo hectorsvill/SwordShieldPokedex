@@ -61,6 +61,10 @@ class NationalGalarPokedexUITests: XCTestCase {
     var pokedexNOSheetButtons: [XCUIElement] {
         [pokedexNOSheet.buttons["National Pokedex"], pokedexNOSheet.buttons["Galar Pokedex"], pokedexNOSheet.buttons["Favorite"]]
     }
+    
+    var cardCodeNavBarBackButton: XCUIElement {
+        app.navigationBars["My Card Code"].buttons["League Cards"]
+    }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -133,7 +137,6 @@ class NationalGalarPokedexUITests: XCTestCase {
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
-            break
         }
     }
     
@@ -169,7 +172,6 @@ class NationalGalarPokedexUITests: XCTestCase {
             let cellHeartFillButton = cell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
-            break
         }
     }
     
@@ -202,9 +204,21 @@ class NationalGalarPokedexUITests: XCTestCase {
         XCTAssert(backButton.isHittable)
         backButton.tap()
         
-        let myCardCodeNavBarButton = myCardCodeNavBar.buttons["League Cards"]
-        XCTAssert(myCardCodeNavBarButton.isHittable)
-        myCardCodeNavBarButton.tap()
+        XCTAssert(cardCodeNavBarBackButton.isHittable)
+        cardCodeNavBarBackButton.tap()
+    }
+    
+    private func addLeagueCardErrorFlow() {
+        let leagueCardNavBar = app.navigationBars["League Cards"]
+        XCTAssert(leagueCardNavBar.isHittable)
+        leagueCardNavBar.buttons["plus"].tap()
+        
+        let errorAlert = app.alerts["iCloud Error"]
+        XCTAssert(errorAlert.isHittable)
+        
+        let alertOkButton = errorAlert.buttons["OK"]
+        XCTAssert(alertOkButton.isHittable)
+        alertOkButton.tap()
     }
 }
 
@@ -262,12 +276,12 @@ extension NationalGalarPokedexUITests {
     
     func testAllNationalPokemonInTableViewIsHittable() {
         navigateToNationalPokemonTableViewList()
-        viewAllPokemonFlow(with: nationalPokemonNames)
+        viewAllPokemonFlow(with: [nationalPokemonNames[0]])
     }
     
     func testAllGalarPokemonInTableViewIsHittable() {
         navigateToGalarPokemonTableViewList()
-        viewAllPokemonFlow(with: galarPokemonNames)
+        viewAllPokemonFlow(with: [galarPokemonNames[0]])
     }
     
     // MARK: - Favorite View
@@ -327,8 +341,16 @@ extension NationalGalarPokedexUITests {
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
-        
     }
+
+    
+    func testAddLeagueCardError() {
+        navigateToLeagueCardView()
+        addLeagueCardErrorFlow()
+        XCTAssert(cardCodeNavBarBackButton.isHittable)
+        cardCodeNavBarBackButton.tap()
+    }
+    
 }
 
 // MARK: METRICS
