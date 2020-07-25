@@ -33,6 +33,8 @@
 		12A3A2FD24607963006B934D /* HSVPokemonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A3A2FC24607962006B934D /* HSVPokemonDetailViewController.m */; };
 		12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */; };
 		12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */; };
+		3B62086724CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */; };
+		3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */; };
 		3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */; };
 		3B92D6CC24C8D75E0016B416 /* HSVPokemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6CE245227BB0037C098 /* HSVPokemonController.m */; };
 		3B92D6CD24C8D8D20016B416 /* HSVPokedex_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 12992EAB245DCD7F006EBFFC /* HSVPokedex_Type.m */; };
@@ -106,6 +108,8 @@
 		12D8CE772458BF90008E1100 /* HSVPokemonDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonDetailView.h; sourceTree = "<group>"; };
 		12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailView.m; sourceTree = "<group>"; };
 		12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonControllerProtocol.h; sourceTree = "<group>"; };
+		3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NationalGalarPokedexUITests+Test.swift"; sourceTree = "<group>"; };
+		3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITestsMocData.swift; sourceTree = "<group>"; };
 		3B74DACC24C79AAC00ECC30E /* NationalGalarPokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NationalGalarPokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITests.swift; sourceTree = "<group>"; };
 		3B74DAD024C79AAC00ECC30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -277,8 +281,10 @@
 			isa = PBXGroup;
 			children = (
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
-				3B74DAD024C79AAC00ECC30E /* Info.plist */,
+				3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */,
+				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
 				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
+				3B74DAD024C79AAC00ECC30E /* Info.plist */,
 			);
 			path = NationalGalarPokedexUITests;
 			sourceTree = "<group>";
@@ -417,9 +423,11 @@
 			files = (
 				3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */,
 				3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */,
+				3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */,
 				3B92D6CE24C8D8D80016B416 /* HSVPokemon.m in Sources */,
 				3B92D6CC24C8D75E0016B416 /* HSVPokemonController.m in Sources */,
 				3B92D6CD24C8D8D20016B416 /* HSVPokedex_Type.m in Sources */,
+				3B62086724CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift in Sources */,
 				3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
