@@ -25,6 +25,7 @@
     [super viewDidLoad];
     [self configureViews];
     self.cloudFramework = [HSVCloudFramework new];
+    [self configureViewAccesibility];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
