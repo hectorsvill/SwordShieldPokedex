@@ -344,13 +344,28 @@ extension NationalGalarPokedexUITests {
     }
 
     
-    func testAddLeagueCardError() {
+    func testAddLeagueCard_NoiCloudAccountError() {
         navigateToLeagueCardView()
         addLeagueCardErrorFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
+    func testAddLeagueCard_SubmitEmptyCodeButtonError() {
+        navigateToLeagueCardView()
+        addLeagueCardErrorFlow()
+        
+        let submitButton = app.buttons["Submit"]
+        XCTAssert(submitButton.isHittable)
+        submitButton.tap()
+        
+        let alertOKButton = app.alerts["Error"].buttons["OK"]
+        XCTAssert(alertOKButton.isHittable)
+        alertOKButton.tap()
+        
+        XCTAssert(cardCodeNavBarBackButton.isHittable)
+        cardCodeNavBarBackButton.tap()
+    }
 }
 
 // MARK: METRICS
