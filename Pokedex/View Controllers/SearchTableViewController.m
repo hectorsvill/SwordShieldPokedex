@@ -152,6 +152,7 @@
         [self navigationItem].titleView = [self searchBar];
         [self navigationItem].titleView.isAccessibilityElement = true;
     } else {
+        self.navigationItem.titleView = nil;
         if ([self.pokemonIndexList count] == 0) {
             [self searchBar].text = @"";
             [self navigationItem].titleView = nil;
