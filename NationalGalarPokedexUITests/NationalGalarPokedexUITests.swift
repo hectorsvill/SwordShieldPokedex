@@ -239,5 +239,3 @@ extension NationalGalarPokedexUITests {
         resetButton.tap()
     }
 }
-
-

@@ -69,6 +69,23 @@ extension NationalGalarPokedexUITests {
         viewAllPokemonFlow(with: [galarPokemonNames[0]])
     }
     
+    /// pressing the right bar button will show search bar if not present,  remove if present
+    func testRightBarButtonItemMagnifyingglassPressed() {
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
+        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
+        let searchBar = app.staticTexts["SearchPokemonSearchBar"]
+        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
+        
+        rightBarButtonItemMagnifyingglass.tap()
+        
+        XCTAssert(searchBar.isHittable)
+        searchBar.tap()
+        
+        rightBarButtonItemMagnifyingglass.tap()
+        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
+    }
+    
     // MARK: - Favorite View
     
     func testSearchViewFavorites() {

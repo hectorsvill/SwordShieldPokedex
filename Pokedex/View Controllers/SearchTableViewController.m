@@ -150,7 +150,6 @@
 
     if (titleView == nil) {
         [self navigationItem].titleView = [self searchBar];
-        [self navigationItem].titleView.isAccessibilityElement = true;
     } else {
         self.navigationItem.titleView = nil;
         if ([self.pokemonIndexList count] == 0) {
@@ -161,7 +160,6 @@
         }
     }
 }
-
 
 #pragma mark - prepareForSegue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -222,6 +220,7 @@
 
     [[self tableView] reloadData];
 }
+
 
 #pragma mark - HSVPOkemonTableViewCellDelegate
 - (void)saveToFavorites:(NSNumber *)number
