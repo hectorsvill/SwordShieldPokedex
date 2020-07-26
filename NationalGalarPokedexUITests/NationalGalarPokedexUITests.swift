@@ -84,6 +84,10 @@ extension NationalGalarPokedexUITests {
     var cardCodeNavBarBackButton: XCUIElement {
         app.navigationBars["My Card Code"].buttons["League Cards"]
     }
+    
+    var searchPokemonSearchBar: XCUIElement {
+        app.staticTexts["SearchPokemonSearchBar"]
+    }
 }
 
 // MARK: - UI Flows
@@ -237,5 +241,38 @@ extension NationalGalarPokedexUITests {
         let resetButton = app.buttons["Reset"]
         XCTAssert(resetButton.isHittable)
         resetButton.tap()
+    }
+        
+    func searchPokemonSearchBarTappedFlow() {
+        searchTabBarButton.tap()
+        XCTAssert(searchTabBarButton.isSelected)
+        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
+        XCTAssertFalse(searchPokemonSearchBar.waitForExistence(timeout: 1))
+        rightBarButtonItemMagnifyingglass.tap()
+        XCTAssert(searchPokemonSearchBar.isHittable)
+        searchPokemonSearchBar.tap()
+    }
+    
+    func searchForNationalPokemonFlow(with pokemon: String, searchString: String) {
+        searchPokemonSearchBarTappedFlow()
+        XCTAssert(searchPokemonSearchBar.isHittable)
+        searchPokemonSearchBar.tap()
+        
+        searchString.forEach {
+            app.keys[String($0)].tap()
+        }
+        
+        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
+        rightBarButtonItemMagnifyingglass.tap()
+        
+        let pokemonCell = searchListTableView.cells["\(pokemon)Cell"]
+        XCTAssert(pokemonCell.isHittable)
+        pokemonCell.tap()
+        
+        let navBar = app.navigationBars["\(pokemon)DetailView"]
+        XCTAssert(navBar.isHittable)
+        pokemonDetailViewFlow(name: pokemon)
+        
+        navBar.buttons["⚔️🛡Pokedex"].tap()
     }
 }
