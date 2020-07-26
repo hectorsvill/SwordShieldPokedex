@@ -271,7 +271,8 @@ extension NationalGalarPokedexUITests {
         
         let navBar = app.navigationBars["\(pokemon)DetailView"]
         XCTAssert(navBar.isHittable)
-        pokemonDetailViewFlow(name: pokemon)
+        
+        pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true)
         
         navBar.buttons["⚔️🛡Pokedex"].tap()
     }
