@@ -71,19 +71,33 @@ extension NationalGalarPokedexUITests {
     
     /// pressing the right bar button will show search bar if not present,  remove if present
     func testRightBarButtonItemMagnifyingglassPressed() {
-        searchTabBarButton.tap()
-        XCTAssert(searchTabBarButton.isSelected)
-        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
-        let searchBar = app.staticTexts["SearchPokemonSearchBar"]
-        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
-        
+        searchPokemonSearchBarTappedFlow()
         rightBarButtonItemMagnifyingglass.tap()
+        XCTAssertFalse(searchPokemonSearchBar.waitForExistence(timeout: 1))
+    }
         
-        XCTAssert(searchBar.isHittable)
-        searchBar.tap()
+    /// Use the searchbar to search National pokemon
+    func testSearchForNatioanlPokemon() {
+        XCTAssert(leftBarButtonItemGear.isHittable)
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        pokedexNOSheetButtons[0].tap()
         
-        rightBarButtonItemMagnifyingglass.tap()
-        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
+        let pokemon = nationalPokemonNames.randomElement()!
+        let subString = String(pokemon.prefix(3))
+        searchForNationalPokemonFlow(with: pokemon, searchString: subString)
+    }
+
+    /// Use the searchbar to search galar pokemon
+    func testSearchForGalarPokemon() {
+        XCTAssert(leftBarButtonItemGear.isHittable)
+        leftBarButtonItemGear.tap()
+        XCTAssert(pokedexNOSheet.isHittable)
+        pokedexNOSheetButtons[1].tap()
+        
+        let pokemon = nationalPokemonNames.randomElement()!
+        let subString = String(pokemon.prefix(3))
+        searchForNationalPokemonFlow(with: pokemon, searchString: subString)
     }
     
     // MARK: - Favorite View
@@ -173,5 +187,6 @@ extension NationalGalarPokedexUITests {
         AddLeagueCard_ResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
+        
     }
 }
