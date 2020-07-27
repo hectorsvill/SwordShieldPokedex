@@ -10,7 +10,9 @@ import Foundation
 
 
 class NationalGalarPokedexUITestsMocData {
+    /// names split by comma
     var nationalPokemonNamesString: String
+    /// names split by comma
     var galarPokemonNamesString: String
     
     init(nationalPokemonNamesString: String = fetchNationalPokemonNames, galarPokemonNamesString: String = fetchGalarPokemonNames) {

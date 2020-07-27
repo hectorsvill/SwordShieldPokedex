@@ -17,8 +17,7 @@
 
 @implementation HSVSerebiiViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     [self configureViews];
@@ -28,6 +27,7 @@
     [[self activityIndicator] startAnimating];
     [[self activityIndicator] setHidesWhenStopped:true];
     [self configureWebView];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (void)configureWebView {
