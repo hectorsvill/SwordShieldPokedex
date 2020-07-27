@@ -21,13 +21,14 @@
     [super viewDidLoad];
 
     [self configureViews];
+    [NSURLCache.sharedURLCache removeAllCachedResponses];
+    [NSURLCache.sharedURLCache setMemoryCapacity:0];
 }
 
 - (void)configureViews {
     [[self activityIndicator] startAnimating];
     [[self activityIndicator] setHidesWhenStopped:true];
     [self configureWebView];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (void)configureWebView {
