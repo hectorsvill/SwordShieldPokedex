@@ -8,7 +8,8 @@
 
 import XCTest
 
-extension NationalGalarPokedexUITests {
+//MARK: - Search View
+extension NationalGalarPokedexUITests{
     func testPokemonNameListNotNil() {
         XCTAssertNotNil(nationalPokemonNames)
         XCTAssertNotNil(galarPokemonNames)
@@ -24,7 +25,6 @@ extension NationalGalarPokedexUITests {
         leftBarButtonItemGear.tap()
     }
     
-    //MARK: - Search View
     
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
@@ -99,9 +99,10 @@ extension NationalGalarPokedexUITests {
         let subString = String(pokemon.prefix(3))
         searchForNationalPokemonFlow(with: pokemon, searchString: subString)
     }
-    
-    // MARK: - Favorite View
-    
+}
+
+// MARK: - Favorite View
+extension NationalGalarPokedexUITests{
     func testSearchViewFavorites() {
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
@@ -143,9 +144,10 @@ extension NationalGalarPokedexUITests {
         navigateToGalarPokemonTableViewList()
         favoriteAllPokemonFlow(with: [galarPokemonNames[1]])
     }
-    
-    // MARK: - LEAGUE CARDS VIEW
-    
+}
+
+// MARK: - LEAGUE CARDS VIEW
+extension NationalGalarPokedexUITests{
     func testLeagueCardView() {
         navigateToLeagueCardView()
     }
@@ -160,14 +162,14 @@ extension NationalGalarPokedexUITests {
     
     func testAddLeagueCard_NoiCloudAccountError() {
         navigateToLeagueCardView()
-        addLeagueCard_NoAccountErrorFlow()
+        addLeagueCardFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCard_SubmitEmptyCodeButtonError() {
         navigateToLeagueCardView()
-        addLeagueCard_NoAccountErrorFlow()
+        addLeagueCardFlow()
         
         let submitButton = app.buttons["Submit"]
         XCTAssert(submitButton.isHittable)
@@ -183,7 +185,7 @@ extension NationalGalarPokedexUITests {
     
     func testAddLeagueCard_ResetButtonisHitable() {
         navigateToLeagueCardView()
-        addLeagueCard_NoAccountErrorFlow()
+        addLeagueCardFlow()
         AddLeagueCard_ResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()

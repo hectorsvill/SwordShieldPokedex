@@ -224,17 +224,22 @@ extension NationalGalarPokedexUITests {
         cardCodeNavBarBackButton.tap()
     }
     
-    func addLeagueCard_NoAccountErrorFlow() {
+    
+    /// Will click on add league card button to navigate to add league card view. Also works with Account.
+    func addLeagueCardFlow() {
         let leagueCardNavBar = app.navigationBars["League Cards"]
         XCTAssert(leagueCardNavBar.isHittable)
         leagueCardNavBar.buttons["plus"].tap()
         
         let errorAlert = app.alerts["iCloud Error"]
-        XCTAssert(errorAlert.isHittable)
         
-        let alertOkButton = errorAlert.buttons["OK"]
-        XCTAssert(alertOkButton.isHittable)
-        alertOkButton.tap()
+        if errorAlert.waitForExistence(timeout: 1) {
+            XCTAssert(errorAlert.isHittable)
+            
+            let alertOkButton = errorAlert.buttons["OK"]
+            XCTAssert(alertOkButton.isHittable)
+            alertOkButton.tap()
+        }
     }
     
     func AddLeagueCard_ResetButtonFlow() {
