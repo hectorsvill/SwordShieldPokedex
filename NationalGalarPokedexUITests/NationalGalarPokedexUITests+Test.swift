@@ -85,7 +85,8 @@ extension NationalGalarPokedexUITests{
         
         let pokemon = nationalPokemonNames.randomElement()!
         let subString = String(pokemon.prefix(3))
-        searchForNationalPokemonFlow(with: pokemon, searchString: subString)
+        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon, searchString: subString), "searchForNationalPokemonFlow Error")
+        
     }
 
     /// Use the searchbar to search galar pokemon
@@ -97,7 +98,7 @@ extension NationalGalarPokedexUITests{
         
         let pokemon = nationalPokemonNames.randomElement()!
         let subString = String(pokemon.prefix(3))
-        searchForNationalPokemonFlow(with: pokemon, searchString: subString)
+        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon, searchString: subString), "searchForNationalPokemonFlow Error")
     }
 }
 

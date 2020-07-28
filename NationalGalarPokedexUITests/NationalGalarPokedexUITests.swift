@@ -385,30 +385,42 @@ extension NationalGalarPokedexUITests {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
         searchPokemonSearchBar.tap()
+        
         return true
     }
     
-    func searchForNationalPokemonFlow(with pokemon: String, searchString: String) {
-        XCTAssertNoThrow(try searchPokemonSearchBarTappedFlow(), "searchPokemonSearchBarTappedFlow Error")
-        XCTAssert(searchPokemonSearchBar.isHittable)
+    func searchForNationalPokemonFlow(with pokemon: String, searchString: String) throws -> Bool {
+        guard try searchPokemonSearchBarTappedFlow() else { throw NationalGalarPokedexUITestsError.searchForNationalPokemonFlowError }
+        
+        if !searchPokemonSearchBar.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
         searchPokemonSearchBar.tap()
         
         searchString.forEach {
             app.keys[String($0)].tap()
         }
         
-        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
+        if !rightBarButtonItemMagnifyingglass.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
         rightBarButtonItemMagnifyingglass.tap()
         
         let pokemonCell = searchListTableView.cells["\(pokemon)Cell"]
-        XCTAssert(pokemonCell.isHittable)
+        if !pokemonCell.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
         pokemonCell.tap()
         
         let navBar = app.navigationBars["\(pokemon)DetailView"]
-        XCTAssert(navBar.isHittable)
+        if !navBar.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
         
-        XCTAssertNoThrow(try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true), "pokemonDetailViewFlow")
+        guard try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true) else { throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError }
 
         navBar.buttons["⚔️🛡Pokedex"].tap()
+        
+        return true
     }
 }
