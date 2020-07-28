@@ -149,11 +149,11 @@ extension NationalGalarPokedexUITests{
 // MARK: - LEAGUE CARDS VIEW
 extension NationalGalarPokedexUITests{
     func testLeagueCardView() {
-        navigateToLeagueCardView()
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
     }
     
     func testLeagueCardViewCellTapped() {
-        navigateToLeagueCardView()
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         leagueCardViewCellTapped(with: "0000 0000 0000 00")
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
@@ -161,14 +161,14 @@ extension NationalGalarPokedexUITests{
     }
     
     func testAddLeagueCard_NoiCloudAccountError() {
-        navigateToLeagueCardView()
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         addLeagueCardFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCard_SubmitEmptyCodeButtonError() {
-        navigateToLeagueCardView()
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         addLeagueCardFlow()
         
         let submitButton = app.buttons["Submit"]
@@ -184,7 +184,7 @@ extension NationalGalarPokedexUITests{
     }
     
     func testAddLeagueCard_ResetButtonisHitable() {
-        navigateToLeagueCardView()
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         addLeagueCardFlow()
         AddLeagueCard_ResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)

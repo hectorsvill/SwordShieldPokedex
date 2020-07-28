@@ -273,11 +273,21 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func navigateToLeagueCardView() {
-        XCTAssert(leagueCardTabBarButton.isHittable)
+    func navigateToLeagueCardView() throws -> Bool {
+        if !leagueCardTabBarButton.isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
+        }
         leagueCardTabBarButton.tap()
-        XCTAssert(leagueCardTabBarButton.isSelected)
-        XCTAssert(leagueCardsTableView.isHittable)
+        
+        if !leagueCardTabBarButton.isSelected {
+            throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
+        }
+        
+        if !leagueCardsTableView.isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
+        }
+        
+        return true
     }
     
     func leagueCardViewCellTapped(with cell: String) {
