@@ -16,4 +16,5 @@ enum NationalGalarPokedexUITestsError: Error {
     case favoriteAllPokemonFlowError
     case navigateToLeagueCardViewError
     case leagueCardViewCellTappedError
+    case addLeagueCardFlowError
 }
