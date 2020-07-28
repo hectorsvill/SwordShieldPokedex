@@ -365,18 +365,31 @@ extension NationalGalarPokedexUITests {
         return true
     }
         
-    func searchPokemonSearchBarTappedFlow() {
+    func searchPokemonSearchBarTappedFlow() throws -> Bool {
         searchTabBarButton.tap()
-        XCTAssert(searchTabBarButton.isSelected)
-        XCTAssert(rightBarButtonItemMagnifyingglass.isHittable)
-        XCTAssertFalse(searchPokemonSearchBar.waitForExistence(timeout: 1))
+        if !searchTabBarButton.isSelected {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
+        
+        if !rightBarButtonItemMagnifyingglass.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
+        
+        if searchPokemonSearchBar.waitForExistence(timeout: 1) {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
+        
         rightBarButtonItemMagnifyingglass.tap()
-        XCTAssert(searchPokemonSearchBar.isHittable)
+        
+        if !searchPokemonSearchBar.isHittable {
+            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        }
         searchPokemonSearchBar.tap()
+        return true
     }
     
     func searchForNationalPokemonFlow(with pokemon: String, searchString: String) {
-        searchPokemonSearchBarTappedFlow()
+        XCTAssertNoThrow(try searchPokemonSearchBarTappedFlow(), "searchPokemonSearchBarTappedFlow Error")
         XCTAssert(searchPokemonSearchBar.isHittable)
         searchPokemonSearchBar.tap()
         

@@ -71,7 +71,7 @@ extension NationalGalarPokedexUITests{
     
     /// pressing the right bar button will show search bar if not present,  remove if present
     func testRightBarButtonItemMagnifyingglassPressed() {
-        searchPokemonSearchBarTappedFlow()
+        XCTAssertNoThrow(try searchPokemonSearchBarTappedFlow(), "searchPokemonSearchBarTappedFlow Error")
         rightBarButtonItemMagnifyingglass.tap()
         XCTAssertFalse(searchPokemonSearchBar.waitForExistence(timeout: 1))
     }
