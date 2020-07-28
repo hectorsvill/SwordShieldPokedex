@@ -154,7 +154,7 @@ extension NationalGalarPokedexUITests{
     
     func testLeagueCardViewCellTapped() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        leagueCardViewCellTapped(with: "0000 0000 0000 00")
+        XCTAssertNoThrow(try  leagueCardViewCellTapped(with: "0000 0000 0000 00"), "leagueCardViewCellTapped Cell")
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)

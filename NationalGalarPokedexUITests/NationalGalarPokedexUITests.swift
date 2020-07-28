@@ -290,32 +290,46 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func leagueCardViewCellTapped(with cell: String) {
+    func leagueCardViewCellTapped(with cell: String) throws -> Bool {
         let cardCodeCell = leagueCardsTableView.cells[cell]
-        XCTAssert(cardCodeCell.isHittable)
+        if !cardCodeCell.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         cardCodeCell.tap()
         
         let myCardCodeNavBar = app.navigationBars["My Card Code"]
-        XCTAssert(myCardCodeNavBar.isHittable)
+        if !myCardCodeNavBar.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         
-        XCTAssertTrue(app.textFields.count == 4)
+        if app.textFields.count != 4 {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         
         let myCardCodeNavBarInfoButton = myCardCodeNavBar.buttons["info.circle"]
-        XCTAssert(myCardCodeNavBarInfoButton.isHittable)
+        if !myCardCodeNavBarInfoButton.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         myCardCodeNavBarInfoButton.tap()
         
         let serebiiView = app.navigationBars["HSVSerebiiView"]
-        XCTAssert(serebiiView.isHittable)
-        
-        
+        if !serebiiView.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
+                
         let backButton = serebiiView.buttons["My Card Code"]
-        XCTAssert(backButton.isHittable)
+        if !backButton.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         backButton.tap()
         
-        XCTAssert(cardCodeNavBarBackButton.isHittable)
+        if !cardCodeNavBarBackButton.isHittable {
+            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         cardCodeNavBarBackButton.tap()
+        
+        return true
     }
-    
     
     /// Will click on add league card button to navigate to add league card view. Also works with Account.
     func addLeagueCardFlow() {
