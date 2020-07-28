@@ -42,6 +42,7 @@
 		3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290C6D7245248FC0037C098 /* HSVPokemon+HSVinitWithDictionary.m */; };
 		3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF6E024994D1900754926 /* HSVLeagueCard.m */; };
 		3B92D6D124C8DA420016B416 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6D424523F8D0037C098 /* PokemonSwordShield.json */; };
+		3BAACA6D24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITests.swift; sourceTree = "<group>"; };
 		3B74DAD024C79AAC00ECC30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITestsError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
+				3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */,
 				3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */,
 				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
 				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
@@ -426,6 +429,7 @@
 				3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */,
 				3B92D6CE24C8D8D80016B416 /* HSVPokemon.m in Sources */,
 				3B92D6CC24C8D75E0016B416 /* HSVPokemonController.m in Sources */,
+				3BAACA6D24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift in Sources */,
 				3B92D6CD24C8D8D20016B416 /* HSVPokedex_Type.m in Sources */,
 				3B62086724CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift in Sources */,
 				3B92D6CF24C8D8DB0016B416 /* HSVPokemon+HSVinitWithDictionary.m in Sources */,
