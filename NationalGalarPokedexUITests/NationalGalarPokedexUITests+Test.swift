@@ -8,7 +8,7 @@
 
 import XCTest
 
-//MARK: - Search View
+//MARK: - Search View Test
 extension NationalGalarPokedexUITests{
     func testPokemonNameListNotNil() {
         XCTAssertNotNil(nationalPokemonNames)
@@ -101,7 +101,7 @@ extension NationalGalarPokedexUITests{
     }
 }
 
-// MARK: - Favorite View
+// MARK: - Favorite View Test
 extension NationalGalarPokedexUITests{
     func testSearchViewFavorites() {
         searchTabBarButton.tap()
@@ -146,7 +146,7 @@ extension NationalGalarPokedexUITests{
     }
 }
 
-// MARK: - LEAGUE CARDS VIEW
+// MARK: - LEAGUE CARDS VIEW Test
 extension NationalGalarPokedexUITests{
     func testLeagueCardView() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
