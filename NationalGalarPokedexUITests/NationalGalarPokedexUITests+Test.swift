@@ -61,12 +61,12 @@ extension NationalGalarPokedexUITests{
     
     func testAllNationalPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewAllPokemonFlow(with: [nationalPokemonNames[0]]), "viewAllPokemonFlow Error")
+        XCTAssertNoThrow(try viewAllPokemonFlow(with: fetchNationalNamesRawValues), "viewAllPokemonFlow Error")
     }
     
     func testAllGalarPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewAllPokemonFlow(with: [galarPokemonNames[0]]), "viewAllPokemonFlow Error")
+        XCTAssertNoThrow(try viewAllPokemonFlow(with: fetchGalarNameRawValues), "viewAllPokemonFlow Error")
     }
     
     /// pressing the right bar button will show search bar if not present,  remove if present
@@ -84,8 +84,8 @@ extension NationalGalarPokedexUITests{
         pokedexNOSheetButtons[0].tap()
         
         let pokemon = nationalPokemonNames.randomElement()!
-        let subString = String(pokemon.prefix(3))
-        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon, searchString: subString), "searchForNationalPokemonFlow Error")
+        let subString = String(pokemon.rawValue.prefix(3))
+        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
         
     }
 
@@ -94,11 +94,11 @@ extension NationalGalarPokedexUITests{
         XCTAssert(leftBarButtonItemGear.isHittable)
         leftBarButtonItemGear.tap()
         XCTAssert(pokedexNOSheet.isHittable)
-        pokedexNOSheetButtons[1].tap()
+        pokedexNOSheetButtons[0].tap()
         
         let pokemon = nationalPokemonNames.randomElement()!
-        let subString = String(pokemon.prefix(3))
-        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon, searchString: subString), "searchForNationalPokemonFlow Error")
+        let subString = String(pokemon.rawValue.prefix(3))
+        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
     }
 }
 
@@ -138,12 +138,12 @@ extension NationalGalarPokedexUITests{
     
     func testNationalPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: [nationalPokemonNames[2]]), "favoriteAllPokemonFlow Error")
+        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: fetchNationalNamesRawValues), "favoriteAllPokemonFlow Error")
     }
     
     func testGalarPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: [galarPokemonNames[1]]), "favoriteAllPokemonFlow Error")
+        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: fetchGalarNameRawValues), "favoriteAllPokemonFlow Error")
     }
 }
 
