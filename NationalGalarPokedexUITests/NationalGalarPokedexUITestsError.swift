@@ -10,4 +10,5 @@ import Foundation
 
 enum NationalGalarPokedexUITestsError: Error {
     case pokemonDetailViewFlowError
+    case navigateToNationalPokemonTableViewListError
 }
