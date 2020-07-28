@@ -52,7 +52,7 @@ extension NationalGalarPokedexUITests{
     }
     
     func testNavigateTonationalPokemonTableViewList() {
-        navigateToNationalPokemonTableViewList()
+        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
     }
     
     func testNavigateToGalarPokemonTableViewList() {
@@ -60,7 +60,7 @@ extension NationalGalarPokedexUITests{
     }
     
     func testAllNationalPokemonInTableViewIsHittable() {
-        navigateToNationalPokemonTableViewList()
+        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
         viewAllPokemonFlow(with: [nationalPokemonNames[0]])
     }
     
@@ -136,7 +136,7 @@ extension NationalGalarPokedexUITests{
     }
     
     func testNationalPokokemonIsFavorite() {
-        navigateToNationalPokemonTableViewList()
+        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
         favoriteAllPokemonFlow(with: [nationalPokemonNames[2]])
     }
     
