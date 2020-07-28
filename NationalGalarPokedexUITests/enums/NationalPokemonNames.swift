@@ -19,443 +19,429 @@ enum NationalPokemonNames: String {
     case Wartortle = "Wartortle"
     case Blastoise = "Blastoise"
     case Caterpie = "Caterpie"
+    case Metapod = "Metapod"
+    case Butterfree = "Butterfree"
+    case Pikachu = "Pikachu"
+    case Raichu = "Raichu"
+    case Clefairy = "Clefairy"
+    case Clefable = "Clefable"
+    case Vulpix = "Vulpix"
+    case Ninetales = "Ninetales"
+    case Oddish = "Oddish"
+    case Gloom = "Gloom"
+    case Vileplume = "Vileplume"
+    case Diglett = "Diglett"
+    case Dugtrio = "Dugtrio"
+    case Meowth = "Meowth"
+    case Persian = "Persian"
+    case Growlithe = "Growlithe"
+    case Arcanine = "Arcanine"
+    case Machop = "Machop"
+    case Machoke = "Machoke"
+    case Machamp = "Machamp"
+    case Ponyta = "Ponyta"
+    case Rapidash = "Rapidash"
+    case Farfetchd = "Farfetch’d"
+    case Shellder = "Shellder"
+    case Cloyster = "Cloyster"
+    case Gastly = "Gastly"
+    case Haunter = "Haunter"
+    case Gengar = "Gengar"
+    case Onix = "Onix"
+    case Krabby = "Krabby"
+    case Kingler = "Kingler"
+    case Hitmonlee = "Hitmonlee"
+    case Hitmonchan = "Hitmonchan"
+    case Koffing = "Koffing"
+    case Weezing = "Weezing"
+    case Rhyhorn = "Rhyhorn"
+    case Rhydon = "Rhydon"
+    case Goldeen = "Goldeen"
+    case Seaking = "Seaking"
+    case Mr_Mime = "Mr. Mime"
+    case Magikarp = "Magikarp"
+    case Gyarados = "Gyarados"
+    case Lapras = "Lapras"
+    case Ditto = "Ditto"
+    case Eevee = "Eevee"
+    case Vaporeon = "Vaporeon"
+    case Jolteon = "Jolteon"
+    case Flareon = "Flareon"
+    case Snorlax = "Snorlax"
+    case Mewtwo = "Mewtwo"
+    case Mew = "Mew"
+    case Hoothoot = "Hoothoot"
+    case Noctowl = "Noctowl"
+    case Chinchou = "Chinchou"
+    case Lanturn = "Lanturn"
+    case Pichu = "Pichu"
+    case Cleffa = "Cleffa"
+    case Togepi = "Togepi"
+    case Togetic = "Togetic"
+    case Natu = "Natu"
+    case Xatu = "Xatu"
+    case Bellossom = "Bellossom"
+    case Sudowoodo = "Sudowoodo"
+    case Wooper = "Wooper"
+    case Quagsire = "Quagsire"
+    case Espeon = "Espeon"
+    case Umbreon = "Umbreon"
+    case Wobbuffet = "Wobbuffet"
+    case Steelix = "Steelix"
+    case Qwilfish = "Qwilfish"
+    case Shuckle = "Shuckle"
+    case Sneasel = "Sneasel"
+    case Swinub = "Swinub"
+    case Piloswine = "Piloswine"
+    case Corsola = "Corsola"
+    case Remoraid = "Remoraid"
+    case Octillery = "Octillery"
+    case Delibird = "Delibird"
+    case Mantine = "Mantine"
+    case Tyrogue = "Tyrogue"
+    case Hitmontop = "Hitmontop"
+    case Larvitar = "Larvitar"
+    case Pupitar = "Pupitar"
+    case Tyranitar = "Tyranitar"
+    case Celebi = "Celebi"
+    case Zigzagoon = "Zigzagoon"
+    case Linoone = "Linoone"
+    case Lotad = "Lotad"
+    case Lombre = "Lombre"
+    case Ludicolo = "Ludicolo"
+    case Seedot = "Seedot"
+    case Nuzleaf = "Nuzleaf"
+    case Shiftry = "Shiftry"
+    case Wingull = "Wingull"
+    case Pelipper = "Pelipper"
+    case Ralts = "Ralts"
+    case Kirlia = "Kirlia"
+    case Gardevoir = "Gardevoir"
+    case Nincada = "Nincada"
+    case Ninjask = "Ninjask"
+    case Shedinja = "Shedinja"
+    case Sableye = "Sableye"
+    case Mawile = "Mawile"
+    case Electrike = "Electrike"
+    case Manectric = "Manectric"
+    case Roselia = "Roselia"
+    case Wailmer = "Wailmer"
+    case Wailord = "Wailord"
+    case Torkoal = "Torkoal"
+    case Trapinch = "Trapinch"
+    case Vibrava = "Vibrava"
+    case Flygon = "Flygon"
+    case Lunatone = "Lunatone"
+    case Solrock = "Solrock"
+    case Barboach = "Barboach"
+    case Whiscash = "Whiscash"
+    case Corphish = "Corphish"
+    case Crawdaunt = "Crawdaunt"
+    case Baltoy = "Baltoy"
+    case Claydol = "Claydol"
+    case Feebas = "Feebas"
+    case Milotic = "Milotic"
+    case Duskull = "Duskull"
+    case Dusclops = "Dusclops"
+    case Wynaut = "Wynaut"
+    case Snorunt = "Snorunt"
+    case Glalie = "Glalie"
+    case Jirachi = "Jirachi"
+    case Budew = "Budew"
+    case Roserade = "Roserade"
+    case Combee = "Combee"
+    case Vespiquen = "Vespiquen"
+    case Cherubi = "Cherubi"
+    case Cherrim = "Cherrim"
+    case Shellos = "Shellos"
+    case Gastrodon = "Gastrodon"
+    case Drifloon = "Drifloon"
+    case Drifblim = "Drifblim"
+    case Stunky = "Stunky"
+    case Skuntank = "Skuntank"
+    case Bronzor = "Bronzor"
+    case Bronzong = "Bronzong"
+    case Bonsly = "Bonsly"
+    case Mime_Jr = "Mime Jr."
+    case Munchlax = "Munchlax"
+    case Riolu = "Riolu"
+    case Lucario = "Lucario"
+    case Hippopotas = "Hippopotas"
+    case Hippowdon = "Hippowdon"
+    case Skorupi = "Skorupi"
+    case Drapion = "Drapion"
+    case Croagunk = "Croagunk"
+    case Toxicroak = "Toxicroak"
+    case Mantyke = "Mantyke"
+    case Snover = "Snover"
+    case Abomasnow = "Abomasnow"
+    case Weavile = "Weavile"
+    case Rhyperior = "Rhyperior"
+    case Togekiss = "Togekiss"
+    case Leafeon = "Leafeon"
+    case Glaceon = "Glaceon"
+    case Mamoswine = "Mamoswine"
+    case Gallade = "Gallade"
+    case Dusknoir = "Dusknoir"
+    case Froslass = "Froslass"
+    case Rotom = "Rotom"
+    case Purrloin = "Purrloin"
+    case Liepard = "Liepard"
+    case Munna = "Munna"
+    case Musharna = "Musharna"
+    case Pidove = "Pidove"
+    case Tranquill = "Tranquill"
+    case Unfezant = "Unfezant"
+    case Roggenrola = "Roggenrola"
+    case Boldore = "Boldore"
+    case Gigalith = "Gigalith"
+    case Woobat = "Woobat"
+    case Swoobat = "Swoobat"
+    case Drilbur = "Drilbur"
+    case Excadrill = "Excadrill"
+    case Timburr = "Timburr"
+    case Gurdurr = "Gurdurr"
+    case Conkeldurr = "Conkeldurr"
+    case Tympole = "Tympole"
+    case Palpitoad = "Palpitoad"
+    case Seismitoad = "Seismitoad"
+    case Throh = "Throh"
+    case Sawk = "Sawk"
+    case Cottonee = "Cottonee"
+    case Whimsicott = "Whimsicott"
+    case Basculin = "Basculin"
+    case Darumaka = "Darumaka"
+    case Darmanitan = "Darmanitan"
+    case Maractus = "Maractus"
+    case Dwebble = "Dwebble"
+    case Crustle = "Crustle"
+    case Scraggy = "Scraggy"
+    case Scrafty = "Scrafty"
+    case Sigilyph = "Sigilyph"
+    case Yamask = "Yamask"
+    case Cofagrigus = "Cofagrigus"
+    case Trubbish = "Trubbish"
+    case Garbodor = "Garbodor"
+    case Minccino = "Minccino"
+    case Cinccino = "Cinccino"
+    case Gothita = "Gothita"
+    case Gothorita = "Gothorita"
+    case Gothitelle = "Gothitelle"
+    case Solosis = "Solosis"
+    case Duosion = "Duosion"
+    case Reuniclus = "Reuniclus"
+    case Vanillite = "Vanillite"
+    case Vanillish = "Vanillish"
+    case Vanilluxe = "Vanilluxe"
+    case Karrablast = "Karrablast"
+    case Escavalier = "Escavalier"
+    case Frillish = "Frillish"
+    case Jellicent = "Jellicent"
+    case Joltik = "Joltik"
+    case Galvantula = "Galvantula"
+    case Ferroseed = "Ferroseed"
+    case Ferrothorn = "Ferrothorn"
+    case Klink = "Klink"
+    case Klang = "Klang"
+    case Klinklang = "Klinklang"
+    case Elgyem = "Elgyem"
+    case Beheeyem = "Beheeyem"
+    case Litwick = "Litwick"
+    case Lampent = "Lampent"
+    case Chandelure = "Chandelure"
+    case Axew = "Axew"
+    case Fraxure = "Fraxure"
+    case Haxorus = "Haxorus"
+    case Cubchoo = "Cubchoo"
+    case Beartic = "Beartic"
+    case Shelmet = "Shelmet"
+    case Accelgor = "Accelgor"
+    case Stunfisk = "Stunfisk"
+    case Golett = "Golett"
+    case Golurk = "Golurk"
+    case Pawniard = "Pawniard"
+    case Bisharp = "Bisharp"
+    case Rufflet = "Rufflet"
+    case Braviary = "Braviary"
+    case Vullaby = "Vullaby"
+    case Mandibuzz = "Mandibuzz"
+    case Heatmor = "Heatmor"
+    case Durant = "Durant"
+    case Deino = "Deino"
+    case Zweilous = "Zweilous"
+    case Hydreigon = "Hydreigon"
+    case Cobalion = "Cobalion"
+    case Terrakion = "Terrakion"
+    case Virizion = "Virizion"
+    case Reshiram = "Reshiram"
+    case Zekrom = "Zekrom"
+    case Kyurem = "Kyurem"
+    case Keldeo = "Keldeo"
+    case Bunnelby = "Bunnelby"
+    case Diggersby = "Diggersby"
+    case Pancham = "Pancham"
+    case Pangoro = "Pangoro"
+    case Espurr = "Espurr"
+    case Meowstic = "Meowstic"
+    case Honedge = "Honedge"
+    case Doublade = "Doublade"
+    case Aegislash = "Aegislash"
+    case Spritzee = "Spritzee"
+    case Aromatisse = "Aromatisse"
+    case Swirlix = "Swirlix"
+    case Slurpuff = "Slurpuff"
+    case Inkay = "Inkay"
+    case Malamar = "Malamar"
+    case Binacle = "Binacle"
+    case Barbaracle = "Barbaracle"
+    case Helioptile = "Helioptile"
+    case Heliolisk = "Heliolisk"
+    case Sylveon = "Sylveon"
+    case Hawlucha = "Hawlucha"
+    case Goomy = "Goomy"
+    case Sliggoo = "Sliggoo"
+    case Goodra = "Goodra"
+    case Phantump = "Phantump"
+    case Trevenant = "Trevenant"
+    case Pumpkaboo = "Pumpkaboo"
+    case Gourgeist = "Gourgeist"
+    case Bergmite = "Bergmite"
+    case Avalugg = "Avalugg"
+    case Noibat = "Noibat"
+    case Noivern = "Noivern"
+    case Rowlet = "Rowlet"
+    case Dartrix = "Dartrix"
+    case Decidueye = "Decidueye"
+    case Litten = "Litten"
+    case Torracat = "Torracat"
+    case Incineroar = "Incineroar"
+    case Popplio = "Popplio"
+    case Brionne = "Brionne"
+    case Primarina = "Primarina"
+    case Grubbin = "Grubbin"
+    case Charjabug = "Charjabug"
+    case Vikavolt = "Vikavolt"
+    case Cutiefly = "Cutiefly"
+    case Ribombee = "Ribombee"
+    case Wishiwashi = "Wishiwashi"
+    case Mareanie = "Mareanie"
+    case Toxapex = "Toxapex"
+    case Mudbray = "Mudbray"
+    case Mudsdale = "Mudsdale"
+    case Dewpider = "Dewpider"
+    case Araquanid = "Araquanid"
+    case Morelull = "Morelull"
+    case Shiinotic = "Shiinotic"
+    case Salandit = "Salandit"
+    case Salazzle = "Salazzle"
+    case Stufful = "Stufful"
+    case Bewear = "Bewear"
+    case Bounsweet = "Bounsweet"
+    case Steenee = "Steenee"
+    case Tsareena = "Tsareena"
+    case Oranguru = "Oranguru"
+    case Passimian = "Passimian"
+    case Wimpod = "Wimpod"
+    case Golisopod = "Golisopod"
+    case Pyukumuku = "Pyukumuku"
+    case Type_Null = "Type: Null"
+    case Silvally = "Silvally"
+    case Turtonator = "Turtonator"
+    case Togedemaru = "Togedemaru"
+    case Mimikyu = "Mimikyu"
+    case Drampa = "Drampa"
+    case Dhelmise = "Dhelmise"
+    case Jangmo_o = "Jangmo-o"
+    case Hakamo = "Hakamo-o"
+    case Kommo = "Kommo-o"
+    case Cosmog = "Cosmog"
+    case Cosmoem = "Cosmoem"
+    case Solgaleo = "Solgaleo"
+    case Lunala = "Lunala"
+    case Necrozma = "Necrozma"
+    case Marshadow = "Marshadow"
+    case Zeraora = "Zeraora"
+    case Meltan = "Meltan"
+    case Melmetal = "Melmetal"
+    case Grookey = "Grookey"
+    case Thwackey = "Thwackey"
+    case Rillaboom = "Rillaboom"
+    case Scorbunny = "Scorbunny"
+    case Raboot = "Raboot"
+    case Cinderace = "Cinderace"
+    case Sobble = "Sobble"
+    case Drizzile = "Drizzile"
+    case Inteleon = "Inteleon"
+    case Skwovet = "Skwovet"
+    case Greedent = "Greedent"
+    case Rookidee = "Rookidee"
+    case Corvisquire = "Corvisquire"
+    case Corviknight = "Corviknight"
+    case Blipbug = "Blipbug"
+    case Dottler = "Dottler"
+    case Orbeetle = "Orbeetle"
+    case Nickit = "Nickit"
+    case Thievul = "Thievul"
+    case Gossifleur = "Gossifleur"
+    case Eldegoss = "Eldegoss"
+    case Wooloo = "Wooloo"
+    case Dubwool = "Dubwool"
+    case Chewtle = "Chewtle"
+    case Drednaw = "Drednaw"
+    case Yamper = "Yamper"
+    case Boltund = "Boltund"
+    case Rolycoly = "Rolycoly"
+    case Carkol = "Carkol"
+    case Coalossal = "Coalossal"
+    case Applin = "Applin"
+    case Flapple = "Flapple"
+    case Appletun = "Appletun"
+    case Silicobra = "Silicobra"
+    case Sandaconda = "Sandaconda"
+    case Cramorant = "Cramorant"
+    case Arrokuda = "Arrokuda"
+    case Barraskewda = "Barraskewda"
+    case Toxel = "Toxel"
+    case Toxtricity = "Toxtricity"
+    case Sizzlipede = "Sizzlipede"
+    case Centiskorch = "Centiskorch"
+    case Clobbopus = "Clobbopus"
+    case Grapploct = "Grapploct"
+    case Sinistea = "Sinistea"
+    case Polteageist = "Polteageist"
+    case Hatenna = "Hatenna"
+    case Hattrem = "Hattrem"
+    case Hatterene = "Hatterene"
+    case Impidimp = "Impidimp"
+    case Morgrem = "Morgrem"
+    case Grimmsnarl = "Grimmsnarl"
+    case Obstagoon = "Obstagoon"
+    case Perrserker = "Perrserker"
+    case Cursola = "Cursola"
+    case Sirfetchd = "Sirfetch’d"
+//    case Mr = "Mr". Rime
+    case Runerigus = "Runerigus"
+    case Milcery = "Milcery"
+    case Alcremie = "Alcremie"
+    case Falinks = "Falinks"
+    case Pincurchin = "Pincurchin"
+    case Snom = "Snom"
+    case Frosmoth = "Frosmoth"
+    case Stonjourner = "Stonjourner"
+    case Eiscue = "Eiscue"
+    case Indeedee = "Indeedee"
+    case Morpeko = "Morpeko"
+    case Cufant = "Cufant"
+    case Copperajah = "Copperajah"
+    case Dracozolt = "Dracozolt"
+    case Arctozolt = "Arctozolt"
+    case Dracovish = "Dracovish"
+    case Arctovish = "Arctovish"
+    case Duraludon = "Duraludon"
+    case Dreepy = "Dreepy"
+    case Drakloak = "Drakloak"
+    case Dragapult = "Dragapult"
+    case Zacian = "Zacian"
+    case Zamazenta = "Zamazenta"
+    case Eternatus = "Eternatus"
 }
-
-   
-let fetchNationalPokemonNames = """
-Bulbasaur,
-Ivysaur,
-Venusaur,
-Charmander,
-Charmeleon,
-Charizard,
-Squirtle,
-Wartortle,
-Blastoise,
-Caterpie,
-Metapod,
-Butterfree,
-Pikachu,
-Raichu,
-Clefairy,
-Clefable,
-Vulpix,
-Ninetales,
-Oddish,
-Gloom,
-Vileplume,
-Diglett,
-Dugtrio,
-Meowth,
-Persian,
-Growlithe,
-Arcanine,
-Machop,
-Machoke,
-Machamp,
-Ponyta,
-Rapidash,
-Farfetch’d,
-Shellder,
-Cloyster,
-Gastly,
-Haunter,
-Gengar,
-Onix,
-Krabby,
-Kingler,
-Hitmonlee,
-Hitmonchan,
-Koffing,
-Weezing,
-Rhyhorn,
-Rhydon,
-Goldeen,
-Seaking,
-Mr. Mime,
-Magikarp,
-Gyarados,
-Lapras,
-Ditto,
-Eevee,
-Vaporeon,
-Jolteon,
-Flareon,
-Snorlax,
-Mewtwo,
-Mew,
-Hoothoot,
-Noctowl,
-Chinchou,
-Lanturn,
-Pichu,
-Cleffa,
-Togepi,
-Togetic,
-Natu,
-Xatu,
-Bellossom,
-Sudowoodo,
-Wooper,
-Quagsire,
-Espeon,
-Umbreon,
-Wobbuffet,
-Steelix,
-Qwilfish,
-Shuckle,
-Sneasel,
-Swinub,
-Piloswine,
-Corsola,
-Remoraid,
-Octillery,
-Delibird,
-Mantine,
-Tyrogue,
-Hitmontop,
-Larvitar,
-Pupitar,
-Tyranitar,
-Celebi,
-Zigzagoon,
-Linoone,
-Lotad,
-Lombre,
-Ludicolo,
-Seedot,
-Nuzleaf,
-Shiftry,
-Wingull,
-Pelipper,
-Ralts,
-Kirlia,
-Gardevoir,
-Nincada,
-Ninjask,
-Shedinja,
-Sableye,
-Mawile,
-Electrike,
-Manectric,
-Roselia,
-Wailmer,
-Wailord,
-Torkoal,
-Trapinch,
-Vibrava,
-Flygon,
-Lunatone,
-Solrock,
-Barboach,
-Whiscash,
-Corphish,
-Crawdaunt,
-Baltoy,
-Claydol,
-Feebas,
-Milotic,
-Duskull,
-Dusclops,
-Wynaut,
-Snorunt,
-Glalie,
-Jirachi,
-Budew,
-Roserade,
-Combee,
-Vespiquen,
-Cherubi,
-Cherrim,
-Shellos,
-Gastrodon,
-Drifloon,
-Drifblim,
-Stunky,
-Skuntank,
-Bronzor,
-Bronzong,
-Bonsly,
-Mime Jr.,
-Munchlax,
-Riolu,
-Lucario,
-Hippopotas,
-Hippowdon,
-Skorupi,
-Drapion,
-Croagunk,
-Toxicroak,
-Mantyke,
-Snover,
-Abomasnow,
-Weavile,
-Rhyperior,
-Togekiss,
-Leafeon,
-Glaceon,
-Mamoswine,
-Gallade,
-Dusknoir,
-Froslass,
-Rotom,
-Purrloin,
-Liepard,
-Munna,
-Musharna,
-Pidove,
-Tranquill,
-Unfezant,
-Roggenrola,
-Boldore,
-Gigalith,
-Woobat,
-Swoobat,
-Drilbur,
-Excadrill,
-Timburr,
-Gurdurr,
-Conkeldurr,
-Tympole,
-Palpitoad,
-Seismitoad,
-Throh,
-Sawk,
-Cottonee,
-Whimsicott,
-Basculin,
-Darumaka,
-Darmanitan,
-Maractus,
-Dwebble,
-Crustle,
-Scraggy,
-Scrafty,
-Sigilyph,
-Yamask,
-Cofagrigus,
-Trubbish,
-Garbodor,
-Minccino,
-Cinccino,
-Gothita,
-Gothorita,
-Gothitelle,
-Solosis,
-Duosion,
-Reuniclus,
-Vanillite,
-Vanillish,
-Vanilluxe,
-Karrablast,
-Escavalier,
-Frillish,
-Jellicent,
-Joltik,
-Galvantula,
-Ferroseed,
-Ferrothorn,
-Klink,
-Klang,
-Klinklang,
-Elgyem,
-Beheeyem,
-Litwick,
-Lampent,
-Chandelure,
-Axew,
-Fraxure,
-Haxorus,
-Cubchoo,
-Beartic,
-Shelmet,
-Accelgor,
-Stunfisk,
-Golett,
-Golurk,
-Pawniard,
-Bisharp,
-Rufflet,
-Braviary,
-Vullaby,
-Mandibuzz,
-Heatmor,
-Durant,
-Deino,
-Zweilous,
-Hydreigon,
-Cobalion,
-Terrakion,
-Virizion,
-Reshiram,
-Zekrom,
-Kyurem,
-Keldeo,
-Bunnelby,
-Diggersby,
-Pancham,
-Pangoro,
-Espurr,
-Meowstic,
-Honedge,
-Doublade,
-Aegislash,
-Spritzee,
-Aromatisse,
-Swirlix,
-Slurpuff,
-Inkay,
-Malamar,
-Binacle,
-Barbaracle,
-Helioptile,
-Heliolisk,
-Sylveon,
-Hawlucha,
-Goomy,
-Sliggoo,
-Goodra,
-Phantump,
-Trevenant,
-Pumpkaboo,
-Gourgeist,
-Bergmite,
-Avalugg,
-Noibat,
-Noivern,
-Rowlet,
-Dartrix,
-Decidueye,
-Litten,
-Torracat,
-Incineroar,
-Popplio,
-Brionne,
-Primarina,
-Grubbin,
-Charjabug,
-Vikavolt,
-Cutiefly,
-Ribombee,
-Wishiwashi,
-Mareanie,
-Toxapex,
-Mudbray,
-Mudsdale,
-Dewpider,
-Araquanid,
-Morelull,
-Shiinotic,
-Salandit,
-Salazzle,
-Stufful,
-Bewear,
-Bounsweet,
-Steenee,
-Tsareena,
-Oranguru,
-Passimian,
-Wimpod,
-Golisopod,
-Pyukumuku,
-Type: Null,
-Silvally,
-Turtonator,
-Togedemaru,
-Mimikyu,
-Drampa,
-Dhelmise,
-Jangmo-o,
-Hakamo-o,
-Kommo-o,
-Cosmog,
-Cosmoem,
-Solgaleo,
-Lunala,
-Necrozma,
-Marshadow,
-Zeraora,
-Meltan,
-Melmetal,
-Grookey,
-Thwackey,
-Rillaboom,
-Scorbunny,
-Raboot,
-Cinderace,
-Sobble,
-Drizzile,
-Inteleon,
-Skwovet,
-Greedent,
-Rookidee,
-Corvisquire,
-Corviknight,
-Blipbug,
-Dottler,
-Orbeetle,
-Nickit,
-Thievul,
-Gossifleur,
-Eldegoss,
-Wooloo,
-Dubwool,
-Chewtle,
-Drednaw,
-Yamper,
-Boltund,
-Rolycoly,
-Carkol,
-Coalossal,
-Applin,
-Flapple,
-Appletun,
-Silicobra,
-Sandaconda,
-Cramorant,
-Arrokuda,
-Barraskewda,
-Toxel,
-Toxtricity,
-Sizzlipede,
-Centiskorch,
-Clobbopus,
-Grapploct,
-Sinistea,
-Polteageist,
-Hatenna,
-Hattrem,
-Hatterene,
-Impidimp,
-Morgrem,
-Grimmsnarl,
-Obstagoon,
-Perrserker,
-Cursola,
-Sirfetch’d,
-Mr. Rime,
-Runerigus,
-Milcery,
-Alcremie,
-Falinks,
-Pincurchin,
-Snom,
-Frosmoth,
-Stonjourner,
-Eiscue,
-Indeedee,
-Morpeko,
-Cufant,
-Copperajah,
-Dracozolt,
-Arctozolt,
-Dracovish,
-Arctovish,
-Duraludon,
-Dreepy,
-Drakloak,
-Dragapult,
-Zacian,
-Zamazenta,
-Eternatus,
-"""
