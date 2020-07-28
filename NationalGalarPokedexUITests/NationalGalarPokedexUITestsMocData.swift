@@ -13,9 +13,9 @@ class NationalGalarPokedexUITestsMocData {
     private (set) var nationalPokemonNames: [NationalPokemonNames]
     private (set) var galarPokemonNames: [GalarPokemonNames]
     
-    init(nationalPokemonNamesString: [NationalPokemonNames] = [.Bulbasaur], galarPokemonNamesString: [GalarPokemonNames] = [.Grookey]) {
-        self.nationalPokemonNames = nationalPokemonNamesString
-        self.galarPokemonNames = galarPokemonNamesString
+    init(nationalPokemonNames: [NationalPokemonNames], galarPokemonNames: [GalarPokemonNames]) {
+        self.nationalPokemonNames = nationalPokemonNames
+        self.galarPokemonNames = galarPokemonNames
     }
     
     func setNationalPokemonNames(with nationalPokemonNames: [NationalPokemonNames]) {
