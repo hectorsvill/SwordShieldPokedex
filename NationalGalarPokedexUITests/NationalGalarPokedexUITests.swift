@@ -212,13 +212,20 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func favoriteAllPokemonFlow(with list: [String]) {
+    func favoriteAllPokemonFlow(with list: [String]) throws -> Bool {
         searchTabBarButton.tap()
-        XCTAssert(searchTabBarButton.isSelected)
+        if !searchTabBarButton.isSelected {
+            throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+        }
+        
         for name in list {
-            let cell = searchListTableView.cells["\(name)Cell"]
+            let pokemonCell = searchListTableView.cells["\(name)Cell"]
             
-            let cellHeartButton = cell.buttons["heart"]
+            if !pokemonCell.isHittable {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
+            
+            let cellHeartButton = pokemonCell.buttons["heart"]
             
             if !cellHeartButton.isHittable {
                 app.swipeUp()
@@ -226,25 +233,44 @@ extension NationalGalarPokedexUITests {
             
             cellHeartButton.tap()
             
-            XCTAssert(favoritesTabBarButton.isHittable)
+            if !favoritesTabBarButton.isHittable {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
             favoritesTabBarButton.tap()
-            XCTAssert(favoritesTabBarButton.isSelected)
             
-            app.collectionViews.cells["\(name)Cell"].tap()
+            if !favoritesTabBarButton.isSelected {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
+            
+            let collectionViewPokemonCell = app.collectionViews.cells["\(name)Cell"]
+            
+            if !collectionViewPokemonCell.isHittable {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
+            collectionViewPokemonCell.tap()
             
             XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
             
             favoritesTabBarButton.tap()
-            XCTAssert(favoritesTabBarButton.isSelected)
+            if !favoritesTabBarButton.isSelected {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
             
-            XCTAssert(searchTabBarButton.isHittable)
+            if !searchTabBarButton.isHittable {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
             searchTabBarButton.tap()
-            XCTAssert(searchTabBarButton.isSelected)
             
-            let cellHeartFillButton = cell.buttons["heart.fill"]
+            if !searchTabBarButton.isSelected {
+                throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+            }
+            
+            let cellHeartFillButton = pokemonCell.buttons["heart.fill"]
             XCTAssert(cellHeartFillButton.isHittable)
             cellHeartFillButton.tap()
+            
         }
+        return true
     }
     
     func navigateToLeagueCardView() {

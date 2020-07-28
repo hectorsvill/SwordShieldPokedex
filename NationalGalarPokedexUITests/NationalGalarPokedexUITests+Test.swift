@@ -137,12 +137,12 @@ extension NationalGalarPokedexUITests{
     
     func testNationalPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        favoriteAllPokemonFlow(with: [nationalPokemonNames[2]])
+        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: [nationalPokemonNames[2]]), "favoriteAllPokemonFlow Error")
     }
     
     func testGalarPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        favoriteAllPokemonFlow(with: [galarPokemonNames[1]])
+        XCTAssertNoThrow(try favoriteAllPokemonFlow(with: [galarPokemonNames[1]]), "favoriteAllPokemonFlow Error")
     }
 }
 
