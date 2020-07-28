@@ -356,10 +356,13 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func AddLeagueCard_ResetButtonFlow() {
+    func AddLeagueCardResetButtonFlow() throws -> Bool{
         let resetButton = app.buttons["Reset"]
-        XCTAssert(resetButton.isHittable)
+        if !resetButton.isHittable {
+            throw NationalGalarPokedexUITestsError.AddLeagueCardResetButtonFlowError
+        }
         resetButton.tap()
+        return true
     }
         
     func searchPokemonSearchBarTappedFlow() {

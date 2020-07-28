@@ -183,12 +183,11 @@ extension NationalGalarPokedexUITests{
         cardCodeNavBarBackButton.tap()
     }
     
-    func testAddLeagueCard_ResetButtonisHitable() {
+    func testAddLeagueCardResetButtonisHitable() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
-        AddLeagueCard_ResetButtonFlow()
+        XCTAssertNoThrow(try AddLeagueCardResetButtonFlow(), "AddLeagueCardResetButtonFlow Error")
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
-        
     }
 }
