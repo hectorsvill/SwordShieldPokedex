@@ -179,19 +179,37 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func viewAllPokemonFlow(with list: [String]) {
+    func viewAllPokemonFlow(with list: [String]) throws -> Bool {
+        if !searchTabBarButton.isHittable {
+            throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+        }
         searchTabBarButton.tap()
-        XCTAssert(searchTabBarButton.isSelected)
+        
+        if !searchTabBarButton.isSelected {
+            throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+        }
+        
         for name in list {
             let pokemonCellID = "\(name)Cell"
             
+            if !searchListTableView.cells[pokemonCellID].isHittable {
+                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+            }
             searchListTableView.cells[pokemonCellID].tap()
             
             XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
             
+            if !searchTabBarButton.isHittable {
+                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+            }
             searchTabBarButton.tap()
-            XCTAssert(searchNavigationBar.isHittable)
+            
+            if !searchNavigationBar.isHittable {
+                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+            }
         }
+        
+        return true
     }
     
     func favoriteAllPokemonFlow(with list: [String]) {

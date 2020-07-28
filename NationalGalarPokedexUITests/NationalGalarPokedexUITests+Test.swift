@@ -61,12 +61,12 @@ extension NationalGalarPokedexUITests{
     
     func testAllNationalPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        viewAllPokemonFlow(with: [nationalPokemonNames[0]])
+        XCTAssertNoThrow(try viewAllPokemonFlow(with: [nationalPokemonNames[0]]), "viewAllPokemonFlow Error")
     }
     
     func testAllGalarPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        viewAllPokemonFlow(with: [galarPokemonNames[0]])
+        XCTAssertNoThrow(try viewAllPokemonFlow(with: [galarPokemonNames[0]]), "viewAllPokemonFlow Error")
     }
     
     /// pressing the right bar button will show search bar if not present,  remove if present
