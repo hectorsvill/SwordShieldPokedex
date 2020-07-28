@@ -43,6 +43,8 @@
 		3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF6E024994D1900754926 /* HSVLeagueCard.m */; };
 		3B92D6D124C8DA420016B416 /* PokemonSwordShield.json in Resources */ = {isa = PBXBuildFile; fileRef = 1290C6D424523F8D0037C098 /* PokemonSwordShield.json */; };
 		3BAACA6D24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */; };
+		3BAACA6F24D0AA09003053FD /* NationalPokemonNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA6E24D0AA09003053FD /* NationalPokemonNames.swift */; };
+		3BAACA7124D0AA9D003053FD /* GalarPokemonNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA7024D0AA9D003053FD /* GalarPokemonNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		3B74DAD024C79AAC00ECC30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITestsError.swift; sourceTree = "<group>"; };
+		3BAACA6E24D0AA09003053FD /* NationalPokemonNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalPokemonNames.swift; sourceTree = "<group>"; };
+		3BAACA7024D0AA9D003053FD /* GalarPokemonNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalarPokemonNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,13 +287,23 @@
 			isa = PBXGroup;
 			children = (
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
-				3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */,
 				3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */,
 				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
+				3BAACA7224D0AAD7003053FD /* enums */,
 				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
 				3B74DAD024C79AAC00ECC30E /* Info.plist */,
 			);
 			path = NationalGalarPokedexUITests;
+			sourceTree = "<group>";
+		};
+		3BAACA7224D0AAD7003053FD /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */,
+				3BAACA7024D0AA9D003053FD /* GalarPokemonNames.swift */,
+				3BAACA6E24D0AA09003053FD /* NationalPokemonNames.swift */,
+			);
+			path = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +438,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAACA7124D0AA9D003053FD /* GalarPokemonNames.swift in Sources */,
+				3BAACA6F24D0AA09003053FD /* NationalPokemonNames.swift in Sources */,
 				3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */,
 				3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */,
 				3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */,
