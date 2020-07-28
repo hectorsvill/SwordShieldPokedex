@@ -133,7 +133,7 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func navigateToNationalPokemonTableViewList() throws -> Bool{
+    func navigateToNationalPokemonTableViewList() throws -> Bool {
         if !searchTabBarButton.isHittable {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
@@ -156,12 +156,27 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func navigateToGalarPokemonTableViewList() {
+    func navigateToGalarPokemonTableViewList() throws -> Bool {
+        if !searchTabBarButton.isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
+        }
         searchTabBarButton.tap()
+        
+        if !leftBarButtonItemGear.isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
+        }
         leftBarButtonItemGear.tap()
-        XCTAssert(pokedexNOSheet.isHittable)
+        
+        if !pokedexNOSheet.isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
+        }
+        
         pokedexNOSheetButtons[1].tap()
-        XCTAssert(searchListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable)
+        if !searchListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable {
+            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
+        }
+        
+        return true
     }
     
     func viewAllPokemonFlow(with list: [String]) {
