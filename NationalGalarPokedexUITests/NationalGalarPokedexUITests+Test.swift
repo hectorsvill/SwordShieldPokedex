@@ -162,14 +162,14 @@ extension NationalGalarPokedexUITests{
     
     func testAddLeagueCard_NoiCloudAccountError() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        addLeagueCardFlow()
+        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCard_SubmitEmptyCodeButtonError() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        addLeagueCardFlow()
+        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         
         let submitButton = app.buttons["Submit"]
         XCTAssert(submitButton.isHittable)
@@ -185,7 +185,7 @@ extension NationalGalarPokedexUITests{
     
     func testAddLeagueCard_ResetButtonisHitable() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        addLeagueCardFlow()
+        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         AddLeagueCard_ResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
