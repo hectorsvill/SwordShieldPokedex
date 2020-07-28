@@ -398,7 +398,7 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func searchForNationalPokemonFlow(with pokemon: String, searchString: String) throws -> Bool {
+    func searchBarSearchForPokemonFlow(with pokemon: String, searchString: String) throws -> Bool {
         guard try searchPokemonSearchBarTappedFlow() else { throw NationalGalarPokedexUITestsError.searchForNationalPokemonFlowError }
         
         if !searchPokemonSearchBar.isHittable {

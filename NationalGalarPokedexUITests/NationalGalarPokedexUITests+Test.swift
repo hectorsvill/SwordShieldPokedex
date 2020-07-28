@@ -25,7 +25,6 @@ extension NationalGalarPokedexUITests{
         leftBarButtonItemGear.tap()
     }
     
-    
     func testPokedexSearchNavigationBarIsHittable() throws {
         XCTAssert(searchNavigationBar.isHittable)
     }
@@ -85,7 +84,7 @@ extension NationalGalarPokedexUITests{
         
         let pokemon = nationalPokemonNames.randomElement()!
         let subString = String(pokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
         
     }
 
@@ -94,11 +93,11 @@ extension NationalGalarPokedexUITests{
         XCTAssert(leftBarButtonItemGear.isHittable)
         leftBarButtonItemGear.tap()
         XCTAssert(pokedexNOSheet.isHittable)
-        pokedexNOSheetButtons[0].tap()
+        pokedexNOSheetButtons[1].tap()
         
-        let pokemon = nationalPokemonNames.randomElement()!
+        let pokemon = galarPokemonNames.randomElement()!
         let subString = String(pokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchForNationalPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
     }
 }
 
