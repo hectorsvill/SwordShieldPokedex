@@ -12,4 +12,5 @@ enum NationalGalarPokedexUITestsError: Error {
     case pokemonDetailViewFlowError
     case navigateToNationalPokemonTableViewListError
     case navigateToGalarPokemonTableViewListError
+    case viewAllPokemonFlowError
 }
