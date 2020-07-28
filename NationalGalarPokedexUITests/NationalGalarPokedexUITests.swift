@@ -92,15 +92,18 @@ extension NationalGalarPokedexUITests {
 
 // MARK: - UI Flows
 extension NationalGalarPokedexUITests {
-    
-    func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = false, enableAudio: Bool = false) {
+    func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = false, enableAudio: Bool = false) throws -> Bool {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
         
         let pokemonDetailViewNaviationBar = app.navigationBars["\(name)DetailView"]
-        XCTAssert(pokemonDetailViewNaviationBar.isHittable)
+        if !pokemonDetailViewNaviationBar.isHittable {
+            throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
+        }
         
         let playPauseButton = app.buttons["playpause"]
-        XCTAssert(playPauseButton.isHittable)
+        if !playPauseButton.isHittable {
+            throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
+        }
         
         if enableAudio {
             playPauseButton.tap()
@@ -111,16 +114,23 @@ extension NationalGalarPokedexUITests {
         if enableDetailViewSections {
             for section in detailViewSections {
                 let button = tablesQuery.buttons[section]
-                XCTAssert(button.isHittable)
+                if !button.isHittable {
+                    throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
+                }
+                
                 button.tap()
             }
         }
         
         let serebiiButton = pokemonDetailViewNaviationBar.buttons["serebii.net"]
-        XCTAssert(serebiiButton.isHittable)
-        serebiiButton.tap()
+        if !serebiiButton.isHittable {
+            throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
+        }
         
+        serebiiButton.tap()
         pokemonDetailViewNaviationBar.buttons["\(name)"].tap()
+        
+        return true
     }
     
     func navigateToNationalPokemonTableViewList() {
@@ -149,7 +159,7 @@ extension NationalGalarPokedexUITests {
             
             searchListTableView.cells[pokemonCellID].tap()
             
-            pokemonDetailViewFlow(name: name)
+            XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
             
             searchTabBarButton.tap()
             XCTAssert(searchNavigationBar.isHittable)
@@ -176,7 +186,7 @@ extension NationalGalarPokedexUITests {
             
             app.collectionViews.cells["\(name)Cell"].tap()
             
-            pokemonDetailViewFlow(name: name)
+            XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
             
             favoritesTabBarButton.tap()
             XCTAssert(favoritesTabBarButton.isSelected)
@@ -277,8 +287,8 @@ extension NationalGalarPokedexUITests {
         let navBar = app.navigationBars["\(pokemon)DetailView"]
         XCTAssert(navBar.isHittable)
         
-        pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true)
-        
+        XCTAssertNoThrow(try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true), "pokemonDetailViewFlow")
+
         navBar.buttons["⚔️🛡Pokedex"].tap()
     }
 }
