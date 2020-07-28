@@ -17,4 +17,5 @@ enum NationalGalarPokedexUITestsError: Error {
     case navigateToLeagueCardViewError
     case leagueCardViewCellTappedError
     case addLeagueCardFlowError
+    case AddLeagueCardResetButtonFlowError
 }
