@@ -77,11 +77,7 @@ extension NationalGalarPokedexUITests{
         
     /// Use the searchbar to search National pokemon
     func testSearchForNatioanlPokemon() {
-        XCTAssert(leftBarButtonItemGear.isHittable)
-        leftBarButtonItemGear.tap()
-        XCTAssert(pokedexNOSheet.isHittable)
-        pokedexNOSheetButtons[0].tap()
-        
+        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
         let pokemon = nationalPokemonNames.randomElement()!
         let subString = String(pokemon.rawValue.prefix(3))
         XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
@@ -90,11 +86,7 @@ extension NationalGalarPokedexUITests{
 
     /// Use the searchbar to search galar pokemon
     func testSearchForGalarPokemon() {
-        XCTAssert(leftBarButtonItemGear.isHittable)
-        leftBarButtonItemGear.tap()
-        XCTAssert(pokedexNOSheet.isHittable)
-        pokedexNOSheetButtons[1].tap()
-        
+        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
         let pokemon = galarPokemonNames.randomElement()!
         let subString = String(pokemon.rawValue.prefix(3))
         XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
@@ -529,7 +521,7 @@ extension NationalGalarPokedexUITests {
         guard try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true) else { throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError }
 
         navBar.buttons["⚔️🛡Pokedex"].tap()
-        
+
         return true
     }
 }
