@@ -107,44 +107,49 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    private func viewAllPokemonFlow(with list: [String]) throws -> Bool {
+    
+    func viewSearchListTableViewNationalPokemon(with name: NationalPokemonNames) throws -> Bool {
+        guard try viewSearchListTableViewPokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow}
+        return true
+    }
+    
+    func viewSearchListTableViewGalarPokemon(with name: GalarPokemonNames) throws -> Bool {
+        guard try viewSearchListTableViewPokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow}
+        return true
+    }
+    
+    private func viewSearchListTableViewPokemonFlow(with name: String) throws -> Bool {
         if !searchTabBarButton.isHittable {
-            throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
         searchTabBarButton.tap()
         
         if !searchTabBarButton.isSelected {
-            throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
         
-        for name in list {
-            let pokemonCellID = "\(name)Cell"
-            let pokemonCell = searchListTableView.cells[pokemonCellID]
-            
-            while !pokemonCell.waitForExistence(timeout: 0.3) {
-                app.swipeUp()
-            }
-            
-            if !pokemonCell.isHittable {
-                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
-            }
-            searchListTableView.cells[pokemonCellID].tap()
-            
-            XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
-            
-            if !searchTabBarButton.isHittable {
-                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
-            }
-            searchTabBarButton.tap()
-            
-            if !searchNavigationBar.isHittable {
-                throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
-            }
-            searchTabBarButton.tap(withNumberOfTaps: 2, numberOfTouches: 1)
-            
-            break
+        let pokemonCellID = "\(name)Cell"
+        let pokemonCell = searchListTableView.cells[pokemonCellID]
+        
+        while !pokemonCell.waitForExistence(timeout: 0.3) {
+            app.swipeUp()
         }
         
+        if !pokemonCell.isHittable {
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
+        }
+        searchListTableView.cells[pokemonCellID].tap()
+        
+        XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
+        
+        if !searchTabBarButton.isHittable {
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
+        }
+        searchTabBarButton.tap()
+        
+        if !searchNavigationBar.isHittable {
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
+        }
         return true
     }
     
