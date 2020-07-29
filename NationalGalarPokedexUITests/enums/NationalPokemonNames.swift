@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NationalPokemonNames: String {
+enum NationalPokemonNames: String, CaseIterable {
     case Bulbasaur = "Bulbasaur"
     case Ivysaur = "Ivysaur"
     case Venusaur = "Venusaur"
@@ -419,7 +419,7 @@ enum NationalPokemonNames: String {
     case Perrserker = "Perrserker"
     case Cursola = "Cursola"
     case Sirfetchd = "Sirfetch’d"
-//    case Mr = "Mr". Rime
+    case Mr_Rime = "Mr. Rime"
     case Runerigus = "Runerigus"
     case Milcery = "Milcery"
     case Alcremie = "Alcremie"
