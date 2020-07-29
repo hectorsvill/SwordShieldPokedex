@@ -66,43 +66,43 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func viewSearchListTableViewNationalPokemon(with name: NationalPokemonNames) throws -> Bool {
-        guard try viewSearchListTableViewPokemonFlow(with: name.rawValue) else {
+    func viewSearchListTableViewNationalPokemon(with nationalPokemon: NationalPokemonNames) throws -> Bool {
+        guard try viewSearchListTableViewPokemonFlow(with: nationalPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
         return true
     }
     
-    func viewSearchListTableViewGalarPokemon(with name: GalarPokemonNames) throws -> Bool {
-        guard try viewSearchListTableViewPokemonFlow(with: name.rawValue) else {
+    func viewSearchListTableViewGalarPokemon(with galarPokemon: GalarPokemonNames) throws -> Bool {
+        guard try viewSearchListTableViewPokemonFlow(with: galarPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
         return true
     }
         
-    func favoriteSearchListTableViewNationalPokemon(with name: NationalPokemonNames) throws -> Bool{
-        guard try favoriteSearchListTableViewPokemonFlow(with: name.rawValue) else {
+    func favoriteSearchListTableViewNationalPokemon(with nationalPokemon: NationalPokemonNames) throws -> Bool{
+        guard try favoriteSearchListTableViewPokemonFlow(with: nationalPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.favortiePokemonError
         }
         return true
     }
     
-    func favoriteSearchListTableViewGalarPokemon(with name: GalarPokemonNames) throws -> Bool{
-        guard try favoriteSearchListTableViewPokemonFlow(with: name.rawValue) else {
+    func favoriteSearchListTableViewGalarPokemon(with galarPokemon: GalarPokemonNames) throws -> Bool{
+        guard try favoriteSearchListTableViewPokemonFlow(with: galarPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.favortiePokemonError
         }
         return true
     }
     
-    func searchBarSearchForNationalPokemon(with pokemon: NationalPokemonNames) throws -> Bool {
-        guard try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: String(pokemon.rawValue.prefix(3))) else {
+    func searchBarSearchForNationalPokemon(with nationalPokemon: NationalPokemonNames) throws -> Bool {
+        guard try searchBarSearchForPokemonFlow(with: nationalPokemon.rawValue, searchString: String(nationalPokemon.rawValue.prefix(3))) else {
             throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
         }
         return true
     }
     
-    func searchBarSearchForGalarPokemon(with pokemon: GalarPokemonNames) throws -> Bool {
-        guard try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: String(pokemon.rawValue.prefix(3))) else {
+    func searchBarSearchForGalarPokemon(with galarPokemon: GalarPokemonNames) throws -> Bool {
+        guard try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: String(galarPokemon.rawValue.prefix(3))) else {
             throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
         }
         return true
