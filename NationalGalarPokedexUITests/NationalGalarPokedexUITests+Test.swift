@@ -107,10 +107,15 @@ extension NationalGalarPokedexUITests{
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
 
-        let cell = searchListTableView.cells["\(nationalPokemonNames[0])Cell"]
-        XCTAssert(cell.isHittable)
+        let pokemonCell = searchListTableView.cells["\(nationalPokemonNames[0])Cell"]
         
-        let cellHeartButton = cell.buttons["heart"]
+        while !pokemonCell.waitForExistence(timeout: 0.3) {
+            app.swipeUp()
+        }
+        
+        XCTAssert(pokemonCell.isHittable)
+        
+        let cellHeartButton = pokemonCell.buttons["heart"]
         XCTAssert(cellHeartButton.isHittable)
         cellHeartButton.tap()
 
@@ -120,19 +125,18 @@ extension NationalGalarPokedexUITests{
         let favoriteButton = pokedexNOSheetButtons[2]
         favoriteButton.tap()
         
-        XCTAssert(cell.isHittable)
+        XCTAssert(pokemonCell.isHittable)
         
-        let cellHeartFillButton = cell.buttons["heart.fill"]
+        let cellHeartFillButton = pokemonCell.buttons["heart.fill"]
         XCTAssertTrue(cellHeartFillButton.isHittable)
         cellHeartFillButton.tap()
         
-        let cellExist = cell.waitForExistence(timeout: 1)
+        let cellExist = pokemonCell.waitForExistence(timeout: 1)
         XCTAssertFalse(cellExist)
         
         leftBarButtonItemGear.tap()
         XCTAssert(pokedexNOSheet.isHittable)
         pokedexNOSheetButtons[0].tap()
-        XCTAssert(cellHeartButton.isHittable)
     }
     
     func testNationalPokokemonIsFavorite() {
@@ -268,6 +272,7 @@ extension NationalGalarPokedexUITests {
         if !pokedexNOSheet.isHittable {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        pokedexNOSheetButtons[1].tap()
         
         return true
     }
@@ -320,6 +325,10 @@ extension NationalGalarPokedexUITests {
         
         for name in list {
             let pokemonCell = searchListTableView.cells["\(name)Cell"]
+            
+            while !pokemonCell.waitForExistence(timeout: 1) {
+                app.swipeUp()
+            }
             
             if !pokemonCell.isHittable {
                 throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
