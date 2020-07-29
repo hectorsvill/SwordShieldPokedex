@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GalarPokemonNames: String {
+enum GalarPokemonNames: String, CaseIterable {
     case Grookey = "Grookey"
     case Thwackey = "Thwackey"
     case Rillaboom = "Rillaboom"
