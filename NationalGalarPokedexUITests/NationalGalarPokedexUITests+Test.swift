@@ -78,16 +78,14 @@ extension NationalGalarPokedexUITests{
     /// Use the searchbar to search National pokemon
     func testSearchForNatioanlPokemon() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
-        let subString = String(nationalPokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: nationalPokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        XCTAssertNoThrow(try searchBarSearchForNationalPokemon(with: nationalPokemon), "searchForNationalPokemonFlow Error")
         
     }
 
     /// Use the searchbar to search galar pokemon
     func testSearchForGalarPokemon() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        let subString = String(galarPokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        XCTAssertNoThrow(try searchBarSearchForGalarPokemon(with: galarPokemon), "searchForNationalPokemonFlow Error")
     }
 }
 

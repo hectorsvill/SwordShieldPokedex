@@ -290,8 +290,8 @@
 			children = (
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
 				3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */,
-				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
 				3BD64B5124D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift */,
+				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
 				3BAACA7224D0AAD7003053FD /* enums */,
 				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
 				3B74DAD024C79AAC00ECC30E /* Info.plist */,

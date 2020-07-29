@@ -17,7 +17,7 @@ class NationalGalarPokedexUITestsMocData {
         NationalPokemonNames.allCases.map { return $0.rawValue }
     }
     
-    var fetchAllGalarNameRawValues: [String] {
+    var fetchAllGalarNamesRawValues: [String] {
         GalarPokemonNames.allCases.map { return $0.rawValue }
     }
     

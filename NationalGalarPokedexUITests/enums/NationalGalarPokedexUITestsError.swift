@@ -19,6 +19,6 @@ enum NationalGalarPokedexUITestsError: Error {
     case addLeagueCardFlowError
     case AddLeagueCardResetButtonFlowError
     case searchPokemonSearchBarTappedFlowError
-    case searchForNationalPokemonFlowError
+    case searchForPokemonFlowError
     case favortiePokemonError
 }
