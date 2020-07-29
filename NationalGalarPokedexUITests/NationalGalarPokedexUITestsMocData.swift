@@ -10,19 +10,27 @@ import Foundation
 
 
 class NationalGalarPokedexUITestsMocData {
-    private (set) var nationalPokemonNames: [NationalPokemonNames]
-    private (set) var galarPokemonNames: [GalarPokemonNames]
+    private (set) var nationalPokemonNames: NationalPokemonNames
+    private (set) var galarPokemonNames: GalarPokemonNames
     
-    init(nationalPokemonNames: [NationalPokemonNames], galarPokemonNames: [GalarPokemonNames]) {
-        self.nationalPokemonNames = nationalPokemonNames
-        self.galarPokemonNames = galarPokemonNames
+    var fetchAllNationalNamesRawValues: [String] {
+        NationalPokemonNames.allCases.map { return $0.rawValue }
     }
     
-    func setNationalPokemonNames(with nationalPokemonNames: [NationalPokemonNames]) {
+    var fetchAllGalarNameRawValues: [String] {
+        GalarPokemonNames.allCases.map { return $0.rawValue }
+    }
+    
+    init(nationalPokemonName: NationalPokemonNames, galarPokemonName: GalarPokemonNames) {
+        self.nationalPokemonNames = nationalPokemonName
+        self.galarPokemonNames = galarPokemonName
+    }
+    
+    func setNationalPokemonName(with nationalPokemonNames: NationalPokemonNames) {
         self.nationalPokemonNames = nationalPokemonNames
     }
     
-    func setGalarPokemonNames(with galarPokemonNames: [GalarPokemonNames]) {
+    func setGalarPokemonName(with galarPokemonNames: GalarPokemonNames) {
         self.galarPokemonNames = galarPokemonNames
     }
 }
