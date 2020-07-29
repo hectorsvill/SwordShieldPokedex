@@ -160,14 +160,14 @@ extension NationalGalarPokedexUITests{
         XCTAssert(searchTabBarButton.isSelected)
     }
     
-    func testAddLeagueCard_NoiCloudAccountError() {
+    func testAddLeagueCardNoiCloudAccountError() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
-    func testAddLeagueCard_SubmitEmptyCodeButtonError() {
+    func testAddLeagueCardSubmitEmptyCodeButtonError() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         
@@ -250,11 +250,7 @@ extension NationalGalarPokedexUITests {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
         pokedexNOSheetButtons[0].tap()
-        
-        if !searchListTableView.cells["\(nationalPokemonNames[0])Cell"].isHittable {
-            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
-        }
-        
+
         return true
     }
     
@@ -273,11 +269,6 @@ extension NationalGalarPokedexUITests {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
         
-        pokedexNOSheetButtons[1].tap()
-        if !searchListTableView.cells["\(galarPokemonNames[0])Cell"].isHittable {
-            throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
-        }
-        
         return true
     }
     
@@ -293,8 +284,13 @@ extension NationalGalarPokedexUITests {
         
         for name in list {
             let pokemonCellID = "\(name)Cell"
+            let pokemonCell = searchListTableView.cells[pokemonCellID]
             
-            if !searchListTableView.cells[pokemonCellID].isHittable {
+            while !pokemonCell.waitForExistence(timeout: 0.3) {
+                app.swipeUp()
+            }
+            
+            if !pokemonCell.isHittable {
                 throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
             }
             searchListTableView.cells[pokemonCellID].tap()
@@ -309,6 +305,8 @@ extension NationalGalarPokedexUITests {
             if !searchNavigationBar.isHittable {
                 throw NationalGalarPokedexUITestsError.viewAllPokemonFlowError
             }
+            searchTabBarButton.tap(withNumberOfTaps: 2, numberOfTouches: 1)
+            
         }
         
         return true
