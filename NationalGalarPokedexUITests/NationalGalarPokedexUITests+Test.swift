@@ -11,8 +11,8 @@ import XCTest
 //MARK: - Search View Test
 extension NationalGalarPokedexUITests{
     func testPokemonNameListNotNil() {
-        XCTAssertNotNil(nationalPokemonNames)
-        XCTAssertNotNil(galarPokemonNames)
+        XCTAssertNotNil(nationalPokemon)
+        XCTAssertNotNil(galarPokemon)
     }
     
     func testRightBarButtonItemMagnifyingglassISHittable() {
@@ -60,12 +60,12 @@ extension NationalGalarPokedexUITests{
     
     func testAllNationalPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewSearchListTableViewNationalPokemon(with: .Arcanine), "viewSearchListTableViewNationalPokemon Error")
+        XCTAssertNoThrow(try viewSearchListTableViewNationalPokemon(with: nationalPokemon), "viewSearchListTableViewNationalPokemon Error")
     }
     
     func testAllGalarPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewSearchListTableViewGalarPokemon(with: .Diggersby), "viewAllPokemonFlow Error")
+        XCTAssertNoThrow(try viewSearchListTableViewGalarPokemon(with: galarPokemon), "viewAllPokemonFlow Error")
     }
     
     /// pressing the right bar button will show search bar if not present,  remove if present
@@ -78,18 +78,16 @@ extension NationalGalarPokedexUITests{
     /// Use the searchbar to search National pokemon
     func testSearchForNatioanlPokemon() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
-        let pokemon = nationalPokemonNames.randomElement()!
-        let subString = String(pokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        let subString = String(nationalPokemon.rawValue.prefix(3))
+        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: nationalPokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
         
     }
 
     /// Use the searchbar to search galar pokemon
     func testSearchForGalarPokemon() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        let pokemon = galarPokemonNames.randomElement()!
-        let subString = String(pokemon.rawValue.prefix(3))
-        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: pokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
+        let subString = String(galarPokemon.rawValue.prefix(3))
+        XCTAssertNoThrow(try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: subString), "searchForNationalPokemonFlow Error")
     }
 }
 
@@ -99,7 +97,7 @@ extension NationalGalarPokedexUITests{
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
 
-        let pokemonCell = searchListTableView.cells["\(nationalPokemonNames[0])Cell"]
+        let pokemonCell = searchListTableView.cells["\(nationalPokemon.rawValue)Cell"]
         
         while !pokemonCell.waitForExistence(timeout: 0.3) {
             app.swipeUp()
@@ -133,12 +131,12 @@ extension NationalGalarPokedexUITests{
     
     func testNationalPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoritePokemon(with: .Oddish), "favoriteAllPokemonFlow Error")
+        XCTAssertNoThrow(try favoriteSearchListTableViewNationalPokemon(with: nationalPokemon), "favoriteAllPokemonFlow Error")
     }
     
     func testGalarPokokemonIsFavorite() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoritePokemon(with: .Mime_Jr), "favoriteAllPokemonFlow Error")
+        XCTAssertNoThrow(try favoriteSearchListTableViewGalarPokemon(with: galarPokemon), "favoriteAllPokemonFlow Error")
     }
 }
 

@@ -10,21 +10,13 @@ import XCTest
 
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
-    let mocData = NationalGalarPokedexUITestsMocData(nationalPokemonNames: [.Oddish], galarPokemonNames: [.Grookey])
-    var nationalPokemonNames = [NationalPokemonNames]()
-    var galarPokemonNames = [GalarPokemonNames]()
-    
-    var fetchGalarNameRawValues: [String] {
-        self.galarPokemonNames.map { return $0.rawValue }
-    }
-    
-    var fetchNationalNamesRawValues: [String] {
-        self.nationalPokemonNames.map { return $0.rawValue }
-    }
+    let mocData = NationalGalarPokedexUITestsMocData(nationalPokemonName: .Oddish, galarPokemonName: .Grookey)
+    var nationalPokemon: NationalPokemonNames! = nil
+    var galarPokemon: GalarPokemonNames! = nil
     
     override func setUpWithError() throws {
-        nationalPokemonNames = mocData.nationalPokemonNames
-        galarPokemonNames = mocData.galarPokemonNames
+        nationalPokemon = mocData.nationalPokemonNames
+        galarPokemon = mocData.galarPokemonNames
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()

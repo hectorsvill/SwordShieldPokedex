@@ -153,17 +153,18 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    func favoritePokemon(with name: GalarPokemonNames) throws -> Bool{
-        guard try favoritePokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.favortiePokemonError }
+    
+    func favoriteSearchListTableViewNationalPokemon(with name: NationalPokemonNames) throws -> Bool{
+        guard try favoriteSearchListTableViewPokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.favortiePokemonError }
         return true
     }
     
-    func favortiePokemon(with name: NationalPokemonNames) throws -> Bool{
-        guard try favoritePokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.favortiePokemonError }
+    func favoriteSearchListTableViewGalarPokemon(with name: GalarPokemonNames) throws -> Bool{
+        guard try favoriteSearchListTableViewPokemonFlow(with: name.rawValue) else { throw NationalGalarPokedexUITestsError.favortiePokemonError }
         return true
     }
     
-    private func favoritePokemonFlow(with name: String) throws -> Bool {
+    private func favoriteSearchListTableViewPokemonFlow(with name: String) throws -> Bool {
         searchTabBarButton.tap()
         if !searchTabBarButton.isSelected {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
