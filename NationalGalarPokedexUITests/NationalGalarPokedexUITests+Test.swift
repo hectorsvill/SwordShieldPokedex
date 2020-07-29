@@ -87,6 +87,22 @@ extension NationalGalarPokedexUITests{
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
         XCTAssertNoThrow(try searchBarSearchForGalarPokemon(with: galarPokemon), "searchForNationalPokemonFlow Error")
     }
+    
+    func testAllNationalPokemonIsHittable() {
+        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
+        
+        for pokemon in NationalPokemonNames.allCases {
+            XCTAssertNoThrow(try nationalPokemonisHittable(with: pokemon))
+        }
+    }
+    
+    func testAllGalarPokemonIsHittable() {
+        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
+        
+        for pokemon in GalarPokemonNames.allCases {
+            XCTAssertNoThrow(try galarPokemonisHittable(with: pokemon))
+        }
+    }
 }
 
 // MARK: - Favorite View Test

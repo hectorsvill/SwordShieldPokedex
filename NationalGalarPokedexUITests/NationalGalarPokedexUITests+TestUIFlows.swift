@@ -100,10 +100,25 @@ extension NationalGalarPokedexUITests {
         }
         return true
     }
-    
+           
     func searchBarSearchForGalarPokemon(with galarPokemon: GalarPokemonNames) throws -> Bool {
         guard try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: String(galarPokemon.rawValue.prefix(3))) else {
             throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
+        }
+        return true
+    }
+    
+    func nationalPokemonisHittable(with pokemon: NationalPokemonNames) throws -> Bool {
+        guard try testPokemonisHittableFlow(with: pokemon.rawValue) else {
+            throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError
+        }
+        
+        return true
+    }
+    
+    func galarPokemonisHittable(with pokemon: GalarPokemonNames) throws -> Bool{
+        guard try testPokemonisHittableFlow(with: pokemon.rawValue) else {
+            throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError
         }
         return true
     }
@@ -209,6 +224,18 @@ extension NationalGalarPokedexUITests {
 }
 
 extension NationalGalarPokedexUITests {
+    private func testPokemonisHittableFlow(with name: String) throws -> Bool {
+        let pokemonCell = searchListTableView.cells["\(name)Cell"]
+        pokemonCell.tap()
+        let pokemonDetailView = app.navigationBars["\(name)DetailView"]
+        guard pokemonDetailView.isHittable else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
+        let backButton = pokemonDetailView.buttons["⚔️🛡Pokedex"]
+        guard backButton.waitForExistence(timeout: 1) else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
+        backButton.tap()
+        guard pokemonCell.isHittable else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
+        return true
+    }
+    
     private func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = false, enableAudio: Bool = false) throws -> Bool {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
         

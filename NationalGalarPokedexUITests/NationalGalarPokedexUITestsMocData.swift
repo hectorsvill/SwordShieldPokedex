@@ -13,14 +13,6 @@ class NationalGalarPokedexUITestsMocData {
     private (set) var nationalPokemonNames: NationalPokemonNames
     private (set) var galarPokemonNames: GalarPokemonNames
     
-    var fetchAllNationalNamesRawValues: [String] {
-        NationalPokemonNames.allCases.map { return $0.rawValue }
-    }
-    
-    var fetchAllGalarNamesRawValues: [String] {
-        GalarPokemonNames.allCases.map { return $0.rawValue }
-    }
-    
     init(nationalPokemonName: NationalPokemonNames, galarPokemonName: GalarPokemonNames) {
         self.nationalPokemonNames = nationalPokemonName
         self.galarPokemonNames = galarPokemonName

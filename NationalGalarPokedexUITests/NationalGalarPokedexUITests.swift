@@ -10,7 +10,7 @@ import XCTest
 
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
-    let mocData = NationalGalarPokedexUITestsMocData(nationalPokemonName: .Oddish, galarPokemonName: .Grookey)
+    let mocData = NationalGalarPokedexUITestsMocData(nationalPokemonName: .Flygon, galarPokemonName: .Carkol)
     var nationalPokemon: NationalPokemonNames! = nil
     var galarPokemon: GalarPokemonNames! = nil
     
