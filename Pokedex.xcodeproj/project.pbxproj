@@ -45,6 +45,7 @@
 		3BAACA6D24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */; };
 		3BAACA6F24D0AA09003053FD /* NationalPokemonNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA6E24D0AA09003053FD /* NationalPokemonNames.swift */; };
 		3BAACA7124D0AA9D003053FD /* GalarPokemonNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAACA7024D0AA9D003053FD /* GalarPokemonNames.swift */; };
+		3BD64B5224D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD64B5124D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		3BAACA6C24CFF1B4003053FD /* NationalGalarPokedexUITestsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITestsError.swift; sourceTree = "<group>"; };
 		3BAACA6E24D0AA09003053FD /* NationalPokemonNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalPokemonNames.swift; sourceTree = "<group>"; };
 		3BAACA7024D0AA9D003053FD /* GalarPokemonNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalarPokemonNames.swift; sourceTree = "<group>"; };
+		3BD64B5124D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NationalGalarPokedexUITests+TestUIFlows.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */,
 				3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */,
 				3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */,
+				3BD64B5124D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift */,
 				3BAACA7224D0AAD7003053FD /* enums */,
 				3B8DCA4D24CA8023006CF55D /* TestPlan.xctestplan */,
 				3B74DAD024C79AAC00ECC30E /* Info.plist */,
@@ -440,6 +443,7 @@
 			files = (
 				3BAACA7124D0AA9D003053FD /* GalarPokemonNames.swift in Sources */,
 				3BAACA6F24D0AA09003053FD /* NationalPokemonNames.swift in Sources */,
+				3BD64B5224D1E1CA00FCBE7B /* NationalGalarPokedexUITests+TestUIFlows.swift in Sources */,
 				3B92D6D024C8D8F30016B416 /* HSVLeagueCard.m in Sources */,
 				3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */,
 				3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */,
