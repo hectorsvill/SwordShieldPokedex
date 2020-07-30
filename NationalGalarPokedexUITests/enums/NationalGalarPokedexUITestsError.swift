@@ -22,4 +22,5 @@ enum NationalGalarPokedexUITestsError: Error {
     case searchForPokemonFlowError
     case favortiePokemonError
     case testPokemonisHittableFlowError
+    case leagueCardViewCellTappedFlowError
 }
