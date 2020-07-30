@@ -10,54 +10,57 @@ import XCTest
 
 extension NationalGalarPokedexUITests {
     func navigateToNationalPokemonTableViewList() throws -> Bool {
-        if !searchTabBarButton.isHittable {
+        guard searchTabBarButton.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         searchTabBarButton.tap()
         
-        if !leftBarButtonItemGear.isHittable {
+        guard leftBarButtonItemGear.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         leftBarButtonItemGear.tap()
         
-        if !pokedexNOSheet.isHittable {
+        guard pokedexNOSheet.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         pokedexNOSheetButtons[0].tap()
         
         return true
     }
     
     func navigateToGalarPokemonTableViewList() throws -> Bool {
-        if !searchTabBarButton.isHittable {
+        guard searchTabBarButton.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         searchTabBarButton.tap()
         
-        if !leftBarButtonItemGear.isHittable {
+        guard leftBarButtonItemGear.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         leftBarButtonItemGear.tap()
         
-        if !pokedexNOSheet.isHittable {
+        guard pokedexNOSheet.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToNationalPokemonTableViewListError
         }
+        
         pokedexNOSheetButtons[1].tap()
         
         return true
     }
     
     func navigateToLeagueCardView() throws -> Bool {
-        if !leagueCardTabBarButton.isHittable {
+        guard leagueCardTabBarButton.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
         }
+        
         leagueCardTabBarButton.tap()
         
-        if !leagueCardTabBarButton.isSelected {
-            throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
-        }
-        
-        if !leagueCardsTableViewController.isHittable {
+        guard leagueCardTabBarButton.isSelected, leagueCardsTableViewController.isHittable else {
             throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
         }
         
@@ -68,6 +71,7 @@ extension NationalGalarPokedexUITests {
         guard try viewSearchListTableViewPokemonFlow(with: nationalPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
+        
         return true
     }
     
@@ -75,6 +79,7 @@ extension NationalGalarPokedexUITests {
         guard try viewSearchListTableViewPokemonFlow(with: galarPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
+        
         return true
     }
         
@@ -82,6 +87,7 @@ extension NationalGalarPokedexUITests {
         guard try favoriteSearchListTableViewPokemonFlow(with: nationalPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.favortiePokemonError
         }
+        
         return true
     }
     
@@ -89,20 +95,27 @@ extension NationalGalarPokedexUITests {
         guard try favoriteSearchListTableViewPokemonFlow(with: galarPokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.favortiePokemonError
         }
+        
         return true
     }
     
     func searchBarSearchForNationalPokemon(with nationalPokemon: NationalPokemonNames) throws -> Bool {
-        guard try searchBarSearchForPokemonFlow(with: nationalPokemon.rawValue, searchString: String(nationalPokemon.rawValue.prefix(3))) else {
+        let searchString = String(nationalPokemon.rawValue.prefix(3))
+        
+        guard try searchBarSearchForPokemonFlow(with: nationalPokemon.rawValue, searchString: searchString) else {
             throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
         }
+        
         return true
     }
            
     func searchBarSearchForGalarPokemon(with galarPokemon: GalarPokemonNames) throws -> Bool {
-        guard try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: String(galarPokemon.rawValue.prefix(3))) else {
+        let searchString = String(galarPokemon.rawValue.prefix(3))
+        
+        guard try searchBarSearchForPokemonFlow(with: galarPokemon.rawValue, searchString: searchString) else {
             throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
         }
+        
         return true
     }
     
@@ -118,28 +131,25 @@ extension NationalGalarPokedexUITests {
         guard try testPokemonisHittableFlow(with: pokemon.rawValue) else {
             throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError
         }
+        
         return true
     }
     
     func searchPokemonSearchBarTappedFlow() throws -> Bool {
         searchTabBarButton.tap()
-        if !searchTabBarButton.isSelected {
-            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
-        }
         
-        if !rightBarButtonItemMagnifyingglass.isHittable {
-            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
-        }
-        
-        if searchPokemonSearchBar.waitForExistence(timeout: 1) {
+        guard searchTabBarButton.isSelected,
+            rightBarButtonItemMagnifyingglass.isHittable,
+            !searchPokemonSearchBar.waitForExistence(timeout: 1) else {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
         
         rightBarButtonItemMagnifyingglass.tap()
         
-        if !searchPokemonSearchBar.isHittable {
+        guard searchPokemonSearchBar.isHittable else {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
+        
         searchPokemonSearchBar.tap()
         
         return true
@@ -147,9 +157,11 @@ extension NationalGalarPokedexUITests {
     
     func leagueCardViewCellTapped(with id: String) throws -> Bool {
         let cardCodeCell = leagueCardsTableViewController.cells[id]
-        if !cardCodeCell.isHittable {
+        
+        guard cardCodeCell.isHittable else {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
         }
+        
         cardCodeCell.tap()
         
         guard try leagueCardViewCellTappedFlow(with: id) else {
@@ -162,22 +174,25 @@ extension NationalGalarPokedexUITests {
     /// Will click on add league card button to navigate to add league card view. Also works with Account.
     func addLeagueCardFlow() throws -> Bool {
         let leagueCardNavBar = app.navigationBars["League Cards"]
-        if !leagueCardNavBar.isHittable {
-            throw NationalGalarPokedexUITestsError.addLeagueCardFlowError
-        }
-        leagueCardNavBar.buttons["plus"].tap()
-        
         let errorAlert = app.alerts["iCloud Error"]
         
+        guard leagueCardNavBar.isHittable else {
+            throw NationalGalarPokedexUITestsError.addLeagueCardFlowError
+        }
+        
+        leagueCardNavBar.buttons["plus"].tap()
+                
         if errorAlert.waitForExistence(timeout: 1) {
-            if !errorAlert.isHittable {
+            guard errorAlert.isHittable else {
                 throw NationalGalarPokedexUITestsError.addLeagueCardFlowError
             }
             
             let alertOkButton = errorAlert.buttons["OK"]
-            if !alertOkButton.isHittable {
+            
+            guard alertOkButton.isHittable else {
                 throw NationalGalarPokedexUITestsError.addLeagueCardFlowError
             }
+            
             alertOkButton.tap()
         }
         
@@ -186,10 +201,13 @@ extension NationalGalarPokedexUITests {
     
     func AddLeagueCardResetButtonFlow() throws -> Bool{
         let resetButton = app.buttons["Reset"]
-        if !resetButton.isHittable {
+        
+        guard resetButton.isHittable else {
             throw NationalGalarPokedexUITestsError.AddLeagueCardResetButtonFlowError
         }
+        
         resetButton.tap()
+        
         return true
     }
 }
@@ -199,26 +217,33 @@ extension NationalGalarPokedexUITests {
 extension NationalGalarPokedexUITests {
     private func testPokemonisHittableFlow(with name: String) throws -> Bool {
         let pokemonCell = searchListTableViewController.cells["\(name)Cell"]
-        pokemonCell.tap()
         let pokemonDetailView = app.navigationBars["\(name)DetailView"]
-        guard pokemonDetailView.isHittable else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
         let backButton = pokemonDetailView.buttons["⚔️🛡Pokedex"]
-        guard backButton.waitForExistence(timeout: 1) else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
+        
+        pokemonCell.tap()
+        
+        guard pokemonDetailView.isHittable,
+            backButton.waitForExistence(timeout: 1) else {
+            throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError
+        }
+        
         backButton.tap()
-        guard pokemonCell.isHittable else { throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError }
+        
+        guard pokemonCell.isHittable else {
+            throw NationalGalarPokedexUITestsError.testPokemonisHittableFlowError
+        }
+        
         return true
     }
     
     private func pokemonDetailViewFlow(name: String, enableDetailViewSections: Bool = false, enableAudio: Bool = false) throws -> Bool {
         let detailViewSections = ["Description", "NO.", "Type", "Height & Weight", "Base Stats", "Hatch Cycles", "Exp Group", "Egg groups", "Egg Moves", "Abilities", "Level Up Moves"]
-        
         let pokemonDetailViewNaviationBar = app.navigationBars["\(name)DetailView"]
-        if !pokemonDetailViewNaviationBar.isHittable {
-            throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
-        }
-        
         let playPauseButton = app.buttons["playpause"]
-        if !playPauseButton.isHittable {
+        let serebiiButton = pokemonDetailViewNaviationBar.buttons["serebii.net"]
+        
+        guard pokemonDetailViewNaviationBar.isHittable,
+            playPauseButton.isHittable else {
             throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
         }
         
@@ -226,12 +251,11 @@ extension NationalGalarPokedexUITests {
             playPauseButton.tap()
         }
         
-        let tablesQuery = app.tables
-        
         if enableDetailViewSections {
             for section in detailViewSections {
-                let button = tablesQuery.buttons[section]
-                if !button.isHittable {
+                let button = app.tables.buttons[section]
+                
+                guard button.isHittable else {
                     throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
                 }
                 
@@ -239,8 +263,7 @@ extension NationalGalarPokedexUITests {
             }
         }
         
-        let serebiiButton = pokemonDetailViewNaviationBar.buttons["serebii.net"]
-        if !serebiiButton.isHittable {
+        guard serebiiButton.isHittable else {
             throw NationalGalarPokedexUITestsError.pokemonDetailViewFlowError
         }
         
@@ -251,57 +274,63 @@ extension NationalGalarPokedexUITests {
     }
     
     private func viewSearchListTableViewPokemonFlow(with name: String) throws -> Bool {
-        if !searchTabBarButton.isHittable {
-            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
-        }
-        searchTabBarButton.tap()
-        
-        if !searchTabBarButton.isSelected {
-            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
-        }
-        
         let pokemonCellID = "\(name)Cell"
         let pokemonCell = searchListTableViewController.cells[pokemonCellID]
+        
+        guard searchTabBarButton.isHittable else {
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
+        }
+        
+        searchTabBarButton.tap()
+        
+        guard searchTabBarButton.isSelected else {
+            throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
+        }
         
         while !pokemonCell.waitForExistence(timeout: 0.3) {
             app.swipeUp()
         }
         
-        if !pokemonCell.isHittable {
+        guard pokemonCell.isHittable else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
+        
         searchListTableViewController.cells[pokemonCellID].tap()
         
-        XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
-        
-        if !searchTabBarButton.isHittable {
+        guard try pokemonDetailViewFlow(name: name),
+            searchTabBarButton.isHittable  else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
+        
         searchTabBarButton.tap()
         
-        if !searchNavigationBar.isHittable {
+        guard searchNavigationBar.isHittable else {
             throw NationalGalarPokedexUITestsError.viewSearchListTableViewPokemonFlow
         }
+        
         return true
     }
     
     private func favoriteSearchListTableViewPokemonFlow(with name: String) throws -> Bool {
+        let pokemonCell = searchListTableViewController.cells["\(name)Cell"]
+        let cellHeartButton = pokemonCell.buttons["heart"]
+        let collectionViewPokemonCell = app.collectionViews.cells["\(name)Cell"]
+        let cellHeartFillButton = pokemonCell.buttons["heart.fill"]
+        
         searchTabBarButton.tap()
-        if !searchTabBarButton.isSelected {
+        
+        guard searchTabBarButton.isSelected else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
-        
-        let pokemonCell = searchListTableViewController.cells["\(name)Cell"]
-        
+                
         while !pokemonCell.waitForExistence(timeout: 1) {
             app.swipeUp()
         }
         
-        if !pokemonCell.isHittable {
+        guard pokemonCell.isHittable else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
         
-        let cellHeartButton = pokemonCell.buttons["heart"]
         
         if !cellHeartButton.isHittable {
             app.swipeUp()
@@ -309,81 +338,82 @@ extension NationalGalarPokedexUITests {
         
         cellHeartButton.tap()
         
-        if !favoritesTabBarButton.isHittable {
+        guard favoritesTabBarButton.isHittable else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
+        
         favoritesTabBarButton.tap()
         
-        if !favoritesTabBarButton.isSelected {
+        guard favoritesTabBarButton.isSelected,
+            collectionViewPokemonCell.isHittable else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
         
-        let collectionViewPokemonCell = app.collectionViews.cells["\(name)Cell"]
-        
-        if !collectionViewPokemonCell.isHittable {
-            throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
-        }
         collectionViewPokemonCell.tap()
         
-        XCTAssertNoThrow(try pokemonDetailViewFlow(name: name), "pokemonDetailViewFlow")
+        guard try pokemonDetailViewFlow(name: name) else {
+            throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
+        }
         
         favoritesTabBarButton.tap()
-        if !favoritesTabBarButton.isSelected {
+        
+        guard favoritesTabBarButton.isSelected,
+            searchTabBarButton.isHittable else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
         
-        if !searchTabBarButton.isHittable {
-            throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
-        }
         searchTabBarButton.tap()
         
-        if !searchTabBarButton.isSelected {
+        guard searchTabBarButton.isSelected,
+            cellHeartFillButton.isHittable else {
             throw NationalGalarPokedexUITestsError.favoriteAllPokemonFlowError
         }
         
-        let cellHeartFillButton = pokemonCell.buttons["heart.fill"]
-        XCTAssert(cellHeartFillButton.isHittable)
         cellHeartFillButton.tap()
+        
         return true
     }
     
     private func searchBarSearchForPokemonFlow(with pokemon: String, searchString: String) throws -> Bool {
-        guard try searchPokemonSearchBarTappedFlow() else { throw NationalGalarPokedexUITestsError.searchForPokemonFlowError }
+        let pokemonCell = searchListTableViewController.cells["\(pokemon)Cell"]
+        let pokemonDetailNavigationBar = app.navigationBars["\(pokemon)DetailView"]
         
-        if !searchPokemonSearchBar.isHittable {
-            throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
+        guard try searchPokemonSearchBarTappedFlow(),
+            searchPokemonSearchBar.isHittable else {
+            throw NationalGalarPokedexUITestsError.searchForPokemonFlowError
         }
+        
         searchPokemonSearchBar.tap()
         
         searchString.forEach {
             app.keys[String($0)].tap()
         }
         
-        if !rightBarButtonItemMagnifyingglass.isHittable {
+        guard rightBarButtonItemMagnifyingglass.isHittable else {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
+        
         rightBarButtonItemMagnifyingglass.tap()
         
-        let pokemonCell = searchListTableViewController.cells["\(pokemon)Cell"]
-        if !pokemonCell.isHittable {
+        guard pokemonCell.isHittable else {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
+        
         pokemonCell.tap()
         
-        let navBar = app.navigationBars["\(pokemon)DetailView"]
-        if !navBar.isHittable {
+        guard pokemonDetailNavigationBar.isHittable,
+            try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true)  else {
             throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError
         }
-        
-        guard try pokemonDetailViewFlow(name: pokemon, enableDetailViewSections: true, enableAudio: true) else { throw NationalGalarPokedexUITestsError.searchPokemonSearchBarTappedFlowError }
 
-        navBar.buttons["⚔️🛡Pokedex"].tap()
+        pokemonDetailNavigationBar.buttons["⚔️🛡Pokedex"].tap()
 
         return true
     }
     
     private func addLeagueCardIDViewTexdFieldAIsHittable() throws -> Bool {
-        guard addLeagueCardIDViewTexdFieldA.isHittable,
+        guard app.textFields.count == 4,
+            addLeagueCardIDViewTexdFieldA.isHittable,
             addLeagueCardIDViewTexdFieldB.isHittable,
             addLeagueCardIDViewTexdFieldC.isHittable,
             addLeagueCardIDViewTexdFieldD.isHittable else {
@@ -395,40 +425,31 @@ extension NationalGalarPokedexUITests {
     
     private func leagueCardViewCellTappedFlow(with id: String) throws -> Bool {
         let myCardCodeNavBar = app.navigationBars["My Card Code"]
-        if !myCardCodeNavBar.isHittable {
-            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
-        }
-        
-        if app.textFields.count != 4 {
-            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
-        }
-        
-        guard try addLeagueCardIDViewTexdFieldAIsHittable() else {
-            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
-        }
-        
         let myCardCodeNavBarInfoButton = myCardCodeNavBar.buttons["info.circle"]
-        if !myCardCodeNavBarInfoButton.isHittable {
+        let serebiiView = app.navigationBars["HSVSerebiiView"]
+        let backButton = serebiiView.buttons["My Card Code"]
+        
+        guard myCardCodeNavBar.isHittable,
+            try addLeagueCardIDViewTexdFieldAIsHittable(),
+            myCardCodeNavBarInfoButton.isHittable  else {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
         }
+        
         myCardCodeNavBarInfoButton.tap()
         
-        let serebiiView = app.navigationBars["HSVSerebiiView"]
-        if !serebiiView.isHittable {
+        guard serebiiView.isHittable,
+            backButton.isHittable else {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
         }
         
-        let backButton = serebiiView.buttons["My Card Code"]
-        if !backButton.isHittable {
-            throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
-        }
         backButton.tap()
         
-        if !cardCodeNavBarBackButton.isHittable {
+        guard cardCodeNavBarBackButton.isHittable else {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedFlowError
         }
         
         cardCodeNavBarBackButton.tap()
+        
         return true
     }
     

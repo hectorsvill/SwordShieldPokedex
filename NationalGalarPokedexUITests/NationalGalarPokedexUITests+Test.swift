@@ -79,7 +79,6 @@ extension NationalGalarPokedexUITests{
     func testSearchForNatioanlPokemon() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
         XCTAssertNoThrow(try searchBarSearchForNationalPokemon(with: nationalPokemon), "searchForNationalPokemonFlow Error")
-        
     }
 
     /// Use the searchbar to search galar pokemon
