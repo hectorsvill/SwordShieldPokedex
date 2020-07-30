@@ -162,6 +162,13 @@ extension NationalGalarPokedexUITests {
         if app.textFields.count != 4 {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
         }
+    
+        guard addLeagueCardIDViewTexdFieldA.isHittable,
+            addLeagueCardIDViewTexdFieldB.isHittable,
+            addLeagueCardIDViewTexdFieldC.isHittable,
+            addLeagueCardIDViewTexdFieldD.isHittable else {
+                throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
+        }
         
         let myCardCodeNavBarInfoButton = myCardCodeNavBar.buttons["info.circle"]
         if !myCardCodeNavBarInfoButton.isHittable {

@@ -70,12 +70,12 @@ extension NationalGalarPokedexUITests {
         [pokedexNOSheet.buttons["National Pokedex"], pokedexNOSheet.buttons["Galar Pokedex"], pokedexNOSheet.buttons["Favorite"]]
     }
     
-    var cardCodeNavBarBackButton: XCUIElement {
-        app.navigationBars["My Card Code"].buttons["League Cards"]
-    }
-    
     var searchPokemonSearchBar: XCUIElement {
         app.staticTexts["SearchPokemonSearchBar"]
+    }
+    
+    var cardCodeNavBarBackButton: XCUIElement {
+        app.navigationBars["My Card Code"].buttons["League Cards"]
     }
     
     var addLeagueCardIDViewTexdFieldA: XCUIElement {
