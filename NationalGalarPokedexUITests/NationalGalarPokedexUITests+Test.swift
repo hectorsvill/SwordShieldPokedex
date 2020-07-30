@@ -30,7 +30,7 @@ extension NationalGalarPokedexUITests{
     }
     
     func testpokedexListTableViewIsHittable() throws {
-        XCTAssert(searchListTableView.isHittable)
+        XCTAssert(searchListTableViewController.isHittable)
     }
     
     func testTabBarButtonsIsHittable() {
@@ -111,7 +111,7 @@ extension NationalGalarPokedexUITests{
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
 
-        let pokemonCell = searchListTableView.cells["\(nationalPokemon.rawValue)Cell"]
+        let pokemonCell = searchListTableViewController.cells["\(nationalPokemon.rawValue)Cell"]
         
         while !pokemonCell.waitForExistence(timeout: 0.3) {
             app.swipeUp()
@@ -202,7 +202,7 @@ extension NationalGalarPokedexUITests{
     func testLeagueCardIsCheckMark() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         
-        let leagueCardCell = leaguecardstableviewcontrollerTable.cells["0000 0000 0000 00"]
+        let leagueCardCell = leagueCardsTableViewController.cells["0000 0000 0000 00"]
         XCTAssert(leagueCardCell.isHittable)
         
         let checkmarkSquareButton = leagueCardCell.buttons["checkmark.square"]

@@ -33,11 +33,11 @@ extension NationalGalarPokedexUITests {
         app.navigationBars["PokedexSearchNavigationBar"]
     }
     
-    var searchListTableView: XCUIElement {
+    var searchListTableViewController: XCUIElement {
         app.tables["PokedexListTableView"]
     }
     
-    var leaguecardstableviewcontrollerTable: XCUIElement {
+    var leagueCardsTableViewController: XCUIElement {
         app.tables["LeagueCardsTableViewController"]
     }
     
