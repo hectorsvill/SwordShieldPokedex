@@ -198,4 +198,19 @@ extension NationalGalarPokedexUITests{
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
+    
+    func testLeagueCardIsCheckMark() {
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
+        
+        let leagueCardCell = leaguecardstableviewcontrollerTable.cells["0000 0000 0000 00"]
+        XCTAssert(leagueCardCell.isHittable)
+        
+        let checkmarkSquareButton = leagueCardCell.buttons["checkmark.square"]
+        XCTAssert(checkmarkSquareButton.isHittable)
+        checkmarkSquareButton.tap()
+        
+        let checkmarkSquareFillButton = leagueCardCell.buttons["checkmark.square.fill"]
+        XCTAssert(checkmarkSquareFillButton.isHittable)
+        checkmarkSquareFillButton.tap()
+    }
 }

@@ -59,7 +59,7 @@ extension NationalGalarPokedexUITests {
             throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
         }
         
-        if !leagueCardsTableView.isHittable {
+        if !leaguecardstableviewcontrollerTable.isHittable {
             throw NationalGalarPokedexUITestsError.navigateToLeagueCardViewError
         }
         
@@ -148,7 +148,7 @@ extension NationalGalarPokedexUITests {
     }
     
     func leagueCardViewCellTapped(with cell: String) throws -> Bool {
-        let cardCodeCell = leagueCardsTableView.cells[cell]
+        let cardCodeCell = leaguecardstableviewcontrollerTable.cells[cell]
         if !cardCodeCell.isHittable {
             throw NationalGalarPokedexUITestsError.leagueCardViewCellTappedError
         }
