@@ -179,22 +179,17 @@ extension NationalGalarPokedexUITests{
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         
+        XCTAssert(addLeagueCardIDViewTexdFieldA.isHittable)
+        addLeagueCardIDViewTexdFieldA.tap()
         
-        let sectionATextField = app.textFields["SectionATextField"]
-        XCTAssert(sectionATextField.isHittable)
-        sectionATextField.tap()
+        XCTAssert(addLeagueCardIDViewTexdFieldB.isHittable)
+        addLeagueCardIDViewTexdFieldB.tap()
         
-        let sectionBTextField = app.textFields["SectionBTextField"]
-        XCTAssert(sectionBTextField.isHittable)
-        sectionBTextField.tap()
+        XCTAssert(addLeagueCardIDViewTexdFieldC.isHittable)
+        addLeagueCardIDViewTexdFieldC.tap()
         
-        let sectionCTextField = app.textFields["SectionCTextField"]
-        XCTAssert(sectionCTextField.isHittable)
-        sectionCTextField.tap()
-        
-        let sectionDTextField = app.textFields["SectionDTextField"]
-        XCTAssert(sectionDTextField.isHittable)
-        sectionDTextField.tap()
+        XCTAssert(addLeagueCardIDViewTexdFieldD.isHittable)
+        addLeagueCardIDViewTexdFieldD.tap()
     }
     
     func testAddLeagueCardSubmitEmptyCodeButtonError() {

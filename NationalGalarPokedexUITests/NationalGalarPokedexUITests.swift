@@ -77,6 +77,21 @@ extension NationalGalarPokedexUITests {
     var searchPokemonSearchBar: XCUIElement {
         app.staticTexts["SearchPokemonSearchBar"]
     }
+    
+    var addLeagueCardIDViewTexdFieldA: XCUIElement {
+        app.textFields["SectionATextField"]
+    }
+    
+    var addLeagueCardIDViewTexdFieldB: XCUIElement {
+        app.textFields["SectionBTextField"]
+    }
+    
+    var addLeagueCardIDViewTexdFieldC: XCUIElement {
+        app.textFields["SectionCTextField"]
+    }
+    var addLeagueCardIDViewTexdFieldD: XCUIElement {
+        app.textFields["SectionDTextField"]
+    }
 }
 
 // MARK: METRICS
