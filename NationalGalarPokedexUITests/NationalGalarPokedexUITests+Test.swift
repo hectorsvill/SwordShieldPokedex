@@ -168,11 +168,33 @@ extension NationalGalarPokedexUITests{
         XCTAssert(searchTabBarButton.isSelected)
     }
     
-    func testAddLeagueCardNoiCloudAccountError() {
+    func testAddLeagueCardIDNoiCloudAccountError() {
         XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
         XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
+    }
+    
+    func testAddLeagueCardIDTextFieldsIsHitable() {
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
+        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
+        
+        
+        let sectionATextField = app.textFields["SectionATextField"]
+        XCTAssert(sectionATextField.isHittable)
+        sectionATextField.tap()
+        
+        let sectionBTextField = app.textFields["SectionBTextField"]
+        XCTAssert(sectionBTextField.isHittable)
+        sectionBTextField.tap()
+        
+        let sectionCTextField = app.textFields["SectionCTextField"]
+        XCTAssert(sectionCTextField.isHittable)
+        sectionCTextField.tap()
+        
+        let sectionDTextField = app.textFields["SectionDTextField"]
+        XCTAssert(sectionDTextField.isHittable)
+        sectionDTextField.tap()
     }
     
     func testAddLeagueCardSubmitEmptyCodeButtonError() {
