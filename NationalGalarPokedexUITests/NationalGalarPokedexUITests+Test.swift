@@ -87,7 +87,7 @@ extension NationalGalarPokedexUITests{
         XCTAssertNoThrow(try searchBarSearchForGalarPokemon(with: galarPokemon), "searchForNationalPokemonFlow Error")
     }
     
-    func _testAllNationalPokemonIsHittable() {
+    func testAllNationalPokemonIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
 
         for pokemon in NationalPokemonNames.allCases {
@@ -95,7 +95,7 @@ extension NationalGalarPokedexUITests{
         }
     }
 
-    func _testAllGalarPokemonIsHittable() {
+    func testAllGalarPokemonIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
 
         for pokemon in GalarPokemonNames.allCases {

@@ -13,6 +13,10 @@
   },
   "testTargets" : [
     {
+      "skippedTests" : [
+        "NationalGalarPokedexUITests\/testAllGalarPokemonIsHittable()",
+        "NationalGalarPokedexUITests\/testAllNationalPokemonIsHittable()"
+      ],
       "target" : {
         "containerPath" : "container:Pokedex.xcodeproj",
         "identifier" : "3B74DACB24C79AAC00ECC30E",
