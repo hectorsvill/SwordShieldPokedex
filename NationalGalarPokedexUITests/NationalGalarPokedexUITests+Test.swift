@@ -58,14 +58,14 @@ extension NationalGalarPokedexUITests{
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
     }
     
-    func testAllNationalPokemonInTableViewIsHittable() {
+    func testNationalPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
         XCTAssertNoThrow(try viewSearchListTableViewNationalPokemon(with: nationalPokemon), "viewSearchListTableViewNationalPokemon Error")
     }
     
-    func testAllGalarPokemonInTableViewIsHittable() {
+    func testGalarPokemonInTableViewIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewSearchListTableViewGalarPokemon(with: galarPokemon), "viewAllPokemonFlow Error")
+        XCTAssertNoThrow(try viewSearchListTableViewGalarPokemon(with: galarPokemon), "viewSearchListTableViewGalarPokemon Error")
     }
     
     /// pressing the right bar button will show search bar if not present,  remove if present
@@ -88,17 +88,17 @@ extension NationalGalarPokedexUITests{
         XCTAssertNoThrow(try searchBarSearchForGalarPokemon(with: galarPokemon), "searchForNationalPokemonFlow Error")
     }
     
-    func testAllNationalPokemonIsHittable() {
+    func _testAllNationalPokemonIsHittable() {
         XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
-        
+
         for pokemon in NationalPokemonNames.allCases {
             XCTAssertNoThrow(try nationalPokemonisHittable(with: pokemon))
         }
     }
-    
-    func testAllGalarPokemonIsHittable() {
+
+    func _testAllGalarPokemonIsHittable() {
         XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        
+
         for pokemon in GalarPokemonNames.allCases {
             XCTAssertNoThrow(try galarPokemonisHittable(with: pokemon))
         }

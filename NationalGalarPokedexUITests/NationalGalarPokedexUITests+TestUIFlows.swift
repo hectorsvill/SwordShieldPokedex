@@ -159,7 +159,6 @@ extension NationalGalarPokedexUITests {
         return true
     }
     
-    
     /// Will click on add league card button to navigate to add league card view. Also works with Account.
     func addLeagueCardFlow() throws -> Bool {
         let leagueCardNavBar = app.navigationBars["League Cards"]
