@@ -37,7 +37,7 @@ extension NationalGalarPokedexUITests {
         app.tables["PokedexListTableView"]
     }
     
-    var leagueCardsTableView: XCUIElement {
+    var leaguecardstableviewcontrollerTable: XCUIElement {
         app.tables["LeagueCardsTableViewController"]
     }
     
