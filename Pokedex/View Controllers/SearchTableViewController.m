@@ -20,10 +20,10 @@
 
 @interface SearchTableViewController ()
 
-@property (nonatomic, strong) GADBannerView *googleMobileAddsBannerView;
 @property (nonatomic) enum Pokedex pokedexType;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
+@property (weak, nonatomic) IBOutlet GADBannerView *googleMobileAddsBannerView;
 
 
 @end
@@ -31,10 +31,8 @@
 @implementation SearchTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.googleMobileAddsBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    // TODO: Change dedicated test ad unit ID for iOS banner
-    self.googleMobileAddsBannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-    self.googleMobileAddsBannerView.rootViewController = self;
+    
+    [self  configureGoogleMobileAddsBannerView];
     self.pokemonController = HSVPokemonController.sharedPokemonController;
 
     _pokedexType = National;
@@ -54,6 +52,14 @@
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
     [self.tableView setIsAccessibilityElement:true];
     [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
+}
+
+- (void)configureGoogleMobileAddsBannerView {
+    // TODO: Change dedicated test ad unit ID for iOS banner
+    self.googleMobileAddsBannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.googleMobileAddsBannerView.rootViewController = self;
+    self.googleMobileAddsBannerView.backgroundColor = UIColor.systemGray6Color;
+    [self.googleMobileAddsBannerView loadRequest:[GADRequest request]];
 }
 
 - (void)setupViews {
