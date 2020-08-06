@@ -6,6 +6,8 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
+
+@import GoogleMobileAds;
 #import "SearchTableViewController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemonTableViewCell.h"
@@ -18,6 +20,7 @@
 
 @interface SearchTableViewController ()
 
+@property (nonatomic, strong) GADBannerView *googleMobileAddsBannerView;
 @property (nonatomic) enum Pokedex pokedexType;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
@@ -26,10 +29,12 @@
 @end
 
 @implementation SearchTableViewController
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.googleMobileAddsBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    // TODO: Change dedicated test ad unit ID for iOS banner
+    self.googleMobileAddsBannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.googleMobileAddsBannerView.rootViewController = self;
     self.pokemonController = HSVPokemonController.sharedPokemonController;
 
     _pokedexType = National;
@@ -39,22 +44,19 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
 }
 
-- (void)configureAccessibility
-{
+- (void)configureAccessibility {
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
     [self.tableView setIsAccessibilityElement:true];
     [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
-    
 }
 
-- (void)setupViews
-{
+- (void)setupViews {
     [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
@@ -66,8 +68,7 @@
     }];
 }
 
-- (void)setPokemonSearchBar
-{
+- (void)setPokemonSearchBar {
     self.searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
     [_searchBar setTintColor:[UIColor systemRedColor]];
     [_searchBar setPlaceholder:@"Search..."];
@@ -76,8 +77,7 @@
     [_searchBar setAccessibilityIdentifier:@"SearchPokemonSearchBar"];
 }
 
-- (void)createNavigationSearchBar
-{
+- (void)createNavigationSearchBar {
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
     [magnifyingglassImage setIsAccessibilityElement:true];
     
