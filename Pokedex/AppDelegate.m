@@ -6,6 +6,8 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
+@import GoogleMobileAds;
+
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -16,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+    
     return YES;
 }
 
