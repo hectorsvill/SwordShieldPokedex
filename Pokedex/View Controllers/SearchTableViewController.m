@@ -6,6 +6,8 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
+
+@import GoogleMobileAds;
 #import "SearchTableViewController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemonTableViewCell.h"
@@ -21,15 +23,16 @@
 @property (nonatomic) enum Pokedex pokedexType;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
+@property (weak, nonatomic) IBOutlet GADBannerView *googleMobileAddsBannerView;
 
 
 @end
 
 @implementation SearchTableViewController
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self  configureGoogleMobileAddsBannerView];
     self.pokemonController = HSVPokemonController.sharedPokemonController;
 
     _pokedexType = National;
@@ -39,22 +42,27 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
 }
 
-- (void)configureAccessibility
-{
+- (void)configureAccessibility {
     [self.navigationController.navigationBar setAccessibilityIdentifier:@"PokedexSearchNavigationBar"];
     [self.tableView setIsAccessibilityElement:true];
     [self.tableView setAccessibilityIdentifier:@"PokedexListTableView"];
-    
 }
 
-- (void)setupViews
-{
+- (void)configureGoogleMobileAddsBannerView {
+    // TODO: Change dedicated test ad unit ID for iOS banner
+    self.googleMobileAddsBannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.googleMobileAddsBannerView.rootViewController = self;
+    self.googleMobileAddsBannerView.backgroundColor = UIColor.systemGray6Color;
+    [self.googleMobileAddsBannerView loadRequest:[GADRequest request]];
+}
+
+- (void)setupViews {
     [self setPokemonSearchBar];
     [self createNavigationSearchBar];
 
@@ -66,8 +74,7 @@
     }];
 }
 
-- (void)setPokemonSearchBar
-{
+- (void)setPokemonSearchBar {
     self.searchBar = [[UISearchBar new] initWithFrame:CGRectZero];
     [_searchBar setTintColor:[UIColor systemRedColor]];
     [_searchBar setPlaceholder:@"Search..."];
@@ -76,8 +83,7 @@
     [_searchBar setAccessibilityIdentifier:@"SearchPokemonSearchBar"];
 }
 
-- (void)createNavigationSearchBar
-{
+- (void)createNavigationSearchBar {
     UIImage *magnifyingglassImage = [UIImage systemImageNamed:@"magnifyingglass"];
     [magnifyingglassImage setIsAccessibilityElement:true];
     
