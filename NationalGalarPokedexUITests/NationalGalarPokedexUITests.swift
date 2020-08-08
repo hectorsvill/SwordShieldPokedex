@@ -19,21 +19,11 @@ class NationalGalarPokedexUITests: XCTestCase {
         galarPokemon = mocData.galarPokemonNames
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["enable-testing"]
         app.launch()
     }
 
     override func tearDownWithError() throws {
         app.terminate()
-    }
-}
-
-// MARK: METRICS
-extension NationalGalarPokedexUITests {
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                app.launch()
-            }
-        }
     }
 }

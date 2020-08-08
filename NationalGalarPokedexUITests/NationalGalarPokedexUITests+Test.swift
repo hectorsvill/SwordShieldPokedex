@@ -10,6 +10,18 @@ import XCTest
 
 //MARK: - Search View Test
 extension NationalGalarPokedexUITests{
+    func testLaunchPerformance() throws {
+        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+                app.launch()
+            }
+        }
+    }
+    
+    func testAddMobBannerIsHittable() throws {
+        XCTAssert(googleMobileAddsBannerView.isHittable)
+    }
+    
     func testPokemonNameListNotNil() throws {
         XCTAssertNotNil(nationalPokemon)
         XCTAssertNotNil(galarPokemon)
@@ -35,11 +47,8 @@ extension NationalGalarPokedexUITests{
     
     func testTabBarButtonsIsHittable() throws {
         XCTAssert(favoritesTabBarButton.isHittable)
-        favoritesTabBarButton.tap()
         XCTAssert(leagueCardTabBarButton.isHittable)
-        leagueCardTabBarButton.tap()
         XCTAssert(searchTabBarButton.isHittable)
-        searchTabBarButton.tap()
     }
     
     func testPokedexNOSheetButtonsIsHittable() throws {
@@ -51,44 +60,46 @@ extension NationalGalarPokedexUITests{
     }
     
     func testNavigateTonationalPokemonTableViewList() throws {
-        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
+        try navigateToNationalPokemonTableViewList()
     }
     
     func testNavigateToGalarPokemonTableViewList() throws {
-        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
+        try navigateToGalarPokemonTableViewList()
     }
     
     func testNationalPokemonInTableViewIsHittable() throws {
-        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewSearchListTableViewNationalPokemon(with: nationalPokemon), "viewSearchListTableViewNationalPokemon Error")
+        try navigateToNationalPokemonTableViewList()
+        try viewSearchListTableViewNationalPokemon(with: nationalPokemon)
     }
     
     func testGalarPokemonInTableViewIsHittable() throws {
-        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try viewSearchListTableViewGalarPokemon(with: galarPokemon), "viewSearchListTableViewGalarPokemon Error")
+        try navigateToGalarPokemonTableViewList()
+        try viewSearchListTableViewGalarPokemon(with: galarPokemon)
     }
     
     /// pressing the right bar button will show search bar if not present,  remove if present
     func testRightBarButtonItemMagnifyingglassPressed() throws {
-        XCTAssertNoThrow(try searchPokemonSearchBarTappedFlow(), "searchPokemonSearchBarTappedFlow Error")
+        try searchPokemonSearchBarTappedFlow()
+        
         rightBarButtonItemMagnifyingglass.tap()
+        
         XCTAssertFalse(searchPokemonSearchBar.waitForExistence(timeout: 1))
     }
         
     /// Use the searchbar to search National pokemon
     func testSearchForNatioanlPokemon() throws {
-        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
-        XCTAssertNoThrow(try searchBarSearchForNationalPokemon(with: nationalPokemon), "searchForNationalPokemonFlow Error")
+        try navigateToNationalPokemonTableViewList()
+        try searchBarSearchForNationalPokemon(with: nationalPokemon)
     }
 
     /// Use the searchbar to search galar pokemon
     func testSearchForGalarPokemon() throws {
-        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try searchBarSearchForGalarPokemon(with: galarPokemon), "searchForNationalPokemonFlow Error")
+        try navigateToGalarPokemonTableViewList()
+        try searchBarSearchForGalarPokemon(with: galarPokemon)
     }
     
     func testAllNationalPokemonIsHittable() throws {
-        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList")
+        try navigateToNationalPokemonTableViewList()
 
         for pokemon in NationalPokemonNames.allCases {
             XCTAssertNoThrow(try nationalPokemonisHittable(with: pokemon))
@@ -96,10 +107,10 @@ extension NationalGalarPokedexUITests{
     }
 
     func testAllGalarPokemonIsHittable() throws {
-        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
+        try navigateToGalarPokemonTableViewList()
 
         for pokemon in GalarPokemonNames.allCases {
-            XCTAssertNoThrow(try galarPokemonisHittable(with: pokemon))
+            try galarPokemonisHittable(with: pokemon)
         }
     }
 }
@@ -143,40 +154,40 @@ extension NationalGalarPokedexUITests{
     }
     
     func testNationalPokokemonIsFavorite() throws {
-        XCTAssertNoThrow(try navigateToNationalPokemonTableViewList(), "navigateToNationalPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoriteSearchListTableViewNationalPokemon(with: nationalPokemon), "favoriteAllPokemonFlow Error")
+        try navigateToNationalPokemonTableViewList()
+        try favoriteSearchListTableViewNationalPokemon(with: nationalPokemon)
     }
     
     func testGalarPokokemonIsFavorite() throws {
-        XCTAssertNoThrow(try navigateToGalarPokemonTableViewList(), "navigateToGalarPokemonTableViewList Error")
-        XCTAssertNoThrow(try favoriteSearchListTableViewGalarPokemon(with: galarPokemon), "favoriteAllPokemonFlow Error")
+        try navigateToGalarPokemonTableViewList()
+        try favoriteSearchListTableViewGalarPokemon(with: galarPokemon)
     }
 }
 
 // MARK: - LEAGUE CARDS VIEW Test
 extension NationalGalarPokedexUITests{
     func testLeagueCardView() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
+        try navigateToLeagueCardView()
     }
     
     func testLeagueCardViewCellTapped() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        XCTAssertNoThrow(try leagueCardViewCellTapped(with: "0000 0000 0000 00"), "leagueCardViewCellTapped Cell")
+        try navigateToLeagueCardView()
+        try leagueCardViewCellTapped(with: "0000 0000 0000 00")
         XCTAssert(searchTabBarButton.isHittable)
         searchTabBarButton.tap()
         XCTAssert(searchTabBarButton.isSelected)
     }
     
     func testAddLeagueCardIDNoiCloudAccountError() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
+        try navigateToLeagueCardView()
+        try addLeagueCardFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCardIDTextFieldsIsHitable() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
+        try navigateToLeagueCardView()
+        try addLeagueCardFlow()
         
         XCTAssert(addLeagueCardIDViewTexdFieldA.isHittable)
         addLeagueCardIDViewTexdFieldA.tap()
@@ -192,8 +203,8 @@ extension NationalGalarPokedexUITests{
     }
     
     func testAddLeagueCardSubmitEmptyCodeButtonError() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
+        try navigateToLeagueCardView()
+        try addLeagueCardFlow()
         
         let submitButton = app.buttons["Submit"]
         XCTAssert(submitButton.isHittable)
@@ -208,9 +219,9 @@ extension NationalGalarPokedexUITests{
     }
     
     func testAddLeagueCardResetButtonisHitable() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        XCTAssertNoThrow(try addLeagueCardFlow(), "addLeagueCardFlow Error")
-        XCTAssertNoThrow(try AddLeagueCardResetButtonFlow(), "AddLeagueCardResetButtonFlow Error")
+        try navigateToLeagueCardView()
+        try addLeagueCardFlow()
+        try AddLeagueCardResetButtonFlow()
         XCTAssert(cardCodeNavBarBackButton.isHittable)
         cardCodeNavBarBackButton.tap()
     }

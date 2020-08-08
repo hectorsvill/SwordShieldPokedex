@@ -195,8 +195,7 @@
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-            if (!DEBUG)
-                [self.navigationController popViewControllerAnimated:true];
+            [self.navigationController popViewControllerAnimated:true];
         }];
 
         [ac addAction:okAction];
