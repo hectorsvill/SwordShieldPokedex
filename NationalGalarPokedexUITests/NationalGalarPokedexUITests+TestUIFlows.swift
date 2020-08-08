@@ -163,9 +163,11 @@ extension NationalGalarPokedexUITests {
         if enableDetailViewSections {
             for section in detailViewSections {
                 let button = app.tables.buttons[section]
-                XCTAssert(button.isHittable)
+                if button.waitForExistence(timeout: 0.1) {
+                    XCTAssert(button.isHittable)
+                    button.tap()
+                }
                 
-                button.tap()
             }
         }
         

@@ -14,8 +14,8 @@ class NationalGalarPokedexUITests: XCTestCase {
     var galarPokemon: GalarPokemonNames! = nil
     
     override func setUpWithError() throws {
-        nationalPokemon = NationalPokemonNames.Feebas
-        galarPokemon = GalarPokemonNames.Croagunk
+        nationalPokemon = .Bulbasaur
+        galarPokemon = .Raboot
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["enable-testing"]
