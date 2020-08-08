@@ -20,7 +20,6 @@ class NationalGalarPokedexUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["enable-testing"]
-        
         app.launch()
     }
 
