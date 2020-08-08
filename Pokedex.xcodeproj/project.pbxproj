@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -300,7 +300,6 @@
 				9E4F57E5B99AAF86A9BD04F4 /* Pods-Pokedex.debug.xcconfig */,
 				B9CD1E5149A1DAA160D0231B /* Pods-Pokedex.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -672,7 +671,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
@@ -680,7 +679,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
 				SUPPORTS_MACCATALYST = YES;
@@ -699,7 +698,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pokedex/NationalGalarPokedex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Pokedex/Info.plist;
@@ -707,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.NationalGalarPokedex;
 				PRODUCT_NAME = NationalGalarPokedex;
 				SUPPORTS_MACCATALYST = YES;

@@ -10,6 +10,14 @@ import XCTest
 
 //MARK: - Search View Test
 extension NationalGalarPokedexUITests{
+    func testLaunchPerformance() throws {
+        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+                app.launch()
+            }
+        }
+    }
+    
     func testPokemonNameListNotNil() throws {
         XCTAssertNotNil(nationalPokemon)
         XCTAssertNotNil(galarPokemon)
