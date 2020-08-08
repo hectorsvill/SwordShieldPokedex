@@ -15,7 +15,8 @@
     {
       "skippedTests" : [
         "NationalGalarPokedexUITests\/testAllGalarPokemonIsHittable()",
-        "NationalGalarPokedexUITests\/testAllNationalPokemonIsHittable()"
+        "NationalGalarPokedexUITests\/testAllNationalPokemonIsHittable()",
+        "NationalGalarPokedexUITests\/testLaunchPerformance()"
       ],
       "target" : {
         "containerPath" : "container:Pokedex.xcodeproj",

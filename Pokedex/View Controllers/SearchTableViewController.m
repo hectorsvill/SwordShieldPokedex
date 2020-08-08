@@ -55,7 +55,7 @@
 }
 
 - (void)configureGoogleMobileAddsBannerView {
-    // TODO: Change dedicated test ad unit ID for iOS banner @"ca-app-pub-5778038029083871/6874572606";
+    // TODO: Change dedicated test ad unit ID for iOS 
     self.googleMobileAddsBannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     self.googleMobileAddsBannerView.rootViewController = self;
     self.googleMobileAddsBannerView.backgroundColor = UIColor.systemGray6Color;

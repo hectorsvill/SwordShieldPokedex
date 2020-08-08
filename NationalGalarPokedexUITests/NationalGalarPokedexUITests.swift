@@ -19,6 +19,8 @@ class NationalGalarPokedexUITests: XCTestCase {
         galarPokemon = mocData.galarPokemonNames
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["enable-testing"]
+        
         app.launch()
     }
 
