@@ -18,6 +18,10 @@ extension NationalGalarPokedexUITests{
         }
     }
     
+    func testAddMobBannerIsHittable() throws {
+        XCTAssert(googleMobileAddsBannerView.isHittable)
+    }
+    
     func testPokemonNameListNotNil() throws {
         XCTAssertNotNil(nationalPokemon)
         XCTAssertNotNil(galarPokemon)
