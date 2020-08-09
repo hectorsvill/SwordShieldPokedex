@@ -10,13 +10,12 @@ import XCTest
 
 class NationalGalarPokedexUITests: XCTestCase {
     var app: XCUIApplication! = nil
-    let mocData = NationalGalarPokedexUITestsMocData(nationalPokemonName: .Flygon, galarPokemonName: .Carkol)
     var nationalPokemon: NationalPokemonNames! = nil
     var galarPokemon: GalarPokemonNames! = nil
     
     override func setUpWithError() throws {
-        nationalPokemon = mocData.nationalPokemonNames
-        galarPokemon = mocData.galarPokemonNames
+        nationalPokemon = .Bulbasaur
+        galarPokemon = .Raboot
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["enable-testing"]

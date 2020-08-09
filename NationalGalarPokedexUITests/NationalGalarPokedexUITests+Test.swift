@@ -102,7 +102,7 @@ extension NationalGalarPokedexUITests{
         try navigateToNationalPokemonTableViewList()
 
         for pokemon in NationalPokemonNames.allCases {
-            XCTAssertNoThrow(try nationalPokemonisHittable(with: pokemon))
+             try nationalPokemonisHittable(with: pokemon)
         }
     }
 
@@ -172,32 +172,32 @@ extension NationalGalarPokedexUITests{
     
     func testLeagueCardViewCellTapped() throws {
         try navigateToLeagueCardView()
-        try leagueCardViewCellTapped(with: "0000 0000 0000 00")
+        try leagueCardViewCellTapped(with: .id0)
         XCTAssert(searchTabBarButton.isHittable)
+        
         searchTabBarButton.tap()
+        
         XCTAssert(searchTabBarButton.isSelected)
     }
     
     func testAddLeagueCardIDNoiCloudAccountError() throws {
         try navigateToLeagueCardView()
         try addLeagueCardFlow()
-        XCTAssert(cardCodeNavBarBackButton.isHittable)
-        cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCardIDTextFieldsIsHitable() throws {
         try navigateToLeagueCardView()
         try addLeagueCardFlow()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldA.isHittable)
         addLeagueCardIDViewTexdFieldA.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldB.isHittable)
         addLeagueCardIDViewTexdFieldB.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldC.isHittable)
         addLeagueCardIDViewTexdFieldC.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldD.isHittable)
         addLeagueCardIDViewTexdFieldD.tap()
     }
@@ -227,17 +227,6 @@ extension NationalGalarPokedexUITests{
     }
     
     func testLeagueCardIsCheckMark() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        
-        let leagueCardCell = leagueCardsTableViewController.cells["0000 0000 0000 00"]
-        XCTAssert(leagueCardCell.isHittable)
-        
-        let checkmarkSquareButton = leagueCardCell.buttons["checkmark.square"]
-        XCTAssert(checkmarkSquareButton.isHittable)
-        checkmarkSquareButton.tap()
-        
-        let checkmarkSquareFillButton = leagueCardCell.buttons["checkmark.square.fill"]
-        XCTAssert(checkmarkSquareFillButton.isHittable)
-        checkmarkSquareFillButton.tap()
+        try leagueCardIsCheckMark(with: .id0)
     }
 }

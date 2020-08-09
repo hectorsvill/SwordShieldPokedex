@@ -13,18 +13,6 @@
   },
   "testTargets" : [
     {
-      "skippedTests" : [
-        "NationalGalarPokedexUITests\/testAddLeagueCardIDNoiCloudAccountError()",
-        "NationalGalarPokedexUITests\/testAddLeagueCardIDTextFieldsIsHitable()",
-        "NationalGalarPokedexUITests\/testAddLeagueCardResetButtonisHitable()",
-        "NationalGalarPokedexUITests\/testAddLeagueCardSubmitEmptyCodeButtonError()",
-        "NationalGalarPokedexUITests\/testAllGalarPokemonIsHittable()",
-        "NationalGalarPokedexUITests\/testAllNationalPokemonIsHittable()",
-        "NationalGalarPokedexUITests\/testLaunchPerformance()",
-        "NationalGalarPokedexUITests\/testLeagueCardIsCheckMark()",
-        "NationalGalarPokedexUITests\/testLeagueCardView()",
-        "NationalGalarPokedexUITests\/testLeagueCardViewCellTapped()"
-      ],
       "target" : {
         "containerPath" : "container:Pokedex.xcodeproj",
         "identifier" : "3B74DACB24C79AAC00ECC30E",

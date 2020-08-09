@@ -94,13 +94,13 @@ extension NationalGalarPokedexUITests {
         searchPokemonSearchBar.tap()
     }
     
-    func leagueCardViewCellTapped(with id: String) throws {
-        let cardCodeCell = leagueCardsTableViewController.cells[id]
+    func leagueCardViewCellTapped(with id: LeagueCardID) throws {
+        let cardCodeCell = leagueCardsTableViewController.cells[id.rawValue]
         XCTAssert(cardCodeCell.isHittable)
         
         cardCodeCell.tap()
         
-        try leagueCardViewCellTappedFlow(with: id)
+        try leagueCardViewCellTappedFlow()
     }
     
     /// Will click on add league card button to navigate to add league card view. Also works with Account.
@@ -126,6 +126,21 @@ extension NationalGalarPokedexUITests {
         XCTAssert(resetButton.isHittable)
         
         resetButton.tap()
+    }
+    
+    func leagueCardIsCheckMark(with id: LeagueCardID) throws {
+        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
+        
+        let leagueCardCell = leagueCardsTableViewController.cells[id.rawValue]
+        XCTAssert(leagueCardCell.isHittable)
+        
+        let checkmarkSquareButton = leagueCardCell.buttons["checkmark.square"]
+        XCTAssert(checkmarkSquareButton.isHittable)
+        checkmarkSquareButton.tap()
+        
+        let checkmarkSquareFillButton = leagueCardCell.buttons["checkmark.square.fill"]
+        XCTAssert(checkmarkSquareFillButton.isHittable)
+        checkmarkSquareFillButton.tap()
     }
 }
 
@@ -163,9 +178,11 @@ extension NationalGalarPokedexUITests {
         if enableDetailViewSections {
             for section in detailViewSections {
                 let button = app.tables.buttons[section]
-                XCTAssert(button.isHittable)
+                if button.waitForExistence(timeout: 0.1) {
+                    XCTAssert(button.isHittable)
+                    button.tap()
+                }
                 
-                button.tap()
             }
         }
         
@@ -283,7 +300,7 @@ extension NationalGalarPokedexUITests {
         XCTAssert(addLeagueCardIDViewTexdFieldD.isHittable)
     }
     
-    private func leagueCardViewCellTappedFlow(with id: String) throws {
+    private func leagueCardViewCellTappedFlow() throws {
         let myCardCodeNavBar = app.navigationBars["My Card Code"]
         let myCardCodeNavBarInfoButton = myCardCodeNavBar.buttons["info.circle"]
         let serebiiView = app.navigationBars["HSVSerebiiView"]
@@ -304,5 +321,4 @@ extension NationalGalarPokedexUITests {
         
         cardCodeNavBarBackButton.tap()
     }
-    
 }
