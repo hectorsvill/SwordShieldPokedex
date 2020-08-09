@@ -37,11 +37,18 @@
 
 - (void)configureViews {
     self.pokemonController = HSVPokemonController.sharedPokemonController;
-    [self createRefreshControl];
     self.internalCards = [NSMutableArray array];
     self.cloudFramework = [HSVCloudFramework new];
+    [self createRefreshControl];
     [self.refreshControl beginRefreshing];
     [self fetchLeageCards];
+
+    #if DEBUG
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"enable-testing"]) {
+        self.tableView.refreshControl = nil;
+    }
+    #endif
 }
 
 - (void)createRefreshControl {
@@ -103,7 +110,7 @@
     return 72;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_internalCards count];
 }
 
