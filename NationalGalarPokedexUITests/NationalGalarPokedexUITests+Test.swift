@@ -102,7 +102,7 @@ extension NationalGalarPokedexUITests{
         try navigateToNationalPokemonTableViewList()
 
         for pokemon in NationalPokemonNames.allCases {
-            XCTAssertNoThrow(try nationalPokemonisHittable(with: pokemon))
+             try nationalPokemonisHittable(with: pokemon)
         }
     }
 
@@ -181,23 +181,21 @@ extension NationalGalarPokedexUITests{
     func testAddLeagueCardIDNoiCloudAccountError() throws {
         try navigateToLeagueCardView()
         try addLeagueCardFlow()
-        XCTAssert(cardCodeNavBarBackButton.isHittable)
-        cardCodeNavBarBackButton.tap()
     }
     
     func testAddLeagueCardIDTextFieldsIsHitable() throws {
         try navigateToLeagueCardView()
         try addLeagueCardFlow()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldA.isHittable)
         addLeagueCardIDViewTexdFieldA.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldB.isHittable)
         addLeagueCardIDViewTexdFieldB.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldC.isHittable)
         addLeagueCardIDViewTexdFieldC.tap()
-        
+
         XCTAssert(addLeagueCardIDViewTexdFieldD.isHittable)
         addLeagueCardIDViewTexdFieldD.tap()
     }

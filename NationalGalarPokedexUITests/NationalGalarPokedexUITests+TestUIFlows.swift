@@ -306,5 +306,4 @@ extension NationalGalarPokedexUITests {
         
         cardCodeNavBarBackButton.tap()
     }
-    
 }
