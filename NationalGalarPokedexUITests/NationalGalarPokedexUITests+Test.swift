@@ -172,9 +172,11 @@ extension NationalGalarPokedexUITests{
     
     func testLeagueCardViewCellTapped() throws {
         try navigateToLeagueCardView()
-        try leagueCardViewCellTapped(with: "0000 0000 0000 00")
+        try leagueCardViewCellTapped(with: .id0)
         XCTAssert(searchTabBarButton.isHittable)
+        
         searchTabBarButton.tap()
+        
         XCTAssert(searchTabBarButton.isSelected)
     }
     
@@ -225,17 +227,6 @@ extension NationalGalarPokedexUITests{
     }
     
     func testLeagueCardIsCheckMark() throws {
-        XCTAssertNoThrow(try navigateToLeagueCardView(), "navigateToLeagueCardView Error")
-        
-        let leagueCardCell = leagueCardsTableViewController.cells["0000 0000 0000 00"]
-        XCTAssert(leagueCardCell.isHittable)
-        
-        let checkmarkSquareButton = leagueCardCell.buttons["checkmark.square"]
-        XCTAssert(checkmarkSquareButton.isHittable)
-        checkmarkSquareButton.tap()
-        
-        let checkmarkSquareFillButton = leagueCardCell.buttons["checkmark.square.fill"]
-        XCTAssert(checkmarkSquareFillButton.isHittable)
-        checkmarkSquareFillButton.tap()
+        try leagueCardIsCheckMark(with: .id0)
     }
 }
