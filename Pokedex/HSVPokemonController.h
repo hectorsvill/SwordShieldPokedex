@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSNumber *> *)fetchFavorites;
 - (NSNumber *)isfavortie:(NSNumber*)indexNumber;
 
+- (Pokedex)fetchSearchViewRegion;
+- (void)saveSearchViewRegion:(Pokedex)type;
+
 - (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion;
 - (NSArray  <NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary;
 - (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type;
@@ -46,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray<NSString *>*) fetchNationalPokemonNames;
 - (NSArray<NSString *>*) fetchGalarPokemonNames;
+
+
 
 @end
 

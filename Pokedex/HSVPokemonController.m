@@ -137,6 +137,16 @@
     [[NSUserDefaults standardUserDefaults] setObject:_internalFavoritePokemon forKey:@"InternalFavoritePokemon"];
 }
 
+- (void)saveSearchViewRegion:(Pokedex)type {
+    if (type == National || type == Galar) {
+        [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"SearchViewRegionSetting"];
+    }
+}
+
+- (Pokedex)fetchSearchViewRegion {
+    NSInteger type = [[NSUserDefaults standardUserDefaults] integerForKey:@"SearchViewRegionSetting"];
+    return type;
+}
 
 // MARK: - fetchPokemonData
 - (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion {
