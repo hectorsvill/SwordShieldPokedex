@@ -22,8 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSMutableDictionary<NSNumber *, NSMutableArray *> *pokemonData;
 @property (nonatomic) NSArray *pokemonDescriptionSrtings;
-
 @property (nonatomic) GADInterstitial *googleInterstitialAd;
+
 @end
 
 @implementation HSVPokemonDetailViewController
@@ -43,9 +43,9 @@
 - (void)configureInterstitialAd {
     self.googleInterstitialAd = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
     self.googleInterstitialAd.delegate = self;
+    self.googleInterstitialAd.accessibilityLabel = @"HSVPokemonDetailViewControllerGADInterstitial";
     
     GADRequest *request = [GADRequest request];
-    
     [self.googleInterstitialAd loadRequest: request];
 }
 
