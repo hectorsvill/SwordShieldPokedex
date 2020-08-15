@@ -30,7 +30,7 @@
 - (void)configureInterstitialAd {
     self.googleInterstitialAd = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
     self.googleInterstitialAd.delegate = self;
-    self.googleInterstitialAd.accessibilityLabel = @"HSVPokemonDetailViewControllerGADInterstitial";
+    self.googleInterstitialAd.accessibilityLabel = @"HSVSerebiiViewControllerGADInterstitial";
     
     GADRequest *request = [GADRequest request];
     [self.googleInterstitialAd loadRequest: request];
