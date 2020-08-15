@@ -13,10 +13,6 @@ extension NationalGalarPokedexUITests {
         app.navigationBars["PokedexSearchNavigationBar"]
     }
     
-    var googleMobileAddsBannerView: XCUIElement {
-        searchListTableViewController.otherElements.matching(identifier: "GoogleMobileAddsBannerView").element
-    }
-    
     var searchListTableViewController: XCUIElement {
         app.tables["PokedexListTableView"]
     }

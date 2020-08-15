@@ -6,8 +6,6 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
-
-@import GoogleMobileAds;
 #import "SearchTableViewController.h"
 #import "HSVPokemon.h"
 #import "HSVPokemonTableViewCell.h"
@@ -23,7 +21,6 @@
 @property (nonatomic) enum Pokedex pokedexType;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, copy) NSArray<NSNumber *> *pokemonIndexList;
-
 
 
 @end
