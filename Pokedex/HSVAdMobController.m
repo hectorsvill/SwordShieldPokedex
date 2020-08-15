@@ -37,29 +37,18 @@
 
 - (BOOL) checkISDebug {
     #if DEBUG
-    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-    if ([arguments containsObject:@"enable-testing"]) {
-        return true;
-    }
+    return true;
     #endif
     return false;
 }
 
 
 - (GADInterstitial *) configurePokemonDetailViewInterstitial {
-    if (![self checkISDebug]) {
-        return [self configureInterstitialWith: _pokemonDetailViewUnitID];
-    } else {
-        return [self configureInterstitialWith:_testUnitID];
-    }
+    return  [self checkISDebug] ? [self configureInterstitialWith:_testUnitID] : [self configureInterstitialWith: _pokemonDetailViewUnitID];
 }
 
 - (GADInterstitial *) configureSerebiiViewInterstitial {
-    if (![self checkISDebug]) {
-        return [self configureInterstitialWith: _serebiiUnitID];
-    } else {
-        return [self configureInterstitialWith:_testUnitID];
-    }
+    return [self checkISDebug] ? [self configureInterstitialWith:_testUnitID] : [self configureInterstitialWith: _serebiiUnitID];
 }
 
 @end
