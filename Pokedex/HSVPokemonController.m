@@ -23,8 +23,7 @@
 
 @implementation HSVPokemonController
 
-+ (instancetype)sharedPokemonController
-{
++ (instancetype)sharedPokemonController {
     static HSVPokemonController *pokemonController = nil;
     static dispatch_once_t onceToken;
 
@@ -35,8 +34,7 @@
     return pokemonController;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     if (self = [super init]) {
         _internalNationalDexDictionary = [NSMutableDictionary new];
         _internalGalarDexDictionary = [NSMutableDictionary new];
@@ -59,39 +57,32 @@
 }
 
 // MARK: - Galar Dex
-- (NSDictionary<NSNumber*, HSVPokemon*> *)galarDexDictionary
-{
+- (NSDictionary<NSNumber*, HSVPokemon*> *)galarDexDictionary {
     return _internalGalarDexDictionary;
 }
 
-- (NSArray<NSNumber *> *)fetchGalarDexIndexList
-{
+- (NSArray<NSNumber *> *)fetchGalarDexIndexList {
     return _internalGalarDexIndexList;
 }
 
-- (NSUInteger)galarDexListCount
-{
+- (NSUInteger)galarDexListCount {
     return [_internalGalarDexDictionary count];
 }
 
-- (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index
-{
+- (HSVPokemon *)fetchGalarDexpokemonWithIndex:(NSNumber *)index {
     return [_internalGalarDexDictionary objectForKey:index];
 }
 
 // MARK: - National Dex
-- (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary
-{
+- (NSDictionary<NSNumber*, HSVPokemon*> *)nationalDexDictionary {
     return _internalNationalDexDictionary;
 }
 
-- (NSUInteger)nationalDexListCount
-{
+- (NSUInteger)nationalDexListCount {
     return [_internalNationalIndexList count];
 }
 
-- (NSArray<NSString *>*) fetchNationalPokemonNames
-{
+- (NSArray<NSString *>*) fetchNationalPokemonNames {
     NSMutableArray<NSString *> *nameList = [NSMutableArray new];
     for (NSNumber *number in _internalNationalIndexList) {
         HSVPokemon *pokemon = [_internalNationalDexDictionary objectForKey:number];
@@ -101,8 +92,7 @@
     return nameList;
 }
 
-- (NSArray<NSString *>*) fetchGalarPokemonNames
-{
+- (NSArray<NSString *>*) fetchGalarPokemonNames {
     NSMutableArray<NSString *> *nameList = [NSMutableArray new];
     for (NSNumber *number in _internalGalarDexIndexList) {
         HSVPokemon *pokemon = [_internalGalarDexDictionary objectForKey:number];
@@ -112,52 +102,44 @@
     return nameList;
 }
 
-- (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index
-{
+- (HSVPokemon *)fetchNationalDexpokemonWithIndex:(NSNumber *)index {
     return [_internalNationalDexDictionary objectForKey:index];
 }
 
-- (NSArray<NSNumber *> *)pokemonIndexList
-{
+- (NSArray<NSNumber *> *)pokemonIndexList {
     return _internalNationalIndexList;
 }
 
 // MARK: - Favorites
-- (void)addFavorite:(NSNumber *)number
-{
+- (void)addFavorite:(NSNumber *)number {
     if ( ![_internalFavoritePokemon containsObject:number]) {
         [_internalFavoritePokemon addObject:number];
         [self saveToUserDefaults];
     }
 }
 
-- (void)removeInternalFavoritePokemon:(NSNumber *)number
-{
+- (void)removeInternalFavoritePokemon:(NSNumber *)number {
     [_internalFavoritePokemon removeObject:number];
     [self saveToUserDefaults];
 }
 
-- (NSArray<NSNumber *> *)fetchFavorites
-{
+- (NSArray<NSNumber *> *)fetchFavorites {
     return _internalFavoritePokemon;
 }
 
-- (NSNumber *)isfavortie:(NSNumber*)indexNumber
-{
+- (NSNumber *)isfavortie:(NSNumber*)indexNumber {
     return [_internalFavoritePokemon containsObject:indexNumber] ? @YES : @NO;
 }
 
 // MARK: - User Defaults
 
-- (void)saveToUserDefaults
-{
+- (void)saveToUserDefaults {
     [[NSUserDefaults standardUserDefaults] setObject:_internalFavoritePokemon forKey:@"InternalFavoritePokemon"];
 }
 
 
 // MARK: - fetchPokemonData
-- (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion
-{
+- (void)fetchPokemonDataFromJson:(void (^)(NSArray<NSNumber *> *))completion {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"PokemonSwordShield" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
@@ -180,8 +162,7 @@
 }
 
 //MARK: - sortedIndexDictionary
-- (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary
-{
+- (NSArray<NSNumber *> *)sortedIndexDictionary:(NSDictionary *)dictionary {
     NSArray<NSNumber *> *keys = [dictionary allKeys];
     NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1 compare:obj2];
@@ -191,8 +172,7 @@
 }
 
 // MARK: filterWithString
-- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type
-{
+- (NSArray<NSNumber *> *)filterWithString:(NSString *)string dictionary:(NSDictionary<NSNumber *, HSVPokemon *>*)dictionary pokedex_type:(Pokedex)pokedex_type {
     NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS [cd] %@)", [string lowercaseString]];
     NSArray<HSVPokemon *> *pokemonListArray = [dictionary allValues];
     NSArray<HSVPokemon *> *filteredPokemon = [pokemonListArray filteredArrayUsingPredicate: filterPredicate];
@@ -207,27 +187,23 @@
 
 // Mark - League Card Controller
 
-- (NSArray<NSString *> *)oldLeagueCardList
-{
+- (NSArray<NSString *> *)oldLeagueCardList {
     return [_internalOldLeageCardList copy];
 }
 
-- (void)addOldLeageCard:(NSString *)cardID
-{
+- (void)addOldLeageCard:(NSString *)cardID {
     if (![_internalOldLeageCardList containsObject:cardID]) {
         [_internalOldLeageCardList addObject:cardID];
         [self saveOldLeageCardsToUserDefaults];
     }
 }
 
-- (void)deleteOldLeageCard:(NSString *)cardID
-{
+- (void)deleteOldLeageCard:(NSString *)cardID {
     [_internalOldLeageCardList removeObject:cardID];
     [self saveOldLeageCardsToUserDefaults];
 }
 
-- (void) saveOldLeageCardsToUserDefaults
-{
+- (void) saveOldLeageCardsToUserDefaults {
     [[NSUserDefaults standardUserDefaults] setObject:_internalOldLeageCardList forKey:@"InternalOldLeageCardList"];
 }
 
