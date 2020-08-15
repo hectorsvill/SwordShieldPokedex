@@ -117,7 +117,6 @@
 
     [alertController addAction:nationalDexAction];
 
-
     UIAlertAction *favoriteDexAction = [UIAlertAction actionWithTitle:@"Favorite" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.pokedexType = Favorite;
