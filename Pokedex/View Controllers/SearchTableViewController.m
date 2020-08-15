@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pokemonController = HSVPokemonController.sharedPokemonController;
-    _pokedexType = National;
+    _pokedexType = [self.pokemonController fetchSearchViewRegion];
 
     [self configureAccessibility];
     [self setupViews];
@@ -96,6 +96,7 @@
     UIAlertAction *galarDexAction = [UIAlertAction actionWithTitle:@"Galar Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
             self.pokedexType = Galar;
+            [self.pokemonController saveSearchViewRegion:Galar];
             self.searchBar.text = @"";
             self.pokemonIndexList = [self.pokemonController fetchGalarDexIndexList];
             [self.tableView reloadData];
@@ -108,6 +109,7 @@
     UIAlertAction *nationalDexAction = [UIAlertAction actionWithTitle:@"National Pokedex" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         dispatch_async(dispatch_get_main_queue(), ^{
             self.pokedexType = National;
+            [self.pokemonController saveSearchViewRegion:National];
             self.searchBar.text = @"";
             self.pokemonIndexList = [self.pokemonController pokemonIndexList];
             [self.tableView reloadData];
