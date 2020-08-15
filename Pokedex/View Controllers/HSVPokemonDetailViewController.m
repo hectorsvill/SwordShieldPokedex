@@ -13,7 +13,7 @@
 #import "NSString+HSVPokemonIndexString.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface HSVPokemonDetailViewController ()
+@interface HSVPokemonDetailViewController () <GADInterstitialDelegate>
 
 @property (nonatomic) AVSpeechSynthesizer *speechSynthesizer;
 @property (weak, nonatomic) IBOutlet UIImageView *pokemonImageView;
@@ -23,7 +23,7 @@
 @property (nonatomic) NSMutableDictionary<NSNumber *, NSMutableArray *> *pokemonData;
 @property (nonatomic) NSArray *pokemonDescriptionSrtings;
 
-@property (nonatomic, strong) GADRewardedAd *googleRewardAdd;
+@property (nonatomic) GADInterstitial *googleInterstitialAd;
 @end
 
 @implementation HSVPokemonDetailViewController
@@ -36,9 +36,20 @@
 
     for (int i = 0; i <= _pokemonDescriptionSrtings.count; i++)
         [self configurePokemonDataWithSection:i];
+    
+    [self configureInterstitialAd];
 }
 
-
+- (void)configureInterstitialAd {
+    self.googleInterstitialAd = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    self.googleInterstitialAd.delegate = self;
+    
+    GADRequest *request = [GADRequest request];
+    
+    [self.googleInterstitialAd loadRequest: request];
+    
+    
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -89,7 +100,6 @@
          @"Egg Moves",
          @"Abilities",
          @"Level Up Moves",
-
      ];
 
     _pokemonData = [NSMutableDictionary dictionary];
@@ -285,5 +295,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_tableView deselectRowAtIndexPath:indexPath animated:true];
 }
+
+#pragma mark - GADInterstitialDelegate
+
+
 
 @end
