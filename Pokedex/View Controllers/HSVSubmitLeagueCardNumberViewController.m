@@ -195,13 +195,10 @@
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-            #if DEBUG
             NSArray *arguments = [[NSProcessInfo processInfo] arguments];
             if (![arguments containsObject:@"enable-testing"]) {
                 [self.navigationController popViewControllerAnimated:true];
             }
-            #endif
-            
         }];
 
         [ac addAction:okAction];

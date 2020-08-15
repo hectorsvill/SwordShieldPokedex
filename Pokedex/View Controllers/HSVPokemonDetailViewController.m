@@ -59,7 +59,7 @@
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
 }
 
-#pragma mark -
+#pragma mark - configureViews
 - (void)configureViews {
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
     

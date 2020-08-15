@@ -55,7 +55,6 @@
     return false;
 }
 
-
 - (GADInterstitial *) configurePokemonDetailViewInterstitial {
     return  [self checkISDebug] ? [self configureInterstitialWith:_testUnitID] : [self configureInterstitialWith: _pokemonDetailViewUnitID];
 }
