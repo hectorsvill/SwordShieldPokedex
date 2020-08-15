@@ -31,8 +31,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
     [self.collectionView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"view will appear");
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
@@ -40,10 +39,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 }
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"FavoriteSegue"]) {
         HSVFavoriteCollectionViewCell *cell = (HSVFavoriteCollectionViewCell *)sender;
@@ -57,7 +53,6 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 }
 
 #pragma mark <UICollectionViewDataSource>
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [_favoriteIndexList count];
@@ -77,13 +72,8 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
     return cell;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(16, 16, 16, 16);
 }
-
-
-
-#pragma mark <UICollectionViewDelegate>
-
 
 @end
