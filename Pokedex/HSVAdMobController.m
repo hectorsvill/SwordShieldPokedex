@@ -11,6 +11,7 @@
 
 @interface HSVAdMobController ()
 
+@property (nonatomic, readonly, copy) NSString *testUnitID;
 @property (nonatomic, readonly, copy) NSString *pokemonDetailViewUnitID;
 @property (nonatomic, readonly, copy) NSString *serebiiUnitID;
 
@@ -18,9 +19,21 @@
 
 @implementation HSVAdMobController
 
-- (instancetype)initWithTestUnitID:(NSString *)unitID {
++ (instancetype)shared {
+    static HSVAdMobController *adMobController = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        adMobController = [[HSVAdMobController alloc] init];
+    });
+    
+    return adMobController;
+    
+}
+
+- (instancetype)init {
     if (self = [super init]) {
-        _testUnitID = @"ca-app-pub-3940256099942544/441146891";
+        _testUnitID = @"ca-app-pub-3940256099942544/4411468910";
         _pokemonDetailViewUnitID = @"";
         _serebiiUnitID = @"";
     }

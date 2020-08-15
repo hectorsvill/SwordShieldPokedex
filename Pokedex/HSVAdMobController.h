@@ -12,12 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSVAdMobController : NSObject
 
-@property (nonatomic, readonly, copy) NSString *testUnitID;
-
-- (instancetype) initWithTestUnitID:(NSString *)unitID;
-
++ (instancetype)shared;
 - (GADInterstitial *) configurePokemonDetailViewInterstitial;
-
 - (GADInterstitial *) configureSerebiiViewInterstitial;
 
 @end
