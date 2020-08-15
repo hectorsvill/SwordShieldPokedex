@@ -47,8 +47,6 @@
     GADRequest *request = [GADRequest request];
     
     [self.googleInterstitialAd loadRequest: request];
-    
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -298,6 +296,10 @@
 
 #pragma mark - GADInterstitialDelegate
 
-
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
+    if (self.googleInterstitialAd.isReady) {
+        [self.googleInterstitialAd presentFromRootViewController:self];
+    }
+}
 
 @end
