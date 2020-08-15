@@ -30,7 +30,7 @@
 - (void)configureInterstitialAd {
     self.googleInterstitialAd = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
     self.googleInterstitialAd.delegate = self;
-    self.googleInterstitialAd.accessibilityLabel = @"HSVPokemonDetailViewControllerGADInterstitial";
+    self.googleInterstitialAd.accessibilityLabel = @"HSVSerebiiViewControllerGADInterstitial";
     
     GADRequest *request = [GADRequest request];
     [self.googleInterstitialAd loadRequest: request];
@@ -61,6 +61,13 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [[self activityIndicator] stopAnimating];
     [self configureInterstitialAd];
+    
+    #if DEBUG
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"enable-testing"]) {
+        self.googleInterstitialAd = nil;
+    }
+    #endif
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
