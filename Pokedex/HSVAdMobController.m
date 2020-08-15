@@ -35,5 +35,31 @@
     return ad;
 }
 
+- (BOOL) checkISDebug {
+    #if DEBUG
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"enable-testing"]) {
+        return true;
+    }
+    #endif
+    return false;
+}
+
+
+- (GADInterstitial *) configurePokemonDetailViewInterstitial {
+    if (![self checkISDebug]) {
+        return [self configureInterstitialWith: _pokemonDetailViewUnitID];
+    } else {
+        return [self configureInterstitialWith:_testUnitID];
+    }
+}
+
+- (GADInterstitial *) configureSerebiiViewInterstitial {
+    if (![self checkISDebug]) {
+        return [self configureInterstitialWith: _serebiiUnitID];
+    } else {
+        return [self configureInterstitialWith:_testUnitID];
+    }
+}
 
 @end

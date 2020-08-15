@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithTestUnitID:(NSString *)unitID;
 
+- (GADInterstitial *) configurePokemonDetailViewInterstitial;
+
+- (GADInterstitial *) configureSerebiiViewInterstitial;
+
 @end
 
 NS_ASSUME_NONNULL_END
