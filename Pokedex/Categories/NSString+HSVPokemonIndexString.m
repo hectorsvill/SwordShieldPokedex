@@ -11,8 +11,7 @@
 @implementation NSString (HSVPokemonIndexString)
 
 
-- (NSString *)HSVCreatePokemonIndexString:(int)index
-{
+- (NSString *)HSVCreatePokemonIndexString:(int)index {
     int indexLength = 0;
     int indexCopy = index;
 

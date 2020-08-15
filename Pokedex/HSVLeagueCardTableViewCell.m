@@ -15,7 +15,7 @@
     [self configureButtonImage];
 }
 
-- (void)configureButtonImage{
+- (void)configureButtonImage {
     NSString *imageName = !self.leagueCard.isOld ? @"checkmark.square" : @"checkmark.square.fill";
     UIImage *image = [UIImage systemImageNamed:imageName];
     [self.checkedButton setImage:image forState:UIControlStateNormal];

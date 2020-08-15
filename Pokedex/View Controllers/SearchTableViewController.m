@@ -87,8 +87,7 @@
 }
 
 // MARK: - gearButtonPressed
-- (void)gearButtonPressed
-{
+- (void)gearButtonPressed {
     UIAlertControllerStyle alertStyle = ([[UIDevice currentDevice].model hasPrefix:@"iPhone"]) ? UIAlertControllerStyleActionSheet : UIAlertControllerStyleAlert;
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Pokedex NO." message:NULL preferredStyle:alertStyle];
@@ -135,8 +134,7 @@
 
 }
 
-- (void)searchBarPressed
-{
+- (void)searchBarPressed {
     UIView *titleView = [self navigationItem].titleView;
 
     if (titleView == nil) {
@@ -153,8 +151,7 @@
 }
 
 #pragma mark - prepareForSegue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PokemonDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
@@ -165,13 +162,11 @@
 }
 
 #pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_pokemonIndexList count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HSVPokemonTableViewCell *cell = (HSVPokemonTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSNumber *pokemonIndex = [_pokemonIndexList objectAtIndex:indexPath.row];
     HSVPokemon *pokemon = _pokedexType == Galar ? [_pokemonController fetchGalarDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]] : [_pokemonController fetchNationalDexpokemonWithIndex:[NSNumber numberWithLong:pokemonIndex.longValue]];
@@ -187,19 +182,16 @@
 }
 
 #pragma mark - Table view delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_searchBar resignFirstResponder];
 }
 
 #pragma mark - Search bar delegate
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if ([searchBar.text length] > 0) {
         NSString *text = [searchBar.text lowercaseString];
         NSArray<NSNumber *> *pokemonIndexList = [_pokemonController filterWithString:text dictionary: _pokedexType == Galar ? self.pokemonController.galarDexDictionary : self.pokemonController.nationalDexDictionary pokedex_type:_pokedexType];
@@ -214,8 +206,7 @@
 
 
 #pragma mark - HSVPOkemonTableViewCellDelegate
-- (void)saveToFavorites:(NSNumber *)number
-{
+- (void)saveToFavorites:(NSNumber *)number {
     [self.pokemonController addFavorite: number];
 
     if (self.pokedexType == Favorite)
@@ -225,8 +216,7 @@
         });
 }
 
-- (void)removefromFavorites:(NSNumber *)number
-{
+- (void)removefromFavorites:(NSNumber *)number {
     [self.pokemonController removeInternalFavoritePokemon:number];
 
     if (self.pokedexType == Favorite)
