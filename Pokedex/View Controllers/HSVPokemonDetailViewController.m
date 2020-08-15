@@ -6,6 +6,7 @@
 //  Copyright © 2020 s. All rights reserved.
 //
 
+@import GoogleMobileAds;
 #import "HSVSerebiiViewController.h"
 #import "HSVPokemonDetailViewController.h"
 #import "HSVPokemon.h"
@@ -21,13 +22,15 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSMutableDictionary<NSNumber *, NSMutableArray *> *pokemonData;
 @property (nonatomic) NSArray *pokemonDescriptionSrtings;
+
+@property (nonatomic, strong) GADRewardedAd *googleRewardAdd;
 @end
 
 @implementation HSVPokemonDetailViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self configureViews];
     [self setPokemonData];
 
@@ -35,19 +38,18 @@
         [self configurePokemonDataWithSection:i];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+
+
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-    
 }
 
 #pragma mark -
-- (void)configureViews
-{
+- (void)configureViews {
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-
+    
     self.title = [NSString stringWithFormat:@"%@", _pokemon.name ];
     
     [self.navigationController.navigationBar setAccessibilityIdentifier: [NSString stringWithFormat:@"%@DetailView", _pokemon.name ]];
@@ -74,8 +76,7 @@
     }] resume];
 }
 
-- (void)setPokemonData
-{
+- (void)setPokemonData {
     _pokemonDescriptionSrtings =  @[
          @"Description",
          @"NO.",
@@ -97,8 +98,7 @@
 
 }
 
-- (void)setpokemonDataWithSection:(NSInteger)sectionInt
-{
+- (void)setpokemonDataWithSection:(NSInteger)sectionInt {
     NSArray *data = _pokemonData[[NSNumber numberWithInteger:sectionInt]];
     NSMutableArray *indexPaths = [NSMutableArray array];
 
@@ -110,8 +110,7 @@
     [_tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)configurePokemonDataWithSection:(NSInteger)section
-{
+- (void)configurePokemonDataWithSection:(NSInteger)section {
     NSNumber *sectionIndexNumber = [NSNumber numberWithInteger:section];
 
     if (_pokemonData[sectionIndexNumber].count == 0) {
@@ -168,7 +167,6 @@
             }
             case 8:{
                 [_pokemonData[sectionIndexNumber] addObjectsFromArray:_pokemon.egg_moves];
-
                 break;
             }
             case 9:{
@@ -212,8 +210,7 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SerebiiSegue"]) {
         HSVSerebiiViewController *serebiiVC = (HSVSerebiiViewController *)segue.destinationViewController;
         serebiiVC.pokemonName = [_pokemon.name lowercaseString];
@@ -227,8 +224,7 @@
 }
 
 #pragma mark - pokedexSpeak
-- (void)pokedexSpeak:(HSVPokemon *)pokemon
-{
+- (void)pokedexSpeak:(HSVPokemon *)pokemon {
     NSString *typeString = [pokemon.types componentsJoinedByString:@" and "];
     NSString *UtteranceString = [NSString stringWithFormat:@"%@. %@ type. %@", pokemon.name, typeString, pokemon.pokedexdescription];
     AVSpeechUtterance *speechUtterance = [AVSpeechUtterance speechUtteranceWithString:UtteranceString];
@@ -237,20 +233,17 @@
 }
 
 #pragma mark - playButtonPressed
-- (IBAction)playButtonPressed:(id)sender
-{
+- (IBAction)playButtonPressed:(id)sender {
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     [self pokedexSpeak:_pokemon];
 }
 
 #pragma mark - Table View
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 30;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIButton *button = [UIButton new];
     [button setTag:section];
     button.layer.cornerRadius = 3;
@@ -262,12 +255,9 @@
     NSString *buttonID = [NSString stringWithFormat:@"%@Button", _pokemonDescriptionSrtings[section]];
     [button setAccessibilityIdentifier:buttonID];
     return button;
-
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [NSString stringWithFormat:@"%ld", (long)section];
 }
 
@@ -276,13 +266,11 @@
     return _pokemonData.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_pokemonData objectForKey:[NSNumber numberWithInteger:section]].count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
 
     NSString *text = _pokemonData[[NSNumber numberWithUnsignedLong:indexPath.section]][indexPath.row];
@@ -294,8 +282,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
