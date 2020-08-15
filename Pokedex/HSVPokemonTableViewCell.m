@@ -12,8 +12,7 @@
 
 @implementation HSVPokemonTableViewCell
 
-- (void)setupViews
-{
+- (void)setupViews {
     _indexString = [[NSString new] HSVCreatePokemonIndexString: _pokdexType == Galar ? _pokemon.galar_dex.intValue : _pokemon.national_dex.intValue];
     [[self favoriteButton] setTintColor: [UIColor systemRedColor]];
     _indexLabel.text = [NSString stringWithFormat:@"#%@", _indexString];
@@ -23,8 +22,7 @@
     [self setFavoriteButtonImage];
 }
 
-- (IBAction)favoriteButtonPressed:(id)sender
-{
+- (IBAction)favoriteButtonPressed:(id)sender {
     _isFavorite = [_isFavorite isEqualToNumber:@YES] ? @NO : @YES;
     if ([_delegate conformsToProtocol:@protocol(HSVPokemonTableViewCellDelegate) ])
         [_isFavorite isEqualToNumber:@YES] ? [_delegate saveToFavorites:_pokemon.national_dex] : [_delegate removefromFavorites:_pokemon.national_dex];
@@ -32,8 +30,7 @@
     [self setFavoriteButtonImage];
 }
 
-- (void)setFavoriteButtonImage
-{
+- (void)setFavoriteButtonImage {
     NSString *imageName = [_isFavorite isEqualToNumber:@YES] ? @"heart.fill" : @"heart";
     UIImage *image = [UIImage systemImageNamed:imageName];
     [_favoriteButton setImage:image forState:UIControlStateNormal];

@@ -10,8 +10,7 @@
 
 @implementation HSVPokemon (HSVinitWithDictionary)
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-{
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     NSNumber *pokemonID                     = [dictionary objectForKey:@"id"];
     NSString *name                          = [dictionary objectForKey:@"name"];
     NSString *stage                         = [dictionary objectForKey:@"stage"];

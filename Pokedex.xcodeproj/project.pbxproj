@@ -34,6 +34,7 @@
 		12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */; };
 		12D8CE792458BF90008E1100 /* HSVPokemonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */; };
 		3B18224A24E06A0F005A5615 /* LeagueCardID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B18224924E06A0F005A5615 /* LeagueCardID.swift */; };
+		3B2A56E824E85E6200A4EA93 /* HSVAdMobController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A56E724E85E6200A4EA93 /* HSVAdMobController.m */; };
 		3B62086724CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */; };
 		3B62086924CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */; };
 		3B74DACF24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74DACE24C79AAC00ECC30E /* NationalGalarPokedexUITests.swift */; };
@@ -115,6 +116,8 @@
 		12D8CE782458BF90008E1100 /* HSVPokemonDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVPokemonDetailView.m; sourceTree = "<group>"; };
 		12D8CE802458E02B008E1100 /* HSVPokemonControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVPokemonControllerProtocol.h; sourceTree = "<group>"; };
 		3B18224924E06A0F005A5615 /* LeagueCardID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCardID.swift; sourceTree = "<group>"; };
+		3B2A56E624E85E6200A4EA93 /* HSVAdMobController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSVAdMobController.h; sourceTree = "<group>"; };
+		3B2A56E724E85E6200A4EA93 /* HSVAdMobController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSVAdMobController.m; sourceTree = "<group>"; };
 		3B62086624CBF384002F0EA2 /* NationalGalarPokedexUITests+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NationalGalarPokedexUITests+Test.swift"; sourceTree = "<group>"; };
 		3B62086824CBF79C002F0EA2 /* NationalGalarPokedexUITestsMocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalGalarPokedexUITestsMocData.swift; sourceTree = "<group>"; };
 		3B74DACC24C79AAC00ECC30E /* NationalGalarPokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NationalGalarPokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +233,8 @@
 				1290C6CD245227BB0037C098 /* HSVPokemonController.h */,
 				1290C6CE245227BB0037C098 /* HSVPokemonController.m */,
 				12BDB9CC24973CDE00A7B673 /* CloudFramework.swift */,
+				3B2A56E624E85E6200A4EA93 /* HSVAdMobController.h */,
+				3B2A56E724E85E6200A4EA93 /* HSVAdMobController.m */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126CD4452491E6B500CF2538 /* HSVLeagueCardTableViewCell.m in Sources */,
+				3B2A56E824E85E6200A4EA93 /* HSVAdMobController.m in Sources */,
 				1290C6CF245227BB0037C098 /* HSVPokemonController.m in Sources */,
 				12BDB9CD24973CDE00A7B673 /* CloudFramework.swift in Sources */,
 				1290C6C224512F890037C098 /* HSVPokemonTableViewCell.m in Sources */,

@@ -25,6 +25,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.collectionView.delegate = self;
     self.pokemonController = HSVPokemonController.sharedPokemonController;
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
@@ -33,7 +34,7 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"view will appear");
+    
     self.favoriteIndexList = [self.pokemonController fetchFavorites];
     [self.collectionView reloadData];
 }
@@ -49,7 +50,6 @@ static NSString * const reuseIdentifier = @"FavoriteCell";
         HSVPokemonDetailViewController *destination = (HSVPokemonDetailViewController *)[segue destinationViewController];
         destination.pokemon = pokemon;
     }
-
 }
 
 #pragma mark <UICollectionViewDataSource>
