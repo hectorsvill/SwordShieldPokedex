@@ -38,12 +38,20 @@
         [self configurePokemonDataWithSection:i];
     
     [self configureInterstitialAd];
+
+    #if DEBUG
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"enable-testing"]) {
+        self.googleInterstitialAd = nil;
+    }
+    #endif
+    
 }
 
 - (void)configureInterstitialAd {
     self.googleInterstitialAd = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
     self.googleInterstitialAd.delegate = self;
-    self.googleInterstitialAd.accessibilityLabel = @"HSVPokemonDetailViewControllerGADInterstitial";
+//    self.googleInterstitialAd.accessibilityLabel = @"HSVPokemonDetailViewControllerGADInterstitial";
     
     GADRequest *request = [GADRequest request];
     [self.googleInterstitialAd loadRequest: request];

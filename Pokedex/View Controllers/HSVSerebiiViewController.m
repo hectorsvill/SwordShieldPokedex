@@ -61,6 +61,13 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [[self activityIndicator] stopAnimating];
     [self configureInterstitialAd];
+    
+    #if DEBUG
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"enable-testing"]) {
+        self.googleInterstitialAd = nil;
+    }
+    #endif
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
